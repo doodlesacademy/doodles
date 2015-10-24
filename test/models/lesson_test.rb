@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class LessonTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "it should not save without title" do
+    lesson = Lesson.new
+    assert_not lesson.save, "Lesson saved without title."
+  end
 end
