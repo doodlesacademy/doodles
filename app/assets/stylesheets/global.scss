@@ -1,0 +1,29 @@
+// Fonts
+$primary-body-font: Helvetica, sans-serif;
+$font-size: 14px;
+
+// Colors
+$background-color: #FFFFFF;
+$text-color: #000000;
+
+$primary-red: #DA232E;
+$primary-blue: #419ED5;
+$primary-yellow: #FCCC31;
+
+$accent-black: #000000;
+$accept-gray: #DDDEE0;
+$accent-green: #31B79A;
+$accent-orange: #F6A631;
+$accent-purple: #5E5AA3;
+
+// Elements
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-size: $font-size;
+  font-family: $primary-body-font;
+}
+
+p {
+  line-height: 1.5em;
+}
