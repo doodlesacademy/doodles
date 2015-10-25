@@ -8,5 +8,6 @@ superhero:
  title: Superheroes
  description: This is the first of all the projects!
 
-two: {}
-#  column: value
+painting:
+  title: Just painting
+  description: This is the second project.

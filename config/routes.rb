@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :projects do
-    resources :lessons
+    resources :lessons, except: [:index]
   end
 end

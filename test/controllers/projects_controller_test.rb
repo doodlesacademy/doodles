@@ -24,24 +24,43 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_redirected_to project_path(assigns(:project))
   end
 
-  test "should get update" do
-    put :update
-    assert_response :success
+  test "should put update" do
+    project = projects(:superhero)
+    new_title = "Not the old title"
+    put :update, {
+      id: project.id,
+      project: { title: new_title }
+    }
+    project.reload
+
+    assert_equal project.title, new_title
+    assert_redirected_to project_path(assigns(:project))
   end
 
   test "should get edit" do
-    get :edit
+    project = projects(:superhero)
+    get :edit, id: project.id
+
+    assert_not_nil assigns(:project)
+    assert_equal assigns(:project), project
     assert_response :success
   end
 
   test "should get new" do
     get :new
+
+    assert_not_nil assigns(:project)
+    assert_not assigns(:project).persisted?
     assert_response :success
   end
 
-  test "should get destroy" do
-    delete :destroy
-    assert_response :success
+  test "should delete destroy" do
+    project = projects(:painting)
+    assert_difference('Project.count', -1) do
+      delete :destroy, id: project.id
+    end
+
+    assert_redirected_to projects_path
   end
 
 end

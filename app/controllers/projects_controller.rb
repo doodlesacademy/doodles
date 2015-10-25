@@ -15,19 +15,24 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
-      redirect_to action: 'index'
+      redirect_to action: 'show', id: @project.id
     else
-      render :show, project: @project
+      render :edit, project: @project
     end
   end
 
   def edit
+    @project = Project.find(params[:id])
   end
 
   def new
+    @project = Project.new
   end
 
   def destroy
+    @project = Project.find(params[:id])
+    @project.destroy unless @project.nil?
+    redirect_to action: 'index'
   end
 
   private
