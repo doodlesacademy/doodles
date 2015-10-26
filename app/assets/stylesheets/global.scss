@@ -11,7 +11,7 @@ $primary-blue: #419ED5;
 $primary-yellow: #FCCC31;
 
 $accent-black: #000000;
-$accept-gray: #DDDEE0;
+$accent-gray: #DDDEE0;
 $accent-green: #31B79A;
 $accent-orange: #F6A631;
 $accent-purple: #5E5AA3;
@@ -42,13 +42,39 @@ div#top-nav-bar {
   left: 0;
   width: 100%;
   background-color: $primary-blue;
+  color: $primary-yellow;
+
 
   &.large {
-    height: 100px;
+    height: 250px;
+
+    div#top-nav-content {
+      text-align: center;
+    }
+
+    ul#top-nav-menu {
+      display: none;
+    }
+
+    img.logo {
+      max-height: 250px;
+      margin: 0 auto;
+      position: relative;
+    }
   }
 
   &.small {
-    height: 35px;
+    height: 75px;
+
+    div#top-nav-content {
+      text-align: right;
+    }
+
+    img.logo {
+      max-height: 75px;
+      position: absolute;
+      left: 0;
+    }
   }
 
   div#top-nav-content {
@@ -56,5 +82,17 @@ div#top-nav-bar {
     min-width: $content-min-width;
     position: relative;
     margin: 0 auto;
+
+    ul#top-nav-menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        text-transform: lowercase;
+        font-size: 1.3em;
+      }
+    }
   }
 }
