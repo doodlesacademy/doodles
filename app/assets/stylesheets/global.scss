@@ -16,7 +16,15 @@ $accent-green: #31B79A;
 $accent-orange: #F6A631;
 $accent-purple: #5E5AA3;
 
+// Miscellaenous variables
+$content-max-width: 800px;
+$content-min-width: 480px;
+
 // Elements
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $background-color;
   color: $text-color;
@@ -26,4 +34,27 @@ body {
 
 p {
   line-height: 1.5em;
+}
+
+div#top-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $primary-blue;
+
+  &.large {
+    height: 100px;
+  }
+
+  &.small {
+    height: 35px;
+  }
+
+  div#top-nav-content {
+    max-width: $content-max-width;
+    min-width: $content-min-width;
+    position: relative;
+    margin: 0 auto;
+  }
 }
