@@ -1,7 +1,98 @@
 div.homepage {
+  position: relative;
+  width: $content-max-width;
+  margin: 300px auto 0 auto;
+
+  & > section {
+    @include clearfix;
+    width: 100%;
+
+    h2 {
+      text-transform: lowercase;
+      color: $primary-red;
+    }
+
+    &:not(:first-child) {
+      margin-top: 70px;
+    }
+
+    div.section-sidebar, div.section-text {
+      display: inline-block;
+      float: left;
+      max-width: 45%;
+
+      &:last-child {
+        margin-left: 9%;
+      }
+    }
+
+    div.section-sidebar {
+      img {
+        width: 100%;
+      }
+    }
+
+    div.section-text {
+      p:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  section.text-right {
+    h2 {
+      text-align: right;
+    }
+  }
+
+  div.window-box {
+    width: 500px;
+    height: 296px;
+    margin: 0 auto;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid #fff;
+
+    p {
+      font-style: italic;
+      font-size: 28px;
+    }
+  }
+
   section.hero {
+    height: 480px;
+    padding: 95px 0;
     background-image: url(/assets/hero-image.jpg);
-    height: 800px;
-    margin-top: 250px;
+    background-size: cover;
+
+    div.window-box {
+      padding: 30px 40px;
+    }
+  }
+
+  section.map-direction {
+    height: 480px;
+    padding: 95px 0;
+    background-image: url(/assets/map-direction-image.jpg);
+    background-size: cover;
+
+    div.window-box {
+      padding: 65px 86px;
+    }
+  }
+
+  section.how-it-works {
+    ol {
+      // list-style-position: inside;
+      color: white;
+      li {
+        background-image: url('ol-li-background-yellow.png');
+        background-size:100px;
+        // background-position: -5px;
+        background-repeat: no-repeat;
+        padding-left: 7px;
+        color: #000;
+      }
+    }
   }
 }

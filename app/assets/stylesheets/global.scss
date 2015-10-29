@@ -1,8 +1,11 @@
 // Fonts
+//
 $primary-body-font: Helvetica, sans-serif;
 $font-size: 14px;
 
+
 // Colors
+//
 $background-color: #FFFFFF;
 $text-color: #000000;
 
@@ -16,11 +19,26 @@ $accent-green: #31B79A;
 $accent-orange: #F6A631;
 $accent-purple: #5E5AA3;
 
+
 // Miscellaenous variables
+//
 $content-max-width: 800px;
 $content-min-width: 480px;
 
+
+// Mixins
+//
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
 // Elements
+//
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -36,35 +54,41 @@ p {
   line-height: 1.5em;
 }
 
+
+// Application layout elements
+//
+
+// Nav-bar
+
 div#top-nav-bar {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: $primary-blue;
   color: $primary-yellow;
 
-
   &.large {
-    height: 250px;
+    height: 200px;
+    position: absolute;
 
     div#top-nav-content {
       text-align: center;
     }
 
-    ul#top-nav-menu {
-      display: none;
-    }
-
     img.logo {
-      max-height: 250px;
+      max-height: 200px;
       margin: 0 auto;
       position: relative;
+    }
+
+    div.nav-menu.linear {
+      display: none;
     }
   }
 
   &.small {
     height: 75px;
+    position: fixed;
 
     div#top-nav-content {
       text-align: right;
@@ -75,6 +99,10 @@ div#top-nav-bar {
       position: absolute;
       left: 0;
     }
+
+    div.nav-menu.hanging {
+      display: none;
+    }
   }
 
   div#top-nav-content {
@@ -82,8 +110,11 @@ div#top-nav-bar {
     min-width: $content-min-width;
     position: relative;
     margin: 0 auto;
+    padding: 0;
+  }
 
-    ul#top-nav-menu {
+  div.nav-menu {
+    ul {
       margin: 0;
       padding: 0;
       list-style: none;
@@ -92,7 +123,34 @@ div#top-nav-bar {
         display: inline-block;
         text-transform: lowercase;
         font-size: 1.3em;
+
+        &:not(:last-child) {
+          margin-right: 40px;
+        }
       }
+    }
+
+    &.hanging {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: -3px 0 0 0;
+      padding: 0;
+      height: 50px;
+      line-height: 50px;
+      background-color: $accent-green;
+      color: $primary-yellow;
+      text-align: center;
+
+      div.hanging-menu-content {
+        max-width: $content-max-width;
+        min-width: $content-min-width;
+        margin: 0 auto;
+      }
+    }
+
+    &.linear {
+      position: inline-block;
     }
   }
 }
