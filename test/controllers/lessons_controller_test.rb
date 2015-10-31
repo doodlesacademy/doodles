@@ -23,6 +23,7 @@ class LessonsControllerTest < ActionController::TestCase
     valid_params = {
       title: 'That new lesson!',
       description: 'What a great lesson!',
+      video_uri: 'http://www.vimeo.com'
     }
 
     assert_difference('Lesson.count') do
@@ -37,7 +38,8 @@ class LessonsControllerTest < ActionController::TestCase
 
     valid_params = {
       title: 'This is an even newer lesson!',
-      description: 'Shlamp'
+      description: 'Shlamp',
+      video_uri: 'http://www.vimeo.com'
     }
 
     assert_difference(project.lessons_count) do
