@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def board
   end
+
+  def donors
+  end
 end

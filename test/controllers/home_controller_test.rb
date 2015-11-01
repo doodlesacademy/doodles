@@ -10,4 +10,9 @@ class HomeControllerTest < ActionController::TestCase
     get :board
     assert_response :success
   end
+
+  test "should get donors" do
+    get :donors
+    assert_response :success
+  end
 end
