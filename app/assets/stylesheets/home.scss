@@ -39,6 +39,45 @@ div.homepage {
     }
   }
 
+  section.boardmember {
+    @include clearfix;
+
+    &:not(:last-child) {
+      margin-bottom: 160px;
+    }
+
+    div {
+      display: inline-block;
+      float: left;
+    }
+
+    div.portrait {
+      height: 300px;
+      width: 300px;
+      border-radius: 150px;
+    	-webkit-border-radius: 150px;
+    	-moz-border-radius: 150px;
+      overflow: hidden;
+
+      img {
+        height: 300px;
+        width: 300px;
+      }
+    }
+
+    div.biography {
+      height: 300px;
+      width: 500px;
+      padding-right: 40px;
+
+      &:nth-child(even) {
+        padding-right: inherit;
+        padding-left: 40px;
+      }
+    }
+
+  }
+
   section.text-right {
     h2 {
       text-align: right;
@@ -94,5 +133,11 @@ div.homepage {
         color: #000;
       }
     }
+  }
+
+  h1 {
+    text-align: right;
+    color: $primary-red;
+    text-transform: lowercase;
   }
 }
