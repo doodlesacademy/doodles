@@ -11,4 +11,10 @@ class SupplyItemTest < ActiveSupport::TestCase
     item = SupplyItem.new(params)
     assert_not item.valid?
   end
+
+  test "it should respond to #lessons" do
+    params = @@valid_params
+    item = SupplyItem.new(params)
+    assert item.respond_to?('lessons')
+  end
 end

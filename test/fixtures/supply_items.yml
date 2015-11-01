@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+crayons:
+  name: Crayons
+  description: A 12-pack of crayons.
+  url: http://amazon.com
 
-one:
-  name: MyString
-  description: MyText
-  url: MyString
-
-two:
-  name: MyString
-  description: MyText
-  url: MyString
+paper:
+  name: Drawing paper
+  description: A book of drawing paper.
+  url: http://amazon.com
