@@ -66,6 +66,7 @@ div#top-nav-bar {
   width: 100%;
   background-color: $primary-blue;
   color: $primary-yellow;
+  z-index: 100;
 
   &.large {
     height: 200px;
@@ -151,6 +152,28 @@ div#top-nav-bar {
 
     &.linear {
       position: inline-block;
+    }
+  }
+}
+
+
+// Footer
+//
+div#footer {
+  width: 100%;
+
+  div {
+    width: $content-max-width;
+    margin: 0 auto;
+
+    &.foot-top {
+      height: 50px;
+      background-color: $accent-green;
+    }
+
+    &.foot-bottom {
+      height: 100px;
+      background-color: $accent-gray;
     }
   }
 }
