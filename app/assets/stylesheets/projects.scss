@@ -8,7 +8,12 @@ div.projects {
     margin-bottom: 50px;
     color: $primary-red;
     font-size: 3.0em;
-    text-transform: lowercase;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 28px;
   }
 
   h3 {
@@ -18,6 +23,32 @@ div.projects {
   section {
     &:not(:first-child) {
       margin-top: 60px;
+    }
+  }
+
+  section.project {
+    div {
+      display: inline-block;
+      float: left;
+    }
+
+    div.info {
+      width: 60%;
+    }
+
+    div.links {
+      width: 40%;
+      text-align: right;
+
+      a {
+        padding: 20px;
+        border: 1px solid $primary-blue;
+        line-height: 28px;
+
+        &:hover {
+          border-color: $primary-red;
+        }
+      }
     }
   }
 }

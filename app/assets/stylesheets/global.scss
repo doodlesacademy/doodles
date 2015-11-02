@@ -50,6 +50,15 @@ body {
   font-family: $primary-body-font;
 }
 
+a {
+  color: $primary-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-red;
+  }
+}
+
 p {
   line-height: 1.5em;
 }
