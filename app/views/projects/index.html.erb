@@ -1,2 +1,15 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<% content_for(:nav_size_class) { 'small' } %>
+<div class="projects">
+  <h1>Available Projects</h1>
+  <% @projects.each do |set| %>
+    <section class="project">
+      <div class="info">
+        <h3><%= set.title %></h3>
+      </div>
+      <div class="links">
+        <%= link_to "Upper Academy", project_path(set.upper) %>
+        <%= link_to "Lower Academy", project_path(set.lower) %>
+      </div>
+    </section>
+  <% end %>
+</div>
