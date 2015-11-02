@@ -8,6 +8,7 @@ div.projects {
     margin-bottom: 50px;
     color: $primary-red;
     font-size: 3.0em;
+    text-transform: lowercase;
   }
 
   h2 {
@@ -27,6 +28,10 @@ div.projects {
   }
 
   section.project {
+    h1 {
+      text-transform: none;
+    }
+
     div {
       display: inline-block;
       float: left;

@@ -18,7 +18,11 @@
     <h3>supplies</h3>
     <ul>
       <% @project.supply_items.each do |supply| %>
-        <li><%= link_to supply.name, supply.url %><%= supply.quantity.nil? '' : " (#{ supply.quantity })" %></li>  
+        <% if supply.has_link? %>
+          <li><%= link_to supply.name, supply.url %></li>
+        <% else %>
+          <li><%= supply.name %></li>
+        <% end %>
       <% end %>
     </ul>
   </section>
