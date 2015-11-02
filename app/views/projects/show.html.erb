@@ -15,6 +15,12 @@
   </section>
 
   <section class="supplies">
+    <h3>supplies</h3>
+    <ul>
+      <% @project.supply_items.each do |supply| %>
+        <li><%= link_to supply.name, supply.url %><%= supply.quantity.nil? '' : " (#{ supply.quantity })" %></li>  
+      <% end %>
+    </ul>
   </section>
 
   <section class="supplemental">
