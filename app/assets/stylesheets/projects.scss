@@ -9,6 +9,10 @@ div.projects {
     color: $primary-red;
     font-size: 3.0em;
     text-transform: lowercase;
+
+    &.capitalize {
+      text-transform: none;
+    }
   }
 
   h2 {
@@ -28,10 +32,6 @@ div.projects {
   }
 
   section.project {
-    h1 {
-      text-transform: none;
-    }
-
     div {
       display: inline-block;
       float: left;
