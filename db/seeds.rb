@@ -8,6 +8,9 @@
 
 superhero_set = ProjectSet.create({ title: 'Superheroes!' })
 
+
+# Projects
+
 superhero_set.upper = Project.create({
   title: 'Superheroes!',
   level: 'upper',
@@ -24,6 +27,9 @@ superhero_set.lower = Project.create({
   books_media: "Optional: 5-Minute Marvel Stories and/or old comics for early finishers"
 })
 
+
+# Lessons
+
 superhero_set.upper.lessons = Lesson.create([
   {
     video_uri: "https://vimeo.com/140998863",
@@ -37,6 +43,9 @@ superhero_set.upper.lessons = Lesson.create([
   }
 ])
 
+superhero_set.upper.save
+
+
 superhero_set.lower.lessons = Lesson.create([
   {
     video_uri: "https://vimeo.com/140998518",
@@ -45,9 +54,12 @@ superhero_set.lower.lessons = Lesson.create([
     description: "In this lesson, artists are introduced to the basic characteristics of superheroes, as well as understanding that each superhero had his or her own unique backstory that told who they were, where they came from, and why or how they became a superhero. Student artists are tasked to brainstorm their own superhero and to generate a backstory for said character by creating a small book and using any combination of writing and drawing to document their superhero’s history. They leave the cover blank for the upcoming lessons.",
 
     objective: "SWBAT use multi-media to create and illustrate a narrative that explains their superhero’s backstory.",
-    
+
     set_up: "Students will be working individually and choosing their own materials, so have materials set up in a way that is easy to pass out as well as easy for the student artists to see and select from."
   }
 ])
+
+superhero_set.lower.save
+
 
 superhero_set.save
