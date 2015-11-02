@@ -17,4 +17,13 @@ class SupplyItemTest < ActiveSupport::TestCase
     item = SupplyItem.new(params)
     assert item.respond_to?('lessons')
   end
+
+  test "has_link? should reflect presence/absence of url" do
+    params = @@valid_params
+    item = SupplyItem.new(params)
+    assert item.has_link?
+
+    item.url = nil
+    assert_not item.has_link?
+  end
 end
