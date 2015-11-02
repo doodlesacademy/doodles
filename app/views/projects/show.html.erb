@@ -1,14 +1,24 @@
+<% content_for(:nav_size_class) { 'small' } %>
 <div class="projects">
-  <section class="info">
+  <section class="synopsis">
     <h1><%= @project.title %></h1>
+    <h3>synopsis</h3>
     <p class="description"><%= @project.description %></p>
   </section>
+
+  <section class="skills">
+    <h3>skills</h3>
+    <p class="description"><%= @project.skills_description %></p>
+  </section>
+
   <section class="gallery">
 
   </section>
+
   <section class="supplies">
 
   </section>
+  
   <section class="supplmental">
 
   </section>

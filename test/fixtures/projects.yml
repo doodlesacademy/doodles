@@ -6,16 +6,20 @@
 #
 superhero_upper:
   title: Superheroes Upper
+  level: upper
   description: This is the first of all the projects!
 
 superhero_lower:
   title: Superheroes Lower
+  level: lower
   description: This is the first of all the projects!
 
 painting_upper:
   title: Just painting Upper
+  level: upper
   description: This is the second project.
 
 painting_lower:
   title: Just painting Lower
+  level: lower
   description: This is the second project.

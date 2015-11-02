@@ -1,4 +1,4 @@
-<% ['superhero', 'panting'].each do |theme| %>
+<% ['superhero', 'painting'].each do |theme| %>
 <%= theme %>:
   upper: <%= theme %>_upper
   lower: <%= theme %>_lower

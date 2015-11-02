@@ -5,7 +5,19 @@ div.projects {
 
   h1 {
     text-align: right;
+    margin-bottom: 50px;
     color: $primary-red;
+    font-size: 3.0em;
     text-transform: lowercase;
+  }
+
+  h3 {
+    color: $primary-blue;
+  }
+
+  section {
+    &:not(:first-child) {
+      margin-top: 60px;
+    }
   }
 }

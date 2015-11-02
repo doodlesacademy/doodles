@@ -23,3 +23,5 @@ superhero_set.lower = Project.create({
   skills_description: "Artists will be able to develop a backstory for their superhero and create with this story in mind, recognize shape and line, copy and draw a recognizable superhero figure using their template, add details that help to tell the story they have developed, show competence in using watercolor paint and intentionally using color (i.e, keep colors separate and \"un-muddy\").",
   books_media: "Optional: 5-Minute Marvel Stories and/or old comics for early finishers"
 })
+
+superhero_set.save

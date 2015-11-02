@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
+  @@valid_params = {
+    title: 'New Project',
+    description: 'Just so new!',
+    level: 'upper'
+  }
+
   test "should get index" do
     get :index
     assert_response :success
@@ -17,7 +23,7 @@ class ProjectsControllerTest < ActionController::TestCase
   test "should post create" do
     assert_difference('Project.count') do
       post :create, {
-        project: { title: 'The new project!', description: 'So new!' }
+        project: @@valid_params
       }
     end
 
