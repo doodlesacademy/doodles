@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LessonsControllerTest < ActionController::TestCase
   test "should get simple show" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     lesson = lessons(:superhero_lesson_1)
 
     get :show, {
@@ -18,7 +18,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "should post simple create" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
 
     valid_params = {
       title: 'That new lesson!',
@@ -34,7 +34,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "should increment project's cached counter" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
 
     valid_params = {
       title: 'This is an even newer lesson!',
@@ -48,7 +48,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "should put simple update" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     lesson = project.lessons.first
     new_title = "That new hot hot"
 
@@ -66,7 +66,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     lesson = project.lessons.first
 
     get :edit, { project_id: project.id, id: lesson.id }
@@ -77,7 +77,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     get :new, { project_id: project.id }
 
     assert_not_nil assigns(:lesson)
@@ -86,7 +86,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "should get destroy" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     lesson = project.lessons.first
 
     assert_difference('Lesson.count', -1) do
@@ -97,7 +97,7 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test "destroying lesson should decrease counter cache on project" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     lesson = project.lessons.first
 
     assert_difference(project.lessons_count, -1) do

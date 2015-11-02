@@ -3,5 +3,5 @@ superhero_lesson_<%= x %>:
   title: Lesson <%= x %>
   description: This is the <%= x %>th lesson!
   video_uri: http://vimeo.com/video_<%= x %>
-  project: superhero
+  project: superhero_upper
 <% end %>

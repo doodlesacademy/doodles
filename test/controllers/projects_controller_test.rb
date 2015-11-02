@@ -8,7 +8,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     get :show, { id: project.id }
     assert_response :success
     assert_equal assigns(:project), project
@@ -25,7 +25,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should put update" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     new_title = "Not the old title"
     put :update, {
       id: project.id,
@@ -38,7 +38,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    project = projects(:superhero)
+    project = projects(:superhero_upper)
     get :edit, id: project.id
 
     assert_not_nil assigns(:project)
@@ -55,7 +55,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should delete destroy" do
-    project = projects(:painting)
+    project = projects(:painting_upper)
     assert_difference('Project.count', -1) do
       delete :destroy, id: project.id
     end
