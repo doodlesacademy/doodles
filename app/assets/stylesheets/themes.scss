@@ -1,0 +1,40 @@
+@mixin bg-theme($color) {
+  background-color: $color;
+
+  p {
+    color: white;
+    opacity: 0.8;
+  }
+
+  h2 {
+    color: darken($color, 25%);
+  }
+}
+
+.bg-primary-red {
+  @include bg-theme($primary-red);
+}
+
+.bg-primary-blue {
+  @include bg-theme($primary-blue);
+}
+
+.bg-primary-yellow {
+  @include bg-theme($primary-yellow);
+}
+
+.bg-accent-orange {
+  @include bg-theme($accent-orange);
+}
+
+.bg-accent-black {
+  @include bg-theme($accent-black);
+}
+
+.bg-accent-purple {
+  @include bg-theme($accent-purple);
+}
+
+.bg-accent-green {
+  @include bg-theme($accent-green);
+}

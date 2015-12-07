@@ -1,0 +1,57 @@
+@mixin button-theme ($color) {
+
+  background-color: $color;
+  color: white;
+
+  &:hover {
+    background-color: darken($color, 15%);
+    color: white;
+  }
+
+  &:active {
+    background-color: darken($color, 25%);
+    color: white;
+  }
+}
+
+.btn, a.btn {
+  font-size: 14px;
+  font-weight: 300;
+  border-radius: 3px;
+  padding: 4px 9px;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-large, a.btn-large {
+  font-size: 20px;
+  padding: 6px 14px;
+}
+
+
+.btn-red {
+  @include button-theme($primary-red);
+}
+
+.btn-yellow {
+  @include button-theme($primary-yellow);
+}
+
+.btn-blue {
+  @include button-theme($primary-blue);
+}
+
+.btn-purple {
+  @include button-theme($accent-purple);
+}
+
+.btn-orange {
+  @include button-theme($accent-orange);
+}
+
+.btn-green {
+  @include button-theme($accent-green);
+}

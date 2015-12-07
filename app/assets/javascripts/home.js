@@ -1,25 +1,23 @@
 $(function() {
-  console.log("herllo")
   var $document = $(document)
     , $nav = $('.nav')
-    , $window = $(window);
+    , $window = $(window)
+    , $fixedNav = $nav.clone().appendTo("body")
+    , navHeight = $nav.height();
+
+  $fixedNav.addClass("is-fixed");
 
   var onScroll = function() {
     var top = $document.scrollTop()
-      , smallClass = "small"
-      , hasScrolled = top > 50;
+      , scrollClass = "is-scrolled"
+      , hasScrolled = top > navHeight;
 
-    $nav.toggleClass(smallClass, hasScrolled);
-    if (!hasScrolled) {
-      $nav.removeClass("flex");
-    }
-
-    $nav.on("transitionend", function() {
-      $nav.toggleClass("flex", hasScrolled);
-    })
+    $fixedNav.toggleClass(scrollClass, hasScrolled);
   }
 
   onScroll = _.debounce(onScroll);
+
+  onScroll();
 
   $window.scroll(onScroll);
 });

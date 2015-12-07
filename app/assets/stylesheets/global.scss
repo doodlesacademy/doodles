@@ -77,14 +77,11 @@ p {
   width: 100%;
   background-color: $primary-blue;
   color: $primary-yellow;
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 100;
 
   .brand {
     height: 200px;
     transition: height 200ms;
+    transition-delay: 100ms;
   }
 
   .logo {
@@ -97,14 +94,24 @@ p {
     transition: 200ms ease;
   }
 
-  &.small {
-    z-index: 100;
+  &.is-fixed {
+    top: 0;
+    left: 0;
+    position: fixed;
+    opacity: 0;
+    transition: opacity 250ms ease;
+    visibility: hidden;
+    display: flex;
 
+    &.is-scrolled {
+      visibility: visible;
+      z-index: 100;
+      opacity: 1;
+    }
 
     .brand {
       height: 100px;
       width: 60px;
-      transition-delay: 100ms;
       margin-left: 50px;
       display: block;
     }
@@ -118,22 +125,12 @@ p {
     .nav-menu {
       margin: 0;
       display: block;
-      opacity: 0;
 
       li {
         padding: 40px;
       }
     }
   }
-
-  &.flex {
-    display: flex;
-
-    .nav-menu {
-      opacity: 1;
-    }
-  }
-
 
   .nav-menu {
     display: table;
