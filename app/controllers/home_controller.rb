@@ -7,4 +7,10 @@ class HomeController < ApplicationController
 
   def donors
   end
+
+  def contact
+  end
+
+  def our_story
+  end
 end

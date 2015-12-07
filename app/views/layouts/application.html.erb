@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% @links = [] %>
+  <% @links.push({ name: "Our Story", path: "/our-story" }) %>
+  <% @links.push({ name: "Donate", path: "/donors" }) %>
+  <% @links.push({ name: "Contact", path: "/contact" }) %>
+  <% @links.push({ name: "Our Board", path: "/board" }) %>
+  <% @links.push({ name: "Sign Up", path: "/users/sign_up" }) %>
 </head>
 <body>
   <div id="top-nav-bar" class="<%= yield(:nav_size_class) %>">
@@ -12,12 +18,9 @@
       <%= image_tag 'logo-yellow-trans', class: 'logo', alt: 'Doodles Academy' %>
       <div class="nav-menu linear">
         <ul>
-          <li>Our Story</li>
-          <li>Donate</li>
-          <li>Sample</li>
-          <li>Contact</li>
-          <li>Our Board</li>
-          <li>Sign up</li>
+          <% @links.each do |link| %>
+          <li><%= link_to link[:name], link[:path] %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -25,12 +28,9 @@
     <div class="nav-menu hanging">
       <div class="hanging-menu-content">
         <ul>
-          <li>Our Story</li>
-          <li>Donate</li>
-          <li>Sample</li>
-          <li>Contact</li>
-          <li>Our Board</li>
-          <li>Sign up</li>
+          <% @links.each do |link| %>
+          <li><%= link_to link[:name], link[:path] %></li>
+          <% end %>
         </ul>
       </div>
     </div>
