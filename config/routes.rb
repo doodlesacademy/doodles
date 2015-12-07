@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: 'home#index'
   get 'board', to: 'home#board'
   get 'donors', to: 'home#donors'
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
     resources :lessons, except: [:index]
   end
 
+  post 'feedback', to: 'feedback_messages#create'
 end
