@@ -3,6 +3,7 @@ class CreateFeedbackMessages < ActiveRecord::Migration
     create_table :feedback_messages do |t|
       t.text :body
       t.string :sender
+      t.belongs_to :lesson, index: true
 
       t.timestamps null: false
     end

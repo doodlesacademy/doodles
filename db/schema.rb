@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20151207005928) do
   create_table "feedback_messages", force: :cascade do |t|
     t.text     "body"
     t.string   "sender"
+    t.integer  "lesson_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "feedback_messages", ["lesson_id"], name: "index_feedback_messages_on_lesson_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "project_id"
