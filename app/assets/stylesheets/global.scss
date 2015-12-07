@@ -1,6 +1,6 @@
 // Fonts
 //
-$primary-body-font: Helvetica, sans-serif;
+$primary-body-font: 'Open Sans', sans-serif;
 $font-size: 16px;
 
 
@@ -77,6 +77,10 @@ p {
   width: 100%;
   background-color: $primary-blue;
   color: $primary-yellow;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 100;
 
   .brand {
     height: 200px;
@@ -95,9 +99,6 @@ p {
 
   &.small {
     z-index: 100;
-    top: 0;
-    left: 0;
-    position: fixed;
 
 
     .brand {

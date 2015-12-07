@@ -1,7 +1,6 @@
 div.homepage {
   position: relative;
-  width: $content-max-width;
-  margin: 300px auto 0 auto;
+  margin: 240px 0 0;
 
   & > section {
     @include clearfix;
@@ -10,6 +9,7 @@ div.homepage {
     h2 {
       text-transform: lowercase;
       color: $primary-red;
+      font-weight: 400;
     }
 
     &:not(:first-child) {
@@ -19,7 +19,7 @@ div.homepage {
     div.section-sidebar, div.section-text {
       display: inline-block;
       float: left;
-      max-width: 45%;
+      width: $content-max-width;
 
       &:last-child {
         margin-left: 9%;
@@ -78,46 +78,42 @@ div.homepage {
 
   }
 
+  section:not(.hero) {
+    width: $content-max-width;
+    margin: 0 auto;
+  }
+
   section.text-right {
     h2 {
       text-align: right;
     }
   }
 
-  div.window-box {
-    width: 500px;
-    height: 296px;
-    margin: 0 auto;
+  p.lead {
+    position: absolute;
+    max-width: 480px;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 2px solid #fff;
-
-    p {
-      font-style: italic;
-      font-size: 28px;
-    }
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    font-weight: 300;
+    font-size: 28px;
   }
+
 
   section.hero {
-    height: 480px;
-    padding: 95px 0;
-    background-image: url(/assets/hero-image.jpg);
-    background-size: cover;
-
-    div.window-box {
-      padding: 30px 40px;
-    }
+    max-height: 480px;
+    padding: 0;
+    background-color: black;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
   }
 
-  section.map-direction {
-    height: 480px;
-    padding: 95px 0;
-    background-image: url(/assets/map-direction-image.jpg);
-    background-size: cover;
-
-    div.window-box {
-      padding: 65px 86px;
-    }
+  .hero img {
+    opacity: 0.5;
+    width: 100%;
+    height: auto;
   }
 
   section.how-it-works {
