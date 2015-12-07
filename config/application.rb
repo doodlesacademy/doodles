@@ -22,5 +22,8 @@ module Doodles
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Add Bower to Assets Dependency Path
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
   end
 end
