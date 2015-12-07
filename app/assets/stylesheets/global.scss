@@ -43,6 +43,11 @@ $content-min-width: 480px;
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: $background-color;
   color: $text-color;
@@ -68,76 +73,93 @@ p {
 //
 
 // Nav-bar
-
-div#top-nav-bar {
-  top: 0;
-  left: 0;
+.nav {
   width: 100%;
   background-color: $primary-blue;
   color: $primary-yellow;
-  z-index: 100;
 
-  &.large {
+  .brand {
     height: 200px;
+    transition: height 200ms;
+  }
+
+  .logo {
+    margin: 0 auto;
+    max-height: 100%;
+    height: 200px;
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
-
-    div#top-nav-content {
-      text-align: center;
-    }
-
-    img.logo {
-      max-height: 200px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    div.nav-menu.linear {
-      display: none;
-    }
+    transition: 200ms ease;
   }
 
   &.small {
-    height: 75px;
+    z-index: 100;
+    top: 0;
+    left: 0;
     position: fixed;
 
-    div#top-nav-content {
-      text-align: right;
+
+    .brand {
+      height: 100px;
+      width: 60px;
+      transition-delay: 100ms;
+      margin-left: 50px;
+      display: block;
     }
 
-    img.logo {
-      max-height: 75px;
-      position: absolute;
+    .logo {
       left: 0;
+      height: 100px;
+      transform: none;
     }
 
-    div.nav-menu.hanging {
-      display: none;
+    .nav-menu {
+      margin: 0;
+      display: block;
+      opacity: 0;
+
+      li {
+        padding: 40px;
+      }
     }
   }
 
-  div#top-nav-content {
-    max-width: $content-max-width;
-    min-width: $content-min-width;
-    position: relative;
+  &.flex {
+    display: flex;
+
+    .nav-menu {
+      opacity: 1;
+    }
+  }
+
+
+  .nav-menu {
+    display: table;
     margin: 0 auto;
-    padding: 0;
-  }
+    transition: opacity 100ms ease;
 
-  div.nav-menu {
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
 
       li {
+        text-align: center;
+        padding: 10px 30px;
         display: inline-block;
         text-transform: lowercase;
         font-size: 1.3em;
-
-        &:not(:last-child) {
-          margin-right: 40px;
+        background-color: rgba(255, 255, 255, 0);
+        transition: background-color 150ms ease;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
         }
       }
+    }
+
+    a {
+      color: white;
     }
 
     &.hanging {
@@ -152,7 +174,7 @@ div#top-nav-bar {
       color: $primary-yellow;
       text-align: center;
 
-      div.hanging-menu-content {
+      .hanging-menu-content {
         max-width: $content-max-width;
         min-width: $content-min-width;
         margin: 0 auto;
@@ -167,8 +189,7 @@ div#top-nav-bar {
 
 
 // Footer
-//
-div#footer {
+.footer {
   width: 100%;
 
   div {
