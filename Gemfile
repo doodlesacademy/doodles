@@ -21,6 +21,8 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'gibbon'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
