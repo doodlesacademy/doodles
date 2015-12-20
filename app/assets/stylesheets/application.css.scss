@@ -1,5 +1,8 @@
+//=require_tree ./mixins
 @import 'global';
+@import "mixins/grid";
 @import 'home';
 @import 'themes';
 @import 'buttons';
 @import 'projects';
+@import 'lightbox';

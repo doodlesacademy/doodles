@@ -1,2 +1,5 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
+<% content_for(:page_title) { @lesson.title } %>
+
+<h1><%= @lesson.title %></h1>
+<% @video_id = @lesson.video_uri.match(/\d+$/).to_s %>
+<%= render "shared/video", locals: { video_id: @video_id } %>

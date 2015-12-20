@@ -13,61 +13,46 @@
       <p class="lead">
         A digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers and students.
       </p>
-      <p>Simply put, we're making art education more accessible.</p>
-      <p>Doodles Academy works to eliminate the barriers that too many teachers have in providing a high-quality arts education to their students. By creating an inventory of thoughtful and engaging art lessons, teachers assemble their curriculum-choosing the projects and activities they know are best for their students- and Doodles Academy takes care of the details.</p>
     </div>
   </section>
-
   <section class="bg-accent-orange">
     <div class="content">
       <h2>Featured Videos</h2>
       <p></p>
-      <div class="gallery">
-        <div class="images">
-          <div class="gallery-img">
-            <img src="/assets/map-direction-image.jpg">
-            <div class="gallery-play-btn"></div>
-            <div class="gallery-play-btn"></div>
-            <div class="gallery-img-title">
-              Lesson Title
-            </div>
-          </div>
-          <div class="gallery-img">
-            <img src="/assets/map-direction-image.jpg">
-<div class="gallery-play-btn"></div>
-            <div class="gallery-img-title">
-              Lesson Title
-            </div>
-          </div>
-          <div class="gallery-img">
-            <img src="/assets/map-direction-image.jpg">
-            <div class="gallery-play-btn"></div>
-            <div class="gallery-img-title">
-              Lesson Title
-            </div>
-          </div>
-          <div class="gallery-img">
-            <img src="/assets/map-direction-image.jpg">
-            <div class="gallery-play-btn"></div>
-            <div class="gallery-img-title">
-              Lesson Title
-            </div>
-          </div>
-          <div class="gallery-img">
-            <img src="/assets/map-direction-image.jpg">
-            <div class="gallery-play-btn"></div>
-            <div class="gallery-img-title">
-              Lesson Title
-            </div>
+      <div class="homepage-gallery">
+        <% @lessons = [] %>
+        <% @lessons.push({ title: "Symbol & Self", video_id: "144787451" }) %>
+        <% @lessons.push({ title: "Superhero Lesson", video_id: "140998518" }) %>
+        <% @lessons.push({ title: "Dream Home", video_id: "144787451" }) %>
+        <% @lessons.each do |lesson| %>
+        <div class="homepage-gallery-item" data-video-id="<%= lesson[:video_id] %>" data-project-title="<%= lesson[:title] %>">
+          <img src="/assets/map-direction-image.jpg">
+          <div class="homepage-gallery-item-play-btn"></div>
+          <div class="homepage-gallery-item-title">
+            <%= lesson[:title] %>
           </div>
         </div>
-        <div class="gallery-tools">
-          <div class="gallery-tools-next"></div>
-          <div class="gallery-tools-prev"></div>
-        </div>
+        <% end %>
+      </div>
+      <div class="gallery-tools">
+        <div class="gallery-tools-next"></div>
+        <div class="gallery-tools-prev"></div>
+      </div>
+      <div style="height: 40px"></div>
+      <div class="center">
+        <a class="btn btn-large btn-gray">
+          See More Projects
+        </a>
       </div>
     </div>
   </section>
+  <section class="bg-accent-orange">
+    <div class="content">
+      <h2>making art education more accessible</h2>
+      <p>Doodles Academy works to eliminate the barriers that too many teachers have in providing a high-quality arts education to their students. By creating an inventory of thoughtful and engaging art lessons, teachers assemble their curriculum-choosing the projects and activities they know are best for their students- and Doodles Academy takes care of the details.</p>
+    </div>
+  </section>
+
 
   <section class="hero">
     <img src="/assets/map-direction-image.jpg">
@@ -104,6 +89,16 @@
         OMG! A Newsletter?
       </p>
       <a class="btn btn-large btn-purple">Sign Up Here</a>
+    </div>
+  </section>
+
+  <section class="bg-accent-green">
+    <div class="content">
+      <h2>Partners</h2>
+      <p class="lead">Portland Child Art Studio</p>
+      <p>The Portland Child Art Studio is dedicated to supporting the perceptual development of children through artistic learning.</p>
+      <p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a life-long relationship with art.</p>
+      <p>Through them, we are able to workshop our projects in actual classes before they are offered online. View available classes here.</p>
     </div>
   </section>
 

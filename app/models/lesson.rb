@@ -4,4 +4,9 @@ class Lesson < ActiveRecord::Base
 
   validates :title, presence: true
   validates :video_uri, presence: true
+
+  def video_id
+    @video_uri.match(/\d+$/).to_s
+  end
+
 end

@@ -55,3 +55,7 @@
 .btn-green {
   @include button-theme($accent-green);
 }
+
+.btn-gray {
+  @include button-theme($accent-gray);
+}

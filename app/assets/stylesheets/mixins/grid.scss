@@ -1,0 +1,16 @@
+@mixin grid($item-name: grid-item, $columns: 3, $column-margin: 12px) {
+
+  .#{$item-name} {
+    $column-width: round(100%/$columns);
+    width: calc(#{$column-width} - #{$column-margin});
+    float: left;
+    position: relative;
+
+    &:not(:first-child):not(:last-child) {
+      $total-row-margin: $column-margin * $columns;
+      $padded-columns: $columns - 2;
+      $padded-column-margin: round($total-row-margin / $padded-columns) / 2;
+      margin: 0 $padded-column-margin;
+    }
+  }
+}
