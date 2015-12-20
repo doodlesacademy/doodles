@@ -96,6 +96,11 @@ p {
     transition: 200ms ease;
   }
 
+  .nav-menu {
+    display: none;
+    list-style-type: none;
+  }
+
   &.is-fixed {
     top: 0;
     left: 0;
@@ -113,29 +118,30 @@ p {
 
     .brand {
       height: 100px;
-      width: 60px;
-      margin-left: 50px;
       display: block;
     }
 
     .logo {
-      left: 0;
+      left: 40px;
       height: 100px;
       transform: none;
     }
 
+
     .nav-menu {
-      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
       display: block;
 
       li {
-        padding: 40px;
+        padding: 30px;
       }
     }
   }
 
   .nav-menu {
-    display: table;
+    display: none;
     margin: 0 auto;
     transition: opacity 100ms ease;
 

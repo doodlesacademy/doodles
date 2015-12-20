@@ -8,30 +8,23 @@
     <% end %>
     Doodles Academy
   </title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <% @links = [] %>
-  <% @links.push({ name: "Donate", path: "/donors" }) %>
-  <% @links.push({ name: "Contact", path: "/contact" }) %>
-  <% @links.push({ name: "Our Board", path: "/board" }) %>
-  <% @links.push({ name: "Sign Up", path: "/users/sign_up" }) %>
 </head>
 <body>
   <div class="nav" class="<%= yield(:nav_size_class) %>">
     <div class="brand">
-      <a href="/"><%= image_tag 'logo-yellow-trans', class: 'logo', alt: 'Doodles Academy' %></a>
+      <a href="/"><%= image_tag 'doodle_white', class: 'logo', alt: 'Doodles Academy' %></a>
     </div>
-    <div class="nav-menu">
-      <ul>
-        <% @links.each do |link| %>
-        <a href="<%= link[:path] %>">
-          <li><%= link[:name] %></li>
-        </a>
-        <% end %>
-      </ul>
-    </div>
+    <ul class="nav-menu">
+      <li>
+        <div class="btn btn-large btn-orange">
+          Donate
+        </div>
+      </li>
+    </ul>
   </div>
 
   <%= yield %>
