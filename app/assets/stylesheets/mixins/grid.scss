@@ -1,10 +1,12 @@
 @mixin grid($item-name: grid-item, $columns: 3, $column-margin: 12px) {
 
+  display: flex;
+  flex-wrap: wrap;
+
   .#{$item-name} {
+    display: flex;
     $column-width: round(100%/$columns);
     width: calc(#{$column-width} - #{$column-margin});
-    float: left;
-    position: relative;
 
     &:not(:first-child):not(:last-child) {
       $total-row-margin: $column-margin * $columns;

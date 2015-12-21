@@ -134,6 +134,8 @@
 }
 
 .homepage-gallery-item {
+  position: relative;
+  background-color: black;
 
   img {
     width: 100%;
@@ -172,13 +174,15 @@
   display: none;
   position: absolute;
   text-transform: uppercase;
-  top: 65%;
+  top: 75%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   text-align: center;
   color: white;
   z-index: 1;
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  width: 100%;
 
   .homepage-gallery-item:hover & {
     display: block;
