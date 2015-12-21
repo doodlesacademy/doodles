@@ -209,6 +209,7 @@ span.quote-person {
   }
 }
 
+$error-highlight: lighten($primary-red, 15%);
 
 .homepage-newsletter-signup {
   display: flex;
@@ -226,7 +227,7 @@ span.quote-person {
 .homepage-newsletter-signup-email {
   align-items: center;
   width: 70%;
-  padding: 0 5%;
+  margin: 0 5%;
   position: relative;
   flex-direction: column;
 
@@ -234,6 +235,29 @@ span.quote-person {
     width: 100%;
     padding: 3%;
   }
+
+  &.is-error {
+    p.homepage-newsletter-signup-message {
+      opacity: 1;
+      color: $error-highlight;
+      transition: opacity 100ms ease;
+    }
+
+    .input--text {
+      border-bottom-color: $error-highlight;
+    }
+  }
+}
+
+p.homepage-newsletter-signup-message {
+  position: absolute;
+  top: -15px;
+  left: 12px;
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 0;
+  line-height: 0;
+  opacity: 0;
 }
 
 .homepage-newsletter-signup-submit {

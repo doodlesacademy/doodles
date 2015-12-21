@@ -79,4 +79,60 @@
 
   $('input').on('keydown keyup', hasValue)
 
+
+  submitted = false
+  # http://www.regular-expressions.info/email.html
+  emailRegex = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i
+  $newsletter = $('.homepage-newsletter-signup')
+  $email = $('.homepage-newsletter-signup-email')
+  $email_input = $(".homepage-newsletter-signup-email .input--text")
+  $message = $(".homepage-newsletter-signup-message")
+  $submit = $('.homepage-newsletter-signup-submit')
+  url = '/subscribe'
+  dataType = "Content-Type: application/json"
+  invalidEmailMsg = "Please enter a valid email address"
+
+  emailErrorMessage = (message) ->
+    $email.addClass "is-error"
+    $message.text message
+
+  handleEmailSubmission = (e) ->
+    return if submitted
+    email = $email_input.val() or ""
+    unless email.length and emailRegex.test email
+      return emailErrorMessage(invalidEmailMsg)
+    submitted = true
+    data =
+      subscription:
+        email: email
+
+    $email.removeClass "is-error"
+    $newsletter.addClass "is-loading"
+    $submit.addClass "is-loading"
+
+    request = $.ajax
+      type: "POST",
+      url: url,
+      data: data,
+      success: successfulEmailSubmission
+      dataType: dataType
+
+    request.fail(failedEmailSubmission)
+
+  successfulEmailSubmission: ->
+    $newsletter.addClass "is-success"
+    $newsletter.removeClass "is-failed"
+    $newsletter.removeClass "is-loading"
+
+  failedEmailSubmission: ->
+    $newsletter.addClass "is-failed"
+    $newsletter.removeClass "is-loading"
+
+  $submit.on('click', handleEmailSubmission)
+  $email_input.on 'keyup keydown', _.debounce (e) ->
+    if e.which is 13
+      handleEmailSubmission(e)
+    else if $email_input.val().length is 0
+      $email.removeClass "is-error"
+
 )(window.$ or window.jQuery or window.Zepto, window)

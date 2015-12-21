@@ -2,6 +2,7 @@
 
   background-color: $color;
   color: white;
+  transition: background-color 250ms ease;
 
   &:hover {
     background-color: darken($color, 15%);
