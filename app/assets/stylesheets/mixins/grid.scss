@@ -8,11 +8,12 @@
     $column-width: round(100%/$columns);
     width: calc(#{$column-width} - #{$column-margin});
 
-    &:not(:first-child):not(:last-child) {
-      $total-row-margin: $column-margin * $columns;
-      $padded-columns: $columns - 2;
-      $padded-column-margin: round($total-row-margin / $padded-columns) / 2;
-      margin: 0 $padded-column-margin;
+    &:not(:first-child) {
+      margin-left: $column-margin;
+    }
+
+    &:nth-child(#{$columns}n+1) {
+      margin: 0;
     }
   }
 }

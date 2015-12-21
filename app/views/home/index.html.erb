@@ -13,10 +13,6 @@
       <p class="lead">
         A digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers and students.
       </p>
-    </div>
-  </section>
-  <section class="bg-accent-orange">
-    <div class="content">
       <h2>Featured Videos</h2>
       <p></p>
       <div class="homepage-gallery">
@@ -38,16 +34,11 @@
         <div class="gallery-tools-next"></div>
         <div class="gallery-tools-prev"></div>
       </div>
-      <div style="height: 40px"></div>
-      <div class="center">
-        <a class="btn btn-large btn-gray">
+      <div style="height: 40px; margin: 30px 0;" class="center">
+        <a class="btn btn-large btn-blue">
           See More Projects
         </a>
       </div>
-    </div>
-  </section>
-  <section class="bg-accent-orange">
-    <div class="content">
       <h2>making art education more accessible</h2>
       <p>Doodles Academy works to eliminate the barriers that too many teachers have in providing a high-quality arts education to their students. By creating an inventory of thoughtful and engaging art lessons, teachers assemble their curriculum-choosing the projects and activities they know are best for their students- and Doodles Academy takes care of the details.</p>
     </div>
@@ -77,8 +68,7 @@
   <section class="hero">
     <img src="/assets/founder-section-sidebar.jpg">
     <p class="lead">
-      "Testimonial from someone here" <br/>
-      - Alex Hunley, Spectacular Person
+      From building blocks to blueprints, Doodles is there to help create the lessons that turn your students into their most expressive selves.
     </p>
   </section>
 
@@ -99,6 +89,42 @@
       <p>The Portland Child Art Studio is dedicated to supporting the perceptual development of children through artistic learning.</p>
       <p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a life-long relationship with art.</p>
       <p>Through them, we are able to workshop our projects in actual classes before they are offered online. View available classes here.</p>
+    </div>
+  </section>
+
+  <section class="hero">
+    <img src="/assets/founder-section-sidebar.jpg">
+    <p class="lead">
+      "Another Testimonial Maye" <br/>
+      - Tempest, A Better Person
+    </p>
+  </section>
+
+  <% @board_members = [] %>
+  <% @board_members.push({ first_name: "Tempest", last_name: "NeuCollins", title: "Founder" }) %>
+  <% @board_members.push({ first_name: "Amy", last_name: "Kiyota", title: "Crayon Master" }) %>
+  <% @board_members.push({ first_name: "Carey", last_name: "Swanson", title: "Secretary" }) %>
+  <% @board_members.push({ first_name: "Jordan", last_name: "Huller", title: "President" }) %>
+  <% @board_members.push({ first_name: "Alessandra", last_name: "Mosenifar", title: "Fingerpainter" }) %>
+  <% @board_members.push({ first_name: "Patrick", last_name: "W. Comstock", title: "Marker Expert" }) %>
+  <% @board_members.push({ first_name: "Joana", last_name: "Ngo", title: "Treasurer" }) %>
+  <section class="bg-accent-green">
+    <div class="content">
+      <h2>Board Members</h2>
+      <div class="homepage-board">
+        <% @board_members.each do |member| %>
+        <div class="homepage-board-member">
+          <div class="homepage-board-member-portrait">
+            <% portrait = "portraits/#{member[:first_name].downcase}" %>
+            <div class="homepage-board-member-portrait-bg"></div>
+            <%= image_tag portrait %>
+            <p class="homepage-board-member-portrait-about">About <%= member[:first_name] %></p>
+          </div>
+          <p class="homepage-board-member-name"><%= member[:first_name] + " " + member[:last_name]%></p>
+          <p class="homepage-board-member-title"><%= member[:title] %></p>
+        </div>
+        <% end %>
+      </div>
     </div>
   </section>
 

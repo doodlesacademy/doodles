@@ -106,9 +106,16 @@
     color: #fff;
     position: absolute;
     max-width: 600px;
+    line-height: 1.8em;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+  }
+
+  .hero br {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
   }
 
   .center {
@@ -186,5 +193,84 @@
 
   .homepage-gallery-item:hover & {
     display: block;
+  }
+}
+
+.homepage-board {
+  @include grid(homepage-board-member, 4, 20px);
+
+  .homepage-board-member {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    position: relative;
+  }
+
+  p.homepage-board-member-portrait-about {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 100%;
+    font-size: 14px;
+    transition: opacity 200ms ease;
+    transform: translate3d(-50%, -50%, 0);
+    text-align: center;
+    opacity: 0;
+  }
+
+  .homepage-board-member-portrait {
+    position: relative;
+
+    img {
+      z-index: 1;
+      opacity: 1;
+      border-radius: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+      transition: opacity 300ms ease;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      img {
+        opacity: 0.5;
+      }
+
+      .homepage-board-member-portrait-bg {
+        opacity: 1;
+      }
+
+      .homepage-board-member-portrait-about {
+        opacity: 1;
+      }
+    }
+  }
+
+  .homepage-board-member-portrait-bg {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .homepage-board-member-name,
+  .homepage-board-member-title {
+    line-height: 1.4em;
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  .homepage-board-member-name {
+    margin-top: 8px;
+  }
+
+  .homepage-board-member-title {
+    font-size: 14px;
   }
 }
