@@ -193,6 +193,29 @@ p {
   }
 }
 
+// Form
+.input--text {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  height: 38px;
+  font-size: 20px;
+  border-bottom: 2px solid;
+  border-bottom-color: rgba(white, 0.4);
+  color: white;
+  font-weight: 300;
+  transition: border-bottom-color 300ms ease;
+
+  &:focus, &.has-value {
+    border-bottom-color: white;
+  }
+
+  @include placeholder {
+    color: rgba(white, 0.4);
+    font-weight: 300;
+  }
+}
+
 
 // Footer
 .footer {

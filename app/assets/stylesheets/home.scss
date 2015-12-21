@@ -112,6 +112,7 @@
     transform: translate3d(-50%, -50%, 0);
   }
 
+
   .hero br {
     margin: 0;
     padding: 0;
@@ -127,6 +128,18 @@
     color: $primary-red;
     text-transform: lowercase;
   }
+}
+
+span.quote {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2.3em;
+}
+
+span.quote-person {
+  font-size: 22px;
+  margin-top: 25px;
+  display: block;
 }
 
 .content {
@@ -192,6 +205,42 @@
   width: 100%;
 
   .homepage-gallery-item:hover & {
+    display: block;
+  }
+}
+
+
+.homepage-newsletter-signup {
+  display: flex;
+  width: 80%;
+  margin: 60px auto 40px;
+}
+
+
+.homepage-newsletter-signup-email,
+.homepage-newsletter-signup-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-newsletter-signup-email {
+  align-items: center;
+  width: 70%;
+  padding: 0 5%;
+  position: relative;
+  flex-direction: column;
+
+  .input--text {
+    width: 100%;
+    padding: 3%;
+  }
+}
+
+.homepage-newsletter-signup-submit {
+  align-items: flex-start;
+  width: 30%;
+
+  .btn {
     display: block;
   }
 }

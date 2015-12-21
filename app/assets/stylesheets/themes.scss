@@ -33,7 +33,29 @@
 
 .bg-accent-purple {
   @include bg-theme($accent-purple);
+
+  h2 {
+    color: lighten($accent-purple, 35%);
+  }
+
+  p.lead {
+    color: rgba(white, 0.7);
+  }
 }
+
+.bg-accent-purple-darker {
+  $darker-purple: darken($accent-purple, 10%);
+  @include bg-theme($darker-purple);
+
+  h2 {
+    color: lighten($accent-purple, 35%);
+  }
+
+  p.lead {
+    color: rgba(white, 0.7);
+  }
+}
+
 
 .bg-accent-green {
   @include bg-theme($accent-green);

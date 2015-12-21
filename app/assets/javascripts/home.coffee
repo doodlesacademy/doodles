@@ -72,4 +72,11 @@
 
   $('div[data-video-id]').on('click', showVideo)
 
+  hasValue = _.debounce (e) ->
+    $this = $(@)
+    has_value = !!($this.val() or "").length
+    $this.toggleClass "has-value", has_value
+
+  $('input').on('keydown keyup', hasValue)
+
 )(window.$ or window.jQuery or window.Zepto, window)
