@@ -9,6 +9,9 @@
 
   <section>
     <div class="content">
+      <div class="frame frame--16x9" style="margin-bottom: 50px">
+        <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
       <p class="lead">
         Our mission is to provide art lessons <br/> which inspire students to meet their creative potential.
       </p>
@@ -17,13 +20,9 @@
       </div>
       <h2>Featured Videos</h2>
       <div class="homepage-gallery">
-        <% @lessons = [] %>
-        <% @lessons.push({ title: "Symbol & Self", video_id: "144787451" }) %>
-        <% @lessons.push({ title: "Superhero Lesson", video_id: "140998518" }) %>
-        <% @lessons.push({ title: "Dream Home", video_id: "144787451" }) %>
-        <% @lessons.each do |lesson| %>
+        <% @featured_lessons.each do |lesson| %>
         <div class="homepage-gallery-item" data-video-id="<%= lesson[:video_id] %>" data-project-title="<%= lesson[:title] %>">
-          <img src="<%= asset_path('map-direction-image.jpg') %>">
+          <img src="<%= asset_path(lesson[:image]) %>">
           <div class="homepage-gallery-item-play-btn"></div>
           <div class="homepage-gallery-item-title">
             <%= lesson[:title] %>
