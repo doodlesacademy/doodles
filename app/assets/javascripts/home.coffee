@@ -26,7 +26,7 @@
     <div class="lightbox">
       <div class="lightbox-bg"></div>
       <div class="lightbox-modal">
-        <div class="lightbox-frame">
+        <div class="frame frame--16x9">
           <iframe src="<%= iframe_url %>"
             frameborder="0"
             webkitallowfullscreen

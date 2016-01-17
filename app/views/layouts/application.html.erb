@@ -52,10 +52,12 @@
       <hr>
       Doodles Academy <span class="lowercase">is a</span> 501 (c)(3) 2016
       |
-      <a href="#">Instagram</a>
+      <% @social_links.each do |social_link| %>
+      <a target="_blank" href="<%= social_link[:link] %>">
+        <%= social_link[:name] %>
+      </a>
       |
-      <a href="#">Twitter</a>
-      |
+      <% end %>
       All Rights Reserved
       |
       <a href="#">Contact</a>
