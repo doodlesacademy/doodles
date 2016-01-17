@@ -1,0 +1,17 @@
+
+.frame {
+  position: relative;
+  height: 0;
+}
+
+.frame--16x9 {
+	padding-bottom: 56.25%; /* 16:9 */
+}
+
+.frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

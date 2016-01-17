@@ -41,17 +41,15 @@ section {
 }
 
 .hero__content {
+  @include textCap-16;
   color: white;
-  position: absolute;
-  width: 600px;
-  font-size: 1.6em;
-  font-weight: 400;
   line-height: 1.5em;
   text-align: center;
-  text-transform: uppercase;
-  font-family: $hero-font;
+
+  position: absolute;
   top: 50%;
   left: 50%;
+  width: 600px;
   transform: translate3d(-50%, -50%, 0);
 
   .homepage .hero:not(:first-child) & {
@@ -60,7 +58,7 @@ section {
 }
 
 span.quote {
-  font-family: $primary-body-font;
+  @include primary-font;
   font-size: 1.2em;
   line-height: 1.6em;
   font-weight: 300;
@@ -87,7 +85,7 @@ span.quote__person {
 
 .homepage-gallery-item {
   position: relative;
-  background-color: black;
+  background-color: $primary-blue;
 
   img {
     width: 100%;
@@ -123,18 +121,17 @@ span.quote__person {
 }
 
 .homepage-gallery-item-title {
+  @include textCap-12;
   display: none;
-  position: absolute;
-  text-transform: uppercase;
-  top: 75%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  text-align: center;
   color: white;
-  z-index: 1;
-  font-size: 15px;
-  font-weight: 300;
+  text-align: center;
   width: 100%;
+
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 1;
 
   .homepage-gallery-item:hover & {
     display: block;
