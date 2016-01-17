@@ -1,12 +1,3 @@
-// Fonts
-//
-$primary-body-font: 'Raleway', sans-serif;
-$nav-font: 'Raleway', sans-serif;
-$hero-font: 'Montserrat', sans-serif;
-$button-font: $hero-font;
-$font-size: 10px;
-
-
 // Colors
 //
 $background-color: #FFFFFF;
@@ -59,7 +50,7 @@ body {
   background-color: $background-color;
   color: $text-color;
   font-size: $font-size;
-  font-family: $primary-body-font;
+  @include primary-font;
 }
 
 a {
@@ -111,7 +102,7 @@ img {
   align-items: center;
   justify-content: center;
 
-  font-family: $nav-font;
+  @include primary-font;
   background-color: transparent;
   transition: background-color 300ms ease;
 
@@ -182,6 +173,10 @@ img {
   font-weight: 300;
   transition: background-color 300ms ease;
 
+  &:focus {
+    background-color: lighten($input-purple, 10%)
+  }
+
   @include placeholder {
     color: rgba(white, 0.4);
     font-weight: 300;
@@ -202,16 +197,24 @@ img {
 }
 
 .newsletter__submit {
+  @include textCap-12;
   background-color: $active-purple;
   color: white;
-  font-family: $button-font;
-  font-size: 1.2em;
-  text-transform: uppercase;
   outline: none;
   border: none;
   border-radius: 0;
   height: 50px;
   padding: 0 30px;
+  transition: background-color 300ms ease;
+
+  &:hover {
+    background-color: lighten($active-purple, 10%)
+  }
+
+  &:active {
+    transition: none;
+    background-color: darken($active-purple, 10%)
+  }
 }
 
 

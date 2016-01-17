@@ -1,0 +1,44 @@
+// Fonts
+//
+$primary-font: 'Raleway', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+$font-size: 10px;
+
+@mixin textCap {
+	font-weight: 400;
+	text-transform: uppercase;
+	@include secondary-font;
+}
+
+@mixin textCap-12 {
+	@include textCap;
+	font-size: 1.2em;
+}
+
+@mixin textCap-14 {
+	@include textCap;
+	font-size: 1.4em;
+}
+
+@mixin textCap-16 {
+	@include textCap;
+	font-size: 1.6em;
+}
+
+@mixin textCap-18 {
+	@include textCap;
+	font-size: 1.8em;
+}
+
+@mixin textCap-20 {
+	@include textCap;
+	font-size: 2em;
+}
+
+@mixin primary-font {
+	font-family: $primary-font;
+}
+
+@mixin secondary-font {
+	font-family: $secondary-font;
+}

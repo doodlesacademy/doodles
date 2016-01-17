@@ -1,10 +1,12 @@
 //=require_tree ./mixins
+@import "mixins/animation";
 @import "mixins/grid";
 @import "mixins/placeholder";
-@import "mixins/animation";
+@import "mixins/text";
 @import 'global';
 @import 'home';
 @import 'themes';
 @import 'buttons';
 @import 'projects';
+@import 'frame';
 @import 'lightbox';

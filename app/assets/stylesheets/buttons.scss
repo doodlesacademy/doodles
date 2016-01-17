@@ -17,9 +17,7 @@
 
 .btn, a.btn, button.btn {
   display: inline-block;
-  font-family: $button-font;
-  font-size: 1em;
-  font-weight: 400;
+  @include textCap;
   text-transform: uppercase;
   border-radius: 3px;
   padding: 0.6em 1.6em;
