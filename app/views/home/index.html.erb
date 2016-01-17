@@ -10,7 +10,7 @@
   <section>
     <div class="content">
       <p class="lead">
-        Our mission is to inspire students to meet their creative potential.
+        Our mission is to provide art lessons <br/> which inspire students to meet their creative potential.
       </p>
       <div class="centered" style="height: 80px; margin: 40px 0;">
         <img src="<%= asset_path('doodle_hand_yellow.png') %>">
@@ -23,7 +23,7 @@
         <% @lessons.push({ title: "Dream Home", video_id: "144787451" }) %>
         <% @lessons.each do |lesson| %>
         <div class="homepage-gallery-item" data-video-id="<%= lesson[:video_id] %>" data-project-title="<%= lesson[:title] %>">
-          <img src="/assets/map-direction-image.jpg">
+          <img src="<%= asset_path('map-direction-image.jpg') %>">
           <div class="homepage-gallery-item-play-btn"></div>
           <div class="homepage-gallery-item-title">
             <%= lesson[:title] %>

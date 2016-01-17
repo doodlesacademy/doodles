@@ -16,7 +16,7 @@
 <body>
   <div class="nav" class="<%= yield(:nav_size_class) %>">
     <div class="brand">
-      <a href="/"><%= image_tag 'doodle_white', class: 'logo', alt: 'Doodles Academy' %></a>
+      <a href="/"><img src="<%= asset_path('doodle_white.png') %>" class="logo" alt="Doodles Academy" /></a>
     </div>
     <ul class="nav-menu">
       <% @pages.each do |page| %>
