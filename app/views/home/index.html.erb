@@ -1,7 +1,7 @@
 <% content_for(:nav_size_class) { 'large' } %>
 <div class="homepage">
   <section class="hero">
-    <%= image_tag 'top_hero_image', class: 'hero__img', alt: 'Doodles Academy' %>
+    <img src="<%= asset_path('top_hero_image.jpg') %>" class='hero__img' alt='Doodles Academy' />
     <p class="hero__content">
       Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.
     </p>
@@ -13,7 +13,7 @@
         Our mission is to inspire students to meet their creative potential.
       </p>
       <div class="centered" style="height: 80px; margin: 40px 0;">
-        <%= image_tag 'doodle_hand_yellow' %>
+        <img src="<%= asset_path('doodle_hand_yellow.png') %>">
       </div>
       <h2>Featured Videos</h2>
       <div class="homepage-gallery">
@@ -45,7 +45,7 @@
 
 
   <section class="hero">
-    <%= image_tag 'map-direction-image', class: 'hero__img'%>
+    <img src="<%= asset_path('map-direction-image.jpg') %>" class="hero__img"/>
     <p class="hero__content">
       <span class="quote">
         “Since [our daughter’s] school doesn't have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she's been enrolled in Doodles.”
