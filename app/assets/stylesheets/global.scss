@@ -1,7 +1,10 @@
 // Fonts
 //
-$primary-body-font: 'Open Sans', sans-serif;
-$font-size: 16px;
+$primary-body-font: 'Raleway', sans-serif;
+$nav-font: 'Raleway', sans-serif;
+$hero-font: 'Montserrat', sans-serif;
+$button-font: $hero-font;
+$font-size: 10px;
 
 
 // Colors
@@ -19,11 +22,15 @@ $accent-green: #31B79A;
 $accent-orange: #F6A631;
 $accent-purple: #5E5AA3;
 
+$background-purple: #4B4583;
+$active-purple: #645EA6;
+$input-purple: #57528C;
 
 // Miscellaenous variables
 //
 $content-max-width: 800px;
 $content-min-width: 480px;
+$content-sending-grey: #9594A4;
 
 
 // Mixins
@@ -43,7 +50,7 @@ $content-min-width: 480px;
   box-sizing: border-box;
 }
 
-html, body {
+html, body, div, p, br, ul, li, nav, footer, article {
   margin: 0;
   padding: 0;
 }
@@ -65,150 +72,115 @@ a {
 }
 
 p {
-  font-size: 18px;
+  font-size: 1.6em;
   line-height: 1.5em;
   font-weight: 300;
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
 }
 
 
 // Application layout elements
 //
 
+@mixin nav-menu-font {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
 // Nav-bar
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
   width: 100%;
-  background-color: $primary-blue;
-  color: $primary-yellow;
+  z-index: 1;
 
-  .brand {
-    height: 200px;
-    transition: height 200ms;
-    transition-delay: 100ms;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .logo {
-    margin: 0 auto;
-    max-height: 100%;
-    height: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    transition: 200ms ease;
-  }
+  font-family: $nav-font;
+  background-color: transparent;
+  transition: background-color 300ms ease;
 
-  .nav-menu {
-    display: none;
-    list-style-type: none;
-  }
-
-  &.is-fixed {
-    top: 0;
-    left: 0;
-    position: fixed;
-    opacity: 0;
-    transition: opacity 250ms ease;
-    visibility: hidden;
-    display: flex;
-
-    &.is-scrolled {
-      visibility: visible;
-      z-index: 1;
-      opacity: 1;
-    }
-
-    .brand {
-      height: 100px;
-      display: block;
-    }
-
-    .logo {
-      left: 40px;
-      height: 100px;
-      transform: none;
-    }
-
-
-    .nav-menu {
-      position: absolute;
-      right: 0;
-      top: 0;
-      display: block;
-
-      li {
-        padding: 30px;
-      }
-    }
-  }
-
-  .nav-menu {
-    display: none;
-    margin: 0 auto;
-    transition: opacity 100ms ease;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      li {
-        text-align: center;
-        padding: 10px 30px;
-        display: inline-block;
-        text-transform: lowercase;
-        font-size: 1.3em;
-        background-color: rgba(255, 255, 255, 0);
-        transition: background-color 150ms ease;
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.2);
-        }
-      }
-    }
-
-    a {
-      color: white;
-    }
-
-    &.hanging {
-      position: relative;
-      display: block;
-      width: 100%;
-      margin: -3px 0 0 0;
-      padding: 0;
-      height: 50px;
-      line-height: 50px;
-      background-color: $accent-green;
-      color: $primary-yellow;
-      text-align: center;
-
-      .hanging-menu-content {
-        max-width: $content-max-width;
-        min-width: $content-min-width;
-        margin: 0 auto;
-      }
-    }
-
-    &.linear {
-      position: inline-block;
-    }
+  &.is-scrolled {
+    background-color: rgba($primary-blue, 0.6);
   }
 }
 
+.nav .brand {
+  height: 100px;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.nav-menu {
+  list-style-type: none;
+  list-style: none;
+  margin-left: 50px;
+}
+
+.nav-menu-item {
+  display: inline-block;
+  @include nav-menu-font;
+  padding: 0 30px;
+
+  a {
+    color: white;
+
+    &:after {
+      content: '';
+      display: block;
+      background-color: white;
+      opacity: 0;
+      margin-top: 2px;
+      height: 2px;
+      width: 100%;
+      transition: opacity 250ms ease;
+    }
+    &:hover:after {
+      opacity: 1;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav .nav-donate-btn {
+  width: 100px;
+  @include nav-menu-font;
+  font-size: 1em;
+  padding: 6px 9px;
+}
+
 // Form
-.input--text {
+.input__text {
   border: none;
-  background-color: transparent;
+  background-color: $input-purple;
+  color: white;
   outline: none;
   height: 38px;
-  font-size: 20px;
-  border-bottom: 2px solid;
-  border-bottom-color: rgba(white, 0.4);
-  color: white;
+  padding: 0 30px;
+  height: 50px;
+  width: 450px;
+  font-size: 1.5em;
   font-weight: 300;
-  transition: border-bottom-color 300ms ease;
-
-  &:focus, &.has-value {
-    border-bottom-color: white;
-  }
+  transition: background-color 300ms ease;
 
   @include placeholder {
     color: rgba(white, 0.4);
@@ -217,22 +189,58 @@ p {
 }
 
 
+.newsletter__form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.newsletter__notice {
+  color: white;
+  font-size: 1.4em;
+  padding: 30px 0;
+}
+
+.newsletter__submit {
+  background-color: $active-purple;
+  color: white;
+  font-family: $button-font;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  height: 50px;
+  padding: 0 30px;
+}
+
+
 // Footer
 .footer {
   width: 100%;
+  color: white;
+  padding: 20px 0 60px;
+
+  background-color: $background-purple;
 
   div {
     width: $content-max-width;
     margin: 0 auto;
+  }
 
-    &.foot-top {
-      height: 50px;
-      background-color: $accent-green;
-    }
+  hr {
+    border-color: $content-sending-grey;
+    margin: 30px 0;
+  }
 
-    &.foot-bottom {
-      height: 100px;
-      background-color: $accent-gray;
-    }
+}
+.footer__copyright {
+  font-size: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: .105em;
+  color: $content-sending-grey;
+
+  .lowercase {
+    text-transform: lowercase;
   }
 }

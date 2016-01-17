@@ -8,7 +8,7 @@
     <% end %>
     Doodles Academy
   </title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -19,8 +19,13 @@
       <a href="/"><%= image_tag 'doodle_white', class: 'logo', alt: 'Doodles Academy' %></a>
     </div>
     <ul class="nav-menu">
-      <li>
-        <div class="btn btn-large btn-orange">
+      <% @pages.each do |page| %>
+      <li class="nav-menu-item">
+        <a><%= page %></a>
+      </li>
+      <% end %>
+      <li class="nav-menu-item">
+        <div class="btn btn-blue nav-donate-btn">
           Donate
         </div>
       </li>
@@ -30,9 +35,28 @@
   <%= yield %>
 
   <div class="footer">
-    <div class="footer-top">
+    <div class="newsletter">
+      <div class="newsletter__notice centered">
+          Sign Up for our Newsletter. We'll never spam you.
+      </div>
+      <div class="newsletter__form">
+        <input class="input__text" type="text" placeholder="Your email address">
+        <button class="newsletter__submit">
+          Sign Up Here
+        </button>
+      </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer__copyright">
+      <hr>
+      Doodles Academy <span class="lowercase">is a</span> 501 (c)(3) 2016
+      |
+      <a href="#">Instagram</a>
+      |
+      <a href="#">Twitter</a>
+      |
+      All Rights Reserved
+      |
+      <a href="#">Contact</a>
     </div>
   </div>
   <script>

@@ -15,11 +15,14 @@
   }
 }
 
-.btn, a.btn {
-  font-size: 14px;
-  font-weight: 300;
+.btn, a.btn, button.btn {
+  display: inline-block;
+  font-family: $button-font;
+  font-size: 1em;
+  font-weight: 400;
+  text-transform: uppercase;
   border-radius: 3px;
-  padding: 4px 9px;
+  padding: 0.6em 1.6em;
   user-select: none;
 
   &:hover {
@@ -27,9 +30,9 @@
   }
 }
 
-.btn-large, a.btn-large {
-  font-size: 20px;
-  padding: 6px 14px;
+.btn-large, a.btn-large, button.btn-large {
+  font-size: 1.2em;
+  padding: 0.8em 2.2em;
 }
 
 

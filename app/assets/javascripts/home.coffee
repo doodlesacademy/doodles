@@ -3,18 +3,15 @@
   $nav = $('.nav')
   $body = $('.body')
   $window = $(window)
-  $fixedNav = $nav.clone().appendTo("body")
   navHeight = $nav.height()
   $lightbox = null
   $close_btn = null
-
-  $fixedNav.addClass("is-fixed")
 
   onScroll = ->
     top = $document.scrollTop()
     scrollClass = "is-scrolled"
     hasScrolled = top > navHeight
-    $fixedNav.toggleClass(scrollClass, hasScrolled)
+    $nav.toggleClass(scrollClass, hasScrolled)
 
   onScroll = _.debounce(onScroll)
 
@@ -24,7 +21,6 @@
 
   VIDEO_EMBED =
     vimeo: _.template "https://player.vimeo.com/video/<%= video_id %>?autoplay=1"
-
 
   lightbox_template = _.template """
     <div class="lightbox">

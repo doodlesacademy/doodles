@@ -1,20 +1,21 @@
 <% content_for(:nav_size_class) { 'large' } %>
 <div class="homepage">
   <section class="hero">
-    <img src="/assets/hero-image.jpg">
-    <p class="lead">
-      Our mission is to provide the tools necessary for art lessons that inspire students to meet their creative potential.
+    <%= image_tag 'top_hero_image', class: 'hero__img', alt: 'Doodles Academy' %>
+    <p class="hero__content">
+      Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.
     </p>
   </section>
 
-  <section class="bg-accent-orange">
+  <section>
     <div class="content">
-      <h2>Doodles Academy</h2>
       <p class="lead">
-        A digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers and students.
+        Our mission is to inspire students to meet their creative potential.
       </p>
+      <div class="centered" style="height: 80px; margin: 40px 0;">
+        <%= image_tag 'doodle_hand_yellow' %>
+      </div>
       <h2>Featured Videos</h2>
-      <p></p>
       <div class="homepage-gallery">
         <% @lessons = [] %>
         <% @lessons.push({ title: "Symbol & Self", video_id: "144787451" }) %>
@@ -34,135 +35,41 @@
         <div class="gallery-tools-next"></div>
         <div class="gallery-tools-prev"></div>
       </div>
-      <div style="height: 40px; margin: 30px 0;" class="center">
-        <%= link_to "See More Projects", projects_path, class: "btn btn-large btn-blue" %>
+      <div class="centered" style="margin: 80px 0;">
+        <%= link_to "See More Projects", projects_path, class: "btn btn-large btn-orange" %>
       </div>
-      <h2>making art education more accessible</h2>
+      <h2>Making Art Education More Accessible</h2>
       <p>Doodles Academy works to eliminate the barriers that too many teachers have in providing a high-quality arts education to their students. By creating an inventory of thoughtful and engaging art lessons, teachers assemble their curriculum-choosing the projects and activities they know are best for their students- and Doodles Academy takes care of the details.</p>
     </div>
   </section>
 
 
   <section class="hero">
-    <img src="/assets/map-direction-image.jpg">
-    <p>
+    <%= image_tag 'map-direction-image', class: 'hero__img'%>
+    <p class="hero__content">
       <span class="quote">
         “Since [our daughter’s] school doesn't have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she's been enrolled in Doodles.”
       </span>
       <br/>
-      <span class="quote-person">
-        - Kara Bloom
+      <span class="quote__person">
+        Kara Bloom
       </span>
     </p>
   </section>
 
-  <section class="bg-accent-purple">
+  <section>
     <div class="content">
-      <h2>Support Doodles Academy</h2>
-      <p class="lead">
-        Art education is failing in America.
+      <h2>
+        Art Education is Failing in America.
+      </h2>
+      <p>
+        In the last two decades alone, minorities experienced an almost 25% decrease in access to art education. Our vision that every child should receive a holistic arts education, irrespective of school, budget, zip code, or student demographics.
       </p>
-      <div style="height: 40px; margin: 40px 0;" class="center">
-        <a class="btn btn-large btn-orange" >
-          Donate to Doodles Academy
+      <div class="centered" style="margin: 30px 0 0;">
+        <a class="btn btn-large btn-blue" >
+          Donate Now
         </a>
       </div>
-      <p>
-        In the last two decades alone, minorities experienced an almost 25% decrease in access to art education.
-      </p>
-      <p>
-        Donate now to help us strop this trend.
-      </p>
     </div>
   </section>
-  <section class="bg-accent-purple-darker">
-    <div class="content">
-      <h2>Sign Up for our Newsletter</h2>
-      <p class="lead">
-        Pick up your marker, it's time to get to work
-      </p>
-      <div class="homepage-newsletter-signup">
-        <div class="homepage-newsletter-signup-email">
-          <p class="homepage-newsletter-signup-message"></p>
-          <input class="input--text" type="text" placeholder="Your delightful email address">
-          <p style="line-height: 0; margin: 10px 0; padding: 0; font-size: 10px;">
-           Don't worry, we will never send you spam.
-          </p>
-        </div>
-        <div class="homepage-newsletter-signup-submit">
-          <a class="btn btn-large btn-orange">
-            Sign Up Here
-          </a>
-        </div>
-      </div>
-      <p>
-        Help support our vision that every child should receive a holistic arts education, irrespective of school budget, zip code, or student demographics by joining our community of supporters.
-      </p>
-    </div>
-  </section>
-
-  <section class="hero">
-    <img src="/assets/founder-section-sidebar.jpg">
-    <p>
-      <span class="quote">
-        “With no art classes at her school, my daughter was floundering – always sketching, but frustrated by her lack of direction … We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.”
-      </span>
-      <br/>
-      <span class="quote-person">
-        - Laura Harris
-      </span>
-    </p>
-  </section>
-
-  <section class="bg-accent-green">
-    <div class="content">
-      <h2>Partners</h2>
-      <p class="lead">Portland Child Art Studio</p>
-      <p>The Portland Child Art Studio is dedicated to supporting the perceptual development of children through artistic learning.</p>
-      <p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a life-long relationship with art.</p>
-      <p>Through them, we are able to workshop our projects in actual classes before they are offered online. View available classes here.</p>
-    </div>
-  </section>
-
-  <section class="hero">
-    <img src="/assets/founder-section-sidebar.jpg">
-    <p>
-      <span class="quote">
-        “The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher. … I also appreciated the flexibility of the program. We can adjust it to our life, schedule, and health.“
-      </span>
-      <br/>
-      <span class="quote-person">
-        - Erin Scott
-      </span>
-    </p>
-  </section>
-
-  <% @board_members = [] %>
-  <% @board_members.push({ first_name: "Tempest", last_name: "NeuCollins", title: "Founder" }) %>
-  <% @board_members.push({ first_name: "Amy", last_name: "Kiyota", title: "Crayon Master" }) %>
-  <% @board_members.push({ first_name: "Carey", last_name: "Swanson", title: "Secretary" }) %>
-  <% @board_members.push({ first_name: "Jordan", last_name: "Huller", title: "President" }) %>
-  <% @board_members.push({ first_name: "Alessandra", last_name: "Mosenifar", title: "Fingerpainter" }) %>
-  <% @board_members.push({ first_name: "Patrick", last_name: "W. Comstock", title: "Marker Expert" }) %>
-  <% @board_members.push({ first_name: "Joana", last_name: "Ngo", title: "Treasurer" }) %>
-  <section class="bg-accent-green">
-    <div class="content">
-      <h2>Board Members</h2>
-      <div class="homepage-board">
-        <% @board_members.each do |member| %>
-        <div class="homepage-board-member">
-          <div class="homepage-board-member-portrait">
-            <% portrait = "portraits/#{member[:first_name].downcase}" %>
-            <div class="homepage-board-member-portrait-bg"></div>
-            <%= image_tag portrait %>
-            <p class="homepage-board-member-portrait-about">About <%= member[:first_name] %></p>
-          </div>
-          <p class="homepage-board-member-name"><%= member[:first_name] + " " + member[:last_name]%></p>
-          <p class="homepage-board-member-title"><%= member[:title] %></p>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </section>
-
 </div>
