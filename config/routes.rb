@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'home#index'
-  get 'board', to: 'home#board'
+  get "about", to: "home#about"
   get 'donors', to: 'home#donors'
   get "contact", to: "home#contact"
-  get "our-story", to: "home#our_story"
+  get "partners", to: "home#partners"
+  get "volunteer", to: "home#volunteer"
+
+  get 'board', to: 'members#index'
 
   resources :projects do
     resources :lessons, except: [:index]
