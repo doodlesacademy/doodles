@@ -16,14 +16,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="nav" class="<%= yield(:nav_size_class) %>">
+  <div class="nav"> 
     <div class="brand">
       <a href="/"><img src="<%= asset_path('doodle_white.png') %>" class="logo" alt="Doodles Academy" /></a>
     </div>
     <ul class="nav-menu">
       <% @pages.each do |page| %>
       <li class="nav-menu-item">
-        <a><%= page %></a>
+        <%= link_to page[:name], page[:path] %>
       </li>
       <% end %>
       <li class="nav-menu-item">
@@ -33,6 +33,15 @@
       </li>
     </ul>
   </div>
+  <section class="hero">
+    <% @hero_image = yield(:hero_image) %>
+    <% unless @hero_image.blank? %>
+      <%= image_tag @hero_image, class: "hero__img", alt: "Doodles Academy" %>
+      <p class="hero__content">
+        <%= yield(:hero_content) %>
+      </p>
+    <% end %>
+  </section>
 
   <%= yield %>
 
@@ -53,14 +62,12 @@
       Doodles Academy <span class="lowercase">is a</span> 501 (c)(3) 2016
       |
       <% @social_links.each do |social_link| %>
-      <a target="_blank" href="<%= social_link[:link] %>">
-        <%= social_link[:name] %>
-      </a>
+        <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
       |
       <% end %>
       All Rights Reserved
       |
-      <a href="#">Contact</a>
+      <%= link_to "Contact", contact_path %>
     </div>
   </div>
   <script>
