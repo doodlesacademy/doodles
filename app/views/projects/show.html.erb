@@ -1,33 +1,33 @@
-<% content_for(:nav_size_class) { 'small' } %>
-<div class="projects">
-  <h1 class="capitalize"><%= @project.title %></h1>
-  <section class="synopsis">
-    <h3>synopsis</h3>
-    <p class="description"><%= @project.description %></p>
-  </section>
+<% content_for(:page_title) { ("#{@project.title} Projects") } %>
 
-  <section class="skills">
-    <h3>skills</h3>
-    <p class="description"><%= @project.skills_description %></p>
-  </section>
+<h1><%= @project.title %></h1>
 
-  <section class="gallery">
-  </section>
+<section class="synopsis">
+  <h3>Synopsis</h3>
+  <p class="description"><%= @project.description %></p>
+</section>
 
-  <section class="supplies">
-    <h3>supplies</h3>
-    <ul>
-      <% @project.supply_items.each do |supply| %>
-        <% if supply.has_link? %>
-          <li><%= link_to supply.name, supply.url %></li>
-        <% else %>
-          <li><%= supply.name %></li>
-        <% end %>
+<section class="skills">
+  <h3>Skills</h3>
+  <p class="description"><%= @project.skills_description %></p>
+</section>
+
+<section class="gallery">
+</section>
+
+<section class="supplies">
+  <h3>Supplies</h3>
+  <ul>
+    <% @project.supply_items.each do |supply| %>
+      <% if supply.has_link? %>
+        <li><%= link_to supply.name, supply.url %></li>
+      <% else %>
+        <li><%= supply.name %></li>
       <% end %>
-    </ul>
-  </section>
+    <% end %>
+  </ul>
+</section>
 
-  <section class="lesson-plans">
-    <h3>lesson plans</h3>
-  </section>
-</div>
+<section class="lesson-plans">
+  <h3>Lesson Plans</h3>
+</section>

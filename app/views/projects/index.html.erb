@@ -1,16 +1,16 @@
-<% content_for(:nav_size_class) { 'small' } %>
 <% content_for(:page_title) { ('Projects') } %>
-<div class="projects">
-  <h1>Available Projects</h1>
-  <% @projects.each do |set| %>
-    <section class="project">
-      <div class="info">
-        <h2><%= set.title %></h2>
-      </div>
-      <div class="links">
-        <%= link_to "Upper Academy", project_path(set.upper) %>
-        <%= link_to "Lower Academy", project_path(set.lower) %>
-      </div>
-    </section>
-  <% end %>
-</div>
+<% content_for(:hero_image) { 'top_hero_image' } %>
+<% content_for(:hero_content) { 'Check out our cool Projects.' } %>
+
+<h1>Projects</h1>
+<% @projects.each do |set| %>
+  <section class="project">
+    <div class="info">
+      <h2><%= set.title %></h2>
+    </div>
+    <div class="links">
+      <%= link_to "Upper Academy", project_path(set.upper) %>
+      <%= link_to "Lower Academy", project_path(set.lower) %>
+    </div>
+  </section>
+<% end %>
