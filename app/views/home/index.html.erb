@@ -1,13 +1,8 @@
-<% content_for(:nav_size_class) { 'large' } %>
-<div class="homepage">
-  <section class="hero">
-    <img src="<%= asset_path('top_hero_image.jpg') %>" class='hero__img' alt='Doodles Academy' />
-    <p class="hero__content">
-      Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.
-    </p>
-  </section>
+<% content_for(:hero_image) { 'top_hero_image' } %>
+<% content_for(:hero_content) { 'Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.' } %>
 
-  <section>
+<div class="homepage">
+ <section>
     <div class="content">
       <div class="frame frame--16x9" style="margin-bottom: 50px">
         <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -42,18 +37,12 @@
     </div>
   </section>
 
-
-  <section class="hero">
-    <img src="<%= asset_path('map-direction-image.jpg') %>" class="hero__img"/>
-    <p class="hero__content">
-      <span class="quote">
-        “Since [our daughter’s] school doesn't have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she's been enrolled in Doodles.”
-      </span>
-      <br/>
-      <span class="quote__person">
-        Kara Bloom
-      </span>
-    </p>
+  <section class="hero quote">
+    <%= image_tag 'map-direction-image.jpg', class:"hero__img" %>
+    <div class="hero__content">
+      <div class="quote__contents"></div>
+    </div>
+    <div class="quote__selector"></div>
   </section>
 
   <section>

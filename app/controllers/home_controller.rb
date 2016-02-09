@@ -14,7 +14,13 @@ class HomeController < ApplicationController
   def contact
   end
 
-  def our_story
+  def about
+  end
+
+  def partners 
+  end
+
+  def volunteer
   end
 
   def featured_lessons

@@ -57,19 +57,53 @@ section {
   }
 }
 
-span.quote {
+.quote {
+  color: white;
+}
+
+.quote__contents {
   @include primary-font;
   font-size: 1.2em;
   line-height: 1.6em;
   font-weight: 300;
   font-style: italic;
   text-transform: none;
+  transition: opacity 300ms ease;
+
+  &.is-hidden {
+    opacity: 0;
+  }
 }
 
-span.quote__person {
+.quote__person {
   display: block;
-  font-size: 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: normal;
   margin-top: 20px;
+}
+
+.quote__selector {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-bottom: 3em;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.quote__selector__bubble {
+  font-size: 5em;
+  font-style: normal;
+  opacity: 0.5;
+  transition: opacity 200ms ease;
+  &.is-active,
+  &:hover {
+    opacity: 1;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .content {

@@ -3,6 +3,7 @@
   $nav = $('.nav')
   $body = $('.body')
   $window = $(window)
+  $quote = $('.quote .quote__contents')
   navHeight = $nav.height()
   $lightbox = null
   $close_btn = null
@@ -67,7 +68,83 @@
     $lightbox.addClass "is-opened"
 
   $('div[data-video-id]').on('click', showVideo)
+  
+  # Quotes
+  quotes = []
+  quotes.push
+    content: '"Doodles has been an amazing experience for my child. Tempest is the best!"'
+    person: "Kara Bloom"
+  quotes.push
+    content: '"I like mushrooms"'
+    person: "Alex"
+  quotes.push
+    content: '"I like sun"'
+    person: "Tempest"
+  
+  quote_rotate_speed = 4000
+  quote_rotate_interval = null
+  quote_rotate_current_index = 0
 
+  "content person".split(" ").map (selector) ->
+    $quote.append("<div class='quote__#{selector}'></div>")
+  $quote_content = $quote.find('.quote__content')
+  $quote_person = $quote.find('.quote__person')
+  $quote_selector = $('.quote .quote__selector')
+
+  initQuotes = ->
+    quotes.map (quote, index) ->
+      $selector = $ "<i class='quote__selector__bubble' data-quote-id='#{index}'>•</i>"
+      $quote_selector.append $selector
+
+    $quote_selector.on 'click', '.quote__selector__bubble', (e) ->
+      $target = $(e.currentTarget)
+      quote_id = $target.data('quote-id')
+      selectQuote(quote_id)
+      quote_rotate_current_index = quote_id
+
+    $('.quote').on 'mouseenter', ->
+      clearInterval quote_rotate_interval
+
+    $('.quote').on 'mouseleave', ->
+      rotateQuotes()
+
+    selectQuote()
+    rotateQuotes()
+
+  rotateQuotes = ->
+    quote_rotate_interval = setInterval ->
+      i = quote_rotate_current_index += 1
+      i = i % 3
+      selectQuote(i)
+    , quote_rotate_speed
+
+  setActiveBubble = (active_index = 0) ->
+    return unless 0 <= active_index < quotes.length
+    $quote_selector.children().map (index, bubble) ->
+      $bubble = $(bubble)
+      $bubble.toggleClass "is-active", index is active_index
+
+  selectQuote = (index = 0) ->
+    return unless 0 <= index < quotes.length
+    quote = quotes[index]
+    toggleQuote()
+    setActiveBubble(index)
+    $quote.one "transitionend", ->
+      switchQuote(quote)
+      toggleQuote()
+
+  toggleQuote = (hide) ->
+    hide ?= not $quote.hasClass "is-hidden"
+    $quote.toggleClass "is-hidden", hide
+
+  switchQuote = (quote) ->
+    return unless quote? and quote.person? and quote.content?
+    $quote_content.text quote.content
+    $quote_person.text quote.person
+
+  initQuotes()
+
+  # Email submission
   hasValue = _.debounce (e) ->
     $this = $(@)
     has_value = !!($this.val() or "").length

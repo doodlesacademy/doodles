@@ -5,6 +5,21 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+   #if !( params[:id].match /\d/ )
+   #  slug = params[:id]
+   #  @project = Project.find_by_slug(slug)
+   #else
+   #  begin
+   #    project = Project.select(:slug).find(params[:id])
+   #  rescue
+   #    return redirect_to action: 'index'
+   #  end
+   #  slug = project.slug
+   #  return redirect_to action: 'show', id: slug
+   #end
+    if @project.blank?
+      redirect_to action: 'index'
+    end
   end
 
   def create

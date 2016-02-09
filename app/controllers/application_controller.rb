@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
   def define_pages_and_social_links
     @pages = []
-    @pages.push "About Us"
-    @pages.push "Projects"
-    @pages.push "Partners"
-    @pages.push "The Board"
-    @pages.push "Get Involved"
+    @pages.push({ name: "About Us", path: about_path })
+    @pages.push({ name: "Projects", path: projects_path })
+    @pages.push({ name: "Partners", path: partners_path })
+    @pages.push({ name: "The Board", path: board_path })
+    @pages.push({ name: "Get Involved", path: volunteer_path })
 
     name = "doodlesacademy"
     kebab_case_name = "doodles-academy"
