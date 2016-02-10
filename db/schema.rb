@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209053132) do
+ActiveRecord::Schema.define(version: 20160210011907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,26 +60,24 @@ ActiveRecord::Schema.define(version: 20160209053132) do
     t.string   "title"
     t.integer  "upper_id"
     t.integer  "lower_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "slug"
+    t.string   "description"
+    t.string   "books_media"
+    t.string   "skills_description"
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree
   add_index "project_sets", ["upper_id"], name: "index_project_sets_on_upper_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
     t.integer  "lessons_count"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "level"
-    t.text     "skills_description"
-    t.text     "books_media"
-    t.string   "slug"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "project_set_id"
+    t.integer  "level"
   end
-
-  add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
   create_table "supply_items", force: :cascade do |t|
     t.string   "name"

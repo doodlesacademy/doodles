@@ -1,11 +1,14 @@
 class Project < ActiveRecord::Base
 
-  include Slugable
+  belongs_to :project_set
 
   has_many :lessons
   has_many :supply_items, through: :lessons
 
-  validates :title, presence: true
-  validates :level, inclusion: { in: %w(upper lower) }
+  enum level: [ :upper, :lower ]
+
+  def title
+    project_set.title
+  end
 
 end
