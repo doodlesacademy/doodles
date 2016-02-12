@@ -95,8 +95,13 @@ section {
 .quote__selector__bubble {
   font-size: 5em;
   font-style: normal;
+  margin-right: 0.2em;
   opacity: 0.5;
   transition: opacity 200ms ease;
+
+  &:last-child {
+   margin-right: 0; 
+  }
   &.is-active,
   &:hover {
     opacity: 1;
