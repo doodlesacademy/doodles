@@ -1,0 +1,9 @@
+<h1> The Board </h1>
+<% @board_members.each do |member| %>
+<%=  render "shared/member", member: member %>
+<% end %>
+
+<h1> Volunteers </h1>
+<% @volunteer_members.each do |member| %>
+<%=  render "shared/member", member: member %>
+<% end %>
