@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :assets
   devise_for :users
 
   root to: 'home#index'
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   resources :projects do
     resources :lessons, except: [:index]
   end
+
+  resources :assets
 
   post 'feedback', to: 'feedback_messages#create'
 end
