@@ -21,13 +21,7 @@
       <h2>Featured Videos</h2>
       <div class="homepage-gallery">
         <% @featured_lessons.each do |lesson| %>
-        <div class="homepage-gallery-item" data-video-id="<%= lesson[:video_id] %>" data-project-title="<%= lesson[:title] %>">
-          <img src="<%= asset_path(lesson[:image]) %>">
-          <div class="homepage-gallery-item-play-btn"></div>
-          <div class="homepage-gallery-item-title">
-            <%= lesson[:title] %>
-          </div>
-        </div>
+        <%= render "shared/lesson_gallery", locals: { lesson: lesson } %>
         <% end %>
       </div>
       <div class="gallery-tools">
