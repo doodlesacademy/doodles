@@ -9,8 +9,8 @@
       <h2><%= set.title %></h2>
     </div>
     <div class="links">
-      <%= link_to "Upper Academy", project_path(set.upper) %>
-      <%= link_to "Lower Academy", project_path(set.lower) %>
+      <%= link_to "Upper Academy", project_path(set.slug, level: "upper") %>
+      <%= link_to "Lower Academy", project_path(set.slug, level: "lower") %>
     </div>
   </section>
 <% end %>

@@ -1,6 +1,7 @@
-<% content_for(:page_title) { ("#{@project.title} Projects") } %>
+<% content_for(:page_title) { ("#{@project.title}") } %>
 
 <h1><%= @project.title %></h1>
+<h6><%= @project.level.capitalize %> Academy</h6>
 
 <section class="synopsis">
   <h3>Synopsis</h3>
@@ -19,15 +20,21 @@
   <h3>Supplies</h3>
   <ul>
     <% @project.supply_items.each do |supply| %>
+      <% capitalized_name = supply.name.capitalize %>
       <% if supply.has_link? %>
-        <li><%= link_to supply.name, supply.url %></li>
+        <li><%= link_to capitalized_name, supply.url %></li>
       <% else %>
-        <li><%= supply.name %></li>
+        <li><%= capitalized_name %></li>
       <% end %>
     <% end %>
   </ul>
 </section>
 
 <section class="lesson-plans">
-  <h3>Lesson Plans</h3>
+  <h3>Lessons</h3>
+  <ol>
+    <% @project.lessons.each do |lesson| %>
+      <li><%= link_to lesson.name, project_lesson_path(@project.slug, lesson.slug) %></li>
+    <% end %>
+  </ol>
 </section>

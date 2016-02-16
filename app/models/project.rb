@@ -3,12 +3,10 @@ class Project < ActiveRecord::Base
   belongs_to :project_set
 
   has_many :lessons
-  has_many :supply_items, through: :lessons
+  has_many :supply_items, -> { distinct }, through: :lessons
 
   enum level: [ :upper, :lower ]
-
-  def title
-    project_set.title
-  end
+  delegate :title, :description, :skills_description, :books_media, :slug, to: :project_set
+  alias_attribute :name, :title
 
 end
