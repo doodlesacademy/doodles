@@ -9,7 +9,7 @@
     Doodles Academy
   </title>
   <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
-  <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
+  <link rel="icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -26,7 +26,7 @@
       <source src="<%= asset_path 'videos/doodles.ogg' %>" type="video/ogg">
     </video>
     <% else %>
-    <%= image_tag 'top_hero_image', class: "hero-img", alt: "Doodles Academy" %>
+    <%= image_tag 'top_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
     <% end %>
     <p class="hero-content">
       <%= @hero %>
