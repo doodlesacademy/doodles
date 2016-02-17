@@ -8,8 +8,8 @@
     <% end %>
     Doodles Academy
   </title>
-  <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
-  <link rel="icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon">
+  <link rel="shortcut icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
+  <link rel="icon" href="<%= image_path 'favicon.ico' %>" type="image/x-icon">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -21,9 +21,9 @@
   <section class="hero">
     <% if @home_hero.present? %>
     <video autoplay loop muted auto class="hero-video">
-      <source src="<%= asset_path 'videos/doodles.webm' %>" type="video/webm">
-      <source src="<%= asset_path 'videos/doodles.m4v' %>" type="video/mp4">
-      <source src="<%= asset_path 'videos/doodles.ogg' %>" type="video/ogg">
+      <source src="<%= video_path 'doodles.webm' %>" type="video/webm">
+      <source src="<%= video_path 'doodles.m4v' %>" type="video/mp4">
+      <source src="<%= video_path 'doodles.ogg' %>" type="video/ogg">
     </video>
     <% else %>
     <%= image_tag 'top_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>

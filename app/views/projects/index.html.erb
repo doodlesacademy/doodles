@@ -9,7 +9,8 @@
 <% @projects.each do |set| %>
 <div class="project-grid-item" data-project-slug="<%= set.slug %>">
   <div class="project-grid-item-unit-title"><%= "Unit #{set.unit_number}: #{set.unit}" %></div>
-  <div class="project-grid-item-image" style="background-image: url('<%= asset_path set.inspiration_image %>')">
+  <div class="project-grid-item-image" style="background-image: url(
+    <%= image_path "inspiration/#{set.inspiration_image}" %>)">
   </div>
   <div class="project-grid-item-title"><%= set.title %></div>
 </div>
