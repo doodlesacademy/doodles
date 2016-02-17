@@ -16,14 +16,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% max_height = yield(:hero_height).present? ? "#{yield(:hero_height)}px" : "" %>
-  <% @hero_image = yield(:hero_image) %>
-  <% unless @hero_image.blank? %>
-  <section class="hero" style="max-height: <%= max_height %>">
-     <%= image_tag @hero_image, class: "hero__img", alt: "Doodles Academy" %>
-      <p class="hero__content">
-        <%= yield(:hero_content) %>
-      </p>
+  <% @hero = yield(:hero); @home_hero = yield(:home_hero) %>
+  <% if @hero.present? %>
+  <section class="hero">
+    <% if @home_hero.present? %>
+    <video autoplay loop muted auto class="hero-video">
+      <source src="<%= asset_path 'videos/doodles.webm' %>" type="video/webm">
+      <source src="<%= asset_path 'videos/doodles.m4v' %>" type="video/mp4">
+      <source src="<%= asset_path 'videos/doodles.ogg' %>" type="video/ogg">
+    </video>
+    <% else %>
+    <%= image_tag 'top_hero_image', class: "hero-img", alt: "Doodles Academy" %>
+    <% end %>
+    <p class="hero-content">
+      <%= @hero %>
+    </p>
   </section>
   <% else %>
   <div id="no-hero"></div>

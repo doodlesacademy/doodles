@@ -64,7 +64,8 @@ section {
   overflow: hidden;
 }
 
-.hero__img {
+.hero-video,
+.hero-img {
   opacity: 0.5;
   width: 100%;
   height: auto;
@@ -74,7 +75,7 @@ section {
   }
 }
 
-.hero__content {
+.hero-content{
   @include textCap-16;
   color: white;
   line-height: 1.5em;
