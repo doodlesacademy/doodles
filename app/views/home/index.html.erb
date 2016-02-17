@@ -16,7 +16,7 @@
       <h2>Featured Videos</h2>
       <div class="homepage-gallery">
         <% @featured_lessons.each do |lesson| %>
-        <%= render "shared/lesson_gallery", locals: { lesson: lesson } %>
+        <%= render "shared/lesson_gallery", lesson: lesson %>
         <% end %>
       </div>
       <div class="gallery-tools">

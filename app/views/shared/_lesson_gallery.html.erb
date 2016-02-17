@@ -1,7 +1,7 @@
-<div class="homepage-gallery-item" data-video-id="<%= @lesson[:video_id] %>" data-project-title="<%= @lesson[:title] %>">
-  <img src="<%= asset_path(@lesson[:image]) %>">
+<div class="homepage-gallery-item" data-video-id="<%= lesson[:video_id] %>" data-project-title="<%= lesson[:title] %>">
+  <%= image_tag lesson[:image] %>
   <div class="homepage-gallery-item-play-btn"></div>
   <div class="homepage-gallery-item-title">
-    <%= @lesson[:title] %>
+    <%= lesson[:title] %>
   </div>
 </div>
