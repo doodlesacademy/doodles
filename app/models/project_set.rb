@@ -2,6 +2,7 @@ class ProjectSet < ActiveRecord::Base
   include Slugable
   validates :title, presence: true
   has_many :projects
+  has_one :gallery
 
   after_create :generate_projects
 

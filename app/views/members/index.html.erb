@@ -1,3 +1,6 @@
+<% content_for(:page_title) { ('Team') } %>
+
+<div class="wrapper">
 <h1> The Board </h1>
 <% @board_members.each do |member| %>
 <%=  render "shared/member", member: member %>
@@ -7,3 +10,4 @@
 <% @volunteer_members.each do |member| %>
 <%=  render "shared/member", member: member %>
 <% end %>
+</div>

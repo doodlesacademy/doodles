@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216225346) do
+ActiveRecord::Schema.define(version: 20160217204857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assetables", force: :cascade do |t|
+    t.integer  "asset_id"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "assetables", ["assetable_type", "assetable_id"], name: "index_assetables_on_assetable_type_and_assetable_id", using: :btree
 
   create_table "assets", force: :cascade do |t|
     t.string   "fingerprint", null: false
@@ -36,6 +46,12 @@ ActiveRecord::Schema.define(version: 20160216225346) do
   end
 
   add_index "feedback_messages", ["lesson_id"], name: "index_feedback_messages_on_lesson_id", using: :btree
+
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "project_set_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "project_id"

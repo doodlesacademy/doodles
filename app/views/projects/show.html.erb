@@ -1,40 +1,35 @@
 <% content_for(:page_title) { ("#{@project.title}") } %>
-
-<h1><%= @project.title %></h1>
+<%= image_tag @project.inspiration_image %>
+<div class="wrapper">
+<h1 class="title"><%= @project.title %></h1>
 <h6><%= @project.level.capitalize %> Academy</h6>
 
 <section class="synopsis">
-  <h3>Synopsis</h3>
-  <p class="description"><%= @project.description %></p>
+  <h2>Synopsis</h2>
+  <p><%= @project.description %></p>
 </section>
 
 <section class="skills">
-  <h3>Skills</h3>
-  <p class="description"><%= @project.skills_description %></p>
-</section>
-
-<section class="gallery">
+  <h2>Skills</h2>
+  <p><%= @project.skills_description %></p>
 </section>
 
 <section class="supplies">
-  <h3>Supplies</h3>
-  <ul>
-    <% @project.supply_items.each do |supply| %>
-      <% capitalized_name = supply.name.capitalize %>
-      <% if supply.has_link? %>
-        <li><%= link_to capitalized_name, supply.url %></li>
-      <% else %>
-        <li><%= capitalized_name %></li>
-      <% end %>
+  <h2>Supplies</h2>
+  <% @project.supply_items.each do |supply| %>
+    <% capitalized_name = supply.name.capitalize %>
+    <% if supply.has_link? %>
+      <p><%= link_to capitalized_name, supply.url %></p>
+    <% else %>
+      <p><%= capitalized_name %></p>
     <% end %>
-  </ul>
+  <% end %>
 </section>
 
 <section class="lesson-plans">
-  <h3>Lessons</h3>
-  <ol>
-    <% @project.lessons.each do |lesson| %>
-      <li><%= link_to lesson.name, project_lesson_path(@project.slug, lesson.slug) %></li>
-    <% end %>
-  </ol>
+  <h2>Lessons</h2>
+  <% @project.lessons.each do |lesson| %>
+    <p><%= link_to lesson.name, project_lesson_path(@project.slug, lesson.slug) %></p>
+  <% end %>
 </section>
+</div>

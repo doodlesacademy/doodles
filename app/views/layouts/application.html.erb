@@ -16,6 +16,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% max_height = yield(:hero_height).present? ? "#{yield(:hero_height)}px" : "" %>
+  <% @hero_image = yield(:hero_image) %>
+  <% unless @hero_image.blank? %>
+  <section class="hero" style="max-height: <%= max_height %>">
+     <%= image_tag @hero_image, class: "hero__img", alt: "Doodles Academy" %>
+      <p class="hero__content">
+        <%= yield(:hero_content) %>
+      </p>
+  </section>
+  <% else %>
+  <div id="no-hero"></div>
+  <% end %>
+
   <div class="nav"> 
     <div class="brand">
       <a href="/"><%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %></a>
@@ -33,20 +46,7 @@
       </li>
     </ul>
   </div>
-  <% max_height = yield(:hero_height).present? ? "#{yield(:hero_height)}px" : "" %>
-  <section class="hero" style="max-height: <%= max_height %>">
-    <% @hero_image = yield(:hero_image) %>
-    <% unless @hero_image.blank? %>
-      <%= image_tag @hero_image, class: "hero__img", alt: "Doodles Academy" %>
-      <p class="hero__content">
-        <%= yield(:hero_content) %>
-      </p>
-    <% end %>
-  </section>
-
-  <div class="wrapper">
-    <%= yield %>
-  </div>
+  <%= yield %>
 
   <div class="footer">
     <div class="newsletter">

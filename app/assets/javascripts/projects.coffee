@@ -22,7 +22,7 @@
     $academy = $ e.currentTarget
     level = $academy.data('level')
     old_location = location
-    location.replace "#{old_location}/#{project_slug}/?level=#{level}"
+    window.location = "#{old_location}/#{project_slug}/?level=#{level}"
     toggleAcademyModal()
     
 

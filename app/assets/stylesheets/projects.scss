@@ -1,6 +1,6 @@
 .project-grid {
   @include grid(project-grid-item);
-  max-width: 50%;
+  width: $content-max-width;
   margin: 4em auto 0;
 }
 
