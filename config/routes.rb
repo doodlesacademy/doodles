@@ -10,9 +10,11 @@ Rails.application.routes.draw do
 
   get 'board', to: 'members#index'
 
-  resources :projects do
-    resources :lessons, except: [:index]
+  resources :projects, param: :slug, only: [:index, :show] do
+    resources :lessons, param: :slug, only: [:index, :show]
   end
+
+  resources :assets
 
   post 'feedback', to: 'feedback_messages#create'
 end

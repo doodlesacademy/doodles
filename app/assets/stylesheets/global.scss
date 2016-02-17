@@ -17,6 +17,8 @@ $background-purple: #4B4583;
 $active-purple: #645EA6;
 $input-purple: #57528C;
 
+$background-blue: #599FD2;
+
 // Miscellaenous variables
 //
 $content-max-width: 800px;
@@ -65,10 +67,16 @@ a {
 p {
   font-size: 1.6em;
   line-height: 1.5em;
+  padding: 0.4em 0;
   font-weight: 300;
 }
 
 img {
+  width: 100%;
+  height: auto;
+}
+
+img.height {
   height: 100%;
   width: auto;
 }
@@ -106,6 +114,7 @@ img {
   background-color: transparent;
   transition: background-color 300ms ease;
 
+  #no-hero + &, 
   &.is-scrolled {
     background-color: rgba($primary-blue, 0.6);
   }
@@ -157,6 +166,21 @@ img {
   @include nav-menu-font;
   font-size: 1em;
   padding: 6px 9px;
+}
+
+#no-hero {
+  background-color: transparent;
+  height: 100px;
+}
+
+// Wrapper
+.wrapper {
+  width: $content-max-width;
+  margin: 4em auto;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 // Form

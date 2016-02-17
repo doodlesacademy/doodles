@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210011907) do
+ActiveRecord::Schema.define(version: 20160217204857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assetables", force: :cascade do |t|
+    t.integer  "asset_id"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "assetables", ["assetable_type", "assetable_id"], name: "index_assetables_on_assetable_type_and_assetable_id", using: :btree
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "fingerprint", null: false
+    t.string   "name"
+    t.string   "url"
+    t.string   "extension"
+    t.integer  "size"
+    t.integer  "type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "feedback_messages", force: :cascade do |t|
     t.text     "body"
@@ -26,6 +47,12 @@ ActiveRecord::Schema.define(version: 20160210011907) do
 
   add_index "feedback_messages", ["lesson_id"], name: "index_feedback_messages_on_lesson_id", using: :btree
 
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "project_set_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "lessons", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "title"
@@ -35,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160210011907) do
     t.string   "video_uri"
     t.text     "objective"
     t.text     "set_up"
+    t.string   "slug"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -54,6 +82,8 @@ ActiveRecord::Schema.define(version: 20160210011907) do
     t.string   "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "position"
+    t.integer  "role"
   end
 
   create_table "project_sets", force: :cascade do |t|
@@ -66,6 +96,9 @@ ActiveRecord::Schema.define(version: 20160210011907) do
     t.string   "description"
     t.string   "books_media"
     t.string   "skills_description"
+    t.string   "inspiration_image"
+    t.string   "unit"
+    t.integer  "unit_number"
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree

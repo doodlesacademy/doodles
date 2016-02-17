@@ -10,15 +10,28 @@
   </title>
   <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
   <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% max_height = yield(:hero_height).present? ? "#{yield(:hero_height)}px" : "" %>
+  <% @hero_image = yield(:hero_image) %>
+  <% unless @hero_image.blank? %>
+  <section class="hero" style="max-height: <%= max_height %>">
+     <%= image_tag @hero_image, class: "hero__img", alt: "Doodles Academy" %>
+      <p class="hero__content">
+        <%= yield(:hero_content) %>
+      </p>
+  </section>
+  <% else %>
+  <div id="no-hero"></div>
+  <% end %>
+
   <div class="nav"> 
     <div class="brand">
-      <a href="/"><img src="<%= asset_path('doodle_white.png') %>" class="logo" alt="Doodles Academy" /></a>
+      <a href="/"><%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %></a>
     </div>
     <ul class="nav-menu">
       <% @pages.each do |page| %>
@@ -33,16 +46,6 @@
       </li>
     </ul>
   </div>
-  <section class="hero">
-    <% @hero_image = yield(:hero_image) %>
-    <% unless @hero_image.blank? %>
-      <%= image_tag @hero_image, class: "hero__img", alt: "Doodles Academy" %>
-      <p class="hero__content">
-        <%= yield(:hero_content) %>
-      </p>
-    <% end %>
-  </section>
-
   <%= yield %>
 
   <div class="footer">

@@ -1,0 +1,17 @@
+.modal {
+  display: none;
+  &.is-active {
+    display: block;
+  }
+}
+
+.modal-bg {
+  @include fixed-position;
+  background-color: rgba(black, 0.4);
+}
+
+.modal-content {
+  width: 60%;
+  border-radius: 5px;
+  background-color: darken(white, 10%);
+}
