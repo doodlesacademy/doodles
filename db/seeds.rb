@@ -12,6 +12,9 @@ supplies = %w(pencils markers construction\ paper scissors glue magazines)
 supplies = supplies.map { |supply| SupplyItem.find_or_create_by(name: supply) }
 
 superhero = ProjectSet.where(title: 'Superheroes').first_or_create({ 
+  unit_number: 1,
+  unit: "Basic Lines",
+  inspiration_image: "inspiration/superhero",
   description: "Student artists learn to recognize shapes and types of line as they design and draw their own superheroes.  They begin by creating a book that tells the backstory of their superhero using their choice of drawing/writing/or a combination. They then move on to isolating graphic images into basic curved lines and using a handout to copy disparate parts of a superhero into their own unique character. They create this silhouette onto their final paper which will become the cover to their book. They learn about how costumes and details are another way of telling parts of the story, and they add to their superhero. They finish by completing their superheroes with pan watercolors.",
    skills_description: "Artists will be able to develop a backstory for their superhero and create with this story in mind, recognize, isolate, and copy line in a graphic image, add details to their character that help to tell the story they have developed, & show competence in using and controlling watercolor paint.",
   books_media: "Optional (for early finishers): 5-Minute Marvel Stories, old comics (check with a local comic book shop and ask for the comics that they typically throw away—many will sell in bulk or give away for free)."
@@ -37,6 +40,28 @@ lower_lesson.update_attributes({
   project_id: superhero.lower.id,
   video_uri: 'https://vimeo.com/140998518'
 })
+
+
+# Symbol Unit 
+symbol = ProjectSet.where(title: 'Symbol & Self').first_or_create({ 
+  unit_number: 2,
+  unit: "Complex Line",
+  inspiration_image: "inspiration/symbol_self",
+  description: "Need desc.",
+  skills_description: "Need Skills",
+  books_media: "Books here"
+})
+
+# House Lesson
+house = ProjectSet.where(title: 'Dream House').first_or_create({ 
+  unit_number: 3,
+  unit: "Observation Drawing",
+  inspiration_image: "inspiration/dream_home",
+  description: "Need desc.",
+  skills_description: "Need Skills",
+  books_media: "Books here"
+})
+
 
 # Members
 Member.where(first_name: "Tempest").first_or_create({

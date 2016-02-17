@@ -17,6 +17,8 @@ $background-purple: #4B4583;
 $active-purple: #645EA6;
 $input-purple: #57528C;
 
+$background-blue: #599FD2;
+
 // Miscellaenous variables
 //
 $content-max-width: 800px;
@@ -157,6 +159,11 @@ img {
   @include nav-menu-font;
   font-size: 1em;
   padding: 6px 9px;
+}
+
+// Wrapper
+.wrapper {
+  margin: 4em 0 6em;
 }
 
 // Form

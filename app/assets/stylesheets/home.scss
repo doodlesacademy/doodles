@@ -1,9 +1,24 @@
-h2 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  font-size: 2em;
   letter-spacing: 0.1em;
 }
 
+h1 {
+  font-weight: 400;
+  font-size: 2.5em;
+  text-transform: lowercase;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+ 
 section {
   width: 100%;
   margin: 100px 0;
@@ -11,6 +26,25 @@ section {
 
 .homepage {
   text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.sub {
+  font-style: italic;
+  a, a:visited {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 200ms ease;
+  }
+  a:hover {
+    color: lighten(black, 30%);
+    border-bottom-color: lighten(black, 50%);
+  }
 }
 
 .lead {

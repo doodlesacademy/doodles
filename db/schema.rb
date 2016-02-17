@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215015735) do
+ActiveRecord::Schema.define(version: 20160216225346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(version: 20160215015735) do
     t.string   "description"
     t.string   "books_media"
     t.string   "skills_description"
+    t.string   "inspiration_image"
+    t.string   "unit"
+    t.integer  "unit_number"
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree

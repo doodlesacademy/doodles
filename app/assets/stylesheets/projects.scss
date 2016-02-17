@@ -1,59 +1,45 @@
-div.projects {
+.project-grid {
+  @include grid(project-grid-item);
+  max-width: 50%;
+  margin: 4em auto 0;
+}
+
+.project-grid-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid darken(white, 10%);
+  transition: 200ms ease;
+
+  .project-grid:hover &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  .project-grid:hover & {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+.project-grid-item-unit-title,
+.project-grid-item-title {
+  font-weight: 400;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.project-grid-item-title {
+  letter-spacing: 2px;
+  font-size: 1.4em;
+}
+
+.project-grid-item-image {
+  display: block;
+  overflow: hidden;
   position: relative;
-  width: $content-max-width;
-  margin: 200px auto 0 auto;
-
-  h1 {
-    text-align: right;
-    margin-bottom: 50px;
-    color: $primary-red;
-    font-size: 3.0em;
-    text-transform: lowercase;
-
-    &.capitalize {
-      text-transform: none;
-    }
-  }
-
-  h2 {
-    padding: 0;
-    margin: 0;
-    font-size: 28px;
-  }
-
-  h3 {
-    color: $primary-blue;
-  }
-
-  section {
-    &:not(:first-child) {
-      margin-top: 60px;
-    }
-  }
-
-  section.project {
-    div {
-      display: inline-block;
-      float: left;
-    }
-
-    div.info {
-      width: 60%;
-    }
-
-    div.links {
-      width: 40%;
-      text-align: right;
-
-      a {
-        padding: 20px;
-        border: 1px solid $primary-blue;
-        line-height: 28px;
-
-        &:hover {
-          border-color: $primary-red;
-        }
-      }
-    }
-  }
+  padding-bottom: 80%;
+  background-size: cover;
 }
