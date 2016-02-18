@@ -8,7 +8,7 @@
   $academy_modal = $('#academy-select')
 
   setupListeners = ->
-    $('[data-model-id]').on 'click', openModal
+    $('body').on 'click', '[data-toggle="modal"]', openModal
     $academy_modal.on 'click'
     $academy_modal.on 'click', '.btn-academy', selectAcademy
     $('.project-grid').on 'click', '.project-grid-item', selectProject
@@ -25,9 +25,11 @@
     window.location = "#{old_location}/#{project_slug}/?level=#{level}"
     toggleAcademyModal()
     
-
   toggleModal = ($modal, toggle=false) ->
     $modal.toggleClass 'is-active', toggle
+    $modal.on 'click.close-modal', '.modal-close', (e) ->
+      toggleModal($modal)
+      $modal.off '.close-modal'
 
   toggleAcademyModal = (toggle) ->
     toggleModal($academy_modal, toggle)
@@ -36,7 +38,7 @@
     $modal_link = $ e.currentTarget
     modal_id = $modal_link.data('modal-id')
     $modal = $ "##{modal_id}"
-    $modal.addClass "is-active"
+    toggleModal($modal, true)
 
   setupListeners()
 
