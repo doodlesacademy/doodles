@@ -96,7 +96,7 @@ section {
   color: white;
 }
 
-.quote__contents {
+.quote-contents {
   @include primary-font;
   font-size: 1.2em;
   line-height: 1.6em;
@@ -110,7 +110,7 @@ section {
   }
 }
 
-.quote__person {
+.quote-person {
   display: block;
   font-size: 1em;
   font-weight: 600;
@@ -119,7 +119,7 @@ section {
   margin-top: 20px;
 }
 
-.quote__selector {
+.quote-selector {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -127,7 +127,7 @@ section {
   transform: translate3d(-50%, 0, 0);
 }
 
-.quote__selector__bubble {
+.quote-selector-bubble {
   font-size: 5em;
   font-style: normal;
   margin-right: 0.2em;

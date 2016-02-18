@@ -2,12 +2,23 @@
 
 <div class="wrapper">
 <h1> The Board </h1>
+
+<div class="member-grid">
 <% @board_members.each do |member| %>
-<%=  render "shared/member", member: member %>
+<div class="member-grid-item">
+  <%=  render "shared/member", member: member %>
+</div>
 <% end %>
+</div>
 
 <h1> Volunteers </h1>
+
+<div class="member-grid">
 <% @volunteer_members.each do |member| %>
-<%=  render "shared/member", member: member %>
+<div class="member-grid-item">
+  <%=  render "shared/member", member: member %>
+</div>
 <% end %>
+</div>
+
 </div>

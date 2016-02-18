@@ -3,7 +3,7 @@
   $nav = $('.nav')
   $body = $('.body')
   $window = $(window)
-  $quote = $('.quote .quote__contents')
+  $quote = $('.quote .quote-contents')
   navHeight = $nav.height()
   $lightbox = null
   $close_btn = null
@@ -86,17 +86,17 @@
   quote_rotate_current_index = 0
 
   "content person".split(" ").map (selector) ->
-    $quote.append("<div class='quote__#{selector}'></div>")
-  $quote_content = $quote.find('.quote__content')
-  $quote_person = $quote.find('.quote__person')
-  $quote_selector = $('.quote .quote__selector')
+    $quote.append("<div class='quote-#{selector}'></div>")
+  $quote_content = $quote.find('.quote-content')
+  $quote_person = $quote.find('.quote-person')
+  $quote_selector = $('.quote .quote-selector')
 
   initQuotes = ->
     quotes.map (quote, index) ->
-      $selector = $ "<i class='quote__selector__bubble' data-quote-id='#{index}'>•</i>"
+      $selector = $ "<i class='quote-selector-bubble' data-quote-id='#{index}'>•</i>"
       $quote_selector.append $selector
 
-    $quote_selector.on 'click', '.quote__selector__bubble', (e) ->
+    $quote_selector.on 'click', '.quote-selector-bubble', (e) ->
       $target = $(e.currentTarget)
       quote_id = $target.data('quote-id')
       selectQuote(quote_id)
