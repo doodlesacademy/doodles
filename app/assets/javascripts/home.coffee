@@ -72,16 +72,16 @@
   # Quotes
   quotes = []
   quotes.push
-    content: '"Doodles has been an amazing experience for my child. Tempest is the best!"'
+    content: '"Since [our daughter\’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles."'
     person: "Kara Bloom"
   quotes.push
-    content: '"I like mushrooms"'
-    person: "Alex"
+    content: '“With no art classes at her school, my daughter was floundering – always sketching, but frustrated by her lack of direction … We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter\’s life.”'
+    person: "Laura Harris"
   quotes.push
-    content: '"I like sun"'
-    person: "Tempest"
+    content: '"The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher. … I also appreciated the flexibility of the program. We can adjust it to our life, schedule, and health."'
+    person: "Erin Scott"
   
-  quote_rotate_speed = 4000
+  quote_rotate_speed = 8000
   quote_rotate_interval = null
   quote_rotate_current_index = 0
 
