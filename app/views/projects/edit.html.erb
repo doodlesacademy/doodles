@@ -1,2 +1,15 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+<div class="wrapper">
+<h1>Edit <%= @project_set.title %></h1>
+
+<%= form_for @project_set, url: project_path do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :synopsis %>
+  <%= f.text_area :synopsis %>
+  <%= f.label :skills %>
+  <%= f.text_area :skills %>
+  <%= f.label :photocopies %>
+  <%= f.text_area :photocopies %>
+  <%= f.submit %>
+<% end %>
+</div>

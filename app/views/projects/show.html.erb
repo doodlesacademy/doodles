@@ -4,17 +4,26 @@
 <h1 class="title"><%= @project.title %></h1>
 <h6><%= @project.level.capitalize %> Academy</h6>
 
-<section class="synopsis">
-  <h2>Synopsis</h2>
-  <p><%= @project.description %></p>
-</section>
+<aside class="aside lessons">
+  <% %w(Synopsis Skills Supplies).each do |section| %>
+    <div class="section"><%= section %></div>
+  <% end %>
+  <h3>Lessons</h3>
+  <div class="lesson-list">
+  <% @project.lessons.each do |lesson| %>
+    <div class="lesson-list-item"><%= link_to lesson.name, project_lesson_path(@project.slug, lesson.slug) %></div>
+  <% end %>
+</aside>
 
-<section class="skills">
-  <h2>Skills</h2>
-  <p><%= @project.skills_description %></p>
-</section>
+<h2>Project Overview<h2>
+<% %w(synopsis skills).each do |section| %>
+<div id="<%= section %>">
+  <h2><%= section.capitalize %></h2>
+  <p><%= @project.send(section.to_sym)%></p>
+</div>
+<% end %>
 
-<section class="supplies">
+<div class="supplies">
   <h2>Supplies</h2>
   <% @project.supply_items.each do |supply| %>
     <% capitalized_name = supply.name.capitalize %>
@@ -24,12 +33,6 @@
       <p><%= capitalized_name %></p>
     <% end %>
   <% end %>
-</section>
+</div>
 
-<section class="lesson-plans">
-  <h2>Lessons</h2>
-  <% @project.lessons.each do |lesson| %>
-    <p><%= link_to lesson.name, project_lesson_path(@project.slug, lesson.slug) %></p>
-  <% end %>
-</section>
 </div>

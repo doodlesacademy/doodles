@@ -2,7 +2,6 @@ class LessonsController < ApplicationController
   before_action :load_project
 
   def show
-
     @lesson = @project.lessons.find_by_slug(params[:slug])
   end
 
@@ -12,16 +11,16 @@ class LessonsController < ApplicationController
   end
 
   def update
-    @lesson = @project.lessons.find(params[:id])
+    @lesson = @project.lessons.find_by_slug(params[:slug])
     if @lesson.update_attributes(lesson_params)
-      redirect_to project_lesson_path(@project, @lesson)
+      redirect_to project_lesson_path(@project.slug, @lesson.slug)
     else
       render :edit, lesson: @lesson
     end
   end
 
   def edit
-    @lesson = @project.lessons.find(params[:id])
+    @lesson = @project.lessons.find_by_slug(params[:slug])
   end
 
   def new
@@ -43,6 +42,6 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :video_uri, :description)
+    params.require(:lesson).permit(:title, :video_uri, :synopsis, :setup, :photocopies, :media)
   end
 end

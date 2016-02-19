@@ -24,7 +24,7 @@ superhero = ProjectSet.where(title: 'Superheroes').first_or_create({
 
 upper_lesson = superhero.upper.lessons.where(title: 'Creating a Backstory').first_or_create({
     video_uri: "https://vimeo.com/140998863",
-    description: "In this lesson, artists are introduced to the basic characteristics of superheroes, as well as understanding that each superhero had his or her own unique backstory that told who they were, where they came from, and why or how they became a superhero. Student artists are tasked to brainstorm their own superhero and to generate a backstory for said character by creating a small book and using any combination of writing and drawing to document their superhero’s history. They leave the cover blank for the upcoming lessons.",
+    synopsis: "In this lesson, artists are introduced to the basic characteristics of superheroes, as well as understanding that each superhero had his or her own unique backstory that told who they were, where they came from, and why or how they became a superhero. Student artists are tasked to brainstorm their own superhero and to generate a backstory for said character by creating a small book and using any combination of writing and drawing to document their superhero’s history. They leave the cover blank for the upcoming lessons.",
 
     objective: "SWBAT use multi-media to create and illustrate a narrative that explains their superhero’s backstory.",
 

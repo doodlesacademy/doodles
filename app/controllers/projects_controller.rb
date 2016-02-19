@@ -14,21 +14,21 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create(project_params)
+    @project_set = ProjectSet.create(project_params)
     redirect_to action: 'show', id: @project.id
   end
 
   def update
-    @project = Project.find(params[:id])
-    if @project.update_attributes(project_params)
-      redirect_to action: 'show', id: @project.id
+    @project_set = ProjectSet.find_by_slug(params[:slug])
+    if @project_set.update_attributes(project_set_params)
+      redirect_to action: 'show', slug: @project_set.slug
     else
-      render :edit, project: @project
+      render :edit, project_set: @project_set 
     end
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @project_set = ProjectSet.find_by_slug(params[:slug])
   end
 
   def new
@@ -42,6 +42,9 @@ class ProjectsController < ApplicationController
   end
 
   private
+  def project_set_params
+    params.require(:project_set).permit(:title, :synopsis, :photocopies, :skills)
+  end
   def project_params
     params.require(:project).permit(:title, :description, :level)
   end

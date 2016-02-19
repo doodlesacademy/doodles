@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217204857) do
+ActiveRecord::Schema.define(version: 20160219001056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,16 +53,39 @@ ActiveRecord::Schema.define(version: 20160217204857) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "instruction_groups", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.integer  "order"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructions", force: :cascade do |t|
+    t.integer  "instruction_group_id"
+    t.string   "time_to_complete"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "lessons", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "synopsis"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "video_uri"
     t.text     "objective"
-    t.text     "set_up"
+    t.text     "setup"
     t.string   "slug"
+    t.string   "inspiration_image"
+    t.text     "photocopies"
+    t.text     "media"
+    t.text     "inspiration_image_description"
+    t.text     "anticipated_problems"
+    t.text     "early_finishers"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -93,12 +116,14 @@ ActiveRecord::Schema.define(version: 20160217204857) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "slug"
-    t.string   "description"
+    t.string   "synopsis"
     t.string   "books_media"
     t.string   "skills_description"
     t.string   "inspiration_image"
     t.string   "unit"
     t.integer  "unit_number"
+    t.text     "skills"
+    t.text     "photocopies"
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree

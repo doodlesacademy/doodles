@@ -1,3 +1,20 @@
 <% content_for(:page_title) { @lesson.title } %>
-<h1>@lesson.title</h1>
-<p>Find me in app/views/lessons/edit.html.erb</p>
+<div class="wrapper">
+<h1>Edit <%= @lesson.title %></h1>
+
+<%= form_for @lesson, url: project_lesson_path(@project.slug, @lesson.slug) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :video_url %>
+  <%= f.text_field :video_uri %>
+  <%= f.label :synopsis %>
+  <%= f.text_area :synopsis %>
+  <%= f.label :objective %>
+  <%= f.text_area :objective %>
+  <%= f.label :setup %>
+  <%= f.text_area :photocopies %>
+  <%= f.label :media %>
+  <%= f.text_area :media %>
+  <%= f.submit %>
+<% end %>
+</div>
