@@ -8,7 +8,6 @@ class Lesson < ActiveRecord::Base
   validates :title, presence: true
   validates :video_uri, presence: true
   alias_attribute :name, :title
-  has_many :materials, through: :supply_items
 
   def video_id
     return unless @video_uri.present?
