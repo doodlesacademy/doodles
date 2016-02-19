@@ -16,7 +16,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="nav"> 
+  <div class="nav">
     <div class="brand">
       <a href="/"><img src="<%= asset_path('doodle_white.png') %>" class="logo" alt="Doodles Academy" /></a>
     </div>
@@ -59,15 +59,17 @@
     </div>
     <div class="footer__copyright">
       <hr>
-      Doodles Academy <span class="lowercase">is a</span> 501 (c)(3) 2016
+      Doodles Academy <span class="lowercase">is a Non-profit fiscally sponsored by </span>F<span class="lowercase">ractured</span> A<span class="lowercase">tlas</span>
       |
       <% @social_links.each do |social_link| %>
         <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
       |
       <% end %>
-      All Rights Reserved
-      |
-      <%= link_to "Contact", contact_path %>
+      <div class="centered">
+        &copy2016 All Rights Reserved
+        |
+        <%= link_to "Contact", contact_path %>
+      </div>
     </div>
   </div>
   <script>
