@@ -57,19 +57,24 @@
         </button>
       </div>
     </div>
-    <div class="footer__copyright">
+    <div class="footer__copyright centered">
       <hr>
-      Doodles Academy <span class="lowercase">is a Non-profit fiscally sponsored by </span>F<span class="lowercase">ractured</span> A<span class="lowercase">tlas</span>
-      |
-      <% @social_links.each do |social_link| %>
-        <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
-      |
-      <% end %>
-      <div class="centered">
+      Doodles Academy <span class="lowercase">is a non-profit organization fiscally sponsored by </span>
+      F<span class="lowercase">ractured</span>
+      A<span class="lowercase">tlas</span>
+      <br>
+      <div>|
+        <% @social_links.each do |social_link| %>
+          <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
+        |
+        <% end %>
+        <%= link_to "Contact", contact_path %>
+        |
         &copy2016 All Rights Reserved
         |
-        <%= link_to "Contact", contact_path %>
       </div>
+        T<span class="lowercase">his site presents artworks in the public domain as well as works that are protected by copyright and used in accordance with fair use for informational or educational purposes.</span>
+        I<span class="lowercase">f you are the copyright holder of a work of art used within this site and do not agree that it falls under fair use, please <a href='#'>contact us </a>by email.</span>
     </div>
   </div>
   <script>
