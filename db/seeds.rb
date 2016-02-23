@@ -23,7 +23,7 @@ superhero_attrs = {
   books_media: "Optional (for early finishers): 5-Minute Marvel Stories, old comics (check with a local comic book shop and ask for the comics that they typically throw away—many will sell in bulk or give away for free)."
 }
 
-superhero.lower.update_attributs(superhero_attrs)
+superhero.lower.update_attributes(superhero_attrs)
 superhero.upper.update_attributes(superhero_attrs)
 # Lessons
 
@@ -33,7 +33,7 @@ upper_lesson = superhero.upper.lessons.where(title: 'Creating a Backstory').firs
 
     objective: "SWBAT use multi-media to create and illustrate a narrative that explains their superhero’s backstory.",
 
-    set_up: "Students will be working individually and choosing their own materials, so have materials set up in a way that is easy to pass out as well as easy for the student artists to see and select from."
+    setup: "Students will be working individually and choosing their own materials, so have materials set up in a way that is easy to pass out as well as easy for the student artists to see and select from."
 })
 
 upper_lesson.supply_items.concat(supplies)
@@ -51,20 +51,14 @@ lower_lesson.update_attributes({
 symbol = ProjectSet.where(title: 'Symbol & Self').first_or_create({ 
   unit_number: 2,
   unit: "Complex Line",
-  inspiration_image: "symbol_self.jpg",
-  description: "Need desc.",
-  skills_description: "Need Skills",
-  books_media: "Books here"
+  inspiration_image: "symbol_self.jpg"
 })
 
 # House Lesson
 house = ProjectSet.where(title: 'Dream House').first_or_create({ 
   unit_number: 3,
   unit: "Observation Drawing",
-  inspiration_image: "dream_home.jpg",
-  description: "Need desc.",
-  skills_description: "Need Skills",
-  books_media: "Books here"
+  inspiration_image: "dream_home.jpg"
 })
 
 
