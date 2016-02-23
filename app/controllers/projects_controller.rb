@@ -4,22 +4,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
-   #if !( params[:id].match /\d/ )
-   #  slug = params[:id]
-   #  @project = Project.find_by_slug(slug)
-   #else
-   #  begin
-   #    project = Project.select(:slug).find(params[:id])
-   #  rescue
-   #    return redirect_to action: 'index'
-   #  end
-   #  slug = project.slug
-   #  return redirect_to action: 'show', id: slug
-   #end
-    if @project.blank?
-      redirect_to action: 'index'
-    end
+    # @project = Project.find(params[:id])
+    project_set = ProjectSet.find_by_slug(params[:slug])
+    redirect_to action: 'index' unless project_set.present?
+    level = params[:level] || session[:level] || "lower"
+    level = "lower" unless valid_level?(level: session[:level]) 
+    session[:level] = level
+    @project = level == "upper" ? project_set.upper : project_set.lower
   end
 
   def create
@@ -53,5 +44,9 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:title, :description, :level)
+  end
+
+  def valid_level? (level:)
+    level.present? && Project.levels.include?(level)
   end
 end

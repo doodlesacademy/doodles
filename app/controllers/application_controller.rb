@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     @pages.push({ name: "About Us", path: about_path })
     @pages.push({ name: "Projects", path: projects_path })
     @pages.push({ name: "Partners", path: partners_path })
-    @pages.push({ name: "The Board", path: board_path })
+    @pages.push({ name: "Team", path: board_path })
     @pages.push({ name: "PDX Class", path: volunteer_path })
 
     name = "doodlesacademy"

@@ -2,7 +2,8 @@ class LessonsController < ApplicationController
   before_action :load_project
 
   def show
-    @lesson = @project.lessons.find(params[:id])
+
+    @lesson = @project.lessons.find_by_slug(params[:slug])
   end
 
   def create
@@ -35,7 +36,10 @@ class LessonsController < ApplicationController
 
   private
   def load_project
-    @project = Project.find(params[:project_id])
+    return @project = Project.find(params[:project_id]) if params[:project_id].present?
+    project_set = ProjectSet.find_by_slug(params[:project_slug])
+    redirect_to projects_path unless project_set.present?
+    @project = session[:level] == "upper" ? project_set.upper : project_set.lower
   end
 
   def lesson_params

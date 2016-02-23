@@ -2,11 +2,15 @@
 @import "mixins/animation";
 @import "mixins/grid";
 @import "mixins/placeholder";
+@import "mixins/layout";
 @import "mixins/text";
 @import 'global';
 @import 'home';
 @import 'themes';
+@import 'partners';
 @import 'buttons';
 @import 'projects';
+@import 'members';
 @import 'frame';
 @import 'lightbox';
+@import 'modal';

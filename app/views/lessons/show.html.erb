@@ -1,5 +1,17 @@
 <% content_for(:page_title) { @lesson.title } %>
 
+<div class="wrapper">
 <h1><%= @lesson.title %></h1>
+<h6><%= @project.level.capitalize %> Academy</h6>
 <% @video_id = @lesson.video_uri.match(/\d+$/).to_s %>
 <%= render "shared/video", locals: { video_id: @video_id } %>
+
+<h2>Objective</h2>
+<p><%= @lesson.objective %></p>
+
+<h2>Set Up</h2>
+<p><%= @lesson.set_up %></p>
+
+<h2>Description</h2>
+<p><%= @lesson.description %></p>
+</div>

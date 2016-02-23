@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :featured_lessons, only: [:index]
 
   def index
-    @intro_video_url = "https://player.vimeo.com/video/144787451"
+    @intro_video_url = "https://player.vimeo.com/video/151472643"
   end
 
   def board

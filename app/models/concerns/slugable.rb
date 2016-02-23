@@ -14,5 +14,4 @@ module Slugable
     slug = slug.gsub /\s+/, ' '
     self.slug = slug.strip.gsub /\s/, '-'
   end
-  
 end

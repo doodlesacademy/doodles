@@ -1,23 +1,27 @@
 class ProjectSet < ActiveRecord::Base
   include Slugable
-  belongs_to :lower, class_name: 'Project'
-  belongs_to :upper, class_name: 'Project'
   validates :title, presence: true
   has_many :projects
+  has_one :gallery
 
   after_create :generate_projects
 
   def upper
-    self.projects.upper
+    get_project
   end
 
   def lower
-    self.projects.lower
+    get_project(level: :lower)
   end
 
   private
   def generate_projects
     Project.create(project_set: self, level: "upper")
     Project.create(project_set: self, level: "lower")
+  end
+
+  def get_project(level: :upper)
+    return unless [:upper, :lower].include? level
+    self.projects.find_by(level: Project.levels[level])
   end
 end

@@ -1,9 +1,24 @@
-h2 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  font-size: 2em;
   letter-spacing: 0.1em;
 }
 
+h1 {
+  font-weight: 400;
+  font-size: 2.5em;
+  text-transform: lowercase;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+ 
 section {
   width: 100%;
   margin: 100px 0;
@@ -11,6 +26,25 @@ section {
 
 .homepage {
   text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.sub {
+  font-style: italic;
+  a, a:visited {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 200ms ease;
+  }
+  a:hover {
+    color: lighten(black, 30%);
+    border-bottom-color: lighten(black, 50%);
+  }
 }
 
 .lead {
@@ -30,7 +64,8 @@ section {
   overflow: hidden;
 }
 
-.hero__img {
+.hero-video,
+.hero-img {
   opacity: 0.5;
   width: 100%;
   height: auto;
@@ -40,7 +75,7 @@ section {
   }
 }
 
-.hero__content {
+.hero-content{
   @include textCap-16;
   color: white;
   line-height: 1.5em;
@@ -61,7 +96,7 @@ section {
   color: white;
 }
 
-.quote__contents {
+.quote-contents {
   @include primary-font;
   font-size: 1.2em;
   line-height: 1.6em;
@@ -75,7 +110,7 @@ section {
   }
 }
 
-.quote__person {
+.quote-person {
   display: block;
   font-size: 1em;
   font-weight: 600;
@@ -84,7 +119,7 @@ section {
   margin-top: 20px;
 }
 
-.quote__selector {
+.quote-selector {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -92,7 +127,7 @@ section {
   transform: translate3d(-50%, 0, 0);
 }
 
-.quote__selector__bubble {
+.quote-selector-bubble {
   font-size: 5em;
   font-style: normal;
   margin-right: 0.2em;

@@ -1,5 +1,5 @@
-<% content_for(:hero_image) { 'top_hero_image' } %>
-<% content_for(:hero_content) { 'Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.' } %>
+<% content_for(:hero) { 'Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.' } %>
+<% content_for(:home_hero) { 'true' } %>
 
 <div class="homepage">
  <section>
@@ -11,18 +11,12 @@
         Our mission is to provide art lessons <br/> which inspire students to meet their creative potential.
       </p>
       <div class="centered" style="height: 80px; margin: 40px 0;">
-        <img src="<%= asset_path('doodle_hand_yellow.png') %>">
+        <%= image_tag 'doodle_hand_yellow.png', class: 'height'%>
       </div>
       <h2>Featured Videos</h2>
       <div class="homepage-gallery">
         <% @featured_lessons.each do |lesson| %>
-        <div class="homepage-gallery-item" data-video-id="<%= lesson[:video_id] %>" data-project-title="<%= lesson[:title] %>">
-          <img src="<%= asset_path(lesson[:image]) %>">
-          <div class="homepage-gallery-item-play-btn"></div>
-          <div class="homepage-gallery-item-title">
-            <%= lesson[:title] %>
-          </div>
-        </div>
+        <%= render "shared/lesson_gallery", lesson: lesson %>
         <% end %>
       </div>
       <div class="gallery-tools">
@@ -38,11 +32,11 @@
   </section>
 
   <section class="hero quote">
-    <%= image_tag 'map-direction-image.jpg', class:"hero__img" %>
-    <div class="hero__content">
-      <div class="quote__contents"></div>
+    <%= image_tag 'map-direction-image.jpg', class:"hero-img" %>
+    <div class="hero-content">
+      <div class="quote-contents"></div>
     </div>
-    <div class="quote__selector"></div>
+    <div class="quote-selector"></div>
   </section>
 
   <section>
