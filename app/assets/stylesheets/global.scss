@@ -183,11 +183,17 @@ img.height {
 
 // Wrapper
 .wrapper {
+  position: relative;
   width: $content-max-width;
   margin: 4em auto;
 
   h1 {
     text-align: center;
+  }
+
+  h3 {
+    font-size: 1.6em;
+    margin: 1em 0 0.25em;  
   }
 }
 

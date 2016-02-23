@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 1
+  common_core: MyText
+  national_core: MyText
+  art_elements: MyText
+  art_principles: MyText
+  cross_curricular: MyText
+
+two:
+  project_id: 1
+  common_core: MyText
+  national_core: MyText
+  art_elements: MyText
+  art_principles: MyText
+  cross_curricular: MyText

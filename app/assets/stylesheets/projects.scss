@@ -43,3 +43,14 @@
   padding-bottom: 80%;
   background-size: cover;
 }
+
+.project-aside {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  background-color: $accent-gray;
+
+  a:hover {
+    color: white;
+  }
+}

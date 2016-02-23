@@ -1,38 +1,41 @@
 <% content_for(:page_title) { ("#{@project.title}") } %>
 <%= image_tag @project.inspiration_image %>
 <div class="wrapper">
-<h1 class="title"><%= @project.title %></h1>
-<h6><%= @project.level.capitalize %> Academy</h6>
+<h1><%= @project.title %></h1>
+<h3><%= @project.level.capitalize %> Academy</h3>
 
-<aside class="aside lessons">
-  <% %w(Synopsis Skills Supplies).each do |section| %>
-    <div class="section"><%= section %></div>
-  <% end %>
-  <h3>Lessons</h3>
-  <div class="lesson-list">
-  <% @project.lessons.each do |lesson| %>
-    <div class="lesson-list-item"><%= link_to lesson.name, project_lesson_path(@project.slug, lesson.slug) %></div>
-  <% end %>
-</aside>
-
-<h2>Project Overview<h2>
+<h2>Project Overview</h2>
 <% %w(synopsis skills).each do |section| %>
 <div id="<%= section %>">
-  <h2><%= section.capitalize %></h2>
+  <h3><%= section.capitalize %></h3>
   <p><%= @project.send(section.to_sym)%></p>
 </div>
 <% end %>
 
-<div class="supplies">
-  <h2>Supplies</h2>
-  <% @project.supply_items.each do |supply| %>
-    <% capitalized_name = supply.name.capitalize %>
-    <% if supply.has_link? %>
-      <p><%= link_to capitalized_name, supply.url %></p>
-    <% else %>
-      <p><%= capitalized_name %></p>
-    <% end %>
+<h2> Set-Up at a Glance</h2>
+<h3>Materials</h3>
+<p>
+<% @project.supply_items.each do |supply| %>
+  <% capitalized_name = supply.name.capitalize %>
+  <% if supply.has_link? %>
+    <%= link_to capitalized_name, supply.url %>,
+  <% else %>
+    <%= capitalized_name %>,
   <% end %>
+<% end %>
+</p>
+
+<% %w(books_media photocopies).each do |section| %>
+<div id="<%= section %>">
+  <h3><%= section.capitalize %></h3>
+  <p><%= @project.send(section.to_sym)%></p>
+</div>
+<% end %>
 </div>
 
-</div>
+<h2>Standards</h2>
+<% %w(national, common_core, art_elements, art_principles).each do |section| %>
+  <h3><%= section.capitalize %></h3>
+  <p><%= @project.standard.send(section.to_sym) %></p>
+<% end %>
+ 
