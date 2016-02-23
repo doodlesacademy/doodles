@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219001056) do
+ActiveRecord::Schema.define(version: 20160219022003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,17 +113,12 @@ ActiveRecord::Schema.define(version: 20160219001056) do
     t.string   "title"
     t.integer  "upper_id"
     t.integer  "lower_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "slug"
-    t.string   "synopsis"
-    t.string   "books_media"
-    t.string   "skills_description"
     t.string   "inspiration_image"
     t.string   "unit"
     t.integer  "unit_number"
-    t.text     "skills"
-    t.text     "photocopies"
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree
@@ -131,10 +126,15 @@ ActiveRecord::Schema.define(version: 20160219001056) do
 
   create_table "projects", force: :cascade do |t|
     t.integer  "lessons_count"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "project_set_id"
     t.integer  "level"
+    t.text     "synopsis"
+    t.text     "books_media"
+    t.text     "skills"
+    t.text     "inspiration_image"
+    t.text     "photocopies"
   end
 
   create_table "supply_items", force: :cascade do |t|
