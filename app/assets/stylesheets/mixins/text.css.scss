@@ -4,6 +4,27 @@ $primary-font: 'Raleway', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 $font-size: 10px;
 
+@mixin text-10 {
+  font-size: $font-size;
+}
+
+@mixin text-11 {
+  font-size: 1.1 * $font-size;
+}
+
+@mixin text-12 {
+  font-size: 1.2 * $font-size;
+}
+
+@mixin text-13 {
+  font-size: 1.3 * $font-size;
+}
+
+@mixin text-14 {
+  font-size: 1.4 * $font-size;
+}
+
+
 @mixin textCap {
 	font-weight: 400;
 	text-transform: uppercase;

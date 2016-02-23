@@ -3,6 +3,8 @@
 $background-color: #FFFFFF;
 $text-color: #000000;
 
+$footer-grey: #9594A4;
+
 $primary-red: #DA232E;
 $primary-blue: #419ED5;
 $primary-yellow: #FCCC31;
@@ -23,7 +25,6 @@ $background-blue: #599FD2;
 //
 $content-max-width: 800px;
 $content-min-width: 480px;
-$content-sending-grey: #9594A4;
 
 
 // Mixins
@@ -86,6 +87,13 @@ img.height {
   text-align: center;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
 
 // Application layout elements
 //
@@ -250,24 +258,31 @@ img.height {
 
   background-color: $background-purple;
 
-  div {
+  > div {
     width: $content-max-width;
     margin: 0 auto;
   }
 
-  hr {
-    border-color: $content-sending-grey;
+  .footer-separator {
+    border-color: $footer-grey;
     margin: 30px 0;
   }
 
 }
-.footer__copyright {
-  font-size: 1.4em;
-  text-transform: uppercase;
+.footer-copyright {
+  @include text-10;
   letter-spacing: .105em;
-  color: $content-sending-grey;
+  color: $footer-grey;
+}
 
-  .lowercase {
-    text-transform: lowercase;
-  }
+.footer-social,
+.footer-organization {
+  @include text-12;
+}
+
+
+.footer-fair-use,
+.footer-social,
+.footer-organization {
+  margin-bottom: 20px;
 }

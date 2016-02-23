@@ -13,7 +13,7 @@
     }
 
     &:nth-child(#{$columns}n+1) {
-      margin: 0;
+      margin-left: 0;
     }
   }
 }
