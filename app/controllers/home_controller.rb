@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   def partners 
   end
 
-  def volunteer
+  def classes
   end
 
   def featured_lessons

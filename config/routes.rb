@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'donors', to: 'home#donors'
   get "contact", to: "home#contact"
   get "partners", to: "home#partners"
-  get "volunteer", to: "home#volunteer"
+  get "classes", to: "home#classes"
 
   get 'board', to: 'members#index'
 

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     @pages.push({ name: "Projects", path: projects_path })
     @pages.push({ name: "Partners", path: partners_path })
     @pages.push({ name: "Team", path: board_path })
-    @pages.push({ name: "Get Involved", path: volunteer_path })
+    @pages.push({ name: "PDX Class", path: classes_path })
 
     name = "doodlesacademy"
     kebab_case_name = "doodles-academy"
@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
     # @social_links.push({ link: "http://facebook.com/#{name}", name: 'Facebook' })
     @social_links.push({ link: "http://instagram.com/#{name}", name: 'Instagram' })
     # @social_links.push({ link: "http://linkedin.com/company/#{kebab_case_name}", name: 'Linked In' })
+    @social_links.push({ link: "http://facebook.com/#{name}", name: 'Facebook' })
+    # @social_links.push({ link: "http://facebook.com/company/#{kebab_case_name}", name: 'Facebook' })
   end
 
 end
