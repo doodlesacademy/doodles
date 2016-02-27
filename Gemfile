@@ -26,6 +26,8 @@ gem 'aws-sdk', '>= 2.0.0'
 
 gem 'gibbon'
 
+gem 'figaro'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'

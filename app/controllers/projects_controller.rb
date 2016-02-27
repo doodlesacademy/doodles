@@ -4,14 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # @project = Project.find(params[:id])
-    project_set = ProjectSet.find_by_slug(params[:slug])
-    redirect_to action: 'index' unless project_set.present?
-    level = params[:level] || session[:level] || "lower"
-    level = "lower" unless valid_level?(level: session[:level]) 
-    session[:level] = level
-    @project = level == "upper" ? project_set.upper : project_set.lower
-  end
+    find_project_set_and_project
+ end
 
   def create
     @project_set = ProjectSet.create(project_params)
@@ -28,28 +22,34 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project_set = ProjectSet.find_by_slug(params[:slug])
+    find_project_set_and_project
   end
 
   def new
-    @project = Project.new
+    @project_set = ProjectSet.new
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy unless @project.nil?
+    find_project_set_and_project
+    @project_set.destroy unless @project_set.nil?
     redirect_to action: 'index'
   end
 
   private
+
   def project_set_params
-    params.require(:project_set).permit(:title, :synopsis, :photocopies, :skills)
-  end
-  def project_params
-    params.require(:project).permit(:title, :description, :level)
+    params.require(:project_set).permit(:title, :unit_number, :unit, :project, projects_attributes: [:id, :inspiration_image, :synopsis, :skills, :books_media, :photocopies])
   end
 
-  def valid_level? (level:)
-    level.present? && Project.levels.include?(level)
+  def project_params
+    params.require(:project).permit(:synopsis, :skills, :books_media, :photocopies)
   end
+
+  def find_project_set_and_project
+    @project_set = ProjectSet.find_by_slug(params[:slug])
+    redirect_to action: 'index' unless @project_set.present?
+    @project = @project_set.get_project(level: @academy_level)
+    redirect_to action: 'index' unless @project.present?
+  end
+
 end

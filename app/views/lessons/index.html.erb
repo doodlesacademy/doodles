@@ -1,3 +1,9 @@
 <% content_for(:page_title) { ('Lessons') } %>
 
+<div class="wrapper">
 <h1><%= @project.title %> Lessons</h1>
+<% @lessons.each do |lesson| %>
+  <p><%= link_to project_lesson_path(@project, lesson) lesson.title %></p>
+<% end %>
+
+</div>

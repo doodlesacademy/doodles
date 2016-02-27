@@ -1,0 +1,6 @@
+<% attributes.each do |attr| %>
+<div class="form-group">
+  <%= form.label attr.to_sym, attr.titleize %>
+  <%= form.text_field attr.to_sym %>
+</div>
+<% end %>

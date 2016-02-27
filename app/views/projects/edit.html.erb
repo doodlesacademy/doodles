@@ -1,15 +1,19 @@
-<div class="wrapper">
 <h1>Edit <%= @project_set.title %></h1>
 
-<%= form_for @project_set, url: project_path do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :synopsis %>
-  <%= f.text_area :synopsis %>
-  <%= f.label :skills %>
-  <%= f.text_area :skills %>
-  <%= f.label :photocopies %>
-  <%= f.text_area :photocopies %>
-  <%= f.submit %>
+<%= form_for @project_set, url: project_path, html: { multipart: true  } do |project_set_form| %>
+  <%= render "shared/form_group", 
+    entity: @project_set, 
+    form: project_set_form, 
+    attributes: %w(title unit_number unit) %>
+  <%= project_set_form.fields_for :projects do |project_form| %>
+    <%= project_form.label :level %>
+    <div class="form-group">
+      <%= project_form.label :inspiration_image %>
+      <%= project_form.file_field :inspiration_image %>
+    </div>
+    <%= render "shared/form_group", 
+      form: project_form, 
+      attributes: %w(synopsis books_media skills photocopies) %>
+  <% end %>
+  <%= render "shared/form_submit", form: project_set_form, title: "Update #{@project_set.title}" %>
 <% end %>
-</div>

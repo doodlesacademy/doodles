@@ -1,11 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-Project.delete_all
-ProjectSet.delete_all
-Lesson.delete_all
-
 # Supplies
 
 supplies = %w(pencils markers construction\ paper scissors glue magazines)

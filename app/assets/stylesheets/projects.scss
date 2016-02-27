@@ -44,13 +44,60 @@
   background-size: cover;
 }
 
-.project-aside {
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  background-color: $accent-gray;
+.lesson-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
 
-  a:hover {
-    color: white;
+.lesson-point {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid $primary-blue;
+
+  &:hover {
+    cursor: pointer;
   }
+}
+
+.lesson-point-title {
+  position: absolute;
+  bottom: -60%;
+  left: -50%;
+  right: -50%;
+  text-align: center;
+  color: $accent-gray;
+  transition: color 200ms ease;
+
+  .lesson-point:hover & {
+    color: $primary-blue;
+  }
+}
+
+.lesson-point-flash {
+  @include vh-center;
+  width: 10px;
+  height: 10px;
+  background-color: $primary-blue;
+  border: 8px solid transparent;
+  border-radius: 50%;
+  transition: 200ms ease;
+
+  .lesson-point:hover & {
+      background-color: white;
+      border-color: $primary-blue;
+      height: 32px;
+      width: 32px;
+  }
+}
+
+.lesson-link {
+  display: inline-block;
+  border: 1px solid $primary-blue;
+  height: 0px;
+  width: 60px; 
 }

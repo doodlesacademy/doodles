@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223182140) do
+ActiveRecord::Schema.define(version: 20160225080511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,15 +126,18 @@ ActiveRecord::Schema.define(version: 20160223182140) do
 
   create_table "projects", force: :cascade do |t|
     t.integer  "lessons_count"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "project_set_id"
     t.integer  "level"
     t.text     "synopsis"
     t.text     "books_media"
     t.text     "skills"
-    t.text     "inspiration_image"
     t.text     "photocopies"
+    t.string   "inspiration_image_file_name"
+    t.string   "inspiration_image_content_type"
+    t.integer  "inspiration_image_file_size"
+    t.datetime "inspiration_image_updated_at"
   end
 
   create_table "standards", force: :cascade do |t|

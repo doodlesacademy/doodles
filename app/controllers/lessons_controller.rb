@@ -1,17 +1,21 @@
 class LessonsController < ApplicationController
-  before_action :load_project
+  before_action :find_project_set_and_project
+
+  def index
+    redirect_to_project
+  end
 
   def show
-    @lesson = @project.lessons.find_by_slug(params[:slug])
+    find_lesson
   end
 
   def create
     @lesson = @project.lessons.create(lesson_params)
-    redirect_to project_path(@project)
+    redirect_to_project
   end
 
   def update
-    @lesson = @project.lessons.find_by_slug(params[:slug])
+    find_lesson
     if @lesson.update_attributes(lesson_params)
       redirect_to project_lesson_path(@project.slug, @lesson.slug)
     else
@@ -20,7 +24,7 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    @lesson = @project.lessons.find_by_slug(params[:slug])
+    find_lesson
   end
 
   def new
@@ -28,20 +32,29 @@ class LessonsController < ApplicationController
   end
 
   def destroy
-    @lesson = @project.lessons.find(params[:id])
+    find_lesson
     @lesson.destroy unless @lesson.nil?
-    redirect_to project_path(@project)
+    redirect_to_project
   end
 
   private
-  def load_project
-    return @project = Project.find(params[:project_id]) if params[:project_id].present?
-    project_set = ProjectSet.find_by_slug(params[:project_slug])
-    redirect_to projects_path unless project_set.present?
-    @project = session[:level] == "upper" ? project_set.upper : project_set.lower
-  end
-
   def lesson_params
     params.require(:lesson).permit(:title, :video_uri, :synopsis, :setup, :photocopies, :media)
+  end
+
+  def find_project_set_and_project
+    @project_set = ProjectSet.find_by_slug(params[:project_slug])
+    redirect_to projects_path unless @project_set.present?
+    @project = @project_set.get_project(level: @academy_level)
+    redirect_to projects_path unless @project.present?
+  end
+
+  def find_lesson
+    @lesson = @project.lessons.find_by_slug(params[:slug])
+    redirect_to_project unless @lesson.present?
+  end
+
+  def redirect_to_project
+    redirect_to project_path(@project.slug)
   end
 end

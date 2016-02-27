@@ -2,7 +2,7 @@
 
 <div class="wrapper">
 <h1><%= @lesson.title %></h1>
-<h6><%= @project.level.capitalize %> Academy</h6>
+<h3 class="centered"><%= @project.level.capitalize %> Academy</h3>
 <% if @lesson.inspiration_image.present? %>
   <%= image_tag @lesson.inspiration_image, class:"inspiration_image" %>
   <%= @lesson.inspiration_image_description %>
@@ -17,3 +17,4 @@
     <p><%= @lesson.send(section.to_sym) %></p>
   </div>
 <% end %>
+</div>

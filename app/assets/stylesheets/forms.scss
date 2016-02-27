@@ -1,0 +1,55 @@
+@mixin label-font-styles {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin input-styles {
+  padding: 0.6em;
+  font-size: 1.3em;
+  border: 1px solid $accent-gray;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 100%;
+  outline: none;
+  transition: 200ms ease;
+
+  &:focus {
+    border-color: $primary-blue;
+  }
+}
+
+.form-group {
+  margin: 1.6em 0;
+  label {
+    display: block;
+    @include label-font-styles;
+    margin-bottom: 0.5em;
+  }
+
+  input,
+  textarea {
+    @include input-styles;
+  }
+
+  textarea {
+    height: auto;
+    overflow: auto;
+  }
+}
+
+.actions input[type='submit'] {
+  @extend .btn;
+  @extend .btn-blue;
+}
+
+.field {
+  margin: 1.6em 0;
+  label {
+    @include label-font-styles;
+  }
+  input:not([type='checkbox']) {
+    margin-top: 0.5em;
+    @include input-styles;
+  }
+}

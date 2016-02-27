@@ -3,8 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :define_pages_and_social_links
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :define_pages_and_social_links, :define_academy_level
+  before_action :authenticate_user!, only: [:edit, :update, :delete]
+  
+  private
+
+  def define_academy_level
+    if ['upper', 'lower'].include? request.subdomain
+      session[:level] = request.subdomain
+    end
+    if not ['upper', 'lower'].include? session[:level]
+      session[:level] = "lower"
+    end
+    @academy_level = session[:level].to_sym
+  end
 
   def define_pages_and_social_links
     @pages = []
