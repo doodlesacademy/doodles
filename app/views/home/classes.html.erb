@@ -1,13 +1,15 @@
 <% content_for(:page_title) { ('PDX Classes') } %>
+<% content_for(:hero) { "Uncovering your students' creative potential isn't another lesson plan for you to write - it's as easy as Doodling." } %>
+<% content_for(:classes_hero) { 'true' } %>
 
 <section class="wrapper">
   <h1>PDX Classes</h1>
 
   <p class="lead">
-  Through a partnership with the <%= link_to "Portland Child Art Studio", partners_path %> we are able to workshop classes in the PCAS studio space in Portland, Oregon. The classes are offered free of charge to the Portland Community. Class size is very limited, so <%= link_to "contact us", contact_path %> to check availability. 
+  Through a partnership with the <%= link_to "Portland Child Art Studio", partners_path %> we are able to workshop classes in the PCAS studio space in Portland, Oregon. The classes are offered free of charge to the Portland Community. Class size is very limited, so <%= link_to "contact us", contact_path %> to check availability.
   </p>
   <p class="lead">
-    PCAS is located at 1819 NW Everett Street. 
+    PCAS is located at 1819 NW Everett Street.
   </p>
   <%= image_tag "classes.png" %>
 </section>
