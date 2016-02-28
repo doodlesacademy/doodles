@@ -16,7 +16,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% @hero = yield(:hero); @home_hero = yield(:home_hero) %>
+  <% @hero = yield(:hero); @home_hero = yield(:home_hero); @about_hero = yield(:about_hero); @classes_hero = yield(:classes_hero); @partners_hero = yield(:partners_hero); @team_hero = yield(:team_hero);  %>
   <% if @hero.present? %>
   <section class="hero">
     <% if @home_hero.present? %>
@@ -25,6 +25,14 @@
       <source src="<%= video_path 'doodles.m4v' %>" type="video/mp4">
       <source src="<%= video_path 'doodles.ogg' %>" type="video/ogg">
     </video>
+    <% elsif @about_hero.present? %>
+    <%= image_tag 'about_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
+    <% elsif @classes_hero.present? %>
+    <%= image_tag 'classes_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
+    <% elsif @partners_hero.present? %>
+    <%= image_tag 'partners_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
+    <% elsif @team_hero.present? %>
+    <%= image_tag 'board_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
     <% else %>
     <%= image_tag 'top_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
     <% end %>
@@ -36,7 +44,7 @@
   <div id="no-hero"></div>
   <% end %>
 
-  <div class="nav"> 
+  <div class="nav">
     <div class="brand">
       <a href="/"><%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %></a>
     </div>
