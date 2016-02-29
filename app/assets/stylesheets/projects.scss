@@ -101,3 +101,51 @@
   height: 0px;
   width: 60px; 
 }
+
+.project-aside-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  font-size: 15px;
+  list-style: none;
+  transform: translate3d(0, 0, 0);
+
+  ul {
+    list-style: none;
+    padding: 0.25em;
+  }
+
+  li {
+    padding: 0.25em;
+    font-size: 13px;
+    transition: 200ms ease;
+  }
+
+}
+
+.project-content {
+  margin-left: 150px;
+  padding: 0 1em;
+
+  h1, h2, h3, h4, h5, h6 {
+    text-transform: none;
+    text-align: inherit;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  h3, ul, li {
+    font-size: 1.6em;
+  }
+
+  ul {
+    padding-left: 2em;
+  }
+}

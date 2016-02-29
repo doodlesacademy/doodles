@@ -1,0 +1,27 @@
+<h1>Users</h1>
+<table class="users">
+  <tr>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Last Sign In</th>
+    <th>Created</th>
+    <th>Actions</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.hidden_email %></td>
+    <td><%= user.role.capitalize %></td>
+    <td><%= "#{time_ago_in_words(user.last_sign_in_at)} Ago".titleize %></td>
+    <td><%= "#{time_ago_in_words(user.created_at)} Ago".titleize %></td>
+    <td>
+      <%= render "shared/edit_button", entity: user %>
+      <%= render "shared/destroy_button", entity: user %>
+    </td>
+  <tr>
+<% end %>
+</table>
+
+<%= form_for :user, action: new_user_path do |f| %>
+  <%= render "shared/form_group", form: f, attributes: %w(email) %>
+  <%= render "shared/form_submit", form: f, title: "Invite" %>
+<% end %>

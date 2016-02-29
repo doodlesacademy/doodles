@@ -27,7 +27,7 @@
     margin-bottom: 0.5em;
   }
 
-  input,
+  input[type='text'],
   textarea {
     @include input-styles;
   }
@@ -48,7 +48,8 @@
   label {
     @include label-font-styles;
   }
-  input:not([type='checkbox']) {
+  input:not([type='checkbox']),
+  textarea {
     margin-top: 0.5em;
     @include input-styles;
   }

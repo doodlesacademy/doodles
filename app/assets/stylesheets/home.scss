@@ -65,7 +65,7 @@ section {
 }
 
 .hero-video,
-.hero-img {
+.hero > img {
   opacity: 0.5;
   width: 100%;
   height: auto;
@@ -76,22 +76,42 @@ section {
 }
 
 .hero-content{
-  @include textCap-16;
-  color: white;
-  line-height: 1.5em;
-  text-align: center;
-
+  @extend .wrapper;
+  margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 600px;
   transform: translate3d(-50%, -50%, 0);
 
-  .homepage .hero:not(:first-child) & {
-    width: 800px;
-  }
+  @include textCap-16;
+  line-height: 1.5em;
+  text-align: center;
 }
 
+.hero-title-subtitle {
+  @extend .wrapper;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate3d(-50%, 0%, 0);
+}
+
+.hero-title,
+.hero-subtitle {
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  font-size: 3.8em;
+}
+
+.hero-subtitle {
+  margin: 1em 0 2em;
+  font-size: 2em;
+}
+
+.hero-content,
+.hero-title,
+.hero-subtitle,
 .quote {
   color: white;
 }

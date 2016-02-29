@@ -1,0 +1,2 @@
+<% title ||= "Destroy" %>
+<%= button_to title, { action: "destroy", id: entity.id }, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-red" %>

@@ -1,0 +1,6 @@
+<h1>User</h1>
+<h3>Email: <%= @user.hidden_email %></h3>
+<h3>Role: <%= @user.role.capitalize %></h3>
+<%= render "shared/edit_button", entity: @user %>
+<%= render "shared/destroy_button", entity: @user %>
+

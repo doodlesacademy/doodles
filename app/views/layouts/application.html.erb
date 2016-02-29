@@ -10,97 +10,23 @@
   </title>
   <link rel="shortcut icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
   <link rel="icon" href="<%= image_path 'favicon.ico' %>" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800|Open+Sans:400,300italic,600,700|Raleway:300,400,500,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% @hero = yield(:hero); @home_hero = yield(:home_hero) %>
-  <% if @hero.present? %>
-  <section class="hero">
-    <% if @home_hero.present? %>
-    <video autoplay loop muted auto class="hero-video">
-      <source src="<%= video_path 'doodles.webm' %>" type="video/webm">
-      <source src="<%= video_path 'doodles.m4v' %>" type="video/mp4">
-      <source src="<%= video_path 'doodles.ogg' %>" type="video/ogg">
-    </video>
-    <% else %>
-    <%= image_tag 'top_hero_image.jpg', class: "hero-img", alt: "Doodles Academy" %>
-    <% end %>
-    <p class="hero-content">
-      <%= @hero %>
-    </p>
-  </section>
+  <%= render "shared/hero" %>
+  <%= render "shared/navigation" %>
+  <% if @homepage %>
+  <%= yield %>
   <% else %>
-  <div id="no-hero"></div>
-  <% end %>
-
-  <div class="nav"> 
-    <div class="brand">
-      <a href="/"><%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %></a>
-    </div>
-    <ul class="nav-menu">
-      <% @pages.each do |page| %>
-      <li class="nav-menu-item">
-        <%= link_to page[:name], page[:path] %>
-      </li>
-      <% end %>
-      <li class="nav-menu-item">
-        <div class="btn btn-blue nav-donate-btn">
-          Donate
-        </div>
-      </li>
-    </ul>
-  </div>
-  <% if (request.path =~ /^\/$/).nil? %>
   <div class="wrapper">
     <%= yield %>
   </div>
-  <% else %>
-  <%= yield %>
   <% end %>
 
-  <div class="footer">
-    <div class="newsletter">
-      <div class="newsletter__notice centered">
-          Sign Up for our Newsletter. We'll never spam you.
-      </div>
-      <div class="newsletter__form">
-        <input class="input__text" type="text" placeholder="Your email address">
-        <button class="newsletter__submit">
-          Sign Up Here
-        </button>
-      </div>
-    </div>
-    <div class="footer-copyright centered">
-      <hr class="footer-separator">
-      <div class="footer-organization"
-        <span class="uppercase">Doodles Academy</span> is a non-profit organization fiscally sponsored by Fractured Atlas
-      </div>
-      <div class="footer-social">
-        <% @social_links.each do |social_link| %>
-          <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
-        |
-        <% end %>
-        <%= link_to "Contact", contact_path %>
-        |
-        &copy2016 All Rights Reserved
-      </div>
-      <div class="footer-fair-use">
-        This site presents artworks in the public domain as well as works that are protected by copyright and used in accordance with fair use for informational or educational purposes. If you are the copyright holder of a work of art used within this site and do not agree that it falls under fair use, please <%= link_to "contact us", contact_path %> by email.
-      </div>
-    </div>
-  </div>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', '', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+  <%= render "shared/footer" %>
+  <%= render "shared/ga" %>
 </body>
 </html>

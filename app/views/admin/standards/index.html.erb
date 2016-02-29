@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Standards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @standards.each do |standard| %>
+      <tr>
+        <td><%= standard.project.title %></td>
+        <td><%= link_to 'Edit', edit_admin_standard_path(standard) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Standard', new_admin_standard_path, class: "btn btn-blue" %>

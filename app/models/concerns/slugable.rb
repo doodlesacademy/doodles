@@ -4,7 +4,7 @@ module Slugable
   extend ActiveSupport::Concern
 
   included do
-    before_create :generate_slug
+    after_initialize :generate_slug
     before_save :generate_slug
   end
 

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Galleries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Project Level</th>
+      <th># of Photos</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @galleries.each do |gallery| %>
+      <tr>
+        <td><%= link_to 'Show', project_gallery_path(gallery.project.slug) %></td>
+        <td><%= link_to 'Edit', edit_admin_gallery_path(gallery) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gallery', new_admin_gallery_path, class: "btn btn-blue" %>

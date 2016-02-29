@@ -1,0 +1,32 @@
+<div class="footer">
+  <div class="newsletter">
+    <div class="newsletter__notice centered">
+        Sign Up for our Newsletter. We'll never spam you.
+    </div>
+    <div class="newsletter__form">
+      <input class="input__text" type="text" placeholder="Your email address">
+      <button class="newsletter__submit">
+        Sign Up Here
+      </button>
+    </div>
+  </div>
+  <div class="footer-copyright centered">
+    <hr class="footer-separator">
+    <div class="footer-organization"
+      <span class="uppercase">Doodles Academy</span> is a non-profit organization fiscally sponsored by Fractured Atlas
+    </div>
+    <div class="footer-social">
+      <% @social_links.each do |social_link| %>
+        <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
+      |
+      <% end %>
+      <%= link_to "Contact", contact_path %>
+      |
+      &copy2016 All Rights Reserved
+    </div>
+    <div class="footer-fair-use">
+      This site presents artworks in the public domain as well as works that are protected by copyright and used in accordance with fair use for informational or educational purposes. If you are the copyright holder of a work of art used within this site and do not agree that it falls under fair use, please <%= link_to "contact us", contact_path %> by email.
+    </div>
+  </div>
+</div>
+

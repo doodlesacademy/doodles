@@ -1,53 +1,67 @@
 <% content_for(:page_title) { ("#{@project.title}") } %>
-<%= image_tag @project.inspiration_image %>
-<div class="wrapper">
-<h1><%= @project.title %></h1>
-<h3 class="centered"><%= @project.level.capitalize %> Academy</h3>
+<% content_for(:hero_image) { image_tag @project.inspiration_image.url(:large) } %>
+<% content_for(:hero_title) { "#{@project.title}".titleize } %>
+<% content_for(:hero_subtitle) { "#{@project.level} Academy".titleize } %>
 
-<div class="lesson-map">
-  <% @project.lessons.each do |lesson| %>
-  <div class="lesson-point">
-    <a href="<%= project_lesson_path(@project.slug, lesson.slug) %>">
-      <div class="lesson-point-flash"></div>
-      <div class="lesson-point-title"><%= lesson.title %></div>
-    </a>
+<ul class="aside project-aside-links">
+  <li class="project-aside-link">
+    <%= link_to "Lessons", "#lessons" %>
+    <ul>
+    <% @project.lessons.each do |lesson| %>
+      <li><%= link_to lesson.title project_lesson_path(@project.slug, lesson.slug) %></li>
+    <% end %>
+    </ul>
+  </li>
+  <li class="project-aside-link">
+    <%= link_to "Overview", "#overview" %>
+    <ul>
+    <% @project.sections.each do |section| %>
+      <li><%= link_to section.title, "##{section.slug}" %></li>
+    <% end %>
+    </ul>
+  </li>
+  <li class="project-aside-link">
+    <%= link_to "Materials", "#materials" %>
+  </li>
+  <li class="project-aside-link">
+    <%= link_to "Standards", "#standards" %>
+    <ul>
+    <% @project.standard.sections.each do |section| %>
+      <li><%= link_to section.title, "##{section.slug}" %></li>
+    <% end %>
+    </ul>
+  </li>
+</ul>
+
+<div class="content project-content">
+  <div class="project-section" id="lessons">
+    <h1>Lessons</h1>
+    <% @project.lessons.each do |lesson| %>
+    <%= link_to lesson.title project_lesson_path(@project.slug, lesson.slug) %>
+    <% end %>
   </div>
-  <div class="lesson-link"></div>
-  <% end %>
-</div>
 
-<h2>Project Overview</h2>
-<% %w(synopsis skills).each do |section| %>
-<div id="<%= section %>">
-  <h3><%= section.titleize %></h3>
-  <p><%= @project.send(section.to_sym)%></p>
-</div>
-<% end %>
+  <div class="project-section" id="overview">
+    <h1>Project Overview</h1>
+    <%= render "shared/sections", sectionable: @project %>
+  </div>
 
-<h2> Set-Up at a Glance</h2>
-<h3>Materials</h3>
-<p>
-<% @project.supply_items.each do |supply| %>
-  <% capitalized_name = supply.name.capitalize %>
-  <% if supply.has_link? %>
-    <%= link_to capitalized_name, supply.url %>,
-  <% else %>
-    <%= capitalized_name %>,
-  <% end %>
-<% end %>
-</p>
+  <div class="project-section" id="materials">
+    <h1>Materials</h1>
+    <p>
+    <% @project.supply_items.each do |supply| %>
+      <% capitalized_name = supply.name.capitalize %>
+      <% if supply.has_link? %>
+        <%= link_to capitalized_name, supply.url %>,
+      <% else %>
+        <%= capitalized_name %>,
+      <% end %>
+    <% end %>
+    </p>
+  </div>
 
-<% %w(books_media photocopies).each do |section| %>
-<div id="<%= section %>">
-  <h3><%= section.titleize %></h3>
-  <p><%= @project.send(section.to_sym)%></p>
-</div>
-<% end %>
-
-<h2>Standards</h2>
-<% %w(national_core common_core art_elements art_principles).each do |section| %>
-  <h3><%= section.titleize %></h3>
-  <p><%= @project.standard.send :common_core %></p>
-<% end %>
- 
+  <div class="project-section" id="standards">
+    <h1>Standards</h1>
+    <%= render "shared/sections", sectionable: @project.standard %>
+  </div>
 </div>

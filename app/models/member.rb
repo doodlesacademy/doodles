@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
   enum role: [ :board, :volunteer ]
+
   def name
     "#{first_name} #{last_name}"
   end

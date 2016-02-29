@@ -1,4 +1,4 @@
-<% content_for(:hero) { 'Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.' } %>
+<% content_for(:hero_content) { 'Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.' } %>
 <% content_for(:home_hero) { 'true' } %>
 
 <div class="homepage">
@@ -7,6 +7,7 @@
       <div class="frame frame--16x9" style="margin-bottom: 50px">
         <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
+      <%= markdown "Hi [There](http://google.com)" %>
       <p class="lead">
         Our mission is to provide art lessons <br/> which inspire students to meet their creative potential.
       </p>

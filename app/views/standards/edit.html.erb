@@ -1,0 +1,14 @@
+<h1>Editing Standards</h1>
+
+<h2><%= @project.title.titleize %></h2>
+<h3><%= @project.academy %></h3>
+
+<%= form_for @standard, url: project_standards_path(@project.slug), html: { multipart: true } do |f| %>
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @standard,
+    attribute: :document,
+    label: "Standards Overview PDF" %>
+  <%= render "shared/form_sections", form: f %>
+  <%= render "shared/form_submit", form: f, title: "Update Project" %>
+<% end %>

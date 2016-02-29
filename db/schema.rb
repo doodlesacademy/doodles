@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225080511) do
+ActiveRecord::Schema.define(version: 20160229124453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20160225080511) do
     t.integer  "project_id"
     t.string   "title"
     t.text     "synopsis"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "video_uri"
     t.text     "objective"
     t.text     "setup"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160225080511) do
     t.text     "inspiration_image_description"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
+    t.integer  "status",                        default: 0
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -109,16 +110,29 @@ ActiveRecord::Schema.define(version: 20160225080511) do
     t.integer  "role"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.text     "content"
+    t.string   "slug"
+    t.integer  "status"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "project_sets", force: :cascade do |t|
     t.string   "title"
     t.integer  "upper_id"
     t.integer  "lower_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "slug"
     t.string   "inspiration_image"
     t.string   "unit"
     t.integer  "unit_number"
+    t.string   "project_image_file_name"
+    t.string   "project_image_content_type"
+    t.integer  "project_image_file_size"
+    t.datetime "project_image_updated_at"
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree
@@ -130,25 +144,35 @@ ActiveRecord::Schema.define(version: 20160225080511) do
     t.datetime "updated_at",                     null: false
     t.integer  "project_set_id"
     t.integer  "level"
-    t.text     "synopsis"
-    t.text     "books_media"
-    t.text     "skills"
-    t.text     "photocopies"
     t.string   "inspiration_image_file_name"
     t.string   "inspiration_image_content_type"
     t.integer  "inspiration_image_file_size"
     t.datetime "inspiration_image_updated_at"
+    t.string   "overview_file_name"
+    t.string   "overview_content_type"
+    t.integer  "overview_file_size"
+    t.datetime "overview_updated_at"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer  "sectionable_id"
+    t.string   "sectionable_type"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "status"
+    t.integer  "order",            default: 0
   end
 
   create_table "standards", force: :cascade do |t|
     t.integer  "project_id"
-    t.text     "common_core"
-    t.text     "national_core"
-    t.text     "art_elements"
-    t.text     "art_principles"
-    t.text     "cross_curricular"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "supply_items", force: :cascade do |t|
@@ -172,6 +196,8 @@ ActiveRecord::Schema.define(version: 20160225080511) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "status",                 default: 0
+    t.integer  "role",                   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

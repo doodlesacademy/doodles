@@ -1,19 +1,20 @@
-<h1>Edit <%= @project_set.title %></h1>
+<h1>Edit Project</h1>
 
-<%= form_for @project_set, url: project_path, html: { multipart: true  } do |project_set_form| %>
-  <%= render "shared/form_group", 
-    entity: @project_set, 
-    form: project_set_form, 
-    attributes: %w(title unit_number unit) %>
-  <%= project_set_form.fields_for :projects do |project_form| %>
-    <%= project_form.label :level %>
-    <div class="form-group">
-      <%= project_form.label :inspiration_image %>
-      <%= project_form.file_field :inspiration_image %>
-    </div>
-    <%= render "shared/form_group", 
-      form: project_form, 
-      attributes: %w(synopsis books_media skills photocopies) %>
-  <% end %>
-  <%= render "shared/form_submit", form: project_set_form, title: "Update #{@project_set.title}" %>
+<h2><%= @project.title.titleize %></h2>
+<h3><%= @project.academy %></h3>
+
+<%= form_for @project, url: project_path(@project_set.slug), html: { multipart: true } do |f| %>
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @project,
+    attribute: :overview,
+    label: "Project Overview PDF" %>
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @project,
+    attribute: :inspiration_image,
+    label: "Inspiration Image" %>
+  <%= render "shared/form_sections", form: f %>
+  <%= render "shared/form_submit", form: f, title: "Update Project" %>
 <% end %>
+ 

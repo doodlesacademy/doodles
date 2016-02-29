@@ -1,0 +1,31 @@
+<% if content_for? :home_hero %>
+<section class="hero">
+  <video autoplay loop muted auto class="hero-video">
+    <source src="<%= video_path 'doodles.webm' %>" type="video/webm">
+    <source src="<%= video_path 'doodles.m4v' %>" type="video/mp4">
+    <source src="<%= video_path 'doodles.ogg' %>" type="video/ogg">
+  </video>
+  <div class="hero-content">
+    <%= yield :hero_content %>
+  </div>
+</section>
+<% elsif content_for? :hero_image %>
+<section class="hero">
+  <%= yield :hero_image %>
+  <div class="hero-content">
+    <%= yield :hero_content %>
+  </div>
+  <div class="hero-title-subtitle">
+    <div class="hero-title">
+      <%= yield :hero_title %>
+    </div>
+    <div class="hero-subtitle">
+      <%= yield :hero_subtitle %>
+    </div>
+  </div>
+</section>
+<% else %>
+<div id="no-hero"></div>
+<% end %>
+
+

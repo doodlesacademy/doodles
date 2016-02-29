@@ -1,7 +1,7 @@
 <% content_for(:page_title) { ('Projects') } %>
-<% content_for(:hero) { 'We create the map. You choose the direction.' } %>
+<% content_for(:hero_content) { 'We create the map. You choose the direction.' } %>
+<% content_for(:hero_image) { image_tag 'top_hero_image.jpg' } %>
 
-<div class="wrapper">
 <h1 class="title">Click on a project to begin</h1>
 <p class="sub title"><a data-toggle="modal" data-modal-id="modal-units">What are units?</a></p>
 
@@ -10,7 +10,7 @@
 <div class="project-grid-item" data-project-slug="<%= set.slug %>">
   <div class="project-grid-item-unit-title"><%= "Unit #{set.unit_number}: #{set.unit}" %></div>
   <div class="project-grid-item-image" style="background-image: url(
-    <%= image_path "inspiration/#{set.inspiration_image}" %>)">
+    <%= asset_path set.project_image %>)">
   </div>
   <div class="project-grid-item-title"><%= set.title %></div>
 </div>
@@ -38,5 +38,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

@@ -9,10 +9,23 @@ Rails.application.routes.draw do
   get "classes", to: "home#classes"
 
   get 'board', to: 'members#index'
+  get "page/:slug", to: 'home#page', as: 'pages'
 
   resources :projects, param: :slug, except: [:delete] do
-    resources :lessons, param: :slug, except: [:delete]
+    resources :lessons, param: :slug, only: [:index, :show]
+    get "gallery", to: "project#gallery", as: 'gallery'
+    get "standards", to: "standards#edit"
+    match "standards", to: "standards#update", via: [:patch, :post]
+  end
+
+  resources :users
+
+  get 'admin', to: 'admin#index'
+
+  namespace 'admin' do
+    resources :pages, :projects, :standards, :lessons, :galleries, :members
   end
 
   post 'feedback', to: 'feedback_messages#create'
+
 end

@@ -3,11 +3,36 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :define_pages_and_social_links, :define_academy_level
-  before_action :authenticate_user!, only: [:edit, :update, :delete]
-  
-  private
+  before_action :define_pages_and_social_links, :define_academy_level, :homepage?
+  before_action :authenticate_user!, :editor_only!, only: [:edit, :update, :delete]
 
+  helper MarkdownHelper
+
+  def homepage?
+    @homepage = (request.path =~ /^\/$/).present?
+  end
+  
+  def editor_only!
+    unless current_user.editor? || current_user.admin?
+      redirect_to new_user_session_path
+    end
+  end
+
+  def admin_only!
+    unless current_user.admin?
+      redirect_to new_user_session_path
+    end
+  end
+
+  def redirect_to_admin
+    redirect_to admin_path
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
+  private
   def define_academy_level
     if ['upper', 'lower'].include? request.subdomain
       session[:level] = request.subdomain

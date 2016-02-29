@@ -16,7 +16,6 @@
 }
 
 .btn, a.btn, button.btn {
-  display: inline-block;
   @include textCap;
   text-transform: uppercase;
   border-radius: 3px;
