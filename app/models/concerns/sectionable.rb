@@ -1,5 +1,4 @@
 require 'active_support/concern'
-require 'byebug'
 
 module Sectionable 
   extend ActiveSupport::Concern

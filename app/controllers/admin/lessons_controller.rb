@@ -34,7 +34,6 @@ class Admin::LessonsController < ApplicationController
 
   # PATCH/PUT /admin/lessons/1
   def update
-    byebug
     if @lesson.update(lesson_params)
       redirect_to admin_lesson_path(@lesson), notice: 'Lesson was successfully updated.'
     else

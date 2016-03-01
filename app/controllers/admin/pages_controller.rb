@@ -39,7 +39,6 @@ class Admin::PagesController < ApplicationController
 
   # PATCH/PUT /admin/pages/1
   def update
-    byebug
     if @page.update(page_params)
       redirect_to admin_page_url @page, notice: 'Page was successfully updated.'
     else
