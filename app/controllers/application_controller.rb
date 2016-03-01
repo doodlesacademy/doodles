@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :define_pages_and_social_links, :define_academy_level, :homepage?
   before_action :authenticate_user!, :editor_only!, only: [:edit, :update, :delete]
 
-  helper MarkdownHelper
-
   def homepage?
     @homepage = (request.path =~ /^\/$/).present?
   end
