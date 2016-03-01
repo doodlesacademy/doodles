@@ -77,6 +77,15 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # via https://gist.github.com/afeld/5704079
+  # We don't want the default of everything that isn't js or css, because it pulls too many things in
+  config.assets.precompile.shift
+
+  # Explicitly register the extensions we are interested in compiling
+  config.assets.precompile.push(Proc.new do |path|
+    File.extname(path).in? ['.html', '.erb', '.haml', '.png',  '.gif', '.jpg', '.jpeg', '.svg', '.ico', '.eot',  '.otf', '.svc', '.woff', '.ttf']
+  end)
+
   # AWS SDK 
   config.paperclip_defaults = {
     :storage => :s3,
