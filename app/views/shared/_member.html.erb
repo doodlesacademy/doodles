@@ -1,5 +1,5 @@
 <div class="member-avatar">
-  <%= image_tag "portraits/#{member.first_name.downcase}" %>
+  <%= image_tag member.avatar.url(:small) %>
 </div>
 <div class="member-info">
   <div class="member-name">
