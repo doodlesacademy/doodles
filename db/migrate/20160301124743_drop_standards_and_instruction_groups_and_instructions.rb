@@ -1,7 +1,15 @@
 class DropStandardsAndInstructionGroupsAndInstructions < ActiveRecord::Migration
   def change
-    drop_table :standards, if_exists: true
-    drop_table :instruction_groups, if_exists: true
-    drop_table :instructions, if_exists: true
+    if ActiveRecord::Base.connection.table_exists? :standards
+      drop_table :standards
+    end
+
+    if ActiveRecord::Base.connection.table_exists? :instruction_groups
+      drop_table :instruction_groups
+    end
+
+    if ActiveRecord::Base.connection.table_exists? :instructions
+      drop_table :instructions
+    end
   end
 end
