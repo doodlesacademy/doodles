@@ -14,7 +14,6 @@
     </ul>
     </li>
   </ul>
-  <ul><li><%= link_to "Materials", "#materials" %></li></ul>
   <%= render "shared/table_of_contents", sectionable: @project %>
 </div>
 
@@ -26,22 +25,7 @@
     <% end %>
   </div>
 
-  <div class="project-section" id="materials">
-    <h1>Materials</h1>
-    <p>
-    <% @project.supply_items.each do |supply| %>
-      <% capitalized_name = supply.name.capitalize %>
-      <% if supply.has_link? %>
-        <%= link_to capitalized_name, supply.url %>,
-      <% else %>
-        <%= capitalized_name %>,
-      <% end %>
-    <% end %>
-    </p>
-  </div>
-
   <div class="project-section" id="overview">
-    <h1>Project Overview</h1>
     <%= render "shared/sections", sectionable: @project %>
   </div>
 

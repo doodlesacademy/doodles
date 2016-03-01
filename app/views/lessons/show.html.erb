@@ -4,7 +4,7 @@
 <% content_for(:hero_subtitle) { "#{@lesson.project.title} / #{@lesson.project.academy}".titleize } %>
 
 <div class="aside">
-  <% %w(video inspiration_image materials).each do |s| %>
+  <% %w(video inspiration_image).each do |s| %>
     <ul><li><%= link_to "#{s.titleize}", "##{s}" %></li></ul>
   <% end %>
   <%= render "shared/table_of_contents", sectionable: @lesson %>
@@ -22,19 +22,6 @@
     <%= @lesson.inspiration_image_description %>
     </div>
   <% end %>
-  <div id="materials">
-    <h1>Materials</h1>
-    <p>
-    <% @lesson.supply_items.each do |supply| %>
-      <% capitalized_name = supply.name.capitalize %>
-      <% if supply.has_link? %>
-        <%= link_to capitalized_name, supply.url %>,
-      <% else %>
-        <%= capitalized_name %>,
-      <% end %>
-    <% end %>
-    </p>
-  </div>
   <%= render "shared/sections", sectionable: @lesson %>
 </div>
 
