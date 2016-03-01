@@ -53,6 +53,6 @@ class Admin::SupplyItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_item_params
-      params.fetch(:supply_item, {})
+      params.require(:supply_item).permit(:name, :asin, :description)
     end
 end

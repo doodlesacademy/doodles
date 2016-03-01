@@ -5,7 +5,7 @@ class Admin::LessonsController < ApplicationController
 
   # GET /admin/lessons
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order('updated_at desc')
     @lesson_projects = @lessons.group_by(&:project_id)
   end
 
@@ -62,15 +62,6 @@ class Admin::LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:title, :project_id, :overview, :inspiration_image, :inspiration_image_description, :video_uri, sections_attributes: [:id, :order, :content], instruction_groups_attributes: instruction_group_attributes)
+      params.require(:lesson).permit(:title, :project_id, :overview, :inspiration_image, :inspiration_image_description, :video_uri, sections_attributes: [:id, :order, :content])
     end
-
-    def instruction_group_attributes
-      [:id, :title, :order, instructions_attributes: instructions_attributes]
-    end
-
-    def instructions_attributes
-      [:id, :title, :time_to_complete, :order, :description]
-    end
-
 end

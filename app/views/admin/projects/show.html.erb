@@ -5,16 +5,15 @@
 <p><%= image_tag @project.inspiration_image.url(:thumb) %></p>
 <p>Title: <%= @project.title %></p>
 <p>Academy: <%= @project.academy %></p>
-<h3>Overview</h3>
 <p>
-  <% if @project.overview.present? %> 
+  Overview PDF: <% if @project.overview.present? %> 
   <%= link_to "#{@project.academy} Overview PDF", @project.overview.url %>
   <% else %>
-  <%= "#{@project.academy} Overview PDF Not Found" %>
+  <%= "#{@project.academy} PDF Not Found" %>
   <% end %>
 </p>
 <% @project.sections.each do |section| %>
   <div class="well">
-    <%= section.content %> 
+    <%= markdown section.content %> 
   </div>
 <% end %>

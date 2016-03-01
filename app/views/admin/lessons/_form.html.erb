@@ -54,34 +54,6 @@
   </div>
 
   <%= render "shared/form_sections", form: f %>
-  <% count = 0 %>
-  <%= f.fields_for :instruction_groups do |group_form, i| %>
-    <div class="field">
-      <%= group_form.label :title, "Instruction Group Title" %>
-      <%= group_form.text_field :title %>
-    </div>
-    <%= group_form.fields_for :instructions do |inst_form| %>
-
-      <div class="field">
-        <%= inst_form.label :title, "Instruction Title" %>
-        <%= inst_form.text_field :title %>
-      </div>
-
-      <div class="field">
-        <%= inst_form.label :time_to_complete %>
-        <%= inst_form.text_field :time_to_complete %>
-      </div>
-      
-      <div class="field">
-        <%= inst_form.label :description %>
-        <%= inst_form.text_area :description %>
-      </div>
-    <% end %>
-    <div class="btn btn-blue" data-adder-base="lesson[instruction_group_attributes][<%= count %>][instruction_attributes]" data-adder-attrs="title:string time_to_complete:string description:text">
-      Add Instruction
-    </div>
-    <% count += 1 %>
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>

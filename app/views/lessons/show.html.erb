@@ -4,12 +4,10 @@
 <% content_for(:hero_subtitle) { "#{@lesson.project.title} / #{@lesson.project.academy}".titleize } %>
 
 <div class="aside">
-  <ul>
-  <li><%= link_to "Video", "#video" %></li>
-  <li><%= link_to "Inspiration Image", "#inspiration-image" %></li>
-  <li><%= link_to "Materials", "#materials" %></li>
-  </ul>
-  <%= TOC @lesson.sections.first.content %>
+  <% %w(video inspiration_image materials).each do |s| %>
+    <ul><li><%= link_to "#{s.titleize}", "##{s}" %></li></ul>
+  <% end %>
+  <%= render "shared/table_of_contents", sectionable: @lesson %>
 </div>
 
 <div class="aside-content">

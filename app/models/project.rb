@@ -3,15 +3,15 @@ class Project < ActiveRecord::Base
 
   enum level: [ :upper, :lower ]
   belongs_to :project_set
-  has_one :standard, dependent: :destroy
   has_many :lessons, dependent: :destroy
   has_many :supply_items, -> { distinct }, through: :lessons
   delegate :title, :gallery, :slug, to: :project_set
   alias_attribute :name, :title
-  after_create :generate_standard
-  accepts_nested_attributes_for :standard
 
-  has_sections %w(Synopsis Books/Media Skills Photocopies)
+  default_scope { order('updated_at desc') }
+
+  has_sections project_overview: [:synopsis, :skills], 'Set-up At A Glance' => [:materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principes, :cross_curricular]
+  
   has_attached_file :inspiration_image, 
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
     default_url: "images/:style/missing.png"
@@ -28,11 +28,6 @@ class Project < ActiveRecord::Base
 
   def academy
     "#{self.level} academy".titleize
-  end
-
-  private
-  def generate_standard
-    self.standard = Standard.create(project: self)
   end
 
 end

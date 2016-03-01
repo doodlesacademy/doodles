@@ -2,6 +2,7 @@
 
 <h1 class="inline">Project</h1>
 <%= link_to 'Edit', edit_admin_project_set_path(@project_set), class: "btn btn-blue pull-right" %>
+<p><%= image_tag @project_set.project_image.url(:thumb) %></p>
 <% %w(title unit_number unit).each do |s| %>
   <p><%= "#{s.titleize}: #{@project_set.send(s.to_sym)}" %></p>
 <% end %>

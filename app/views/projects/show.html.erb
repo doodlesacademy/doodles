@@ -3,35 +3,21 @@
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
 <% content_for(:hero_subtitle) { "#{@project.level} Academy".titleize } %>
 
-<ul class="aside">
-  <li>
+<div class="aside">
+  <ul>
+    <li>
     <%= link_to "Lessons", "#lessons" %>
     <ul>
     <% @project.lessons.each do |lesson| %>
       <li><%= link_to lesson.title %></li>
     <% end %>
     </ul>
-  </li>
-  <li class="project-aside-link">
-    <%= link_to "Overview", "#overview" %>
-    <ul>
-    <% @project.sections.each do |section| %>
-      <li><%= link_to section.title, "##{section.slug}" %></li>
-    <% end %>
-    </ul>
-  </li>
-  <li>
-    <%= link_to "Materials", "#materials" %>
-  </li>
-  <li>
-    <%= link_to "Standards", "#standards" %>
-    <ul>
-    <% @project.standard.sections.each do |section| %>
-      <li><%= link_to section.title, "##{section.slug}" %></li>
-    <% end %>
-    </ul>
-  </li>
-</ul>
+    </li>
+  </ul>
+  <ul><li><%= link_to "Materials", "#materials" %></li></ul>
+  <%= render "shared/table_of_contents", sectionable: @project %>
+  <%= render "shared/table_of_contents", sectionable: @project.standard %>
+</div>
 
 <div class="aside-content">
   <div class="project-section" id="lessons">

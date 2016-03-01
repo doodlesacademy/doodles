@@ -6,12 +6,7 @@ class Lesson < ActiveRecord::Base
   default_scope { where(status: Lesson.statuses[:active]) }
 
   has_and_belongs_to_many :supply_items
-  has_many :instruction_groups
-  has_many :instructions, through: :instruction_groups
   belongs_to :project, counter_cache: true
-
-  accepts_nested_attributes_for :instruction_groups, :instructions
-  after_create :create_instruction_groups
 
   validates :title, presence: true
   validates :video_uri, presence: true
@@ -40,11 +35,5 @@ class Lesson < ActiveRecord::Base
   end
 
   private
-
-  def create_instruction_groups
-    %w(Inspiration Introduction Worktime Clean-Up/Presentations).each do |title|
-      self.instruction_groups.create(title: title)
-    end
-  end
 
 end

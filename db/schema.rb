@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301091155) do
+ActiveRecord::Schema.define(version: 20160301124743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,23 +51,6 @@ ActiveRecord::Schema.define(version: 20160301091155) do
     t.integer  "project_set_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-  end
-
-  create_table "instruction_groups", force: :cascade do |t|
-    t.integer  "lesson_id"
-    t.integer  "order"
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "instructions", force: :cascade do |t|
-    t.integer  "instruction_group_id"
-    t.string   "time_to_complete"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -179,16 +162,6 @@ ActiveRecord::Schema.define(version: 20160301091155) do
     t.datetime "updated_at",                   null: false
     t.integer  "status"
     t.integer  "order",            default: 0
-  end
-
-  create_table "standards", force: :cascade do |t|
-    t.integer  "project_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "document_file_name"
-    t.string   "document_content_type"
-    t.integer  "document_file_size"
-    t.datetime "document_updated_at"
   end
 
   create_table "supply_items", force: :cascade do |t|

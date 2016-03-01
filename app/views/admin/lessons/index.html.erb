@@ -8,6 +8,7 @@
       <th>Project Title</th>
       <th>Academy</th>
       <th>Lesson Title</th>
+      <th>Updated</th>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= lesson.project.title %></td>
         <td><%= lesson.project.academy %></td>
         <td><%= lesson.title %></td>
+        <td><%= "#{time_ago_in_words(lesson.updated_at)} ago".titleize %></td>
         <td><%= link_to 'Show', admin_lesson_path(lesson) %></td>
         <td><%= link_to 'Edit', edit_admin_lesson_path(lesson) %></td>
       </tr>

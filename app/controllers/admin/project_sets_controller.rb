@@ -24,7 +24,7 @@ class Admin::ProjectSetsController < ApplicationController
   def create
     @project_set = ProjectSet.new(admin_project_set_params)
     if @project_set.save
-      redirect_to @project_set, notice: 'Project set was successfully created.'
+      redirect_to admin_project_set_url @project_set, notice: 'Project set was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::ProjectSetsController < ApplicationController
   # PATCH/PUT /admin/project_sets/1
   def update
     if @project_set.update(admin_project_set_params)
-      redirect_to @project_set, notice: 'Project set was successfully updated.'
+      redirect_to admin_project_set_url @project_set, notice: 'Project set was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +53,6 @@ class Admin::ProjectSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_project_set_params
-      params.require(:admin_project_set).permit(:title, :project_image)
+      params.require(:project_set).permit(:title, :project_image, :unit, :unit_number)
     end
 end
