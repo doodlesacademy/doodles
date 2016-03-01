@@ -16,7 +16,6 @@
   </ul>
   <ul><li><%= link_to "Materials", "#materials" %></li></ul>
   <%= render "shared/table_of_contents", sectionable: @project %>
-  <%= render "shared/table_of_contents", sectionable: @project.standard %>
 </div>
 
 <div class="aside-content">
@@ -25,11 +24,6 @@
     <% @project.lessons.each do |lesson| %>
     <%= link_to lesson.title %>
     <% end %>
-  </div>
-
-  <div class="project-section" id="overview">
-    <h1>Project Overview</h1>
-    <%= render "shared/sections", sectionable: @project %>
   </div>
 
   <div class="project-section" id="materials">
@@ -46,8 +40,9 @@
     </p>
   </div>
 
-  <div class="project-section" id="standards">
-    <h1>Standards</h1>
-    <%= render "shared/sections", sectionable: @project.standard %>
+  <div class="project-section" id="overview">
+    <h1>Project Overview</h1>
+    <%= render "shared/sections", sectionable: @project %>
   </div>
+
 </div>
