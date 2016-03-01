@@ -27,6 +27,6 @@
 <% @lesson.sections.each do |section| %>
   <p><%= section.title %></p>
   <div class="well">
-  <%= section.content %>
+  <%= markdown section.content %>
   </div>
 <% end %>

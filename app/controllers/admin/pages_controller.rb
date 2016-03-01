@@ -1,6 +1,7 @@
-class Admin::PagesController < Admin::ApplicationController
+class Admin::PagesController < ApplicationController
   before_action :authenticate_user!, :admin_only!
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  layout "admin"
 
   # GET /admin/pages
   def index
