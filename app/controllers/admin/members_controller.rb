@@ -1,4 +1,5 @@
 class Admin::MembersController < ApplicationController
+  before_action :authenticate_user!, :admin_only!
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   layout "admin"
 

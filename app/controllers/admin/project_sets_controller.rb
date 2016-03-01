@@ -1,4 +1,5 @@
 class Admin::ProjectSetsController < ApplicationController
+  before_action :authenticate_user!, :admin_only!
   before_action :set_admin_project_set, only: [:show, :edit, :update, :destroy]
   layout "admin"
 
