@@ -14,7 +14,7 @@ class ProjectSet < ActiveRecord::Base
   validates_attachment_content_type :project_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   
   def upper
-    get_project
+    get_project(level: :upper)
   end
 
   def lower
@@ -22,8 +22,9 @@ class ProjectSet < ActiveRecord::Base
   end
 
   def get_project(level: :lower)
+    level = level.to_sym
     return unless [:upper, :lower].include? level
-    self.projects.find_by(level: Project.levels[level])
+    self.projects.find_by_level(Project.levels[level])
   end
 
   private

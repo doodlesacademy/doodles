@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/alert", alert: notice %>
 
-<h1>Listing Pages</h1>
+<h1 class="inline">Pages</h1>
+<%= link_to 'New Page', new_admin_page_path, class: "btn btn-blue pull-right"%>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Title</th>
-      <th colspan="2"></th>
+      <th>Status</th>
+      <th>Last Updated</th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
 
@@ -14,6 +17,8 @@
     <% @pages.each do |page| %>
       <tr>
         <td><%= page.title %></td>
+        <td><%= page.status %></td>
+        <td><%= time_ago_in_words page.updated_at %></td>
         <td><%= link_to 'Show', pages_path(page.slug) %></td>
         <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
       </tr>
@@ -23,4 +28,3 @@
 
 <br>
 
-<%= link_to 'New Page', new_admin_page_path, class: "btn btn-blue"%>

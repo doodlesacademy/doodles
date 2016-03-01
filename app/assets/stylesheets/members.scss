@@ -5,23 +5,47 @@
 .member-grid .member-grid-item {
   margin-top: 50px;
   position: relative;
+  flex-direction: column;
 }
 
-.member-avatar {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-
-.member-info {
-  visibility: hidden;
-  opacity: 0;
-  transition: 200ms ease;
-
-  .member-grid-item:hover & {
+.member-grid .member-grid-item:hover {
+  cursor: pointer;
+  .member-avatar {
+    opacity: 0.3;
+    > img {
+      filter: blur(2px);
+      -webkit-filter: blur(2px);
+    }
+  }
+  .member-info {
     visibility: visible;
     opacity: 1;
   }
+}
+
+.member-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  @include ease;
+}
+
+.member-info {
+  position: absolute;
+  left: 0px;
+  bottom: 20%;
+  width: 100%;
+
+  visibility: visible;
+  opacity: 0;
+  @include ease;
+
+  text-align: center;
+}
+
+.member-name {
+  font-weight: 600;
 }
 
 .member-bio {

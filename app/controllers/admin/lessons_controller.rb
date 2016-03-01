@@ -4,13 +4,12 @@ class Admin::LessonsController < ApplicationController
   layout "admin"
 
   # GET /admin/lessons
-  # GET /admin/lessons.json
   def index
     @lessons = Lesson.all
+    @lesson_projects = @lessons.group_by(&:project_id)
   end
 
   # GET /admin/lessons/1
-  # GET /admin/lessons/1.json
   def show
   end
 

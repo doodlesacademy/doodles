@@ -1,12 +1,15 @@
-<%= image_tag "portraits/#{member.first_name.downcase}", class: "member-avatar" %>
-<div class="member-info">
-  <h2 class="member-name">
-    <%= member.name %>
-  </h2>
-  <h3 class="member-position">
-    <%= member.position %>
-  </h3>
+<div class="member-avatar">
+  <%= image_tag "portraits/#{member.first_name.downcase}" %>
 </div>
-<p class="member-bio">
-  <%= member.bio %>
-</p>
+<div class="member-info">
+  <div class="member-name">
+    <%= member.name %>
+  </div >
+  <div class="member-position">
+    <%= member.position %>
+  </div >
+</div>
+
+<div class="member-bio">
+  <%= markdown member.bio %>
+</div>

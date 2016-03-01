@@ -4,11 +4,17 @@
   color: white;
   transition: background-color 250ms ease;
 
+  &:visited {
+    color: white;
+    &:hover, &:active {
+      color: white;
+    }
+  }
+
   &:hover {
     background-color: darken($color, 15%);
     color: white;
   }
-
   &:active {
     background-color: darken($color, 25%);
     color: white;
@@ -29,7 +35,7 @@
 }
 
 .btn-large, a.btn-large, button.btn-large {
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0.8em 2.2em;
 }
 

@@ -2,18 +2,11 @@
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   .#{$item-name} {
     display: flex;
     $column-width: round(100%/$columns);
     width: calc(#{$column-width} - #{$column-margin});
-
-    &:not(:first-child) {
-      margin-left: $column-margin;
-    }
-
-    &:nth-child(#{$columns}n+1) {
-      margin-left: 0;
-    }
   }
 }

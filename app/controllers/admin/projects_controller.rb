@@ -15,7 +15,7 @@ class Admin::ProjectsController < ApplicationController
 
   # GET /admin/projects/new
   def new
-    @project = Project.new
+    @project_set = ProjectSet.new
   end
 
   # GET /admin/projects/1/edit

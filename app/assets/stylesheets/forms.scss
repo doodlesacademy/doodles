@@ -1,12 +1,11 @@
 @mixin label-font-styles {
-  font-size: 1.1em;
+  font-size: 0.8em;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 @mixin input-styles {
-  padding: 0.6em;
-  font-size: 1.3em;
+  padding: 0.4em;
   border: 1px solid $accent-gray;
   border-radius: 3px;
   width: 100%;
@@ -50,7 +49,6 @@
   }
   input:not([type='checkbox']),
   textarea {
-    margin-top: 0.5em;
     @include input-styles;
   }
 }

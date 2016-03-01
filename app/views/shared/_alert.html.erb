@@ -1,0 +1,6 @@
+<% if alert.present? %>
+<% level ||= "info" %>
+<div class="alert <%= "alert-#{level}" %>">
+  <%= alert %>
+</div>
+<% end %>

@@ -1,15 +1,33 @@
-<%= form_for(@admin_project) do |f| %>
-  <% if @admin_project.errors.any? %>
+<% path = @project.persisted? ? admin_project_path(@project) : admin_projects_path %> 
+<%= form_for @project, url: path do |f| %>
+  <% if @project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_project.errors.count, "error") %> prohibited this admin_project from being saved:</h2>
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>
-      <% @admin_project.errors.full_messages.each do |message| %>
+      <% @project.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+  <h2><%= @project.title.titleize %></h2>
+  <h3><%= @project.academy %></h3>
+
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @project,
+    attribute: :overview,
+    label: "Project Overview PDF" %>
+
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @project,
+    attribute: :inspiration_image,
+    label: "Inspiration Image" %>
+
+  <%= render "shared/form_sections", form: f %>
 
   <div class="actions">
     <%= f.submit %>

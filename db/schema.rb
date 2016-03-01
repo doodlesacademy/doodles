@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229124453) do
+ActiveRecord::Schema.define(version: 20160301021131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,10 +104,18 @@ ActiveRecord::Schema.define(version: 20160229124453) do
     t.string   "last_name"
     t.text     "bio"
     t.string   "avatar_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "position"
     t.integer  "role"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "baby_picture_file_name"
+    t.string   "baby_picture_content_type"
+    t.integer  "baby_picture_file_size"
+    t.datetime "baby_picture_updated_at"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -115,8 +123,14 @@ ActiveRecord::Schema.define(version: 20160229124453) do
     t.string   "slug"
     t.integer  "status"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "lead"
+    t.text     "hero_content"
+    t.string   "hero_image_file_name"
+    t.string   "hero_image_content_type"
+    t.integer  "hero_image_file_size"
+    t.datetime "hero_image_updated_at"
   end
 
   create_table "project_sets", force: :cascade do |t|

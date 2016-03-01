@@ -15,6 +15,10 @@ class Lesson < ActiveRecord::Base
 
   has_sections %w(Synopsis Objective Setup Media Photocopies)
   default_scope { where(status: Lesson.statuses[:active]) }
+  
+  has_attached_file :overview, 
+    styles: {thumbnail: "60x60#"}
+  validates_attachment_content_type :overview, content_type: ["application/pdf"]
 
   def video_id
     return unless @video_uri.present?

@@ -1,12 +1,10 @@
-<div class="nav"> 
+<div class="doodles-nav"> 
   <div class="brand">
     <a href="/"><%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %></a>
   </div>
   <ul class="nav-menu">
     <% @pages.each do |page| %>
-    <li class="nav-menu-item">
-      <%= link_to page[:name], page[:path] %>
-    </li>
+    <%= nav_link page[:name], page[:path] %>
     <% end %>
     <li class="nav-menu-item">
       <div class="btn btn-blue nav-donate-btn">

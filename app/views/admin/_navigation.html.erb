@@ -1,10 +1,16 @@
 <nav class="admin-nav">
-<ul>
-  <li class="admin-nav-item"><%= link_to "Pages", admin_pages_path %></li>
-  <li class="admin-nav-item"><%= link_to "Projects", admin_projects_path %></li>
-  <li class="admin-nav-item"><%= link_to "Standards", admin_standards_path %></li>
-  <li class="admin-nav-item"><%= link_to "Lessons", admin_lessons_path %></li>
-  <li class="admin-nav-item"><%= link_to "Galleries", admin_galleries_path %></li>
-  <li class="admin-nav-item"><%= link_to "Members", admin_members_path %></li>
-</ul>
+  <div class="brand">
+    <%= link_to admin_path do %>
+      <%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %>
+    <% end %>
+  </div>
+  <ul>
+    <%= nav_link "Pages", admin_pages_path %></li>
+    <%= nav_link "Projects", admin_project_sets_path %></li>
+    <%= nav_link "Project Levels", admin_projects_path %></li>
+    <%= nav_link "Standards", admin_standards_path %></li>
+    <%= nav_link "Lessons", admin_lessons_path %></li>
+    <%= nav_link "Galleries", admin_galleries_path %></li>
+    <%= nav_link "Members", admin_members_path %></li>
+  </ul>
 </nav>

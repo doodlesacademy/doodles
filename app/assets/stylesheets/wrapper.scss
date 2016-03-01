@@ -1,0 +1,16 @@
+// Wrapper
+.wrapper {
+  position: relative;
+  width: $content-max-width;
+  margin: 4em auto;
+
+  .title {
+    text-align: center;
+    text-transform: lowercase;
+    font-weight: 300;
+  }
+
+  h3 {
+    margin: 1em 0 0.25em;  
+  }
+}

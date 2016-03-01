@@ -20,3 +20,7 @@
   animation-iteration-count: $iterations;
   animation-timing-function: $timing;
 }
+
+@mixin ease($time: 200ms) {
+  transition: ease $time;
+}

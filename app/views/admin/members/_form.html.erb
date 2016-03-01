@@ -12,6 +12,18 @@
     </div>
   <% end %>
 
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @member,
+    attribute: :avatar,
+    label: "Member Avatar" %>
+  
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @member,
+    attribute: :baby_picture,
+    label: "Baby Photo" %>
+
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
@@ -32,6 +44,11 @@
     <select id="role" name="role">
       <%= options_for_select Member.roles.map { |l| [l[0].capitalize, l[0]] }, Member.roles.length %>
     </select>
+  </div>
+  
+  <div class="field">
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
   </div>
 
   <div class="actions">

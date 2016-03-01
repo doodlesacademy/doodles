@@ -1,42 +1,7 @@
-// Colors
-//
-$background-color: #FFFFFF;
-$text-color: #000000;
-
-$footer-grey: #9594A4;
-
-$primary-red: #DA232E;
-$primary-blue: #419ED5;
-$primary-yellow: #FCCC31;
-
-$accent-black: #000000;
-$accent-gray: #DDDEE0;
-$accent-green: #31B79A;
-$accent-orange: #F6A631;
-$accent-purple: #5E5AA3;
-
-$background-purple: #4B4583;
-$active-purple: #645EA6;
-$input-purple: #57528C;
-
-$background-blue: #599FD2;
-
 // Miscellaenous variables
 //
 $content-max-width: 800px;
 $content-min-width: 480px;
-
-
-// Mixins
-//
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
 
 // Elements
 //
@@ -44,7 +9,7 @@ $content-min-width: 480px;
   box-sizing: border-box;
 }
 
-html, body, div, p, br, ul, li, nav, footer, article {
+html, body, div, br, ul, li, nav, footer, article {
   margin: 0;
   padding: 0;
 }
@@ -52,24 +17,17 @@ html, body, div, p, br, ul, li, nav, footer, article {
 body {
   background-color: $background-color;
   color: $text-color;
-  font-size: $font-size;
   @include primary-font;
 }
 
-a {
-  color: $primary-blue;
-  text-decoration: none;
-
-  &:hover {
-    color: $primary-red;
-  }
+h1, h2, h3, h4, h5, h6 {
+  @include primary-font;
 }
 
-p {
-  font-size: 1.6em;
-  line-height: 1.5em;
-  padding: 0.4em 0;
-  font-weight: 300;
+a, a:visited {
+  &:hover, &:active {
+    text-decoration: none;
+  }
 }
 
 img {
@@ -95,200 +53,14 @@ img.height {
   text-transform: uppercase;
 }
 
-// Application layout elements
-//
-
-@mixin nav-menu-font {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  font-weight: 400;
-}
-
-// Nav-bar
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100px;
-  width: 100%;
-  z-index: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @include primary-font;
-  background-color: transparent;
-  transition: background-color 300ms ease;
-
-  #no-hero + &, 
-  &.is-scrolled {
-    background-color: rgba($primary-blue, 0.6);
-  }
-}
-
-.nav .brand {
-  height: 100px;
-  img {
-    height: 100%;
-    width: auto;
-  }
-}
-
-.nav-menu {
-  list-style-type: none;
-  list-style: none;
-  margin-left: 50px;
-}
-
-.nav-menu-item {
-  display: inline-block;
-  @include nav-menu-font;
-  padding: 0 30px;
-
-  a {
-    color: white;
-
-    &:after {
-      content: '';
-      display: block;
-      background-color: white;
-      opacity: 0;
-      margin-top: 2px;
-      height: 2px;
-      width: 100%;
-      transition: opacity 250ms ease;
-    }
-    &:hover:after {
-      opacity: 1;
-    }
-  }
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.nav .nav-donate-btn {
-  width: 100px;
-  @include nav-menu-font;
-  font-size: 1em;
-  padding: 6px 9px;
-}
-
 #no-hero {
   background-color: transparent;
   height: 100px;
 }
 
-// Wrapper
-.wrapper {
-  position: relative;
-  width: $content-max-width;
-  margin: 4em auto;
-
-  h1 {
-    text-align: center;
-  }
-
-  h3 {
-    font-size: 1.6em;
-    margin: 1em 0 0.25em;  
-  }
-}
-
-// Form
-.input__text {
-  border: none;
-  background-color: $input-purple;
-  color: white;
-  outline: none;
-  height: 38px;
-  padding: 0 30px;
-  height: 50px;
-  width: 450px;
-  font-size: 1.5em;
-  font-weight: 300;
-  transition: background-color 300ms ease;
-
-  &:focus {
-    background-color: lighten($input-purple, 10%)
-  }
-
-  @include placeholder {
-    color: rgba(white, 0.4);
-    font-weight: 300;
-  }
-}
 
 
-.newsletter__form {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
-.newsletter__notice {
-  color: white;
-  font-size: 1.4em;
-  padding: 30px 0;
-}
-
-.newsletter__submit {
-  @include textCap-12;
-  background-color: $active-purple;
-  color: white;
-  outline: none;
-  border: none;
-  border-radius: 0;
-  height: 50px;
-  padding: 0 30px;
-  transition: background-color 300ms ease;
-
-  &:hover {
-    background-color: lighten($active-purple, 10%)
-  }
-
-  &:active {
-    transition: none;
-    background-color: darken($active-purple, 10%)
-  }
-}
 
 
-// Footer
-.footer {
-  width: 100%;
-  color: white;
-  padding: 20px 0 60px;
-
-  background-color: $background-purple;
-
-  > div {
-    width: $content-max-width;
-    margin: 0 auto;
-  }
-
-  .footer-separator {
-    border-color: $footer-grey;
-    margin: 30px 0;
-  }
-
-}
-.footer-copyright {
-  @include text-10;
-  letter-spacing: .105em;
-  color: $footer-grey;
-}
-
-.footer-social,
-.footer-organization {
-  @include text-12;
-}
 
 
-.footer-fair-use,
-.footer-social,
-.footer-organization {
-  margin-bottom: 20px;
-}

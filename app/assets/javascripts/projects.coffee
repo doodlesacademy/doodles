@@ -1,7 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 (($, window) -> $ ->
   project_slug = null
   level = null
@@ -9,7 +5,6 @@
 
   setupListeners = ->
     $('body').on 'click', '[data-toggle="modal"]', openModal
-    $academy_modal.on 'click'
     $academy_modal.on 'click', '.btn-academy', selectAcademy
     $('.project-grid').on 'click', '.project-grid-item', selectProject
   
@@ -22,6 +17,7 @@
     $academy = $ e.currentTarget
     level = $academy.data('level')
     new_location = window.location.href.replace(/www|lower|upper/, level)
+    new_location = new_location.replace(/\/$/, '')
     window.location = "#{new_location}/#{project_slug}"
     toggleAcademyModal()
     

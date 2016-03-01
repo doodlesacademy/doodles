@@ -1,3 +1,11 @@
 <% content_for(:page_title) { @page.title.titleize } %>
-<h1><%= @page.title.titleize %></h1>
+<% content_for(:hero_content) { @page.hero_content } %>
+<% content_for(:hero_image) { image_tag @page.hero_image.url } %>
+
+<h1 class="title">
+  <%= @page.title.titleize %>
+</h1>
+<p class="lead">
+  <%= @page.lead %>
+</p>
 <%= markdown @page.content %>

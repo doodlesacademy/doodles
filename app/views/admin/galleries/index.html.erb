@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/alert", alert: notice %>
 
-<h1>Listing Galleries</h1>
+<h1 class="inline">Galleries</h1>
+<%= link_to 'New Gallery', new_admin_gallery_path, class: "btn btn-blue pull-right" %>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Project Name</th>
@@ -24,4 +25,3 @@
 
 <br>
 
-<%= link_to 'New Gallery', new_admin_gallery_path, class: "btn btn-blue" %>

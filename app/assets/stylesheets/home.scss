@@ -1,29 +1,3 @@
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: 0.1em;
-}
-
-h1 {
-  font-weight: 400;
-  font-size: 2.5em;
-  text-transform: lowercase;
-}
-
-h2 {
-  font-size: 2em;
-}
-
-img {
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
- 
-section {
-  width: 100%;
-  margin: 100px 0;
-}
-
 .homepage {
   text-align: center;
 }
@@ -39,131 +13,15 @@ section {
     color: black;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: 200ms ease;
-  }
-  a:hover {
-    color: lighten(black, 30%);
-    border-bottom-color: lighten(black, 50%);
+    @include ease;
+    &:hover {
+      color: lighten(black, 30%);
+      border-bottom-color: lighten(black, 50%);
+    }
   }
 }
 
 .lead {
-  display: block;
-  font-weight: 500;
-  font-size: 1.8em;
-  text-align: center;
-}
-
-.hero {
-  background-color: black;
-  position: relative;
-  margin: 0;
-  max-height: 480px;
-  padding: 0;
-  width: 100%;
-  overflow: hidden;
-}
-
-.hero-video,
-.hero > img {
-  opacity: 0.5;
-  width: 100%;
-  height: auto;
-
-  .homepage .hero:first-child & {
-    opacity: 0.7;
-  }
-}
-
-.hero-content{
-  @extend .wrapper;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-
-  @include textCap-16;
-  line-height: 1.5em;
-  text-align: center;
-}
-
-.hero-title-subtitle {
-  @extend .wrapper;
-  position: absolute;
-  bottom: 0%;
-  left: 50%;
-  transform: translate3d(-50%, 0%, 0);
-}
-
-.hero-title,
-.hero-subtitle {
-  text-transform: lowercase;
-  letter-spacing: 0.1em;
-  font-weight: 400;
-  font-size: 3.8em;
-}
-
-.hero-subtitle {
-  margin: 1em 0 2em;
-  font-size: 2em;
-}
-
-.hero-content,
-.hero-title,
-.hero-subtitle,
-.quote {
-  color: white;
-}
-
-.quote-contents {
-  @include primary-font;
-  font-size: 1.2em;
-  line-height: 1.6em;
-  font-weight: 300;
-  font-style: italic;
-  text-transform: none;
-  transition: opacity 300ms ease;
-
-  &.is-hidden {
-    opacity: 0;
-  }
-}
-
-.quote-person {
-  display: block;
-  font-size: 1em;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-style: normal;
-  margin-top: 20px;
-}
-
-.quote-selector {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-bottom: 3em;
-  transform: translate3d(-50%, 0, 0);
-}
-
-.quote-selector-bubble {
-  font-size: 5em;
-  font-style: normal;
-  margin-right: 0.2em;
-  opacity: 0.5;
-  transition: opacity 200ms ease;
-
-  &:last-child {
-   margin-right: 0; 
-  }
-  &.is-active,
-  &:hover {
-    opacity: 1;
-  }
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .content {

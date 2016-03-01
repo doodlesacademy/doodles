@@ -1,5 +1,30 @@
-<h1>New Admin Project</h1>
-
-<%= render 'form' %>
-
 <%= link_to 'Back', admin_projects_path %>
+<h1>New Project</h1>
+<%= form_for @project_set, url: admin_projects_path do |f| %>
+  <% if @project_set.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_set.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project_set.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @project_set,
+    attribute: :project_image,
+    label: "Project Image" %>
+
+  <div class="actions">
+    <%= f.submit "Create Project" %>
+  </div>
+<% end %>

@@ -1,7 +1,6 @@
 <% content_for(:page_title) { ('Team') } %>
 
-<div class="wrapper">
-<h1> The Board </h1>
+<h1 class="title">The Board</h1>
 
 <div class="member-grid">
 <% @board_members.each do |member| %>
@@ -11,7 +10,7 @@
 <% end %>
 </div>
 
-<h1> Volunteers </h1>
+<h1 class="title">Volunteers</h1>
 
 <div class="member-grid">
 <% @volunteer_members.each do |member| %>
@@ -21,4 +20,14 @@
 <% end %>
 </div>
 
+<div class="modal" id="modal-member-bio">
+  <div class="modal-content">
+    <div class="modal-close"></div>
+    <div class="modal-title">
+      <h2 class="modal-member-name"></h2>
+    </div>
+    <div class="modal-body">
+
+    </div>
+  </div>
 </div>

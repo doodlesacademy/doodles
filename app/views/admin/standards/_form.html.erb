@@ -1,15 +1,18 @@
-<%= form_for(@admin_standard) do |f| %>
-  <% if @admin_standard.errors.any? %>
+<% path = @standard.persisted? ? admin_standard_path(@standard) : admin_standards_path %> 
+<%= form_for @standard, url: path do |f| %>
+  <% if @standard.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_standard.errors.count, "error") %> prohibited this admin_standard from being saved:</h2>
+      <h2><%= pluralize(@standard.errors.count, "error") %> prohibited this admin_standard from being saved:</h2>
 
       <ul>
-      <% @admin_standard.errors.full_messages.each do |message| %>
+      <% @standard.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+  <%= render "shared/form_sections", form: f %>
 
   <div class="actions">
     <%= f.submit %>

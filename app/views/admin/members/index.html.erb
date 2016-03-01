@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/alert", alert: notice %>
 
-<h1>Listing Members</h1>
+<h1 class="inline">Members</h1>
+<%= link_to 'New Member', new_admin_member_path, class: "btn btn-blue pull-right" %>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>First Name</th>
@@ -29,4 +30,3 @@
 
 <br>
 
-<%= link_to 'New Member', new_admin_member_path, class: "btn btn-blue" %>

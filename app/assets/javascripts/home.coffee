@@ -1,6 +1,6 @@
 (($, window) -> $ ->
   $document = $(document)
-  $nav = $('.nav')
+  $nav = $('.doodles-nav')
   $body = $('.body')
   $window = $(window)
   $quote = $('.quote .quote-contents')

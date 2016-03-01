@@ -1,9 +1,14 @@
 .modal {
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
   @include fixed-position;
   background-color: rgba(black, 0.6);
+  @include ease;
+
   &.is-active {
-    display: block;
+    visibility: visible;
+    opacity: 1.0;
     z-index: 1000;
   }
 }
@@ -62,6 +67,8 @@
   padding: 1em 2.5em;
   font-weight: 300;
   font-size: 14px;
+  @include ease;
+
   &:hover {
     background-color: darken($background-blue, 10%);
   }

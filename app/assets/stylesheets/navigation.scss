@@ -1,0 +1,82 @@
+// Main Application Navigation
+@mixin nav-menu-font {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+// Nav-bar
+.doodles-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include primary-font;
+  background-color: transparent;
+  transition: background-color 300ms ease;
+
+  #no-hero + &, 
+  &.is-scrolled {
+    background-color: rgba($primary-blue, 0.6);
+  }
+
+  .brand {
+    height: 100px;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .nav-menu {
+    list-style-type: none;
+    list-style: none;
+    margin-left: 50px;
+
+    li {
+      display: inline-block;
+      @include nav-menu-font;
+      padding: 0 30px;
+
+      a, a:visited {
+        color: white;
+        text-decoration: none;
+
+        &:after {
+          content: '';
+          display: block;
+          background-color: white;
+          opacity: 0;
+          margin-top: 2px;
+          height: 2px;
+          width: 100%;
+          transition: opacity 250ms ease;
+        }
+      }
+
+      &.current a:after,
+      &:hover a:after {
+        opacity: 1;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .nav-donate-btn {
+    width: 100px;
+    @include nav-menu-font;
+    font-size: 1em;
+    padding: 6px 9px;
+  }
+}
