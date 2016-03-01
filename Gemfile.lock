@@ -48,6 +48,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bower (0.0.5)
+      multi_json
     builder (3.2.2)
     byebug (8.2.2)
     capistrano (3.4.0)
@@ -223,6 +225,7 @@ DEPENDENCIES
   autoprefixer-rails
   aws-sdk (> 2.0)
   bcrypt (~> 3.1.7)
+  bower
   byebug
   capistrano-rails
   coffee-rails (~> 4.1.0)
