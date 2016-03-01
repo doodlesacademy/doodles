@@ -8,8 +8,8 @@
     admin_project_set_path(@lesson.project.project_set) %>
 </p>
 <p>
-Academy: <%= link_to @lesson.project.academy,
-  admin_project_path(@lesson.project) %>
+  Academy: <%= link_to @lesson.project.academy,
+    admin_project_path(@lesson.project) %>
 </p>
 
 
@@ -30,18 +30,3 @@ Academy: <%= link_to @lesson.project.academy,
   <%= section.content %>
   </div>
 <% end %>
-
-<% @lesson.instruction_groups.each do |group| %>
-  <div>
-    <p><strong><%= group.title %></strong></p>
-  <% group.instructions.each do |inst| %>
-    <p>Title: <%= inst.title %></p>
-    <p>Time to Complete: <%= inst.time_to_complete %></p>
-    <p>Description</p>
-    <div class="well">
-      <%= inst.description %>
-    </div>
-  <% end %>
-  </div>
-<% end %>
-
