@@ -1,10 +1,12 @@
 <%= link_to 'Edit', edit_admin_member_path(@member) %> |
 <%= link_to 'Back', admin_members_path %>
-<p id="notice"><%= notice %></p>
-<%= image_tag @member.avatar.url(:thumb) %>
-<h2>Name: <%= @member.name %></h2>
-<h3>Position: <%= @member.position %></h2>
-<h3>Role: <%= @member.role %></h2>
-<h3>Bio</h3>
+
+<%= render "shared/alert", alert: notice %>
+
+<h3>Member</h3>
+<%= image_tag @member.avatar.url(:thumb), class: "img-rounded" %>
+<% %w(name position role).each do |s| %>
+  <p><%= "#{s.titleize}: #{@member.send(s.to_sym).titleize}" %></p>
+<% end %>
 <%= markdown @member.bio %>
 

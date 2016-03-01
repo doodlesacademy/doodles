@@ -70,14 +70,16 @@
   @include ease;
 
   &:hover {
+    color: white;
     background-color: darken($background-blue, 10%);
   }
   &:active {
+    color: white;
     background-color: darken($background-blue, 20%);
   }
 }
 
-.btn-academy .btn-info {
+.btn-academy .academy-info {
   font-size: 12px;
   font-weight: 300;
   text-transform: none;

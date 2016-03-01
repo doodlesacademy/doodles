@@ -6,28 +6,18 @@
   text-align: center;
 }
 
-.sub {
-  font-style: italic;
-  a, a:visited {
-    cursor: pointer;
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    @include ease;
-    &:hover {
-      color: lighten(black, 30%);
-      border-bottom-color: lighten(black, 50%);
-    }
-  }
+.homepage-section {
+  padding: 3em 0;
 }
 
-.lead {
-}
-
-.content {
-  max-width: $content-max-width;
+.homepage-content {
+  max-width: $homepage-max-width;
   margin: 0 auto;
   padding-bottom: 2em;
+  
+  p:not(.lead) {
+    font-size: 1.2em;
+  }
 }
 
 .homepage-gallery {
@@ -73,7 +63,7 @@
 }
 
 .homepage-gallery-item-title {
-  @include textCap-12;
+  @include textCap;
   display: none;
   color: white;
   text-align: center;

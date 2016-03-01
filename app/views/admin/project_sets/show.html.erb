@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_admin_project_set_path(@admin_project_set) %> |
-<%= link_to 'Back', admin_project_sets_path %>
+<h1 class="inline">Project</h1>
+<%= link_to 'Edit', edit_admin_project_set_path(@project_set), class: "btn btn-blue pull-right" %>
+<% %w(title unit_number unit).each do |s| %>
+  <p><%= "#{s.titleize}: #{@project_set.send(s.to_sym)}" %></p>
+<% end %>
+
+<p><%= link_to @project_set.upper.academy, admin_project_path(@project_set.upper) %></p>
+<p><%= link_to @project_set.lower.academy, admin_project_path(@project_set.lower) %></p>

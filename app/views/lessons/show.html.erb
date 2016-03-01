@@ -1,20 +1,42 @@
 <% content_for(:page_title) { @lesson.title } %>
+<% content_for(:hero_image) { image_tag @lesson.inspiration_image.url(:large) } %>
+<% content_for(:hero_title) { "#{@lesson.title}".titleize } %>
+<% content_for(:hero_subtitle) { "#{@lesson.project.title} / #{@lesson.project.academy}".titleize } %>
 
-<div class="wrapper">
-<h1><%= @lesson.title %></h1>
-<h3 class="centered"><%= @project.level.capitalize %> Academy</h3>
-<% if @lesson.inspiration_image.present? %>
-  <%= image_tag @lesson.inspiration_image, class:"inspiration_image" %>
-  <%= @lesson.inspiration_image_description %>
-<% end %>
-<% if @lesson.video_uri.present? %>
-  <%= render "shared/video", locals: { video_id: @lesson.video_id } %>
-<% end %>
-
-<% %w(synopsis objective setup photocopies media).each do |section| %>
-  <div id="<%= section %>">
-    <h2><%= section.capitalize %></h2>
-    <p><%= @lesson.send(section.to_sym) %></p>
-  </div>
-<% end %>
+<div class="aside">
+  <ul>
+  <li><%= link_to "Video", "#video" %></li>
+  <li><%= link_to "Inspiration Image", "#inspiration-image" %></li>
+  <li><%= link_to "Materials", "#materials" %></li>
+  </ul>
+  <%= TOC @lesson.sections.first.content %>
 </div>
+
+<div class="aside-content">
+  <% if @lesson.video_uri.present? %>
+    <div class="lesson-video" id="video">
+    <%= render "shared/video", locals: { video_id: @lesson.video_id } %>
+    </div>
+  <% end %>
+  <% if @lesson.inspiration_image.present? %>
+    <div class="inspiration-image" id="inspiration-image">
+    <%= image_tag @lesson.inspiration_image.url(:thumb) %>
+    <%= @lesson.inspiration_image_description %>
+    </div>
+  <% end %>
+  <div id="materials">
+    <h1>Materials</h1>
+    <p>
+    <% @lesson.supply_items.each do |supply| %>
+      <% capitalized_name = supply.name.capitalize %>
+      <% if supply.has_link? %>
+        <%= link_to capitalized_name, supply.url %>,
+      <% else %>
+        <%= capitalized_name %>,
+      <% end %>
+    <% end %>
+    </p>
+  </div>
+  <%= render "shared/sections", sectionable: @lesson %>
+</div>
+

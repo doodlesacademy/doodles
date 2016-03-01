@@ -1,6 +1,6 @@
 <div class="form-group">
   <% if entity.present? and entity.send(attribute).present? %>
-    <%= image_tag entity.send(attribute).url(:original) %>
+    <%= image_tag entity.send(attribute).url(:thumb) %>
   <% end %>
   <%= form.label attribute, label %>
   <%= form.file_field attribute %>

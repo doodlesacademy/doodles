@@ -23,6 +23,7 @@
 
 .btn, a.btn, button.btn {
   @include textCap;
+  font-size: 0.8em;
   text-transform: uppercase;
   border-radius: 3px;
   border: none;

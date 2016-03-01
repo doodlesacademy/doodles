@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
 
   namespace 'admin' do
-    resources :pages, :project_sets, :projects, :standards, :lessons, :galleries, :members
+    resources :pages, :project_sets, :projects, :standards, :lessons, :galleries, :members, :supply_items
   end
 
   post 'feedback', to: 'feedback_messages#create'

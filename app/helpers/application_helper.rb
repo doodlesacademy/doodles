@@ -10,9 +10,19 @@ module ApplicationHelper
       tables:          true,
       link_attributes: { rel: 'nofollow', target: "_blank" },
       space_after_headers: true, 
-      fenced_code_blocks: true
+      fenced_code_blocks: true,
+      with_toc_data: true
     }
-    renderer = Redcarpet::Render::HTML
+    renderer = Redcarpet::Render::HTML.new(options)
+    markdown = Redcarpet::Markdown.new(renderer, options) 
+    markdown.render(text).html_safe
+  end
+
+  def TOC(text, level: 2)
+    options = {
+      nesting_level: level,
+    }
+    renderer = Redcarpet::Render::HTML_TOC
     markdown = Redcarpet::Markdown.new(renderer, options)
     markdown.render(text).html_safe
   end

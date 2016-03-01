@@ -26,7 +26,7 @@ class Admin::LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
     if @lesson.save
-      redirect_to :index, notice: 'Lesson was successfully created.'
+      redirect_to admin_lesson_path(@lesson), notice: 'Lesson was successfully created.'
     else
       render :new
     end
@@ -34,8 +34,9 @@ class Admin::LessonsController < ApplicationController
 
   # PATCH/PUT /admin/lessons/1
   def update
+    byebug
     if @lesson.update(lesson_params)
-      redirect_to :index, notice: 'Lesson was successfully updated.'
+      redirect_to admin_lesson_path(@lesson), notice: 'Lesson was successfully updated.'
     else
       render :edit
     end
@@ -44,7 +45,7 @@ class Admin::LessonsController < ApplicationController
   # DELETE /admin/lessons/1
   def destroy
     @lesson.destroy
-    redirect_to :index, notice: 'Lesson was successfully destroyed.'
+    redirect_to action: :index, notice: 'Lesson was successfully destroyed.'
   end
 
   private
@@ -61,6 +62,15 @@ class Admin::LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:title, :video_uri, sections_attributes: [:id, :order, :content])
+      params.require(:lesson).permit(:title, :project_id, :overview, :inspiration_image, :inspiration_image_description, :video_uri, sections_attributes: [:id, :order, :content], instruction_groups_attributes: instruction_group_attributes)
     end
+
+    def instruction_group_attributes
+      [:id, :title, :order, instructions_attributes: instructions_attributes]
+    end
+
+    def instructions_attributes
+      [:id, :title, :time_to_complete, :order, :description]
+    end
+
 end

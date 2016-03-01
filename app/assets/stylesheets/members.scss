@@ -29,6 +29,9 @@
   border-radius: 50%;
   overflow: hidden;
   @include ease;
+  > img {
+    width: 100%;
+  }
 }
 
 .member-info {

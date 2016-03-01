@@ -1,4 +1,47 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/alert", alert: notice %>
 
-<%= link_to 'Edit', edit_admin_lesson_path(@lesson) %> |
-<%= link_to 'Back', admin_lessons_path %>
+<h1 class="inline">Lesson</h1>
+<%= link_to 'Edit', edit_admin_lesson_path(@lesson), class: "btn btn-blue pull-right" %>
+<p>Title: <%= @lesson.title %>
+<p>
+  Project: <%= link_to @lesson.project.title, 
+    admin_project_set_path(@lesson.project.project_set) %>
+</p>
+<p>
+Academy: <%= link_to @lesson.project.academy,
+  admin_project_path(@lesson.project) %>
+</p>
+
+
+<p>
+  <% if @lesson.overview.present? %> 
+  <%= link_to "Lesson Overview PDF", @lesson.overview.url %>
+  <% else %>
+  <%= "Lesson Overview PDF Not Found" %>
+  <% end %>
+</p>
+<p><%= image_tag @lesson.inspiration_image.url(:thumb) %></p>
+<p>Inspiration Image Description: <%= @lesson.inspiration_image_description %></p>
+
+
+<% @lesson.sections.each do |section| %>
+  <p><%= section.title %></p>
+  <div class="well">
+  <%= section.content %>
+  </div>
+<% end %>
+
+<% @lesson.instruction_groups.each do |group| %>
+  <div>
+    <p><strong><%= group.title %></strong></p>
+  <% group.instructions.each do |inst| %>
+    <p>Title: <%= inst.title %></p>
+    <p>Time to Complete: <%= inst.time_to_complete %></p>
+    <p>Description</p>
+    <div class="well">
+      <%= inst.description %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+

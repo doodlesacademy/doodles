@@ -1,15 +1,21 @@
 class Admin::PagesController < ApplicationController
-  before_action :set_page, only: [:edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy]
   layout "admin"
 
   # GET /admin/pages
   def index
-    @pages = Page.all
+    @pages = Page.unscoped.all
   end
 
   # GET /admin/pages/1
   def show
-    redirect_to action: :index
+    if @page.draft?
+      @level = "warning"
+      @status_notice = "This page is a draft. It will become acessible once it is published."
+    elsif @page.archive?
+      @level = "warning"
+      @status_notice = "This page has been archived."
+    end
   end
 
   # GET /admin/pages/new
@@ -25,7 +31,7 @@ class Admin::PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-      redirect_to action: :index, notice: 'Page was successfully created.'
+      redirect_to admin_page_url @page, notice: 'Page was successfully created.'
     else
       render :new
     end
@@ -33,8 +39,9 @@ class Admin::PagesController < ApplicationController
 
   # PATCH/PUT /admin/pages/1
   def update
+    byebug
     if @page.update(page_params)
-      redirect_to action: :index, notice: 'Page was successfully updated.'
+      redirect_to admin_page_url @page, notice: 'Page was successfully updated.'
     else
       render :edit
     end
@@ -43,17 +50,17 @@ class Admin::PagesController < ApplicationController
   # DELETE /admin/pages/1
   def destroy
     @page.destroy
-    redirect_to action: :index, notice: 'Page was successfully destroyed.'
+    redirect_to admin_pages_url, notice: 'Page was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      @page = Page.find(params[:id])
+      @page = Page.unscoped.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :content)
+      params.require(:page).permit(:title, :status, :content, :hero_content, :hero_image)
     end
 end

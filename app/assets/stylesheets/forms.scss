@@ -40,6 +40,7 @@
 .actions input[type='submit'] {
   @extend .btn;
   @extend .btn-blue;
+  font-size: 0.8em;
 }
 
 .field {

@@ -1,0 +1,9 @@
+<%= render "shared/alert", alert: notice %>
+
+<h1 class="inline">Supply Item</h1>
+<%= link_to 'Edit', edit_admin_supply_item_path(@supply_item), class: "btn btn-blue pull-right" %>
+
+<p>Name: <%= @supply_item.name %></p>
+<p>ASIN: <%= @supply_item.asin %></p>
+<p>Url: <%= @supply_item.url if @supply_item.has_link? %></p>
+<p>Description: <%= @supply_item.description %></p>

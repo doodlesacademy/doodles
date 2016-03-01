@@ -18,9 +18,24 @@
   </div>
 
   <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.label :status %>
+    <%= f.select :status do %>
+      <%= options_for_select Page.statuses.map{ |s| [s[0], s[0]] }, Page.statuses.length %>
+    <% end %>
   </div>
+
+  <div class="field">
+    <%= f.label :hero_content %>
+    <%= f.text_field :hero_content %>
+  </div>
+  
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @page,
+    attribute: :hero_image,
+    label: "Hero Image" %>
+
+  <%= render "shared/markdown_editor", form: f, attribute: :content %>
   
   <div class="actions">
     <%= f.submit %>

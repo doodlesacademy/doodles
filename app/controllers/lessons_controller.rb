@@ -1,6 +1,5 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show]
-  before_action :edit, :create
 
   def index
     redirect_to_project

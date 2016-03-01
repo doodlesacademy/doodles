@@ -33,7 +33,7 @@ class Admin::MembersController < ApplicationController
   # PATCH/PUT /admin/members/1
   def update
     if @member.update(member_params)
-      redirect_to action: :index, notice: 'Member was successfully updated.'
+      redirect_to admin_member_path(@member), notice: 'Member was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +53,6 @@ class Admin::MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:avatar, :baby_photo, :bio, :first_name, :last_name)
+      params.require(:member).permit(:avatar, :baby_photo, :bio, :first_name, :last_name, :position, :role)
     end
 end

@@ -3,19 +3,19 @@
   $document = $(document)
   $window = $(window)
   $aside = $('.aside')
-  $content = $('.content')
+  $content = $('.aside-content')
   return unless $aside[0] and $content[0]
 
   aside_height = $aside.height()
-  content_height = $content.height()
   aside_offset = null
   content_offset = null
-  margin = 100
+  margin = 140
 
   onScroll = _.debounce ->
     aside_offset or= $aside.offset()
     content_offset or= $content.offset()
     document_top = $document.scrollTop()
+    content_height = $content.height()
     bottom = "inherit"
     if document_top + margin > aside_offset.top
       if document_top + margin + aside_height > content_offset.top + content_height

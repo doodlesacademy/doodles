@@ -11,6 +11,7 @@ class Section < ActiveRecord::Base
   after_initialize :init_as_active
 
   def slug
+    return unless self.title.present?
     slug = self.title.downcase.gsub /[^a-z\s]+/, ''
     slug = slug.strip.gsub /\s+/, '-'
   end

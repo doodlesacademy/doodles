@@ -2,7 +2,6 @@
 
 <h1 class="inline">Pages</h1>
 <%= link_to 'New Page', new_admin_page_path, class: "btn btn-blue pull-right"%>
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -17,9 +16,9 @@
     <% @pages.each do |page| %>
       <tr>
         <td><%= page.title %></td>
-        <td><%= page.status %></td>
+        <td><%= page.status.capitalize %></td>
         <td><%= time_ago_in_words page.updated_at %></td>
-        <td><%= link_to 'Show', pages_path(page.slug) %></td>
+        <td><%= link_to 'Show', admin_page_path(page) %></td>
         <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
       </tr>
     <% end %>

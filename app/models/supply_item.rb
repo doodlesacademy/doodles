@@ -3,6 +3,11 @@ class SupplyItem < ActiveRecord::Base
   validates :name, presence: true
 
   def has_link?
-    !url.blank?
+    self.asin.present?
   end
+
+  def url
+    "http://www.amazon.com/dp/#{self.asin}/?tag=#{ENV['AMAZON_ASSOCIATE_ID']}"
+  end
+
 end

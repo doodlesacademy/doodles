@@ -18,7 +18,8 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :inspiration_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_attached_file :overview, 
-    styles: {thumbnail: "60x60#"}
+    styles: {thumbnail: "60x60#"},
+    default_url: ""
   validates_attachment_content_type :overview, content_type: ["application/pdf"]
 
   def standards

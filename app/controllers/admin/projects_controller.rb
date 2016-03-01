@@ -3,13 +3,11 @@ class Admin::ProjectsController < ApplicationController
   layout "admin"
 
   # GET /admin/projects
-  # GET /admin/projects.json
   def index
     @projects = Project.all
   end
 
   # GET /admin/projects/1
-  # GET /admin/projects/1.json
   def show
   end
 
@@ -23,43 +21,28 @@ class Admin::ProjectsController < ApplicationController
   end
 
   # POST /admin/projects
-  # POST /admin/projects.json
   def create
     @project = Project.new(project_params)
-
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save
+      redirect_to admin_project_url @project, notice: 'Project was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /admin/projects/1
-  # PATCH/PUT /admin/projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.update(project_params)
+      redirect_to admin_project_url @project, notice: 'Project was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /admin/projects/1
-  # DELETE /admin/projects/1.json
   def destroy
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
   private
@@ -70,6 +53,6 @@ class Admin::ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.fetch(:project, {})
+      params.require(:project).permit(:overview, :inspiration_image, sections_attributes: [:id, :order, :content])
     end
 end

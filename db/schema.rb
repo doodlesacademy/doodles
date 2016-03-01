@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301021131) do
+ActiveRecord::Schema.define(version: 20160301091155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,20 +73,21 @@ ActiveRecord::Schema.define(version: 20160301021131) do
   create_table "lessons", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "title"
-    t.text     "synopsis"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "video_uri"
-    t.text     "objective"
-    t.text     "setup"
     t.string   "slug"
     t.string   "inspiration_image"
-    t.text     "photocopies"
-    t.text     "media"
     t.text     "inspiration_image_description"
-    t.text     "anticipated_problems"
-    t.text     "early_finishers"
-    t.integer  "status",                        default: 0
+    t.integer  "status",                         default: 0
+    t.string   "inspiration_image_file_name"
+    t.string   "inspiration_image_content_type"
+    t.integer  "inspiration_image_file_size"
+    t.datetime "inspiration_image_updated_at"
+    t.string   "overview_file_name"
+    t.string   "overview_content_type"
+    t.integer  "overview_file_size"
+    t.datetime "overview_updated_at"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -166,6 +167,7 @@ ActiveRecord::Schema.define(version: 20160301021131) do
     t.string   "overview_content_type"
     t.integer  "overview_file_size"
     t.datetime "overview_updated_at"
+    t.string   "inspiration_image_description"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 20160301021131) do
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "asin"
   end
 
   create_table "users", force: :cascade do |t|

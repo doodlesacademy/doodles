@@ -14,4 +14,11 @@
 //= require jquery_ujs
 //= require underscore/underscore
 //= require bootstrap/dist/js/bootstrap
+//= require uikit/js/uikit
+//= require codemirror/lib/codemirror
+//= require codemirror/mode/markdown/markdown
+//= require codemirror/addon/mode/overlay
+//= require codemirror/mode/gfm/gfm
+//= require marked/marked.min
+//= require uikit/js/components/htmleditor
 //= require_tree .

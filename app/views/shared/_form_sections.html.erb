@@ -1,5 +1,5 @@
 <%= form.fields_for :sections do |section_form| %> 
   <div class="form-group">
-    <%= section_form.text_area :content %>
+    <%= section_form.text_area :content, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 <% end %>

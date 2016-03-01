@@ -13,8 +13,8 @@ module Sectionable
   end
 
   module ClassMethods
-    def has_sections(sections)
-      self.default_sections = sections
+    def has_sections(new_sections)
+      self.default_sections = new_sections
     end
   end
 
@@ -29,9 +29,23 @@ module Sectionable
   private
   def generate_default_sections 
     return unless self.class.default_sections.present?
-    self.class.default_sections.each_with_index do |name, i|
-      self.sections.new title: name, content: "## #{name}", order: i
+    return if self.sections.present?
+    content = generate_toc(self.class.default_sections)
+    self.sections.new content: content
+  end
+
+  def generate_toc(hash, level: 1)
+    level ||= 1
+    content = ""
+    header = ""
+    level.times { header += "#" }
+    hash.each do |k, v| 
+      content += "#{header} #{k.to_s.titleize}\n\n"
+      if v.present? && (v.is_a? Hash or v.is_a? Array)
+        content += generate_toc(v, level: level + 1)
+      end
     end
+    return content
   end
 
 end

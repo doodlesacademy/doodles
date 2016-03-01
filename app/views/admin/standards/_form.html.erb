@@ -12,6 +12,12 @@
     </div>
   <% end %>
 
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @standard,
+    attribute: :document,
+    label: "Standards Document PDF" %>
+
   <%= render "shared/form_sections", form: f %>
 
   <div class="actions">

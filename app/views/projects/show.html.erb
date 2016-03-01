@@ -3,12 +3,12 @@
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
 <% content_for(:hero_subtitle) { "#{@project.level} Academy".titleize } %>
 
-<ul class="aside project-aside-links">
-  <li class="project-aside-link">
+<ul class="aside">
+  <li>
     <%= link_to "Lessons", "#lessons" %>
     <ul>
     <% @project.lessons.each do |lesson| %>
-      <li><%= link_to lesson.title project_lesson_path(@project.slug, lesson.slug) %></li>
+      <li><%= link_to lesson.title %></li>
     <% end %>
     </ul>
   </li>
@@ -20,10 +20,10 @@
     <% end %>
     </ul>
   </li>
-  <li class="project-aside-link">
+  <li>
     <%= link_to "Materials", "#materials" %>
   </li>
-  <li class="project-aside-link">
+  <li>
     <%= link_to "Standards", "#standards" %>
     <ul>
     <% @project.standard.sections.each do |section| %>
@@ -33,11 +33,11 @@
   </li>
 </ul>
 
-<div class="content project-content">
+<div class="aside-content">
   <div class="project-section" id="lessons">
     <h1>Lessons</h1>
     <% @project.lessons.each do |lesson| %>
-    <%= link_to lesson.title project_lesson_path(@project.slug, lesson.slug) %>
+    <%= link_to lesson.title %>
     <% end %>
   </div>
 

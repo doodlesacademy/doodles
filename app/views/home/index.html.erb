@@ -2,12 +2,11 @@
 <% content_for(:home_hero) { 'true' } %>
 
 <div class="homepage">
- <section>
-    <div class="content">
+ <section class="homepage-section">
+    <div class="homepage-content">
       <div class="frame frame--16x9" style="margin-bottom: 50px">
         <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
-      <%= markdown "Hi [There](http://google.com)" %>
       <p class="lead">
         Our mission is to provide art lessons <br/> which inspire students to meet their creative potential.
       </p>
@@ -40,8 +39,8 @@
     <div class="quote-selector"></div>
   </section>
 
-  <section>
-    <div class="content">
+ <section class="homepage-section">
+    <div class="homepage-content">
       <h2>
         Art Education is Failing in America.
       </h2>

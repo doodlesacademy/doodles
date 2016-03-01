@@ -18,7 +18,7 @@
         <td><%= project_set.title %></td>
         <td><%= link_to 'Upper Academy', admin_project_path(project_set.upper) %></td>
         <td><%= link_to 'Lower Academy', admin_project_path(project_set.lower) %></td>
-        <td><%= link_to 'Show', project_path(project_set.slug) %></td>
+        <td><%= link_to 'Show', admin_project_set_path(project_set) %></td>
         <td><%= link_to 'Edit', edit_admin_project_set_path(project_set) %></td>
       </tr>
     <% end %>
