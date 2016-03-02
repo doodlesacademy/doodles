@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301124743) do
+ActiveRecord::Schema.define(version: 20160302002949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20160301124743) do
     t.string   "baby_picture_content_type"
     t.integer  "baby_picture_file_size"
     t.datetime "baby_picture_updated_at"
+    t.string   "linked_in_profile"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -138,8 +139,8 @@ ActiveRecord::Schema.define(version: 20160301124743) do
 
   create_table "projects", force: :cascade do |t|
     t.integer  "lessons_count"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "project_set_id"
     t.integer  "level"
     t.string   "inspiration_image_file_name"
@@ -151,6 +152,11 @@ ActiveRecord::Schema.define(version: 20160301124743) do
     t.integer  "overview_file_size"
     t.datetime "overview_updated_at"
     t.string   "inspiration_image_description"
+    t.text     "featured_artist_description"
+    t.string   "featured_artist_image_file_name"
+    t.string   "featured_artist_image_content_type"
+    t.integer  "featured_artist_image_file_size"
+    t.datetime "featured_artist_image_updated_at"
   end
 
   create_table "sections", force: :cascade do |t|

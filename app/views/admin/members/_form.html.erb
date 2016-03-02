@@ -40,6 +40,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :linked_in_profile %>
+    <%= f.text_field :linked_in_profile %>
+  </div>
+
+  <div class="field">
     <%= label_tag :role %>
     <select id="role" name="role">
       <%= options_for_select Member.roles.map { |l| [l[0].capitalize, l[1]] }, Member.roles.length %>

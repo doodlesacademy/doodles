@@ -22,6 +22,8 @@ gem 'unicorn'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+
 gem 'gibbon'
 
 gem 'figaro'
@@ -39,7 +41,6 @@ group :development do
 end
 
 group :production do
-  gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
   gem 'aws-sdk', '>= 2.0'
   gem 'rails_12factor'
 end

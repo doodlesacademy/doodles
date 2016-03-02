@@ -27,6 +27,16 @@
     attribute: :inspiration_image,
     label: "Inspiration Image" %>
 
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @project,
+    attribute: :featured_artist_image,
+    label: "Featured Artist Image" %>
+
+  <%= render "shared/form_text_field", 
+    form: f,
+    attribute: :featured_artist_description %>
+    
   <%= render "shared/form_sections", form: f %>
 
   <div class="actions">

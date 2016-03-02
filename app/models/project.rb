@@ -17,6 +17,11 @@ class Project < ActiveRecord::Base
     default_url: "images/:style/missing.png"
   validates_attachment_content_type :inspiration_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  has_attached_file :featured_artist_image, 
+    styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
+    default_url: "images/:style/missing.png"
+  validates_attachment_content_type :inspiration_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
   has_attached_file :overview, 
     styles: {thumbnail: "60x60#"},
     default_url: ""
@@ -28,6 +33,11 @@ class Project < ActiveRecord::Base
 
   def academy
     "#{self.level} academy".titleize
+  end
+
+  def url
+    url = project_url(self.slug)
+    url.gsub /http\:\/\//, "http://#{self.level}"
   end
 
 end

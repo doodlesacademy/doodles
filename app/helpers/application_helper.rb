@@ -3,6 +3,7 @@ require 'redcarpet'
 module ApplicationHelper
 
   def markdown(text)
+    text ||= ""
     options = {
       filter_html:     true,
       hard_wrap:       true, 
@@ -19,6 +20,7 @@ module ApplicationHelper
   end
 
   def TOC(text, level: 2)
+    text ||= ""
     options = {
       nesting_level: level,
     }
@@ -33,6 +35,12 @@ module ApplicationHelper
     content_tag(:li, class: class_name) do
       link_to link_text, link_path
     end
+  end
+
+  def project_link(project)
+    url = project_url(project.slug)
+    url = url.gsub /http\:\/\/(www.)?/, "http://#{project.level}."
+    link_to url, url
   end
 
 end
