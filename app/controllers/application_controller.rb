@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     @pages = []
     @pages.push({ name: "About Us", path: about_path })
     @pages.push({ name: "Projects", path: projects_path })
-    @pages.push({ name: "Partners", path: partners_path })
+    @pages.push({ name: "Supporters", path: partners_path })
     @pages.push({ name: "Team", path: board_path })
     @pages.push({ name: "PDX Class", path: classes_path })
 
