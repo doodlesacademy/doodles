@@ -8,21 +8,29 @@
 
 .homepage-section {
   padding: 3em 0;
+  margin-top: 24px;
 }
 
 .homepage-content {
   max-width: $homepage-max-width;
   margin: 0 auto;
   padding-bottom: 2em;
-  
+
   p:not(.lead) {
     font-size: 1.2em;
   }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+
 }
 
 .homepage-gallery {
   @include grid(homepage-gallery-item);
   height: 200px;
+  margin-top: 30px;
 }
 
 .homepage-gallery-item {

@@ -22,15 +22,16 @@
 }
 
 .hero-content{
-  @extend .wrapper;
+  /*@extend .wrapper;*/
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 
-  @include textCap;
-  font-size: 1.1em;
+  /*@include textCap;*/
+  font-size: 28px;
+  letter-spacing: 1px;
   line-height: 1.5em;
   text-align: center;
 }

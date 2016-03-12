@@ -1,41 +1,16 @@
 <% content_for(:page_title) { ('Projects') } %>
-<% content_for(:hero_content) { 'We create the map. You choose the direction.' } %>
-<% content_for(:hero_image) { image_tag 'top_hero_image.jpg' } %>
+<% content_for(:hero_image) { 'top_hero_image' } %>
+<% content_for(:hero_content) { 'Check out our cool Projects.' } %>
 
-<h1 class="title">Click on a project to begin</h1>
-<p class="sub title"><a data-toggle="modal" data-modal-id="modal-units">What are units?</a></p>
-
-<div class="project-grid">
-  <% @projects.each do |set| %>
-  <div class="project-grid-item" data-project-slug="<%= set.slug %>">
-    <div class="project-grid-item-unit-title"><%= "Unit #{set.unit_number}: #{set.unit}" %></div>
-    <div class="project-grid-item-image" style="background-image: url(
-      <%= set.project_image.url(:medium) %>)">
+<h1>Projects</h1>
+<% @projects.each do |set| %>
+  <section class="project">
+    <div class="info">
+      <h2><%= set.title %></h2>
     </div>
-    <div class="project-grid-item-title"><%= set.title %></div>
-  </div>
-  <% end %>
-</div>
-
-<%= render "shared/modal", id: "modal-units", title: "What are Units?", body: "You can do lessons in any order that you please. \n However by following the units in order, students experience a scaffolded learning structure, gradually adding complexity without overwhelming students. \n By the end of the 2016 school year, there will be over a years worth of weekly, scaffolded art lessons. Project development is ongoing, and projects will continue to be be added to each unit so that educators can choose projects fitting into their specific classroom's learning objectives. \n Sign up to receive notifications of new projects by email." %>
-   
-<div class="modal" id="academy-select">
-  <div class="modal-content">
-    <div class="modal-close"></div>
-    <div class="modal-title">
-      <h2>Please choose an academy:</h2>
+    <div class="links">
+      <%= link_to "Upper Academy", project_path(set.upper) %>
+      <%= link_to "Lower Academy", project_path(set.lower) %>
     </div>
-    <div class="modal-body">
-      <div class="btn-group">
-        <div class="btn btn-academy" data-level="upper">
-          Upper Academy
-          <div class="academy-info">Approx. 9-11 yrs</div>
-        </div>
-        <div class="btn btn-academy" data-level="lower">
-          Lower Academy
-          <div class="academy-info">Approx. 6-8 yrs</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
+<% end %>
