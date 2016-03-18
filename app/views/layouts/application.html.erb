@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>
-    <% @page_title = yield(:page_title) %>
-    <% unless @page_title.blank? %>
-    <%= @page_title + " - " %>
+    <% if content_for? :page_title %>
+    <%= yield(:page_title) + " - " %>
     <% end %>
     Doodles Academy
   </title>

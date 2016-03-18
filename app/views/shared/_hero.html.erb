@@ -12,9 +12,11 @@
 <% elsif content_for? :hero_image %>
 <section class="hero">
   <%= yield :hero_image %>
+  <% if content_for? :hero_content %>
   <div class="hero-content">
     <%= yield :hero_content %>
   </div>
+  <% elsif content_for? :hero_title %>
   <div class="hero-title-subtitle">
     <div class="hero-title">
       <%= yield :hero_title %>
@@ -23,6 +25,11 @@
       <%= yield :hero_subtitle %>
     </div>
   </div>
+  <% else %>
+  <div class="hero-page-title">
+    <%= yield :page_title %>
+  </div>
+  <% end %>
 </section>
 <% else %>
 <div id="no-hero"></div>
