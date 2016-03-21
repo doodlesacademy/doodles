@@ -26,9 +26,19 @@
   margin-left: 150px;
   padding: 0 1em;
 
+  h1, h2 {
+    color: $project-header-blue;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+
   h1, h2, h3, h4, h5, h6 {
-    text-transform: none;
     text-align: inherit;
+  }
+
+  h3, h4, h5, h6 {
+    text-transform: none;
   }
 
   h1 {
@@ -46,5 +56,24 @@
   ul {
     padding-left: 2em;
   }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
+.featured-artist {
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+#student_example {
+  font-size: 12px;
+  color: #CCCCCC;
+  line-height: normal;
+  text-transform: uppercase;
+  font-weight: 800;
+}

@@ -3,28 +3,16 @@
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
 <% content_for(:hero_subtitle) { "#{@project.level} Academy".titleize } %>
 
-<div class="aside">
-  <ul>
-    <li>
-    <%= link_to "Lessons", "#lessons" %>
-    <ul>
-    <% @project.lessons.each do |lesson| %>
-      <li><%= link_to lesson.title %></li>
-    <% end %>
-    </ul>
-    </li>
-  </ul>
-  <%= render "shared/table_of_contents", sectionable: @project %>
-</div>
-
 <div class="aside-content">
   <% if @project.featured_artist_image.present? %>
-  <h1>Featured Artist</h1>
+
   <div class="featured-artist">
+    <p id="student_example">Student Example</p>
     <%= image_tag @project.featured_artist_image.url(:medium) %>
     <%= markdown @project.featured_artist_description %>
   </div>
   <% end %>
+
   <div class="project-section" id="lessons">
     <h1>Lessons</h1>
     <% @project.lessons.each do |lesson| %>

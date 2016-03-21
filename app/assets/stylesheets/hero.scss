@@ -21,6 +21,13 @@
   }
 }
 
+.hero-content,
+.hero-title,
+.hero-subtitle,
+.quote {
+  color: white;
+}
+
 .hero-content{
   @extend .wrapper;
   margin: 0;
@@ -38,27 +45,21 @@
 .hero-title-subtitle {
   @extend .wrapper;
   position: absolute;
-  bottom: 0%;
+  bottom: 25%;
   left: 50%;
   transform: translate3d(-50%, 0%, 0);
-}
-
-.hero-title,
-.hero-subtitle {
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-weight: 400;
-  font-size: 3.8em;
+}
+
+.hero-title {
+  font-weight: 100;
+  font-size: 72px;
 }
 
 .hero-subtitle {
-  margin: 1em 0 2em;
-  font-size: 2em;
-}
-
-.hero-content,
-.hero-title,
-.hero-subtitle,
-.quote {
-  color: white;
+  font-family: 'Raleway Medium', 'Raleway';
+  font-weight: 500;
+  font-size: 16px;
+  color: #CCCCCC;
 }
