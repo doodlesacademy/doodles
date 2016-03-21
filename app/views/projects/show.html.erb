@@ -7,7 +7,7 @@
   <% if @project.featured_artist_image.present? %>
 
   <div class="featured-artist">
-    <p id="student_example">Student Example</p>
+    <p id="student-example">Student Example</p>
     <%= image_tag @project.featured_artist_image.url(:medium) %>
     <%= markdown @project.featured_artist_description %>
   </div>
