@@ -1,5 +1,5 @@
 <% content_for(:page_title) { 'Community Supporters' } %>
-<% content_for(:hero_image) { image_tag 'partners_hero_image.jpg' } %>
+<% content_for(:hero_image) { image_tag 'heros/partners' } %>
 
 <%= image_tag 'partners/pdx-child-art-studio.jpg', class:'partners-image' %>
 <h2> Portland Child Art Studio</h2>
@@ -12,9 +12,15 @@
 <p>If you are interested in signing up for a class, please use the contact page.</p>
 
 <br/>
+
 <h1 class="title">Donors</h1>
-<p class="lead centered">Something nice about our donors</p>
-<p>Donor Name</p>
-<p>Donor Name</p>
-<p>Donor Name</p>
-<p>Donor Name</p>
+  <% if @donor_headline.present? %>
+  <p class="lead centered"><%= @donor_headline %></p>
+  <% end %>
+<% if @donors.present? %>
+  <% @donors.each do |donor| %>
+    <p><%= donor.name %></p>
+  <% end %>
+<% else %>
+  <p>Please add some donors.</p>
+<% end %>

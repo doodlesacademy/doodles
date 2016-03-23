@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get "about", to: "home#about"
   get 'donors', to: 'home#donors'
   get "contact", to: "home#contact"
-  get "partners", to: "home#partners"
+  get "supporters", to: "home#partners"
   get "classes", to: "home#classes"
 
-  get 'board', to: 'members#index'
+  get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
 
   resources :projects, param: :slug, only: [:index, :show] do
