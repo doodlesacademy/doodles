@@ -3,7 +3,8 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 0.9em;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 // Nav-bar
@@ -23,7 +24,7 @@
   background-color: transparent;
   transition: background-color 300ms ease;
 
-  #no-hero + &, 
+  #no-hero + &,
   &.is-scrolled {
     background-color: $primary-blue;
   }
