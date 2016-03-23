@@ -1,4 +1,4 @@
-<% content_for(:hero_content) { 'Doodles Academy is a digital inventory of comprehensive, easy-to-use art lessons for schools, classrooms, teachers, and students.' } %>
+<% content_for(:hero_content) { 'We make art education more accessible to teachers and students.' } %>
 
 <div class="homepage">
  <section class="homepage-section">
@@ -7,7 +7,7 @@
         <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
       <p class="lead">
-        Our mission is to provide art lessons <br/> which inspire students to meet their creative potential.
+        Doodles Academy is a digital inventory of easy-to-use art lessons for teachers and students. Our mission is to provide art lessons which inspire students to meet their creative potential.
       </p>
       <div class="centered" style="height: 80px; margin: 40px 0;">
         <%= image_tag 'doodle_hand_yellow.png', class: 'height'%>
@@ -31,7 +31,7 @@
   </section>
 
   <section class="hero quote">
-    <%= image_tag 'map-direction-image.jpg', class:"hero-img" %>
+    <%= image_tag 'quote/quote_map', class:"hero-img" %>
     <div class="hero-content">
       <div class="quote-contents"></div>
     </div>
@@ -40,13 +40,16 @@
 
  <section class="homepage-section">
     <div class="homepage-content">
+      <!-- <h2 style="font-size: 26px; font-weight: 500;"> -->
       <h2>
         Art Education is Failing in America.
       </h2>
-      <p>
-        "In just over two decades, there has been a nearly 50% decrease in access to arts education for students of color. Our vision is that every child should receive a holistic arts education, irrespective of school, budget, zip code, or student demographics."<br>
-        <a target="_blank" href="http://issuu.com/arts_link/docs/afta_nav_factsfigs_v1">Arts Education Navigator. Issuu. Americans for the Arts, 2012. Web. 24 Nov. 2015.</a>
-      </p>
+      <div>
+        <p>"In just over two decades, there has been a nearly 50% decrease in access to arts education for students of color. Our vision is that every child should receive a holistic arts education, irrespective of school, budget, zip code, or student demographics."</p>
+        <p style="font-size: 14px; margin-top: -10px;">
+          <a target="_blank" href="http://issuu.com/arts_link/docs/afta_nav_factsfigs_v1">Arts Education Navigator. Issuu. Americans for the Arts, 2012. Web. 24 Nov. 2015.</a>
+        </p>
+      </div>
       <div class="centered" style="margin: 30px 0 0;">
         <a class="btn btn-large btn-blue" >
           Donate Now

@@ -21,25 +21,26 @@
   }
 }
 
-.hero-content,
-.hero-title,
-.hero-subtitle,
-.quote {
-  color: white;
-}
-
-.hero-content{
+.hero-page-title,
+.hero-content {
   @extend .wrapper;
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-
-  @include textCap;
-  font-size: 1.1em;
-  line-height: 1.5em;
   text-align: center;
+}
+
+.hero-content {
+  font-size: 28px;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+}
+
+.hero-page-title {
+  font-size: 28px;
+  letter-spacing: 1px;
 }
 
 .hero-title-subtitle {
@@ -57,9 +58,10 @@
   font-size: 72px;
 }
 
-.hero-subtitle {
-  font-family: 'Raleway Medium', 'Raleway';
-  font-weight: 500;
-  font-size: 16px;
-  color: #CCCCCC;
+.hero-content,
+.hero-title,
+.hero-subtitle,
+.hero-page-title,
+.quote {
+  color: white;
 }

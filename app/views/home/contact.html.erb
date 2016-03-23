@@ -1,6 +1,43 @@
 <% content_for(:page_title) { ('Contact') } %>
+<% content_for(:hero_image) { image_tag 'heros/contact' } %>
 
-<div class="wrapper">
-<h1>Contact</h1>
+<h2>Contact</h2>
 
+<div class="location-copy">
+  Opal operates as a distributed team across the United States!
 </div>
+<!--<div class="location-cities">
+  <div class="location">
+  </div>
+</div>-->
+
+<form class="contact-form">
+  <label for="message[email]">Email</label>
+  <input type="text" name="message[email]">
+
+  <label for="message[first_name]">First Name</label>
+  <input type="text" name="message[first_name]">
+
+  <label for="message[last_name]">Last Name</label>
+  <input type="text" name="message[last_name]">
+
+  <label for="message[location]">Location</label>
+  <input type="text" name="message[location]">
+
+  <label for="message[involvement]">
+    How are you involved in education?
+  </label>
+  <select name="message[involvement]">
+    <option>I'm a classroom teacher</option>
+    <option>I'm an arts teacher</option>
+    <option>I'm an administrator</option>
+    <option>I'm part of the PTA</option>
+    <option>I'm a parent who is home-schooling</option>
+    <option>I'm a parent</option>
+    <option>I'm an arts-education activitist/part of a non-profit/volunteer</option>
+  </select>
+  <textarea name="message[body]"></textarea>
+  <input type="checkbox" checked></input> Subscribe me to the Doodles newsletter.
+
+  <button class="btn btn-orange">Send us a message</button>
+</form>

@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get "about", to: "home#about"
   get 'donors', to: 'home#donors'
   get "contact", to: "home#contact"
-  get "partners", to: "home#partners"
+  get "supporters", to: "home#partners"
   get "classes", to: "home#classes"
 
-  get 'board', to: 'members#index'
+  get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
 
 
@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   end
 
   post 'feedback', to: 'feedback_messages#create'
+  get '*', to: 'page_controller#show'
 
 end
