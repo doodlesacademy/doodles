@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   end
 
   post 'feedback', to: 'feedback_messages#create'
+  get '*', to: 'page_controller#show'
 
 end

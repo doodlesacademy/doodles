@@ -25,7 +25,7 @@
 
   #no-hero + &, 
   &.is-scrolled {
-    background-color: rgba($primary-blue, 0.6);
+    background-color: $primary-blue;
   }
 
   .brand {
