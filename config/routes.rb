@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   get 'board', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
 
+
   resources :projects, param: :slug, only: [:index, :show] do
-    resources :lessons, param: :slug, only: [:index, :show]
+    scope ':academy' do
+      resources :lessons, param: :slug, only: [:index, :show]
+    end
     get "gallery", to: "project#gallery", as: 'gallery'
   end
 

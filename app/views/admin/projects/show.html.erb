@@ -2,7 +2,6 @@
 
 <h1 class="inline">Project Level</h1>
 <%= link_to 'Edit', edit_admin_project_path(@project), class: "btn btn-blue pull-right" %>
-<p><%= image_tag @project.inspiration_image.url(:thumb) %></p>
 <p>Title: <%= @project.title %></p>
 <p>Url: <%= project_link @project %></p>
 <p>Academy: <%= @project.academy %></p>
@@ -13,6 +12,9 @@
   <%= "#{@project.academy} PDF Not Found" %>
   <% end %>
 </p>
+
+<h3>Inspiration Image</h3>
+<p><%= image_tag @project.inspiration_image.url(:thumb) %></p>
 
 <h3>Featured Artist</h3>
 <p><%= image_tag @project.featured_artist_image.url(:thumb) %></p>

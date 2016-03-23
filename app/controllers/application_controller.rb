@@ -32,13 +32,11 @@ class ApplicationController < ActionController::Base
 
   private
   def define_academy_level
-    if ['upper', 'lower'].include? request.subdomain
-      session[:level] = request.subdomain
+    if ['upper', 'lower'].include? params[:academy]
+      @academy = params[:academy].to_sym
+    else
+      @academy = :lower
     end
-    if not ['upper', 'lower'].include? session[:level]
-      session[:level] = "lower"
-    end
-    @academy_level = session[:level].to_sym
   end
 
   def define_pages_and_social_links

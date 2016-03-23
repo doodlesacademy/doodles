@@ -39,7 +39,7 @@ module ApplicationHelper
 
   def project_link(project)
     url = project_url(project.slug)
-    url = url.gsub /http\:\/\/(www.)?/, "http://#{project.level}."
+    url += "?academy=#{project.level}"
     link_to url, url
   end
 
