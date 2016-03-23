@@ -4,7 +4,10 @@
 <%= render "shared/alert", alert: notice %>
 
 <h3>Member</h3>
+<h4>Photo</h4>
 <%= image_tag @member.avatar.url(:thumb), class: "img-rounded" %>
+<h4>Baby Picture</h4>
+<%= image_tag @member.baby_picture.url(:thumb), class: "img-rounded" %>
 <% %w(name position role ).each do |s| %>
   <p><%= "#{s.titleize}: #{@member.send(s.to_sym).try(:titleize)}" %></p>
 <% end %>

@@ -31,6 +31,18 @@
   @include ease;
   > img {
     width: 100%;
+    object-fit: cover;
+  }
+}
+
+.modal-baby-picture {
+  text-align: center;
+
+  > img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
   }
 }
 

@@ -4,7 +4,8 @@
   $modal = $('#modal-member-bio')
   return unless $members[0] and $modal[0]
 
-  $member_name = $modal.find('.modal-member-name')
+  $title= $modal.find('.modal-member-name')
+  $photo = $modal.find('.modal-baby-picture')
   $body = $modal.find('.modal-body')
   $modal_close = $modal.find('.modal-close')
 
@@ -12,16 +13,22 @@
     $modal.toggleClass "is-active", toggle
 
   showModal = (e) ->
-    $member = $ e.currentTarget
-    bio = $member.find('.member-bio').html()
+    $member = $(e.currentTarget)
     name = $member.find('.member-name').text()
-    title = "About #{name}"
-    changeModalContent title, bio
+    changeModalContent
+      title: "About #{name}"
+      body: $member.find('.member-bio').html()
+      photo: $member.find('.member-baby-picture').html()
     toggleModal(true)
     
-  changeModalContent = (title, body) ->
-    $member_name.text title
-    $body.html body
+  changeModalContent = ({title, body, photo}) ->
+    $title.text title
+
+    $body.empty() 
+    $body.append body
+
+    $photo.empty()
+    $photo.append photo
 
   $members.on 'click', '.member-grid-item', showModal
   $modal_close.on 'click', -> toggleModal(false)

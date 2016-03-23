@@ -1,6 +1,9 @@
 <div class="member-avatar">
   <%= image_tag member.avatar.url(:small) %>
 </div>
+<div class="member-baby-picture hidden">
+  <%= image_tag member.avatar.url(:small) %>
+</div>
 <div class="member-info">
   <div class="member-name">
     <%= member.name %>
