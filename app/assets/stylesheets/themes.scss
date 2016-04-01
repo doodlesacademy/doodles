@@ -13,11 +13,11 @@
     color: $color;
 
     &:hover {
-      color: darken($primary-blue, 15%);
+      color: darken($color, 15%);
       background-color: rgba(white, 0.8);
     }
     &:active {
-      background-color: darken($primary-blue, 25%);
+      background-color: darken($color, 25%);
       background-color: rgba(white, 0.8);
     }
   }
