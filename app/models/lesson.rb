@@ -11,9 +11,9 @@ class Lesson < ActiveRecord::Base
   validates :title, presence: true
   validates :video_uri, presence: true
   alias_attribute :name, :title
+  after_create :set_position
 
-  has_sections lesson_overview: [:synopsis, :objective, :setup, :media, :photocopies, :anticipated_problems, :early_finishers], instructions: [:inspiration, :introduction, :worktime, :clean_up, :presentations]
-    
+  has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, :worktime, :clean_up, :presentations], issues: [:anticipated_problems, :early_finishers]
   has_attached_file :inspiration_image, 
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
     default_url: "images/:style/missing.png"
@@ -35,5 +35,9 @@ class Lesson < ActiveRecord::Base
   end
 
   private
+
+  def set_position
+    self.position ||= self.project.lessons.count - 1
+  end
 
 end
