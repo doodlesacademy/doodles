@@ -1,5 +1,5 @@
 <% if @homepage %>
-<section class="hero">
+<section class="hero hero-homepage">
   <video autoplay loop muted auto class="hero-video">
     <source src="<%= video_path 'doodles.webm' %>" type="video/webm">
     <source src="<%= video_path 'doodles.m4v' %>" type="video/mp4">
@@ -18,11 +18,11 @@
   </div>
   <% elsif content_for? :hero_title %>
   <div class="hero-title-subtitle">
-    <div class="hero-title">
-      <%= yield :hero_title %>
-    </div>
     <div class="hero-subtitle">
       <%= yield :hero_subtitle %>
+    </div>
+    <div class="hero-title">
+      <%= yield :hero_title %>
     </div>
   </div>
   <% else %>
