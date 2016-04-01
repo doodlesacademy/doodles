@@ -6,7 +6,20 @@
   }
 
   h2 {
-    color: darken($color, 25%);
+    color: white;
+  }
+
+  .btn.btn-white {
+    color: $color;
+
+    &:hover {
+      color: darken($primary-blue, 15%);
+      background-color: rgba(white, 0.8);
+    }
+    &:active {
+      background-color: darken($primary-blue, 25%);
+      background-color: rgba(white, 0.8);
+    }
   }
 }
 
@@ -16,6 +29,10 @@
 
 .bg-primary-blue {
   @include bg-theme($primary-blue);
+}
+
+.bg-primary-dark-blue {
+  @include bg-theme($background-dark-blue);
 }
 
 .bg-primary-yellow {

@@ -1,43 +1,78 @@
 <% content_for(:page_title) { ('Contact') } %>
 <% content_for(:hero_image) { image_tag 'heros/contact.jpg' } %>
 
-<h2>Contact</h2>
+<p class="lead centered location-copy">
+  Doodles Academy operates as a distributed team across the United States!
+</p>
 
-<div class="location-copy">
-  Opal operates as a distributed team across the United States!
-</div>
-<!--<div class="location-cities">
+<div class="location-cities">
   <div class="location">
+    <div class="location-img">
+      <%= image_tag 'location/new-york.jpg' %>
+    </div>
+    <div class="location-name">New York, NY</div>
   </div>
-</div>-->
+  <div class="location">
+    <div class="location-img">
+      <%= image_tag 'location/portland.jpg' %>
+    </div>
+    <div class="location-name">Portland, OR</div>
+  </div>
+  <div class="location">
+    <div class="location-img">
+      <%= image_tag 'location/grand-rapids.jpg' %>
+    </div>
+    <div class="location-name">Grand Rapids, MI</div>
+  </div>
+</div>
 
 <form class="contact-form">
-  <label for="message[email]">Email</label>
-  <input type="text" name="message[email]">
+  <div class="field">
+    <label for="message[email]">Email</label>
+    <input type="text" name="message[email]">
+  </div>
 
-  <label for="message[first_name]">First Name</label>
-  <input type="text" name="message[first_name]">
+  <div class="field">
+    <label for="message[first_name]">First Name</label>
+    <input type="text" name="message[first_name]">
+  </div>
 
-  <label for="message[last_name]">Last Name</label>
-  <input type="text" name="message[last_name]">
+  <div class="field">
+    <label for="message[last_name]">Last Name</label>
+    <input type="text" name="message[last_name]">
+  </div>
 
-  <label for="message[location]">Location</label>
-  <input type="text" name="message[location]">
+  <div class="field">
+    <label for="message[location]">Location</label>
+    <input type="text" name="message[location]">
+  </div>
 
-  <label for="message[involvement]">
-    How are you involved in education?
-  </label>
-  <select name="message[involvement]">
-    <option>I'm a classroom teacher</option>
-    <option>I'm an arts teacher</option>
-    <option>I'm an administrator</option>
-    <option>I'm part of the PTA</option>
-    <option>I'm a parent who is home-schooling</option>
-    <option>I'm a parent</option>
-    <option>I'm an arts-education activitist/part of a non-profit/volunteer</option>
-  </select>
-  <textarea name="message[body]"></textarea>
-  <input type="checkbox" checked></input> Subscribe me to the Doodles newsletter.
+  <div class="field">
+    <label for="message[involvement]">
+      How are you involved in education?
+    </label>
+    <select name="message[involvement]">
+      <option>I'm a classroom teacher</option>
+      <option>I'm an arts teacher</option>
+      <option>I'm an administrator</option>
+      <option>I'm part of the PTA</option>
+      <option>I'm a parent who is home-schooling</option>
+      <option>I'm a parent</option>
+      <option>I'm an arts-education activitist/part of a non-profit/volunteer</option>
+    </select>
+  </div>
 
-  <button class="btn btn-orange">Send us a message</button>
+  <div class="field">
+    <label for="message[body]">
+      Message
+    </label>
+    <textarea name="message[body]"></textarea>
+  </div>
+  <div class="field">
+    <input type="checkbox" checked></input> Subscribe me to the Doodles newsletter.
+  </div>
+
+  <div class='centered'>
+    <button class="btn btn-large btn-orange">Send us a message</button>
+  </div>
 </form>
