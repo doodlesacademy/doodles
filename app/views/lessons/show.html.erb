@@ -1,27 +1,16 @@
 <% content_for(:page_title) { @lesson.title } %>
 <% content_for(:hero_image) { image_tag @lesson.inspiration_image.url(:large) } %>
-<% content_for(:hero_title) { "#{@lesson.title}".titleize } %>
-<% content_for(:hero_subtitle) { "#{@lesson.project.title} / #{@lesson.project.academy}".titleize } %>
+<% content_for(:hero_title) { "#{@project.title}".titleize } %>
+<% content_for(:hero_subtitle) do end %>
 
-<div class="aside">
-  <% %w(video inspiration_image).each do |s| %>
-    <ul><li><%= link_to "#{s.titleize}", "##{s}" %></li></ul>
-  <% end %>
-  <%= render "shared/table_of_contents", sectionable: @lesson %>
-</div>
+<div class='markdown-wrapper'>
+  <h1><%= @lesson.title %></h1>
 
-<div class="aside-content">
-  <% if @lesson.video_uri.present? %>
-    <div class="lesson-video" id="video">
-    <%= render "shared/video", locals: { video_id: @lesson.video_id } %>
-    </div>
-  <% end %>
-  <% if @lesson.inspiration_image.present? %>
-    <div class="inspiration-image" id="inspiration-image">
-    <%= image_tag @lesson.inspiration_image.url(:thumb) %>
-    <%= @lesson.inspiration_image_description %>
-    </div>
-  <% end %>
+  <blockquote class="backdrop toc">
+    <p class="toc-title">Lesson Map</p>
+    <%= render "shared/table_of_contents", sectionable: @project %>
+  </blockquote>
   <%= render "shared/sections", sectionable: @lesson %>
+  <h1 class="centered"> <%= @finished_verb.titleize %>! Lesson <%= @lesson.order %> finished!</h1>
+  <p><button>Next Lesson</button></p>
 </div>
-

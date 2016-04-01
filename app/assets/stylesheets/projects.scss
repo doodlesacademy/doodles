@@ -44,6 +44,44 @@
   background-size: cover;
 }
 
+.toc {
+  background-color: #F2F7F7;
+  border: none;
+  font-style: normal;
+  color: #666;
+  font-size: 11pt;
+  padding: 25px 45px;
+}
+
+.toc-title {
+  color: #666666;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.toc > ul {
+  > li {
+    list-style: none;
+    font-size: 14px;
+  }
+  > li > a {
+    font-weight: bold;
+    color: #666666;
+    &::after {
+      font-weight: bold;
+      content: ':'
+    }
+  }
+  ul, a, ul li {
+    display: inline;
+    list-style: none;
+  }
+}
+
+.toc ul ul li:not(:last-child)::after {
+  content: '>'
+}
+
 .lesson-map {
   display: inline-flex;
   align-items: center;

@@ -38,9 +38,7 @@ module ApplicationHelper
   end
 
   def project_link(project)
-    url = project_url(project.slug)
-    url += "?academy=#{project.level}"
-    link_to url, url
+    link_to project_url(project.level, project.slug), project_url(project.level, project.slug)
   end
 
 end

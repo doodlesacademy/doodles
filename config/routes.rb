@@ -11,21 +11,20 @@ Rails.application.routes.draw do
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
 
-
-  resources :projects, param: :slug, only: [:index, :show] do
-    scope ':academy' do
-      resources :lessons, param: :slug, only: [:index, :show]
-    end
-    get "gallery", to: "project#gallery", as: 'gallery'
-  end
-
-  resources :users
-
   get 'admin', to: 'admin#index'
-
   namespace 'admin' do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items
   end
+
+  resources :projects, param: :slug, only: [:index]
+  scope ':academy' do
+    resources :projects, param: :slug, only: [:show] do
+      resources :lessons, param: :slug, only: [:index, :show]
+      get "gallery", to: "project#gallery", as: 'gallery'
+    end
+  end
+
+  resources :users
 
   post 'feedback', to: 'feedback_messages#create'
   get '*', to: 'page_controller#show'

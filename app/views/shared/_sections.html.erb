@@ -1,5 +1,6 @@
 <% sectionable.sections.each do |section| %>
-  <div id="<%= section.slug %>">
+  <hr/>
+  <div class='markdown-wrapper__section' id="<%= section.slug %>">
     <%= markdown section.content %>
   </div>
 <% end %>

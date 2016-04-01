@@ -1,27 +1,28 @@
 <% content_for(:page_title) { ("#{@project.title}") } %>
 <% content_for(:hero_image) { image_tag @project.inspiration_image.url(:large) } %>
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
-<% content_for(:hero_subtitle) { "#{@project.level} Academy".titleize } %>
+<% content_for(:hero_subtitle) do 
+  render "shared/academy_project_links", academy: @academy
+end %>
+<% content_for(:lessons) { @project.lessons } %>
 
-<div class="aside-content">
-  <% if @project.featured_artist_image.present? %>
+<p class='lead'>
+  Enticing description here!
+</p>
 
-  <div class="featured-artist">
-    <p id="student-example">Student Example</p>
-    <%= image_tag @project.featured_artist_image.url(:medium) %>
-    <%= markdown @project.featured_artist_description %>
-  </div>
-  <% end %>
+<% if @project.featured_artist_image.present? %>
+<div class="featured-artist">
+  <p class="student-example">Student Example</p>
+  <%= image_tag @project.featured_artist_image.url(:medium) %>
+  <%= @project.featured_artist_description %>
+</div>
+<% end %>
 
-  <div class="project-section" id="lessons">
-    <h1>Lessons</h1>
-    <% @project.lessons.each do |lesson| %>
-    <%= link_to lesson.title %>
-    <% end %>
-  </div>
+<blockquote class="backdrop toc">
+  <p class="toc-title">Project Overview Map</p>
+  <%= render "shared/table_of_contents", sectionable: @project %>
+</blockquote>
 
-  <div class="project-section" id="overview">
-    <%= render "shared/sections", sectionable: @project %>
-  </div>
-
+<div class='markdown-wrapper'>
+  <%= render "shared/sections", sectionable: @project %>
 </div>

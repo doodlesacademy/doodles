@@ -1,0 +1,7 @@
+<% if academy == :lower %>
+  <%= academy %>
+  <%= link_to "Upper", project_lesson_path("upper", @project.slug, @lesson.slug) %>
+<% else %>
+  <%= link_to "Lower", project_lesson_path("lower", @project.slug, @lesson.slug) %>
+  <%= academy %>
+<% end %>

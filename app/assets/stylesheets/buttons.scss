@@ -1,6 +1,6 @@
-@mixin button-theme ($color) {
+@mixin button-theme ($color-bg) {
 
-  background-color: $color;
+  background-color: $color-bg;
   color: white;
   transition: background-color 250ms ease;
 
@@ -12,11 +12,11 @@
   }
 
   &:hover {
-    background-color: darken($color, 15%);
+    background-color: darken($color-bg, 15%);
     color: white;
   }
   &:active {
-    background-color: darken($color, 25%);
+    background-color: darken($color-bg, 25%);
     color: white;
   }
 }
@@ -40,6 +40,11 @@
   padding: 0.8em 2.2em;
 }
 
+
+.btn-xl, a.btn-xl, button.btn-xl {
+  font-size: 20px;
+  padding: 14px 30px;
+}
 
 .btn-red {
   @include button-theme($primary-red);
@@ -67,4 +72,8 @@
 
 .btn-gray {
   @include button-theme($accent-gray);
+}
+
+.btn-white {
+  @include button-theme(white);
 }

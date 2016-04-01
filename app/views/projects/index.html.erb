@@ -1,15 +1,14 @@
 <% content_for(:page_title) { 'Projects' } %>
 <% content_for(:hero_image) { image_tag 'heros/project.jpg' } %>
 
-<h1>Projects</h1>
 <% @projects.each do |set| %>
   <section class="project">
     <div class="info">
       <h2><%= set.title %></h2>
     </div>
     <div class="links">
-      <%= link_to "Upper Academy", project_path(set.upper) %>
-      <%= link_to "Lower Academy", project_path(set.lower) %>
+      <%= link_to "Upper Academy", project_path('upper', set.slug) %>
+      <%= link_to "Lower Academy", project_path('lower', set.slug) %>
     </div>
   </section>
 <% end %>

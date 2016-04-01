@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_lesson
+  before_action :finished_verb, only: [:show]
 
   def index
     redirect_to_project
@@ -21,6 +22,11 @@ class LessonsController < ApplicationController
 
   def redirect_to_project
     redirect_to project_path(@project.slug)
+  end
+
+  def finished_verb
+    verbs = %w(hooray congratulations great\ job amazing you\ rock wow excellent)
+    @finished_verb = verbs.sample
   end
 
 end

@@ -10,8 +10,8 @@ class Project < ActiveRecord::Base
 
   default_scope { order('updated_at desc') }
 
-  has_sections project_overview: [:synopsis, :skills], 'Set-up At A Glance' => [:materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principes, :cross_curricular]
-  
+  has_sections 'At-A-Glance' => [:synopsis, :skills, :materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principles, :cross_curricular]
+
   has_attached_file :inspiration_image, 
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
     default_url: "images/:style/missing.png"
