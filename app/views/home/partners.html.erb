@@ -1,18 +1,6 @@
 <% content_for(:page_title) { 'Community Supporters' } %>
 <% content_for(:hero_image) { image_tag 'heros/partners.jpg' } %>
 
-<%= image_tag 'partners/pdx-child-art-studio.jpg', class:'partners-image' %>
-<h2> Portland Child Art Studio</h2>
-<p>The Portland Child Art Studio is dedicated to supporting the perceptual development of children through artistic learning.<p>
-
-<p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a life-long relationship with art.</p>
-
-<p>Through them, we are able to workshop our projects in actual classes before they are offered online. View available classes here.</p>
-
-<p>If you are interested in signing up for a class, please use the contact page.</p>
-
-<br/>
-
 <h1 class="title">Donors</h1>
   <% if @donor_headline.present? %>
   <p class="lead centered"><%= @donor_headline %></p>
@@ -22,5 +10,22 @@
     <p><%= donor.name %></p>
   <% end %>
 <% else %>
-  <p>Please add some donors.</p>
+  <ul>
+    <li>Laura Harris</li>
+    <li>Kara Bloom</li>
+    <li>Kara Larsen</li>
+  </ul>
 <% end %>
+
+<h1 class="title">Community Partners</h1>
+<%= image_tag 'partners/pdx-child-art-studio.jpg', class:'partners-image' %>
+<h2> Portland Child Art Studio</h2>
+<p>The Portland Child Art Studio is dedicated to supporting the perceptual development of children through artistic learning.<p>
+
+<p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a life-long relationship with art.</p>
+
+<p>Through them, we are able to workshop our projects in actual classes before they are offered online. View available classes here.</p>
+
+<p>If you are interested in signing up for a class, please use the <a href="/contact">contact page</a>.</p>
+
+<br/>

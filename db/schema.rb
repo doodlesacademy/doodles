@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160401034121) do
     t.string   "overview_content_type"
     t.integer  "overview_file_size"
     t.datetime "overview_updated_at"
-    t.integer  "order"
+    t.integer  "order",                          default: 1
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
