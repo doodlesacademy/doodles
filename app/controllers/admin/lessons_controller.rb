@@ -1,7 +1,7 @@
 class Admin::LessonsController < ApplicationController
   before_action :authenticate_user!, :admin_only!
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:create, :update]
+  before_action :set_project, only: [:create]
   layout "admin"
 
   # GET /admin/lessons
