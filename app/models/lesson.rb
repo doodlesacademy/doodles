@@ -3,7 +3,7 @@ class Lesson < ActiveRecord::Base
   include Sectionable
   
   enum status: [:active, :archive]
-  default_scope { where(status: Lesson.statuses[:active]) }
+  default_scope { order(:order) }
 
   has_and_belongs_to_many :supply_items
   belongs_to :project, counter_cache: true
@@ -34,7 +34,7 @@ class Lesson < ActiveRecord::Base
   end
 
   def next_lesson
-    return unless self.project.lessons.count < self.order + 1
+    return unless self.lesson_number < self.project.lessons.count
     self.project.lessons.find_by(order: self.order + 1)
   end
 

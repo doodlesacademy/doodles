@@ -40,4 +40,10 @@ class Project < ActiveRecord::Base
     url.gsub /http\:\/\//, "http://#{self.level}"
   end
 
+  def next_project
+    return unless self.project_set.unit_number < ProjectSet.count
+    project_set = ProjectSet.find_by(unit_number: self.project_set.unit_number + 1)
+    project_set.get_project(level: self.level)
+  end
+
 end
