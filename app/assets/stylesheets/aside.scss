@@ -67,7 +67,11 @@
   font-size: 16px;
   color: gray;
   margin-bottom: 20px;
-  max-width: 600px;
+  // max-width: 600px;
+
+  img {
+    margin: 0 0 0 40px;
+  }
 }
 
 .student-example {
@@ -76,4 +80,69 @@
   line-height: normal;
   text-transform: uppercase;
   font-weight: 800;
+}
+
+.featured-artist-description {
+  font-size: 16px;
+  margin: auto;
+}
+
+/* needs some sort of overall max-width */
+
+/*FONTS*/
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.student-example {
+  font-size: 12px;
+  color: lightgray;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.superhero-name {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.superhero-quote {
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.student-name {
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.hero-text {
+  font-size: 28px;
+  /*letter-spacing: 1px;*/
+  color: #888;
+}
+
+.student-submit {
+  display: inline-block;
+}
+
+.row {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.student-image img {
+  box-shadow: 2px 2px 8px 0 #888;
+  float: left;
+  margin-right: 40px;
 }
