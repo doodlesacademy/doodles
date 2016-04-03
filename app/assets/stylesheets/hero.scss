@@ -67,6 +67,10 @@
   left: 50%;
   transform: translate3d(-50%, 0%, 0);
   text-transform: uppercase;
+
+  a {
+    color: #999999;
+  }
 }
 
 .hero-title {
