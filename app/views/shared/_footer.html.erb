@@ -4,10 +4,10 @@
         Sign Up for our Newsletter. We'll never spam you.
     </div>
     <div class="newsletter__form">
-      <input class="input__text" type="text" placeholder="Your email address">
-      <button class="newsletter__submit">
-        Sign Up Here
-      </button>
+      <%= form_tag("/subscribe") do -%>
+        <%= text_field_tag('subscription[email]', '', class: "input__text", placeholder: 'Your email address') %>
+        <%= submit_tag("Sign Up Here", class: "newsletter__submit") %>
+      <% end -%>
     </div>
   </div>
   <div class="footer-copyright centered">
