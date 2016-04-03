@@ -28,6 +28,8 @@ gem 'aws-sdk', '>= 2.0'
 gem 'gibbon'
 
 gem 'figaro'
+gem 'roo', '~> 2.3'
+gem 'stringex', '~> 2.6'
 
 gem 'redcarpet'
 

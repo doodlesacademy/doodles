@@ -1,4 +1,5 @@
 require 'active_support/concern'
+require 'stringex'
 
 module Slugable
   extend ActiveSupport::Concern
@@ -10,8 +11,6 @@ module Slugable
 
   def generate_slug
     return unless self.title_changed?
-    slug = self.title.downcase.gsub /[^a-z\s]+/, ''
-    slug = slug.gsub /\s+/, ' '
-    self.slug = slug.strip.gsub /\s/, '-'
+    self.slug = self.title.to_url
   end
 end
