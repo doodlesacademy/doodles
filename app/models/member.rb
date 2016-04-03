@@ -16,9 +16,7 @@ class Member < ActiveRecord::Base
   end
 
   def modal_photo
-    if self.baby_picture.exists?
-      self.baby_picture.url(:medium)
-    end
+    return self.baby_picture.url(:medium) if self.baby_picture.exists?
     self.avatar.url(:small)
   end
 end
