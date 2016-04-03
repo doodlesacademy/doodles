@@ -239,3 +239,26 @@ $error-highlight: lighten($primary-red, 15%);
     font-size: 14px;
   }
 }
+
+.about-wrapper {
+  p, h2 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .left-set {
+    width: 25%;
+    margin-right: 45px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    float: left;
+  }
+
+  .right-set {
+    width: 25%;
+    margin-left: 45px;
+    margin-bottom: 30px;
+    float: right;
+  }
+}
