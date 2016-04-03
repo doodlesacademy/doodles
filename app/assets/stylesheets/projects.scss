@@ -139,3 +139,12 @@
   height: 0px;
   width: 60px;
 }
+
+.lesson-links li {
+  display: inline;
+  margin: 0 0 0 80px;
+  a {
+    color: #CCCCCC;
+    text-transform: uppercase;
+  }
+}
