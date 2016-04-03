@@ -11,9 +11,9 @@ class Lesson < ActiveRecord::Base
   validates :title, presence: true
   validates :video_uri, presence: true
   alias_attribute :name, :title
-  after_create :set_position
+  after_initialize :set_order
 
-  has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, :worktime, :clean_up, :presentations], issues: [:anticipated_problems, :early_finishers]
+  has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, 'Independent Worktime', 'Clean Up/Presenations'], issues: [:anticipated_problems, :early_finishers]
   has_attached_file :inspiration_image, 
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
     default_url: "images/:style/missing.png"
@@ -34,10 +34,20 @@ class Lesson < ActiveRecord::Base
     self.save!
   end
 
+  def next_lesson
+    return unless self.project.lessons.count < self.order + 1
+    self.project.lessons.find_by(order: self.order + 1)
+  end
+
+  # Change from zero index to one index
+  def lesson_number
+    self.order + 1
+  end
+
   private
 
-  def set_position
-    self.position ||= self.project.lessons.count - 1
+  def set_order
+    self.order ||= self.project.lessons.count - 1
   end
 
 end
