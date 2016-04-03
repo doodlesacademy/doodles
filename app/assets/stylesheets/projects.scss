@@ -156,3 +156,12 @@
     }
   }
 }
+
+.lesson-links li {
+  display: inline;
+  margin: 0 0 0 80px;
+  a {
+    color: #CCCCCC;
+    text-transform: uppercase;
+  }
+}
