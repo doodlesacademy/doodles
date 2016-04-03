@@ -30,6 +30,11 @@
     <%= yield :page_title %>
   </div>
   <% end %>
+  <% if content_for? :lesson_links %>
+  <div class='hero-lesson-links'>
+    <%= yield :lesson_links %>
+  </div>
+  <% end %>
 </section>
 <% else %>
 <div id="no-hero"></div>

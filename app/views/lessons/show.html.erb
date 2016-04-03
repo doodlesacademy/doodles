@@ -1,22 +1,25 @@
 <% content_for(:page_title) { @lesson.title } %>
 <% content_for(:hero_image) { image_tag @lesson.inspiration_image.url(:large) } %>
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
-<% content_for(:hero_subtitle) do
-  render "shared/academy_project_lesson_links", academy: @academy
-end %>
+<% content_for(:hero_subtitle) do render "shared/academy_project_lesson_links", academy: @academy end %>
+<% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
 <div class='markdown-wrapper'>
   <h1><%= @lesson.title %></h1>
 
   <blockquote class="backdrop toc">
     <p class="toc-title">Lesson Map</p>
-    <%= render "shared/table_of_contents", sectionable: @project %>
+    <%= render "shared/table_of_contents", sectionable: @lesson %>
   </blockquote>
   <%= render "shared/sections", sectionable: @lesson %>
   <h1 class="centered"> <%= @finished_verb.titleize %>! Lesson <%= @lesson.lesson_number %> finished!</h1>
+  <p class="centered">
   <% if @lesson.next_lesson %>
-    <p class="centered">
-      <%= link_to "Next Lesson", @lesson.next_lesson, class:"btn btn-blue btn-xl" %>
-    </p>
+      <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
+  <% elsif @project.next_project %>
+      <%= project_link @project.next_project, "Next Project", class:"btn btn-blue btn-xl" %>
+  <% else %>
+    <h3 class='centered'>Did you enjoy this project? Sign up to be the first to hear when we release our next project!</h3>
   <% end %>
+  </p>
 </div>

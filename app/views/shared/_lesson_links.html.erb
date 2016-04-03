@@ -1,0 +1,6 @@
+<div class="lesson-links">
+  <%= project_link project, 'Overview', class:"lesson-link" %>
+  <% project.lessons.each do |lesson| %>
+    <%= lesson_link lesson, "Lesson #{lesson.lesson_number}", class:"lesson-link" %>
+  <% end %>
+</div>

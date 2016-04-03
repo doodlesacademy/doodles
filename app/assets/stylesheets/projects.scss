@@ -133,13 +133,6 @@
   }
 }
 
-.lesson-link {
-  display: inline-block;
-  border: 1px solid $primary-blue;
-  height: 0px;
-  width: 60px;
-}
-
 .academy-selector {
   color: white;
   font-weight: 500;
@@ -154,14 +147,5 @@
     &:hover {
       color: white;
     }
-  }
-}
-
-.lesson-links li {
-  display: inline;
-  margin: 0 0 0 80px;
-  a {
-    color: #CCCCCC;
-    text-transform: uppercase;
   }
 }

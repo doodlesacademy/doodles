@@ -4,18 +4,7 @@
 <% content_for(:hero_subtitle) do
   render "shared/academy_project_links", academy: @academy
 end %>
-<% content_for(:lessons) { @project.lessons } %>
-
-<!-- <p class='lead'>
-  Enticing description here!
-</p> -->
-
-<ul class="lesson-links">
-  <li><%= project_link(@project, 'Overview') %></li>
-  <% @project.lessons.each do |lesson| %>
-    <li><%= lesson_link lesson, "Lesson #{lesson.lesson_number}" %></li>
-  <% end %>
-</ul>
+<% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
 <% if @project.featured_artist_image.present? %>
 <div class="featured-artist">

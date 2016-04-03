@@ -4,6 +4,7 @@
   background-color: black;
   position: relative;
   margin: 0;
+  min-height: 480px;
   max-height: 480px;
   padding: 0;
   width: 100%;
@@ -79,6 +80,59 @@
 }
 
 .hero-subtitle {}
+
+.hero-lesson-links {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $content-max-width;
+}
+
+.lesson-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lesson-links a.lesson-link {
+  position: relative;
+  padding: 10px 20px;
+  color: #CCCCCC;
+  text-transform: uppercase;
+  @include ease;
+  &:not(:first-child) {
+    margin-left: 50px;
+  }
+  &:hover {
+    color: white;
+    background: rgba(white, 0.3);
+  }
+  &:active {
+    color: white;
+    background: rgba(white, 0.5);
+    transition: none;
+  }
+  &.current {
+    font-weight: bold;
+    color: white;
+  }
+  &.current::after {
+    position: absolute;
+    bottom: -200%;
+    left: 50%;
+    content: '';
+    border-color: white;
+    border-style: solid;
+    border-left: 26px solid transparent;
+    border-bottom: 26px solid transparent;
+    border-right: 26px solid white;
+    border-top: 26px solid white;
+    width: 20px;
+    height: 20px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
 
 .hero-content,
 .hero-title,
