@@ -21,6 +21,7 @@ namespace :doodles do
 
     lesson.inspiration_image_description = row[:inspiration_image_description]
     lesson.video_uri = row[:video_uri]
+    lesson.order = "#{row[:order]}".to_i - 1
 
     #section = lesson.sections.new(content: '')
     section = lesson.sections.first()
