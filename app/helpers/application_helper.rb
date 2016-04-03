@@ -37,12 +37,14 @@ module ApplicationHelper
     end
   end
 
-  def project_link(project)
-    link_to project_url(project.level, project.slug), project_url(project.level, project.slug)
+  def project_link(project, link_text)
+    link_text ||= project_url(project.level, project.slug)
+    link_to link_text, project_url(project.level, project.slug)
   end
 
-  def lesson_link(lesson)
-    link_to project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug), project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
+  def lesson_link(lesson, link_text)
+    link_text ||= project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
+    link_to link_text, project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
   end
 
 end

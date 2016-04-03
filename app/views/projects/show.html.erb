@@ -11,12 +11,10 @@ end %>
 </p> -->
 
 <ul class="lesson-links">
-  <li><a href="#">Overview</a></li>
-  <li><a href="#">Lesson 1</a></li>
-  <li><a href="#">Lesson 2</a></li>
-  <li><a href="#">Lesson 3</a></li>
-  <li><a href="#">Lesson 4</a></li>
-  <li><a href="#">Lesson 5</a></li>
+  <li><%= project_link(@project, 'Overview') %></li>
+  <% @project.lessons.each do |lesson| %>
+    <li><%= lesson_link lesson, "Lesson #{lesson.lesson_number}" %></li>
+  <% end %>
 </ul>
 
 <% if @project.featured_artist_image.present? %>
