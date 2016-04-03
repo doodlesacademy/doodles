@@ -33,4 +33,16 @@
   hr {
       color: #333333
   }
+
+  blockquote {
+    background: #F1F7F7;
+    margin: 0;
+    padding: 30px;
+    border: none;
+    max-width: 600px;
+  }
+
+  blockquote img {
+    padding: 20px;
+  }
 }

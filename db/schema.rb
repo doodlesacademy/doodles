@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403124144) do
+ActiveRecord::Schema.define(version: 20160403160544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,11 @@ ActiveRecord::Schema.define(version: 20160403124144) do
     t.string   "overview_content_type"
     t.integer  "overview_file_size"
     t.datetime "overview_updated_at"
-    t.integer  "order"
+    t.integer  "order",                          default: 1
+    t.string   "example_image_file_name"
+    t.string   "example_image_content_type"
+    t.integer  "example_image_file_size"
+    t.datetime "example_image_updated_at"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree

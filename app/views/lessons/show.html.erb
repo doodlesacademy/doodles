@@ -1,11 +1,15 @@
 <% content_for(:page_title) { @lesson.title } %>
-<% content_for(:hero_image) { image_tag @lesson.inspiration_image.url(:large) } %>
+<% content_for(:hero_image) { image_tag @project.inspiration_image.url(:large) } %>
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
 <% content_for(:hero_subtitle) do render "shared/academy_project_lesson_links", academy: @academy end %>
 <% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
 <div class='markdown-wrapper'>
   <h1><%= @lesson.title %></h1>
+
+  <% if @lesson.example_image.exists? %>
+  <%= image_tag @lesson.example_image.url(:medium) %>
+  <% end %>
 
   <blockquote class="backdrop toc">
     <p class="toc-title">Lesson Map</p>
@@ -23,3 +27,11 @@
   <% end %>
   </p>
 </div>
+
+<% if @lesson.inspiration_image.exists? %>
+  <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-description="<%= markdown @lesson.inspiration_image_description %>">
+<% end %>
+
+<% if @lesson.video_uri.present? %>
+<div class="hidden video-intro" data-video-uri="<%= @lesson.video_uri %>"></div>
+<% end %>

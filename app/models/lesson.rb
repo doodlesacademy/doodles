@@ -15,6 +15,12 @@ class Lesson < ActiveRecord::Base
   after_initialize :set_order
 
   has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, 'Independent Worktime', 'Clean Up/Presenations'], issues: [:anticipated_problems, :early_finishers]
+
+  has_attached_file :example_image, 
+    styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
+    default_url: "images/:style/missing.png"
+  validates_attachment_content_type :example_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
   has_attached_file :inspiration_image, 
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
     default_url: "images/:style/missing.png"
