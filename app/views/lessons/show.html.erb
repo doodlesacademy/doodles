@@ -1,7 +1,9 @@
 <% content_for(:page_title) { @lesson.title } %>
 <% content_for(:hero_image) { image_tag @lesson.inspiration_image.url(:large) } %>
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
-<% content_for(:hero_subtitle) do end %>
+<% content_for(:hero_subtitle) do
+  render "shared/academy_project_lesson_links", academy: @academy
+end %>
 
 <div class='markdown-wrapper'>
   <h1><%= @lesson.title %></h1>
@@ -11,6 +13,10 @@
     <%= render "shared/table_of_contents", sectionable: @project %>
   </blockquote>
   <%= render "shared/sections", sectionable: @lesson %>
-  <h1 class="centered"> <%= @finished_verb.titleize %>! Lesson <%= @lesson.order %> finished!</h1>
-  <p><button>Next Lesson</button></p>
+  <h1 class="centered"> <%= @finished_verb.titleize %>! Lesson <%= @lesson.lesson_number %> finished!</h1>
+  <% if @lesson.next_lesson %>
+    <p class="centered">
+      <%= link_to "Next Lesson", @lesson.next_lesson, class:"btn btn-blue btn-xl" %>
+    </p>
+  <% end %>
 </div>

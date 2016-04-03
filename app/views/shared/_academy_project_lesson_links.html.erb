@@ -1,7 +1,11 @@
-<% if academy == :lower %>
-  <%= academy %>
-  <%= link_to "Upper", project_lesson_path("upper", @project.slug, @lesson.slug) %>
-<% else %>
-  <%= link_to "Lower", project_lesson_path("lower", @project.slug, @lesson.slug) %>
-  <%= academy %>
-<% end %>
+<div class='academy-selector'>
+  <% if academy == :lower %>
+    <%= link_to "Upper Academy Project", project_lesson_path("upper", @project.slug, @lesson.slug) %>
+    <span>/</span>
+    <%= "#{academy} Academy Project".titleize %>
+  <% else %>
+    <%= "#{academy} Academy Project".titleize %>
+    <span>/</span>
+    <%= link_to "Lower Academy Project", project_lesson_path("lower", @project.slug, @lesson.slug) %>
+  <% end %>
+</div>
