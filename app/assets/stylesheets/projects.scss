@@ -139,3 +139,20 @@
   height: 0px;
   width: 60px;
 }
+
+.academy-selector {
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+
+  span {
+    color: #999;
+  }
+  a, a:visited {
+    color: #999;
+    @include ease;
+    &:hover {
+      color: white;
+    }
+  }
+}
