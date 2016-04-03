@@ -13,6 +13,7 @@
   </blockquote>
   <%= render "shared/sections", sectionable: @lesson %>
   <h1 class="centered"> <%= @finished_verb.titleize %>! Lesson <%= @lesson.lesson_number %> finished!</h1>
+  &nbsp
   <p class="centered">
   <% if @lesson.next_lesson %>
       <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
