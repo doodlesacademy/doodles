@@ -24,8 +24,8 @@ module ApplicationHelper
     options = {
       nesting_level: level,
     }
-    renderer = Redcarpet::Render::HTML_TOC
-    markdown = Redcarpet::Markdown.new(renderer, options)
+    renderer = Redcarpet::Render::HTML_TOC.new(options)
+    markdown = Redcarpet::Markdown.new(renderer)
     markdown.render(text).html_safe
   end
 
@@ -37,14 +37,22 @@ module ApplicationHelper
     end
   end
 
-  def project_link(project, link_text = nil)
-    link_text ||= project_url(project.level, project.slug)
-    link_to link_text, project_url(project.level, project.slug)
+  def project_link(project, link_text = nil, options = {})
+    url = project_url(project.level, project.slug)
+    make_link(url, link_text, options)
   end
 
-  def lesson_link(lesson, link_text = nil)
-    link_text ||= project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
-    link_to link_text, project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
+  def lesson_link(lesson, link_text = nil, options = {})
+    url = project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
+    make_link(url, link_text, options)
+  end
+
+
+  private
+  def make_link(url, link_text = nil, options = {})
+    options[:class] += current_page?(url) ? ' current' : ''
+    link_text ||= url
+    link_to link_text, url, options
   end
 
 end

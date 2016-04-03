@@ -21,6 +21,7 @@ namespace :doodles do
     return unless lesson.present?
 
     lesson.inspiration_image_description = row[:inspiration_image_description]
+    lesson.video_uri = row[:video_uri]
 
     #section = lesson.sections.new(content: '')
     section = lesson.sections.first()
@@ -48,7 +49,9 @@ namespace :doodles do
     title = "# Lesson\n"
     section.content += title unless section.content.include? title
 
-    section.content +=  "## #{row[:group]}\n"
+    group =  "## #{row[:group]}\n"
+    section.content += group unless section.content.include? group
+
     section.content +=  "### #{row[:title]}\n"
     section.content +=  "#### #{row[:time]}\n" if row[:time]
     section.content +=  "#{row[:description]}\n\n"
@@ -100,6 +103,7 @@ namespace :doodles do
       project_name: 'Project Name', 
       order: 'Order', 
       lesson_name: 'Lesson Name',
+      video_uri: 'Video Url',
       synopsis: 'Synopsis',
       objective: 'Objective',
       setup: 'Set-up',
