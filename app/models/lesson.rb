@@ -46,7 +46,7 @@ class Lesson < ActiveRecord::Base
   private
 
   def set_order
-    self.order ||= self.project.lessons.count - 1
+    self.order ||= self.project.lessons.count
   end
 
 end
