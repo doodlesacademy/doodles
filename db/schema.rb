@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401034121) do
+ActiveRecord::Schema.define(version: 20160403124144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20160401034121) do
   add_index "feedback_messages", ["lesson_id"], name: "index_feedback_messages_on_lesson_id", using: :btree
 
   create_table "galleries", force: :cascade do |t|
-    t.integer  "project_set_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160401034121) do
     t.string   "overview_content_type"
     t.integer  "overview_file_size"
     t.datetime "overview_updated_at"
-    t.integer  "order",                          default: 1
+    t.integer  "order"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
