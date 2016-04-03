@@ -1,5 +1,4 @@
 require 'roo'
-require 'pry'
 require 'stringex'
 
 namespace :doodles do
