@@ -6,11 +6,24 @@
 
 <div class='markdown-wrapper'>
   <h1><%= @lesson.title %></h1>
+</div>
 
-  <% if @lesson.example_image.exists? %>
-  <%= image_tag @lesson.example_image.url(:medium) %>
-  <% end %>
+<% if @lesson.example_image.exists? %>
+<div class="featured-artist">
+  <div class="row">
+    <div class="example col-md-12 vcenter" id="example">
+      <div class="student-image">
+        <%= image_tag @lesson.example_image.url(:medium) %>
+      </div>
+      <div class="superhero-quote">
+        <%= @lesson.synopsis %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 
+<div class='markdown-wrapper'>
   <blockquote class="backdrop toc">
     <p class="toc-title">Lesson Map</p>
     <%= render "shared/table_of_contents", sectionable: @lesson %>

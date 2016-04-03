@@ -1,7 +1,6 @@
 (($, window) -> $ ->
 
   appendVimeoVideo = ->
-    debugger
     $video = $('.video-intro')
     return unless $video.length > 0
     $intro = $('#introduction')
