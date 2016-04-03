@@ -22,11 +22,16 @@
 
   @include primary-font;
   background-color: transparent;
-  transition: background-color 300ms ease;
+  @include ease;
 
   #no-hero + &,
   &.is-scrolled {
     background-color: $primary-blue;
+    height: 65px;
+
+    .brand {
+      transform: scale(0.8);
+    }
   }
 
   .brand {
@@ -35,6 +40,7 @@
       height: 100%;
       width: auto;
     }
+    @include ease;
   }
 
   .nav-menu {

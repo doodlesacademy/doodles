@@ -4,15 +4,19 @@
   $body = $('.body')
   $window = $(window)
   $quote = $('.quote .quote-contents')
+  $parallax = $('.parallax')
+  $parallax_offset = null
+  $parallax_height = null
   navHeight = $nav.height()
   $lightbox = null
   $close_btn = null
+  scrollClass = "is-scrolled"
 
   onScroll = ->
     top = $document.scrollTop()
-    scrollClass = "is-scrolled"
     hasScrolled = top > navHeight
     $nav.toggleClass(scrollClass, hasScrolled)
+    $nav.removeClass('hidden')
 
   onScroll = _.debounce(onScroll)
 

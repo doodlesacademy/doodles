@@ -1,4 +1,4 @@
-<% path = @gallery.persisted? ? admin_gallery_path(@lesson) : admin_galleries_path %> 
+<% path = @gallery.persisted? ? admin_gallery_path(@gallery) : admin_galleries_path %> 
 <%= form_for @gallery, url: path do |f| %>
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +11,13 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= label_tag :lesson_id, "Lesson" %>
+    <select id="lesson_id" name="lesson_id">
+      <%= options_for_select Lesson.all.map { |l| ["#{l.level.capitalize} - #{l.title}", l.id] }, Lesson.count %>
+    </select>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

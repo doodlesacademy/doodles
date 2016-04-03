@@ -6,8 +6,8 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Project Name</th>
-      <th>Project Level</th>
+      <th>Lesson Level</th>
+      <th>Lesson Name</th>
       <th># of Photos</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +16,10 @@
   <tbody>
     <% @galleries.each do |gallery| %>
       <tr>
-        <td><%= link_to 'Show', project_gallery_path(gallery.project.slug) %></td>
+        <td><%= gallery.lesson.level.capitalize %></td>
+        <td><%= gallery.lesson.title %></td>
+        <td><%= gallery.assets.count %></td>
+        <td><%= link_to 'Show', admin_gallery_path(gallery) %></td>
         <td><%= link_to 'Edit', edit_admin_gallery_path(gallery) %></td>
       </tr>
     <% end %>

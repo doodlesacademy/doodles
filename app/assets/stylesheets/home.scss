@@ -5,11 +5,13 @@
 }
 
 .homepage-section {
-  padding: 50px 0;
+  padding: 100px 0 150px;
 }
 
 
 .homepage-section.hero {
+  max-height: 900px;
+  height: 900px;
   padding: 0;
 }
 
@@ -21,7 +23,8 @@
   .lead {
     font-size: 28px;
     font-weight: 300;
-    text-align: justify;
+    text-align: left;
+    line-height: 1.3em;
   }
 
   p {
@@ -34,9 +37,10 @@
     &.jumbo {
       text-align: left;
       font-size: 60px;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 60px;
       padding-bottom: 10px;
+      padding-top: 50px;
     }
   }
 

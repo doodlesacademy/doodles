@@ -6,9 +6,11 @@ class Lesson < ActiveRecord::Base
   default_scope { order(:order) }
 
   has_and_belongs_to_many :supply_items
+  has_one :gallery
   belongs_to :project, counter_cache: true
 
   validates :title, presence: true
+  delegate :level, to: :project
   alias_attribute :name, :title
   after_initialize :set_order
 
