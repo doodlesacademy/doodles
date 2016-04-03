@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
   post 'feedback', to: 'feedback_messages#create'
+  post 'subscribe', to: 'subscriptions#create'
 
   get 'admin', to: 'admin#index'
   namespace 'admin' do
