@@ -3,6 +3,7 @@
 <h1 class="inline">Lesson</h1>
 <%= link_to 'Edit', edit_admin_lesson_path(@lesson), class: "btn btn-blue pull-right" %>
 <p>Title: <%= @lesson.title %>
+<p>Url: <%= lesson_link @lesson %></p>
 <p>
   Project: <%= link_to @lesson.project.title, 
     admin_project_set_path(@lesson.project.project_set) %>

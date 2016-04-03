@@ -41,4 +41,8 @@ module ApplicationHelper
     link_to project_url(project.level, project.slug), project_url(project.level, project.slug)
   end
 
+  def lesson_link(lesson)
+    link_to project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug), project_lesson_url(lesson.project.level, lesson.project.slug, lesson.slug)
+  end
+
 end
