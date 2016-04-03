@@ -16,9 +16,9 @@
   selectAcademy = (e) ->
     $academy = $ e.currentTarget
     level = $academy.data('level')
-    new_location = window.location.href.replace(/www|lower|upper/, level)
-    new_location = new_location.replace(/\/$/, '')
-    window.location = "#{new_location}/#{project_slug}"
+    location = window.location.toString()
+    location = location.replace('projects', "#{level}/projects")
+    window.location = "#{location}/#{project_slug}"
     toggleAcademyModal()
     
   toggleModal = ($modal, toggle=false) ->
