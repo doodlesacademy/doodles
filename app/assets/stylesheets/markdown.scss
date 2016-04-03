@@ -42,6 +42,10 @@
     max-width: 600px;
   }
 
+  blockquote.toc {
+    max-width: none;
+  }
+
   blockquote img {
     padding: 20px;
   }
