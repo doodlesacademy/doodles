@@ -13,16 +13,14 @@ namespace :doodles do
     project = project_set.get_project(level: academy)
     return unless project.present?
     #return project.lessons.new(title: title)
-    return project.lessons.find_or_create(title: title)
+    return project.lessons.find_or_create_by(title: title)
   end
 
   def import_lesson(row)
     lesson = find_lesson(row)
     return unless lesson.present?
 
-    lesson.update_attributes(
-      inspiration_image_description: lesson[:inspiration_image_description]
-    )
+    lesson.inspiration_image_description = row[:inspiration_image_description]
 
     #section = lesson.sections.new(content: '')
     section = lesson.sections.first()
@@ -38,7 +36,7 @@ namespace :doodles do
       section.content +=  "#{row[group]}\n\n"
     end
     #puts section.content
-    section.save()
+    lesson.save!
   end
 
   def import_lesson_instructions(row)
@@ -55,7 +53,7 @@ namespace :doodles do
     section.content +=  "#### #{row[:time]}\n" if row[:time]
     section.content +=  "#{row[:description]}\n\n"
     #puts section.content
-    section.save()
+    lesson.save()
   end
 
   def import_lesson_issues(row)
@@ -75,7 +73,7 @@ namespace :doodles do
       section.content +=  "#{row[group]}\n\n"
     end
     #puts section.content
-    section.save()
+    lesson.save()
   end
 
   desc "Imports the Lessons to the Database"
