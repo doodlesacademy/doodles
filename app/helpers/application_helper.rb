@@ -50,6 +50,7 @@ module ApplicationHelper
 
   private
   def make_link(url, link_text = nil, options = {})
+    options[:class] ||= ""
     options[:class] += current_page?(url) ? ' current' : ''
     link_text ||= url
     link_to link_text, url, options

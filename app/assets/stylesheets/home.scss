@@ -10,8 +10,8 @@
 
 
 .homepage-section.hero {
-  max-height: 900px;
-  height: 900px;
+  max-height: 800px;
+  height: 800px;
   padding: 0;
 }
 
@@ -264,5 +264,49 @@ $error-highlight: lighten($primary-red, 15%);
     margin-left: 45px;
     margin-bottom: 30px;
     float: right;
+  }
+}
+
+.donation-wrapper {
+  width: 75%;
+  margin: 0 auto;
+
+  #donation {
+    border: 1px solid #4B4583;
+    padding: 30px;
+
+    p {
+      line-height: 1.75em;
+    }
+
+    input[type='submit'] {
+      @include textCap;
+      background-color: $active-purple;
+      color: white;
+      outline: none;
+      border: none;
+      border-radius: 0;
+      height: 50px;
+      padding: 0 30px;
+      transition: background-color 300ms ease;
+
+      &:hover {
+        background-color: lighten($active-purple, 10%)
+      }
+
+      &:active {
+        transition: none;
+        background-color: darken($active-purple, 10%)
+      }
+    }
+
+    input[type='text'] {
+      margin-left: 124px;
+      padding: 0 30px;
+      height: 50px;
+      width: 30%;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
   }
 }

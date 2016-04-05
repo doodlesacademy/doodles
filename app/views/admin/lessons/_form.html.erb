@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+  <% if @lesson.new_record? %>
   <div class="field">
     <%= label_tag :project_slug, "Project" %>
     <select id="project_slug" name="project_slug">
@@ -25,6 +26,7 @@
       <%= options_for_select Project.levels.map { |l| [l[0].capitalize, l[0]] }, Project.levels.length %>
     </select>
   </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :title %>
@@ -33,13 +35,19 @@
 
   <%= render "shared/form_attachment", 
     form: f, 
-    entity: @project,
+    entity: @lesson,
     attribute: :overview,
     label: "Lesson Overview PDF" %>
 
   <%= render "shared/form_attachment", 
     form: f, 
-    entity: @project,
+    entity: @lesson,
+    attribute: :example_image,
+    label: "Example Image" %>
+
+  <%= render "shared/form_attachment", 
+    form: f, 
+    entity: @lesson,
     attribute: :inspiration_image,
     label: "Inspiration Image" %>
 

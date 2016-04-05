@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "contact", to: "home#contact"
   get "supporters", to: "home#partners"
   get "classes", to: "home#classes"
+  get "donate", to: "home#donate"
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'

@@ -22,6 +22,9 @@ class HomeController < ApplicationController
   def classes
   end
 
+  def donate
+  end
+
   def page
     @page = Page.find_by_slug(params[:slug])
     not_found unless @page.present?

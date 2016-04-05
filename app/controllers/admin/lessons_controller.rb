@@ -1,7 +1,7 @@
 class Admin::LessonsController < ApplicationController
   before_action :authenticate_user!, :admin_only!
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:create, :update]
+  before_action :set_project, only: [:create]
   layout "admin"
 
   # GET /admin/lessons
@@ -62,6 +62,6 @@ class Admin::LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:title, :project_id, :overview, :inspiration_image, :inspiration_image_description, :video_uri, sections_attributes: [:id, :order, :content])
+      params.require(:lesson).permit(:title, :project_id, :overview, :example_image, :inspiration_image, :inspiration_image_description, :video_uri, sections_attributes: [:id, :order, :content])
     end
 end
