@@ -4,6 +4,12 @@
     color: black;
     font-weight: 300;
     font-size: 36px;
+    border-top: 1px solid #DDDEE0;
+    padding-top: 20px;
+  }
+
+  h1:first-child, h1:last-child {
+    border-top: 0;
   }
 
   h2 {
