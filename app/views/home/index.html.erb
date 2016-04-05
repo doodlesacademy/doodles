@@ -1,4 +1,8 @@
-<% content_for(:hero_content) { 'Students aren\'t carbon copies. Why should their art be?' } %>
+<% content_for (:hero_content) { image_tag 'doodle_white.png', size: "100"} %>
+<% content_for :hero_content do %>
+ <h2 style="margin-top: -10px;"> Students aren't carbon copies.</h2>
+ <h2 style="margin-top: -10px;"> Why should their art be?" </h2>
+<%end %>
 
 <div class="homepage">
  <section class="homepage-section">
