@@ -69,9 +69,13 @@
         }
       }
 
-      &.current a:after,
-      &:hover a:after {
+      &.current:not(.donate) a:after,
+      &:hover:not(.donate) a:after {
         opacity: 1;
+      }
+
+      &.current .nav-donate-btn {
+        background-color: darken($primary-blue, 15%);
       }
 
       &:hover {
