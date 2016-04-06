@@ -29,32 +29,32 @@
 <p class="lead">
   Feel free to get in touch with us.
 </p>
-<form class="contact-form">
+<%= form_tag("/contact", class: "contact-form") do -%>
   <div class="field">
-    <label for="message[email]">Email</label>
-    <input type="text" name="message[email]">
+    <label for="contact_request[email_address]">Email</label>
+    <input type="text" name="contact_request[email_address]">
   </div>
 
   <div class="field">
-    <label for="message[first_name]">First Name</label>
-    <input type="text" name="message[first_name]">
+    <label for="contact_request[first_name]">First Name</label>
+    <input type="text" name="contact_request[first_name]">
   </div>
 
   <div class="field">
-    <label for="message[last_name]">Last Name</label>
-    <input type="text" name="message[last_name]">
+    <label for="contact_request[last_name]">Last Name</label>
+    <input type="text" name="contact_request[last_name]">
   </div>
 
   <div class="field">
-    <label for="message[location]">Location</label>
-    <input type="text" name="message[location]">
+    <label for="contact_request[location]">Location</label>
+    <input type="text" name="contact_request[location]">
   </div>
 
   <div class="field">
-    <label for="message[involvement]">
+    <label for="contact_request[involvement]">
       How are you involved in education?
     </label>
-    <select name="message[involvement]">
+    <select name="contact_request[involvement]">
       <option>I'm a classroom teacher</option>
       <option>I'm an arts teacher</option>
       <option>I'm an administrator</option>
@@ -66,16 +66,16 @@
   </div>
 
   <div class="field">
-    <label for="message[body]">
+    <label for="contact_request[message]">
       Message
     </label>
-    <textarea name="message[body]"></textarea>
+    <textarea name="contact_request[message]"></textarea>
   </div>
   <div class="field">
-    <input type="checkbox" checked></input> Subscribe me to the Doodles newsletter.
+    <input type="checkbox" name="contact_request[subscribe]" checked></input> Subscribe me to the Doodles newsletter.
   </div>
 
   <div class='centered'>
-    <button class="btn btn-large btn-orange">Send us a message</button>
+    <input type="submit" class="btn btn-large btn-orange" value="Send us a message">
   </div>
-</form>
+<% end -%>
