@@ -4,16 +4,18 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get "about", to: "home#about"
   get 'donors', to: 'home#donors'
-  get "contact", to: "home#contact"
   get "supporters", to: "home#partners"
   get "classes", to: "home#classes"
   get "donate", to: "home#donate"
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
-  post 'feedback', to: 'feedback_messages#create'
+
   post 'subscribe', to: 'subscriptions#create'
   get 'thanks', to: 'subscriptions#thanks'
+
+  get 'contact', to: 'contact_requests#new'
+  post 'contact', to: 'contact_requests#create'
 
   get 'admin', to: 'admin#index'
   namespace 'admin' do
