@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   def create
     # @todo <alex> make this an async job
     @subscription = SubscriptionService.new(subscription_params).subscribe
-    redirect_to action: 'thanks', update: false, id: @subscription["id"]
+    redirect_to action: 'thanks'
   end
 
   def update
