@@ -1,0 +1,21 @@
+<div class='thanks'>
+  <h2>Thank you for subscribing!</h2>
+  <% unless @update %>
+    <p>We'd love it if you'd like to share a bit more about yourself and your interest in Doodles Academy (this is optional):</p>
+    <%= form_tag('/update_subscription') do -%>
+        <%= text_field_tag('subscription[first_name]', '', class: "input__text", placeholder: 'First Name') %>
+        <%= text_field_tag('subscription[last_name]', '', class: "input__text", placeholder: 'Last Name') %>
+        <%= text_field_tag('subscription[location]', '', class: "input__text", placeholder: 'Location') %>
+        <select name="subscription[involvement]">
+          <option>I'm a classroom teacher</option>
+          <option>I'm an arts teacher</option>
+          <option>I'm an administrator</option>
+          <option>I'm part of the PTA</option>
+          <option>I'm a parent who is home-schooling</option>
+          <option>I'm a parent</option>
+          <option>I'm an arts-education activitist/part of a non-profit/volunteer</option>
+        </select>
+        <%= submit_tag("Update", class: "newsletter__submit") %>
+    <% end -%>
+  <% end %>
+</div>
