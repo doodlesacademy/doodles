@@ -51,6 +51,7 @@
   color: #666;
   font-size: 11pt;
   padding: 25px 45px;
+  counter-reset: my-counter;
 }
 
 .toc-title {
@@ -80,6 +81,11 @@
 
 .toc ul ul li:not(:last-child)::after {
   content: '>'
+}
+
+.toc ul li:nth-child(even) ul li:before {
+  content: counter(my-counter);
+  counter-increment: my-counter;
 }
 
 .lesson-map {
