@@ -48,3 +48,7 @@
 <% if @lesson.video_uri.present? %>
 <div class="hidden video-intro" data-video-uri="<%= @lesson.video_uri %>"></div>
 <% end %>
+
+<% if @lesson.overview.present? %>
+<div class="hidden overview-pdf" data-url="<%= @lesson.overview_url %>"></div>
+<% end %>
