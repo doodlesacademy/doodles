@@ -14,7 +14,7 @@ class Lesson < ActiveRecord::Base
   alias_attribute :name, :title
   after_initialize :set_order
 
-  has_sections overview: [:objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, 'Independent Worktime', 'Clean Up/Presenations'], issues: [:anticipated_problems, :early_finishers]
+  has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, 'Independent Worktime', 'Clean Up/Presenations'], issues: [:anticipated_problems, :early_finishers]
 
   has_attached_file :example_image,
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" },
@@ -43,7 +43,7 @@ class Lesson < ActiveRecord::Base
 
   def synopsis
     content = self.sections.first().content
-    # content = content[0, content.enum_for(:scan, /^## Objective/).map { Regexp.last_match.begin(0) }[0]]
+    content = content[0, content.enum_for(:scan, /^## Objective/).map { Regexp.last_match.begin(0) }[0]]
     content = content.gsub(/#+ .*\n/, '')
     return content
   end
