@@ -5,7 +5,7 @@
 <p>Title: <%= @lesson.title %>
 <p>Url: <%= lesson_link @lesson %></p>
 <p>
-  Project: <%= link_to @lesson.project.title, 
+  Project: <%= link_to @lesson.project.title,
     admin_project_set_path(@lesson.project.project_set) %>
 </p>
 <p>
@@ -15,7 +15,7 @@
 
 
 <p>
-  <% if @lesson.overview.present? %> 
+  <% if @lesson.overview.present? %>
   <%= link_to "Lesson Overview PDF", @lesson.overview.url %>
   <% else %>
   <%= "Lesson Overview PDF Not Found" %>
@@ -23,6 +23,7 @@
 </p>
 <p><%= image_tag @lesson.inspiration_image.url(:thumb) %></p>
 <p><%= image_tag @lesson.example_image.url(:thumb) %></p>
+<p>Inspiration Image Title: <%= @lesson.inspiration_image_title %></p>
 <p>Inspiration Image Description: <%= @lesson.inspiration_image_description %></p>
 
 
