@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get "about", to: "home#about"
-  get "supporters", to: "home#partners"
+  get "supporters", to: "donors#index"
   get "classes", to: "home#classes"
   get "donate", to: "home#donate"
 

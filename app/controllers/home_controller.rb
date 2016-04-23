@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   def about
   end
 
-  def partners 
+  def partners
   end
 
   def classes
@@ -25,12 +25,15 @@ class HomeController < ApplicationController
   def donate
   end
 
+  def donor
+  end
+
   def page
     @page = Page.find_by_slug(params[:slug])
     not_found unless @page.present?
   end
 
-  private 
+  private
     def featured_lessons
       @intro_video_url = "https://player.vimeo.com/video/151472643"
       @featured_lessons = []
