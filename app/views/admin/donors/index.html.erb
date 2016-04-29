@@ -1,0 +1,27 @@
+<%= render "shared/alert", alert: notice %>
+
+<h1 class="inline">donors</h1>
+<%= link_to 'New donor', new_admin_donor_path, class: "btn btn-blue pull-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @donors.each do |donor| %>
+      <tr>
+        <td><%= donor.first_name %></td>
+        <td><%= donor.last_name %></td>
+        <td><%= link_to 'Show', admin_donor_path(donor) %></td>
+        <td><%= link_to 'Edit', edit_admin_donor_path(donor) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

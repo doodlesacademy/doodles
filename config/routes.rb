@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get "about", to: "home#about"
-  get 'donors', to: 'home#donors'
-  get "supporters", to: "home#partners"
+  get "supporters", to: "donors#index"
   get "classes", to: "home#classes"
   get "donate", to: "home#donate"
 
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admin#index'
   namespace 'admin' do
-    resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items
+    resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
   end
 
   resources :users
