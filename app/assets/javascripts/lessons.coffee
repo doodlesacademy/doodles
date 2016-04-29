@@ -36,23 +36,17 @@
         #{description}
       </blockquote>
 
-      <div class="modal modal-lg centered" id='modal-insp'>
-          <div class="modal-body modal-lg">
+      <div class="modal" id='modal-insp'>
+        <div class="modal-content modal-full">
+          <div class="modal-close"></div>
+          <div class="modal-body centered">
             <img src="#{url}" />
           </div>
+        </div>
       </div>
-
       """)
 
     $inspiration.after($el)
-
-    $('.modal-body').click ->
-      $('.modal').hide()
-      return
-
-    $('.modal-insp').click ->
-      $('.modal').show()
-      return
 
   appendInspirationImage()
   appendVimeoVideo()
