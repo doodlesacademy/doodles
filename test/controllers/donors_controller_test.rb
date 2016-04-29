@@ -44,6 +44,6 @@ class DonorsControllerTest < ActionController::TestCase
       delete :destroy, id: @donor
     end
 
-    assert_redirected_to donors_path
+    assert_redirected_to admin_donors_path
   end
 end
