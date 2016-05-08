@@ -1,5 +1,7 @@
 (($, window) -> $ ->
 
+  setupListeners = ->
+
   appendVimeoVideo = ->
     $video = $('.video-intro')
     return unless $video.length > 0
@@ -30,15 +32,24 @@
     $inspiration = $('#inspiration')
     $el = $("""
       <blockquote>
-        <img src='#{url}'/>
+        <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='#{url}'/><span class="glyphicon glyphicon-zoom-in"></span></div></a>
         #{description}
       </blockquote>
+
+      <div class="modal" id='modal-insp'>
+        <div class="modal-content modal-full">
+          <div class="modal-close"></div>
+          <div class="modal-body centered">
+            <img src="#{url}" />
+          </div>
+        </div>
+      </div>
       """)
 
     $inspiration.after($el)
 
-
   appendInspirationImage()
   appendVimeoVideo()
+  # setupListeners()
 
 )(window.$ or window.jQuery or window.Zepto, window)
