@@ -2,20 +2,12 @@
 <% content_for(:hero_image) { image_tag 'heros/partners.jpg' } %>
 
 <h1 class="donors">Donors</h1>
-  <% if @donor_headline.present? %>
-  <p class="lead centered"><%= @donor_headline %></p>
-  <% end %>
-<% if @donors.present? %>
-  <% @donors.each do |donor| %>
-    <p><%= donor.name %></p>
-  <% end %>
-<% else %>
-  <ul class="donors">
-    <li>Laura Harris</li>
-    <li>Kara Bloom</li>
-    <li>Kara Larsen</li>
-  </ul>
+<ul class="donors">
+<% @donors.each do |donor| %>
+  <li><%= donor.name %></li>
 <% end %>
+</ul>
+
 
 <h1 class="community-partners" id="community-partners">Community Partners</h1>
 <a href="http://portlandchildart.org/"><%= image_tag 'partners/pdx-child-art-studio.jpg', class:'partners-image' %></a>
