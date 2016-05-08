@@ -32,7 +32,7 @@
     $inspiration = $('#inspiration')
     $el = $("""
       <blockquote>
-        <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='#{url}'/><span class="glyphicon glyphicon-zoom-in"></span></div></a>
+        <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='#{url}'/><span></span></div></a>
         #{description}
       </blockquote>
 
