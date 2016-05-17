@@ -64,7 +64,7 @@ class Admin::LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(
         :order, :title, :project_id, :overview, :example_image, :inspiration_image,
-        :inspiration_image_description, :video_uri, sections_attributes: [:id, :order, :content]
+        :inspiration_image_description, :lesson_description, :video_uri, sections_attributes: [:id, :order, :content]
       )
     end
 end

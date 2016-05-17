@@ -15,9 +15,15 @@
       <div class="student-image">
         <%= image_tag @lesson.example_image.url(:medium) %>
       </div>
-      <div class="superhero-quote">
-        <%= @lesson.synopsis %>
-      </div>
+      <% if @lesson.lesson_description != "" %>
+        <div class="superhero-quote">
+          <%= @lesson.lesson_description %>
+        </div>
+      <% else %>
+        <div class="superhero-quote">
+          <%= @lesson.synopsis %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

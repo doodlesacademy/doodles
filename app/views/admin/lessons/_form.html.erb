@@ -1,4 +1,4 @@
-<% path = @lesson.persisted? ? admin_lesson_path(@lesson) : admin_lessons_path %> 
+<% path = @lesson.persisted? ? admin_lesson_path(@lesson) : admin_lessons_path %>
 <%= form_for @lesson, url: path do |f| %>
   <% if @lesson.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +19,7 @@
       <%= options_for_select ProjectSet.all.map { |p| [p.title, p.slug] }, ProjectSet.count %>
     </select>
   </div>
-  
+
   <div class="field">
     <%= label_tag :project_level %>
     <select id="project_level" name="project_level">
@@ -38,20 +38,20 @@
     <%= f.text_field :title %>
   </div>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @lesson,
     attribute: :overview,
     label: "Lesson Overview PDF" %>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @lesson,
     attribute: :example_image,
     label: "Example Image" %>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @lesson,
     attribute: :inspiration_image,
     label: "Inspiration Image" %>
@@ -60,7 +60,12 @@
     <%= f.label :inspiration_image_description %>
     <%= f.text_field :inspiration_image_description %>
   </div>
-  
+
+  <div class="field">
+    <%= f.label :lesson_description %>
+    <%= f.text_field :lesson_description %>
+  </div>
+
   <div class="field">
     <%= f.label :video_uri, "Video URL" %>
     <%= f.text_field :video_uri %>
