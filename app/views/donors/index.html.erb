@@ -3,7 +3,7 @@
 
 <h1 class="donors">Donors</h1>
 <ul class="donors">
-<% @donors.each do |donor| %>
+<% @donors.sort_by(&:last_name).each do |donor| %>
   <li><%= donor.name %></li>
 <% end %>
 </ul>
