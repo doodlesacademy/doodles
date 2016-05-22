@@ -47,6 +47,8 @@ pickle-email-*.html
 *.bowerrc
 bower.json
 
+node_modules/*
+
 *.dump
 
 # Ignore pow environment settings
