@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 20160522191734) do
     t.integer  "example_image_file_size"
     t.datetime "example_image_updated_at"
     t.string   "inspiration_image_title"
-    t.string   "lesson_description"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
