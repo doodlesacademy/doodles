@@ -44,8 +44,10 @@ class Admin::LessonsController < ApplicationController
 
   # DELETE /admin/lessons/1
   def destroy
-    @lesson.destroy
-    redirect_to action: :index, notice: 'Lesson was successfully destroyed.'
+    if @lesson.destroy
+      redirect_to action: :index
+      flash[:notice] = 'lesson was successfully destroyed.'
+    end
   end
 
   private
