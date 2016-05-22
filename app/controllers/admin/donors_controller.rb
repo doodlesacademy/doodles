@@ -25,7 +25,8 @@ class Admin::DonorsController < ApplicationController
   def create
     @donor = Donor.new(donor_params)
     if @donor.save
-      redirect_to action: :index, notice: 'donor was successfully created.'
+      redirect_to action: :index
+      flash[:notice] = 'donor was successfully created.'
     else
       render :new
     end
@@ -42,8 +43,10 @@ class Admin::DonorsController < ApplicationController
 
   # DELETE /admin/donors/1
   def destroy
-    @donor.destroy
-    redirect_to donors_url, notice: 'donor was successfully destroyed.'
+    if @donor.destroy
+      redirect_to action: :index
+      flash[:notice] = 'donor was successfully destroyed.'
+    end
   end
 
   private
