@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422221121) do
+ActiveRecord::Schema.define(version: 20160522191734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(version: 20160422221121) do
   create_table "donors", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "lifetime_donation"
   end
 
   create_table "feedback_messages", force: :cascade do |t|
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160422221121) do
     t.integer  "example_image_file_size"
     t.datetime "example_image_updated_at"
     t.string   "inspiration_image_title"
+    t.string   "lesson_description"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree

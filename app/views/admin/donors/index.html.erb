@@ -8,6 +8,7 @@
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Lifetime Donation</th>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
       <tr>
         <td><%= donor.first_name %></td>
         <td><%= donor.last_name %></td>
+        <td><%= donor.lifetime_donation %></td>
         <td><%= link_to 'Show', admin_donor_path(donor) %></td>
         <td><%= link_to 'Edit', edit_admin_donor_path(donor) %></td>
       </tr>
