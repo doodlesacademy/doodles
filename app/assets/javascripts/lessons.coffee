@@ -28,11 +28,13 @@
     $inspiration_image = $('.inspiration-image')
     return unless $inspiration_image.length > 0
     url = $inspiration_image.data('large-url')
+    title = $inspiration_image.data('title')
     description = $inspiration_image.data('description')
     $inspiration = $('#inspiration')
     $el = $("""
       <blockquote>
         <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='#{url}'/><span></span></div></a>
+        #{title}
         #{description}
       </blockquote>
 

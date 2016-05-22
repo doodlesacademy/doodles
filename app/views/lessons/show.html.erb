@@ -42,7 +42,7 @@
 </div>
 
 <% if @lesson.inspiration_image.exists? %>
-  <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
+  <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-title="<%= markdown @lesson.inspiration_image_title %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
 <% end %>
 
 <% if @lesson.video_uri.present? %>
