@@ -36,10 +36,10 @@ class Lesson < ActiveRecord::Base
     @video_uri.match(/\d+$/).to_s
   end
 
-  def destroy
-    self.archive!
-    self.save!
-  end
+  # def destroy
+  #   self.archive!
+  #   self.save!
+  # end
 
   def synopsis
     content = self.sections.first().content
