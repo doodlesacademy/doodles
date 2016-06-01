@@ -1,0 +1,50 @@
+<% content_for(:page_title) { @lesson.title } %>
+<% content_for(:hero_image) { image_tag @project.inspiration_image.url(:large) } %>
+<% content_for(:hero_title) { "#{@project.title}".titleize } %>
+<% content_for(:hero_subtitle) do render "shared/academy_project_lesson_links", academy: @academy end %>
+<% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
+
+<div class='markdown-wrapper'>
+  <h1><%= @lesson.title %></h1>
+</div>
+
+<% if @lesson.example_image.exists? %>
+<div class="featured-artist">
+  <div class="row">
+    <div class="example col-md-12 vcenter" id="example">
+      <div class="student-image">
+        <%= image_tag @lesson.example_image.url(:medium) %>
+      </div>
+      <div class="superhero-quote">
+        <%= @lesson.synopsis %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class='markdown-wrapper'>
+  <blockquote class="backdrop toc">
+    <p class="toc-title">Lesson Map</p>
+    <%= render "shared/table_of_contents", sectionable: @lesson %>
+  </blockquote>
+  <%= render "shared/sections", sectionable: @lesson %>
+  <h1 class="centered" style="margin: 50px 0; border-top: 0;">Lesson <%= @lesson.lesson_number %> finished!</h1>
+  <p class="centered" style="margin-bottom: 100px;">
+  <% if @lesson.next_lesson %>
+      <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
+  <% elsif @project.next_project %>
+      <%= project_link @project.next_project, "Next Project", class:"btn btn-blue btn-xl" %>
+  <% else %>
+    <h3 class='centered'>Did you enjoy this project? Sign up to be the first to hear when we release our next project!</h3>
+  <% end %>
+  </p>
+</div>
+
+<% if @lesson.inspiration_image.exists? %>
+  <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-title="<%= markdown @lesson.inspiration_image_title %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
+<% end %>
+
+<% if @lesson.video_uri.present? %>
+<div class="hidden video-intro" data-video-uri="<%= @lesson.video_uri %>"></div>
+<% end %>
