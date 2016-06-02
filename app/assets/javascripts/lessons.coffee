@@ -54,4 +54,9 @@
   appendVimeoVideo()
   # setupListeners()
 
+  $('.collapsible').click ->
+    theId = $(this).attr('id')
+    $('.' + theId + '-collapsed').toggle()
+    return
+
 )(window.$ or window.jQuery or window.Zepto, window)

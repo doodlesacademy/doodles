@@ -53,7 +53,7 @@
     padding: 20px;
   }
 
-  ul {
+  .sharing {
     margin: -10px 0 0 0;
 
     li {
@@ -61,6 +61,30 @@
 
       &:last-child {
         margin-bottom: 30px;
+      }
+    }
+  }
+
+  .collapsible {
+    background-color: #F1F7F7;
+    padding: 20px 20px 50px 20px;
+    width: 100%;
+
+    h2 {
+      display: inline;
+    }
+
+    .collapsible-heading {
+      width: 97%;
+      float: left;
+    }
+
+    .collapsible-plus {
+      width: 3%;
+      float: left;
+
+      h2 {
+        font-size: 300%;
       }
     }
   }
