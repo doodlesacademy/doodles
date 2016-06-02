@@ -67,7 +67,8 @@
 
   .collapsible {
     background-color: #F1F7F7;
-    padding: 20px 20px 50px 20px;
+    padding: 20px 20px 120px 20px;
+    margin: 20px 0;
     width: 100%;
 
     h2 {
@@ -77,6 +78,10 @@
     .collapsible-heading {
       width: 97%;
       float: left;
+
+      h3 {
+        margin-right: 20px;
+      }
     }
 
     .collapsible-plus {
@@ -91,8 +96,8 @@
 
 }
 
-.collapsed p:first-child {
-  margin-top: 20px;
+.collapsed {
+  margin: 0 20px;
 }
 
 .insp-img-wrapper {

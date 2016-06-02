@@ -56,6 +56,7 @@
 
   $('.collapsible').click ->
     theId = $(this).attr('id')
+    $('.teaser').toggle()
     $('.' + theId + '-collapsed').toggle()
     return
 
