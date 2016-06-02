@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160602131505) do
     t.integer  "example_image_file_size"
     t.datetime "example_image_updated_at"
     t.string   "inspiration_image_title"
+    t.string   "lesson_description"
     t.string   "objective"
   end
 
