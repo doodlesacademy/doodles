@@ -57,6 +57,11 @@
     label: "Inspiration Image" %>
 
   <div class="field">
+    <%= f.label :synopsis %>
+    <%= f.text_field :synopsis %>
+  </div>
+
+  <div class="field">
     <%= f.label :objective %>
     <%= f.text_field :objective %>
   </div>
@@ -89,6 +94,26 @@
   <div class="field">
     <%= f.label :video_uri, "Video URL" %>
     <%= f.text_field :video_uri %>
+  </div>
+
+  <div class="field">
+    <%= f.label :worktime_focus %>
+    <%= f.text_field :worktime_focus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :worktime %>
+    <%= f.text_field :worktime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :anticipated_problems %>
+    <%= f.text_field :anticipated_problems %>
+  </div>
+
+  <div class="field">
+    <%= f.label :early_finishers %>
+    <%= f.text_field :early_finishers %>
   </div>
 
   <%= render "shared/form_sections", form: f %>

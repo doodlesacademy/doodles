@@ -41,12 +41,12 @@ class Lesson < ActiveRecord::Base
   #   self.save!
   # end
 
-  def synopsis
-    content = self.sections.first().content
-    content = content[0, content.enum_for(:scan, /^## Objective/).map { Regexp.last_match.begin(0) }[0]]
-    content = content.gsub(/#+ .*\n/, '')
-    return content
-  end
+  # def synopsis
+  #   content = self.sections.first().content
+  #   content = content[0, content.enum_for(:scan, /^## Objective/).map { Regexp.last_match.begin(0) }[0]]
+  #   content = content.gsub(/#+ .*\n/, '')
+  #   return content
+  # end
 
   def next_lesson
     return unless self.lesson_number < self.project.lessons.count
