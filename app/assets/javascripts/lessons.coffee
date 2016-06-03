@@ -28,7 +28,7 @@
     $inspiration_image = $('.inspiration-image')
     return unless $inspiration_image.length > 0
     url = $inspiration_image.data('large-url')
-    title = $inspiration_image.data('title')
+    title = '<div class="inspiration-image-title">' + $inspiration_image.data('title') + '</div>'
     description = $inspiration_image.data('description')
     $inspiration = $('#inspiration')
     $el = $("""
@@ -50,8 +50,8 @@
 
     $inspiration.after($el)
 
-  appendInspirationImage()
-  appendVimeoVideo()
+  # appendInspirationImage()
+  # appendVimeoVideo()
   # setupListeners()
 
   $('.collapsible').click ->

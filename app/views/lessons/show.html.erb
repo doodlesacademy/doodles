@@ -59,11 +59,24 @@
   <hr />
   <h1>Lesson</h1>
   <h2 id='inspiration'>10m, inspiration</h2>
-  <div>
+  <blockquote>
+    <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='<%= @lesson.inspiration_image.url(:large) %>' /><span class="glyphicon glyphicon-zoom-in"></span></div></a>
+    <p id="inspiration-image-title"><%= @lesson.inspiration_image_title %></p>
+    <p><%= @lesson.inspiration_image_description %></p>
+  </blockquote>
+  <div class="modal" id='modal-insp'>
+    <div class="modal-content modal-full">
+      <div class="modal-close"></div>
+      <div class="modal-body centered">
+        <img src="<%= @lesson.inspiration_image.url(:large) %>" />
+      </div>
+    </div>
+  </div>
+  <!-- <div>
     <% if @lesson.inspiration_image.exists? %>
       <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-title="<%= markdown @lesson.inspiration_image_title %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
     <% end %>
-  </div>
+  </div> -->
   <div>
     <h3>look and  discuss an art piece that introduces some of the lesson concepts</h3>
     <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
@@ -72,9 +85,19 @@
   </div>
   <h2 id='introduction'>5m, Introduction</h2>
   <div>
-    <% if @lesson.video_uri.present? %>
+  <blockquote>
+    <div class="frame frame--16x9">
+      <iframe src="<%= @lesson.video_uri %>"
+        frameborder="0"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen>
+      </iframe>
+    </div>
+  </blockquote>
+    <!-- <% if @lesson.video_uri.present? %>
     <div class="hidden video-intro" data-video-uri="<%= @lesson.video_uri %>"></div>
-    <% end %>
+    <% end %> -->
   </div>
   <div>
     <h3>watch the video introduction</h3>
