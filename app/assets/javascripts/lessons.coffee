@@ -59,4 +59,17 @@
     $('.' + theId + '-collapsed').toggle()
     return
 
+  console.log 'h2 in overview = ' + $('#overview').find('.overview-heading').size()
+  console.log 'h2 in lesson = ' + $('#lesson').find('.lesson-heading').size()
+  console.log 'h2 in extension = ' + $('#extension').find('.extension-heading').size()
+
+  i = 0
+  while i <= 11
+      thisA = $('.lesson-toc a').get(i)
+      aText = $(thisA).text()
+      aText = '#' + aText.replace(/\s+/g, '-').toLowerCase()
+      $(thisA).attr 'href', aText
+      i++
+
+
 )(window.$ or window.jQuery or window.Zepto, window)

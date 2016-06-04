@@ -126,3 +126,15 @@ a.modal-insp:hover {
       visibility: visible;
   }
 }
+
+.lesson-toc {
+  font-size: 14px;
+  line-height: 22px;
+
+  h3 {
+    display: inline;
+    font-size: 14px;
+    text-transform: none;
+    font-weight: bold;
+  }
+}

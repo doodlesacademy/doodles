@@ -28,20 +28,17 @@
 
 <!--fix toc so that nav bar doesn't interfere-->
 
-  <blockquote class="backdrop toc">
+  <blockquote class="backdrop toc lesson-toc">
     <p class="toc-title">Lesson Map</p>
     <!-- <%= render "shared/table_of_contents", sectionable: @lesson %> -->
-    <div style="font-size:14px;line-height:22px;"><h3 style="display:inline;font-size:14px;text-transform:none;font-weight:bold;">Overview: </h3><a>Synopsis</a> > <a>Objective</a> > <a>Setup</a> > <a>Materials</a>  >  <a>Photocopies</a>  >  <a>Media</a></div>
-    <div style="font-size:14px;line-height:22px;"><h3 style="display:inline;font-size:14px;text-transform:none;font-weight:bold;">Lesson: </h3>1 <a>Inspiration</a> > 2 <a>Introduction</a> > 3 <a>Worktime</a> > 4 <a>Clean-up/Presentations</a></div>
-    <div style="font-size:14px;line-height:22px;"><h3 style="display:inline;font-size:14px;text-transform:none;font-weight:bold;">Extension: </h3><a>Anticipated Problems</a> > <a>Early Finishers</a></div>
+    <div><h3>Overview: </h3><a>Synopsis</a> > <a>Objective</a> > <a>Setup</a> > <a>Materials</a>  >  <a>Photocopies</a>  >  <a>Media</a></div>
+    <div><h3>Lesson: </h3>1 <a>Inspiration</a> > 2 <a>Introduction</a> > 3 <a>Worktime</a> > 4 <a>Clean-up/Presentations</a></div>
+    <div><h3>Extension: </h3><a>Anticipated Problems</a> > <a>Early Finishers</a></div>
   </blockquote>
 
-
-  <!-- look at Tempest's template to make sure this is correct -->
-
   <hr />
-  <h1>Overview</h1>
-  <div>
+  <div id="overview">
+    <h1>Overview</h1>
     <!-- <a><div class='collapsible' id='objective'>
       <div class='collapsible-heading'><h2 id='clean-up-presentations'>Objective</h2></div>
       <div class='collapsible-plus'><h2>+</h2></div>
@@ -49,44 +46,46 @@
     <div class='objective-collapsed collapsed' hidden>
       <p><%= @lesson.objective %></p>
     </div> -->
-    <h2 id='objective'>objective</h2>
+    <h2 id='objective' class="overview-heading">objective</h2>
     <p><%= @lesson.objective %></p>
-    <h2 id='setup'>Setup</h2>
+    <h2 id='setup' class="overview-heading">Setup</h2>
     <p><%= @lesson.setting_up %></p>
-    <h2 id='materials'>Materials</h2>
+    <h2 id='materials' class="overview-heading">Materials</h2>
     <p><%= @lesson.materials %></p>
-    <h2 id='photocopies'>Photocopies</h2>
-    <h2 id='media'>Media</h2>
+    <h2 id='photocopies' class="overview-heading">Photocopies</h2>
+    <h2 id='media' class="overview-heading">Media</h2>
     <p><%= @lesson.media %></p>
-  </div>
   <hr />
-  <h1>Lesson</h1>
-  <h2 id='inspiration'>10m, inspiration</h2>
-  <blockquote>
-    <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='<%= @lesson.inspiration_image.url(:large) %>' /><span class="glyphicon glyphicon-zoom-in"></span></div></a>
-    <p id="inspiration-image-title"><%= @lesson.inspiration_image_title %></p>
-    <p><%= @lesson.inspiration_image_description %></p>
-  </blockquote>
-  <div class="modal" id='modal-insp'>
-    <div class="modal-content modal-full">
-      <div class="modal-close"></div>
-      <div class="modal-body centered">
-        <img src="<%= @lesson.inspiration_image.url(:large) %>" />
+  </div>
+
+  <div id="lesson">
+    <h1>Lesson</h1>
+    <h2 id='inspiration' class="lesson-heading">10m, inspiration</h2>
+    <blockquote>
+      <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='<%= @lesson.inspiration_image.url(:large) %>' /><span class="glyphicon glyphicon-zoom-in"></span></div></a>
+      <p id="inspiration-image-title"><%= @lesson.inspiration_image_title %></p>
+      <p><%= @lesson.inspiration_image_description %></p>
+    </blockquote>
+    <div class="modal" id='modal-insp'>
+      <div class="modal-content modal-full">
+        <div class="modal-close"></div>
+        <div class="modal-body centered">
+          <img src="<%= @lesson.inspiration_image.url(:large) %>" />
+        </div>
       </div>
     </div>
-  </div>
-  <!-- <div>
-    <% if @lesson.inspiration_image.exists? %>
-      <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-title="<%= markdown @lesson.inspiration_image_title %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
-    <% end %>
-  </div> -->
-  <div>
-    <h3>look and  discuss an art piece that introduces some of the lesson concepts</h3>
-    <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
-    <p><i>Alternately, allow them to draw or write what they notice on a blank piece of paper or in a sketchbook.</i></p>
-    <p><i>The point of this discussion time is to have students learn and add onto each other’s thoughts. By remaining neutral and simply repeating what students say you allow students to do the heavy mental lifting and also create an environment where there is no wrong answer, fostering creativity and mental risk-taking.</i></p>
-  </div>
-  <h2 id='introduction'>5m, Introduction</h2>
+    <!-- <div>
+      <% if @lesson.inspiration_image.exists? %>
+        <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-title="<%= markdown @lesson.inspiration_image_title %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
+      <% end %>
+    </div> -->
+    <div>
+      <h3>look and  discuss an art piece that introduces some of the lesson concepts</h3>
+      <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
+      <p><i>Alternately, allow them to draw or write what they notice on a blank piece of paper or in a sketchbook.</i></p>
+      <p><i>The point of this discussion time is to have students learn and add onto each other’s thoughts. By remaining neutral and simply repeating what students say you allow students to do the heavy mental lifting and also create an environment where there is no wrong answer, fostering creativity and mental risk-taking.</i></p>
+    </div>
+  <h2 id='introduction' class="lesson-heading">5m, Introduction</h2>
   <div>
   <blockquote>
     <div class="frame frame--16x9">
@@ -111,42 +110,46 @@
   <div>
     <a><div class='collapsible' id='worktime'>
       <div class='collapsible-heading'>
-        <h2>20-25m, worktime</h2>
+        <h2 class="lesson-heading">20-25m, worktime</h2>
       </div>
       <div class='collapsible-plus'><h2>+</h2></div>
     </div></a>
     <div class='worktime-collapsed collapsed' hidden>
       <h3>independent</h3>
       <p>The students work independently on their work as the teacher circulates. Foster strong work habits by commenting on student artists who are focused on their work as well as student artist who seems be pushing themselves to try new things.</p>
-    <h3><%= @lesson.worktime_focus %></h3>
-    <p><%= @lesson.worktime %></p>
-  </div>
+      <h3><%= @lesson.worktime_focus %></h3>
+      <p><%= @lesson.worktime %></p>
+    </div>
     <a><div class='collapsible' id='clean-up-presentations'>
       <div class='collapsible-heading'>
-        <h2>5-10m, clean-up/presentations</h2>
+        <h2 class="lesson-heading">5-10m, clean-up/presentations</h2>
       </div>
       <div class='collapsible-plus'><h2>+</h2></div>
     </div></a>
-    <div class='clean-up-presentations-collapsed collapsed' hidden>
-      <h3>students discuss the artistic decisions that they made using 'what, how, and why' then take comments or questions.</h3>
-      <p>Depending on the teacher’s style of classroom management, it might be helpful to only choose and train a few kids to clean. The rest of the class can be busy with the presentation. Make sure to train these helpers well in advance so that you aren’t left with a messy room.</p>
-      <p>Clean-up times will vary with materials; get to know your class and allow 5-10 minutes depending on how efficient they are and whether or not the material was messy.</p>
-      <p>Choose presenting student artists in advance and let them know during their work time so that they are prepared.</p>
-      <p>Sharing should work as follows:</p>
-        <ul class="sharing">
-          <li>Student stands by their work. A teacher should hold it, or place it on an easel.</li>
-          <li>The student presents their work, answering What they made, How they made it, and Why they made the decisions that they did. When they are done they ask, “Any comments or questions?” and can take responses from the audience.</li>
-          <li>A note on responses: it is o.k. if an audience member questions or wants clarification from the artist. It is also o.k. if an audience member makes suggestions. But it must be done in a kind, thoughtful, and respectful way.</li>
-          <li>Always end the conversation by asking the class to give the artist a compliment.</li>
-        </ul>
+      <div class='clean-up-presentations-collapsed collapsed' hidden>
+        <h3>students discuss the artistic decisions that they made using 'what, how, and why' then take comments or questions.</h3>
+        <p>Depending on the teacher’s style of classroom management, it might be helpful to only choose and train a few kids to clean. The rest of the class can be busy with the presentation. Make sure to train these helpers well in advance so that you aren’t left with a messy room.</p>
+        <p>Clean-up times will vary with materials; get to know your class and allow 5-10 minutes depending on how efficient they are and whether or not the material was messy.</p>
+        <p>Choose presenting student artists in advance and let them know during their work time so that they are prepared.</p>
+        <p>Sharing should work as follows:</p>
+          <ul class="sharing">
+            <li>Student stands by their work. A teacher should hold it, or place it on an easel.</li>
+            <li>The student presents their work, answering What they made, How they made it, and Why they made the decisions that they did. When they are done they ask, “Any comments or questions?” and can take responses from the audience.</li>
+            <li>A note on responses: it is o.k. if an audience member questions or wants clarification from the artist. It is also o.k. if an audience member makes suggestions. But it must be done in a kind, thoughtful, and respectful way.</li>
+            <li>Always end the conversation by asking the class to give the artist a compliment.</li>
+          </ul>
+      </div>
     </div>
   </div>
+
   <hr />
+
+<div id="extension">
   <h1>Extension</h1>
 
   <a><div class='collapsible' id='anticipated-problems'>
     <div class='collapsible-heading'>
-      <h2>anticipated problems</h2>
+      <h2 class="extension-heading">anticipated problems</h2>
     </div>
     <div class='collapsible-plus'><h2>+</h2></div>
   </div></a>
@@ -155,13 +158,14 @@
   </div>
   <a><div class='collapsible' id='early-finishers'>
     <div class='collapsible-heading'>
-      <h2 id='early-finishers'>early finishers</h2>
+      <h2 id='early-finishers' class="extension-heading">early finishers</h2>
     </div>
     <div class='collapsible-plus'><h2>+</h2></div>
   </div></a>
   <div class='early-finishers-collapsed collapsed' hidden>
     <p><%= @lesson.early_finishers %></p>
   </div>
+</div>
 
   <!-- get rid of inline styling below-->
   <h1 class="centered" style="margin: 50px 0; border-top: 0;">Lesson <%= @lesson.lesson_number %> finished!</h1>
