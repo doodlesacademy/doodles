@@ -50,8 +50,8 @@
 
     $inspiration.after($el)
 
-  # appendInspirationImage()
-  # appendVimeoVideo()
+  appendInspirationImage()
+  appendVimeoVideo()
   # setupListeners()
 
   $('.collapsible').click ->

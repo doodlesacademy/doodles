@@ -4,7 +4,7 @@
 <% content_for(:hero_subtitle) do render "shared/academy_project_lesson_links", academy: @academy end %>
 <% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
-<% if @lesson.objective != nil %>
+<% if @lesson.objective != nil && @lesson.objective != "" %>
  <%= render "new_lesson" %>
 <% else %>
   <%= render "markdown_lesson" %>
