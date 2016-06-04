@@ -31,14 +31,17 @@
   <blockquote class="backdrop toc lesson-toc">
     <p class="toc-title">Lesson Map</p>
     <!-- <%= render "shared/table_of_contents", sectionable: @lesson %> -->
-    <div><h3>Overview: </h3><a>Synopsis</a> > <a>Objective</a> > <a>Setup</a> > <a>Materials</a>  >  <a>Photocopies</a>  >  <a>Media</a></div>
-    <div><h3>Lesson: </h3>1 <a>Inspiration</a> > 2 <a>Introduction</a> > 3 <a>Worktime</a> > 4 <a>Clean-up/Presentations</a></div>
-    <div><h3>Extension: </h3><a>Anticipated Problems</a> > <a>Early Finishers</a></div>
+    <!-- <div class="overview-toc"><h3>Overview: </h3><a>Synopsis</a> > <a>Objective</a> > <a>Setup</a> > <a>Materials</a>  >  <a>Photocopies</a>  >  <a>Media</a></div> -->
+    <div class="overview-toc"><p></p></div>
+    <!-- <div><h3>Lesson: </h3>1 <a>Inspiration</a> > 2 <a>Introduction</a> > 3 <a>Worktime</a> > 4 <a>Clean-up/Presentations</a></div> -->
+    <div class="lessons-toc"></div>
+    <!-- <div><h3>Extension: </h3><a>Anticipated Problems</a> > <a>Early Finishers</a></div> -->
+    <div class="extension-toc"></div>
   </blockquote>
 
   <hr />
   <div id="overview">
-    <h1>Overview</h1>
+    <h1 class="overview-head">Overview</h1>
     <!-- <a><div class='collapsible' id='objective'>
       <div class='collapsible-heading'><h2 id='clean-up-presentations'>Objective</h2></div>
       <div class='collapsible-plus'><h2>+</h2></div>
@@ -59,7 +62,7 @@
   </div>
 
   <div id="lesson">
-    <h1>Lesson</h1>
+    <h1 class="lesson-head">Lesson</h1>
     <h2 id='inspiration' class="lesson-heading">10m, inspiration</h2>
     <blockquote>
       <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='<%= @lesson.inspiration_image.url(:large) %>' /><span class="glyphicon glyphicon-zoom-in"></span></div></a>
@@ -145,7 +148,7 @@
   <hr />
 
 <div id="extension">
-  <h1>Extension</h1>
+  <h1 class="extension-head">Extension</h1>
 
   <a><div class='collapsible' id='anticipated-problems'>
     <div class='collapsible-heading'>
