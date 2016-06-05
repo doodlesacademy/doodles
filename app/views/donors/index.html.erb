@@ -4,7 +4,11 @@
 <h1 class="donors">Donors</h1>
 <ul class="donors">
 <% @donors.sort_by(&:last_name).each do |donor| %>
-  <li><%= donor.name %></li>
+  <% if donor.lifetime_donation != nil && donor.lifetime_donation >= 100 %>
+    <b><li><%= donor.name %></li></b>
+  <% else %>
+    <li><%= donor.name %></li>
+  <% end %>
 <% end %>
 </ul>
 
