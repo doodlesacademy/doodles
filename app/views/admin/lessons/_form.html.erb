@@ -154,7 +154,9 @@
     <%= f.text_field :early_finishers %>
   </div>
 
-  <!-- <%= render "shared/form_sections", form: f %> -->
+  <% if @lesson.early_finishers == nil || @lesson.early_finishers == "" %>
+    <%= render "shared/form_sections", form: f %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
