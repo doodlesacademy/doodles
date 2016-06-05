@@ -76,6 +76,24 @@
     <%= f.text_field :materials %>
   </div>
 
+  <%= render "shared/form_attachment",
+    form: f,
+    entity: @lesson,
+    attribute: :first_photocopy,
+    label: "Photocopy 1" %>
+
+  <%= render "shared/form_attachment",
+    form: f,
+    entity: @lesson,
+    attribute: :second_photocopy,
+    label: "Photocopy 2" %>
+
+  <%= render "shared/form_attachment",
+    form: f,
+    entity: @lesson,
+    attribute: :third_photocopy,
+    label: "Photocopy 3" %>
+
   <div class="field">
     <%= f.label :media %>
     <%= f.text_field :media %>

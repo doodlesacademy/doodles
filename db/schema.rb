@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605122644) do
+ActiveRecord::Schema.define(version: 20160605134752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,18 @@ ActiveRecord::Schema.define(version: 20160605122644) do
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
     t.text     "clean_up"
+    t.string   "first_photocopy_file_name"
+    t.string   "first_photocopy_content_type"
+    t.integer  "first_photocopy_file_size"
+    t.datetime "first_photocopy_updated_at"
+    t.string   "second_photocopy_file_name"
+    t.string   "second_photocopy_content_type"
+    t.integer  "second_photocopy_file_size"
+    t.datetime "second_photocopy_updated_at"
+    t.string   "third_photocopy_file_name"
+    t.string   "third_photocopy_content_type"
+    t.integer  "third_photocopy_file_size"
+    t.datetime "third_photocopy_updated_at"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
