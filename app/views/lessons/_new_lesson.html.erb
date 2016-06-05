@@ -24,25 +24,14 @@
 
   <blockquote class="backdrop toc lesson-toc">
     <p class="toc-title">Lesson Map</p>
-    <!-- <%= render "shared/table_of_contents", sectionable: @lesson %> -->
-    <!-- <div class="overview-toc"><h3>Overview: </h3><a>Synopsis</a> > <a>Objective</a> > <a>Setup</a> > <a>Materials</a>  >  <a>Photocopies</a>  >  <a>Media</a></div> -->
     <div class="overview-toc"></div>
-    <!-- <div><h3>Lesson: </h3>1 <a>Inspiration</a> > 2 <a>Introduction</a> > 3 <a>Worktime</a> > 4 <a>Clean-up/Presentations</a></div> -->
     <div class="lessons-toc"></div>
-    <!-- <div><h3>Extension: </h3><a>Anticipated Problems</a> > <a>Early Finishers</a></div> -->
     <div class="extension-toc"></div>
   </blockquote>
 
   <hr />
   <div id="overview">
     <h1 class="overview-head">Overview</h1>
-    <!-- <a><div class='collapsible' id='objective'>
-      <div class='collapsible-heading'><h2 id='clean-up-presentations'>Objective</h2></div>
-      <div class='collapsible-plus'><h2>+</h2></div>
-    </div></a>
-    <div class='objective-collapsed collapsed' hidden>
-      <p><%= @lesson.objective %></p>
-    </div> -->
     <h2 id='objective' class="overview-heading">objective</h2>
     <p><%= @lesson.objective %></p>
     <h2 id='setup' class="overview-heading">Setup</h2>
@@ -100,11 +89,7 @@
           </div>
         </div>
       </div>
-    <!-- <div>
-      <% if @lesson.inspiration_image.exists? %>
-        <div class="hidden inspiration-image" data-medium-url="<%= @lesson.inspiration_image.url(:medium) %>" data-large-url="<%= @lesson.inspiration_image.url(:large) %>" data-title="<%= markdown @lesson.inspiration_image_title %>" data-description="<%= markdown @lesson.inspiration_image_description %>"></div>
-      <% end %>
-    </div> -->
+
     <div>
       <h3>look and  discuss an art piece that introduces some of the lesson concepts</h3>
       <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
@@ -124,9 +109,7 @@
       </iframe>
     </div>
   </blockquote>
-    <!-- <% if @lesson.video_uri.present? %>
-    <div class="hidden video-intro" data-video-uri="<%= @lesson.video_uri %>"></div>
-    <% end %> -->
+
   </div>
   <% if @lesson.video_uri.present? %>
     <div>
@@ -210,9 +193,8 @@
   </div>
 </div>
 
-  <!-- get rid of inline styling below-->
-  <h1 class="centered" style="margin: 50px 0; border-top: 0;">Lesson <%= @lesson.lesson_number %> finished!</h1>
-  <p class="centered" style="margin-bottom: 100px;">
+  <h1 class="centered finished">Lesson <%= @lesson.lesson_number %> finished!</h1>
+  <p class="centered finished">
   <% if @lesson.next_lesson %>
       <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
   <% elsif @project.next_project %>
