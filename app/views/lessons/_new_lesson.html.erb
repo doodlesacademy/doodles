@@ -41,15 +41,15 @@
     <h2 id='photocopies' class="overview-heading">Photocopies</h2>
     <p>
       <% if @lesson.first_photocopy.present? %>
-      <p><%= link_to "Photocopy 1", @lesson.first_photocopy.url %></p>
+      <p><%= link_to @lesson.first_photocopy_file_name, @lesson.first_photocopy.url %></p>
       <% else %>
       <%= "N/A" %>
       <% end %>
       <% if @lesson.second_photocopy.present? %>
-      <p><%= link_to "Photocopy 2", @lesson.second_photocopy.url %></p>
+      <p><%= link_to @lesson.second_photocopy_file_name, @lesson.second_photocopy.url %></p>
       <% end %>
       <% if @lesson.third_photocopy.present? %>
-      <p><%= link_to "Photocopy 3", @lesson.third_photocopy.url %></p>
+      <p><%= link_to @lesson.third_photocopy_file_name, @lesson.third_photocopy.url %></p>
       <% end %>
 
     </p>
