@@ -66,7 +66,7 @@ class Admin::LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(
         :order, :title, :project_id, :synopsis, :overview, :objective, :setting_up, :materials, :media, :example_image, :inspiration_image, :inspiration_image_title,
-        :inspiration_image_description, :video_name, :video_uri, :pre_work_heading, :pre_work, :worktime, :worktime_focus, :additional_worktime, :anticipated_problems, :early_finishers, sections_attributes: [:id, :order, :content]
+        :inspiration_image_description, :video_name, :video_uri, :pre_work_heading, :pre_work, :worktime, :worktime_focus, :additional_worktime, :clean_up, :anticipated_problems, :early_finishers, sections_attributes: [:id, :order, :content]
       )
     end
 end
