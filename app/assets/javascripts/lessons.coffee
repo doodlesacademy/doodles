@@ -86,6 +86,7 @@
     bText = bText.substring(bText.indexOf(',') + 1, bText.length)
     bLink = '#' + bText.slice(1,bText.length).toLowerCase()
     bLink = bLink.replace('/', '-')
+    bLink = bLink.replace(' ', '-')
     $('.lessons-toc').append (b+1) + ' <a href=' + bLink + '>' + toTitleCase(bText) + '</a> <span> > </span>'
     b++
   $('div.lessons-toc span:last-child').remove()
