@@ -102,6 +102,14 @@
       margin-bottom: 100px;
   }
 
+  .anchor {
+    border-top: 80px solid transparent;
+    margin-top: -80px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+  }
+
 }
 
 .collapsed {
