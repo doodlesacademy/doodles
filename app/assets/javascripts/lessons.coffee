@@ -81,16 +81,23 @@
       if aText.indexOf(',') != -1
         y = aText.indexOf(',') + 2
         aText = aText.substring(y, aText.length)
+        aTextFinal = toTitleCase((a + 1) + " " + aText)
+      else
+        aTextFinal = toTitleCase(aText)
+      if aTextFinal.indexOf('/') != -1
+        s = aTextFinal.indexOf('/') + 1
+        beforeSlash = aTextFinal.slice(0, s)
+        afterSlash = toTitleCase(aTextFinal.slice(s))
+        aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      $(headToc).append ' <a href=' + aLink + '>' + toTitleCase(aText) + '</a> <span> > </span> '
+      $(headToc).append ' <a href=' + aLink + '>' + aTextFinal + '</a> <span> > </span> '
       a++
     toRemove.push('div' + headToc + ' span:last-child')
     r = 0
     while r < toRemove.length
       $(toRemove[r]).remove()
       r++
-
     n++
 
 

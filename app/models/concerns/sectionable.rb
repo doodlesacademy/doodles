@@ -1,6 +1,6 @@
 require 'active_support/concern'
 
-module Sectionable 
+module Sectionable
   extend ActiveSupport::Concern
 
   included do
@@ -17,16 +17,16 @@ module Sectionable
     end
   end
 
-  def get_section(title:)
-    self.sections.where(title: title)
-  end
+  # def get_section(title:)
+  #   self.sections.where(title: title)
+  # end
 
   def section_contents
     self.sections.map(&:content)
   end
-  
+
   private
-  def generate_default_sections 
+  def generate_default_sections
     return unless self.class.default_sections.present?
     return if self.sections.present?
     content = generate_toc(self.class.default_sections)
@@ -38,7 +38,7 @@ module Sectionable
     content = ""
     header = ""
     level.times { header += "#" }
-    hash.each do |k, v| 
+    hash.each do |k, v|
       content += "#{header} #{k.to_s.titleize}\n\n"
       if v.present? && (v.is_a? Hash or v.is_a? Array)
         content += generate_toc(v, level: level + 1)
