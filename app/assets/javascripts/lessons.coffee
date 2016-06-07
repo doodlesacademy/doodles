@@ -63,47 +63,33 @@
     str.replace /\w\S*/g, (txt) ->
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
-  numOverviewHead = $('.overview-heading').size()
-  headerA = $('h1.overview-head').text()
-  $('.overview-toc').append '<h3>' + headerA + ': </h3>'
-  a = 0
-  while a < numOverviewHead
-    thisA = $('.overview-heading').get(a)
-    aText = $(thisA).text()
-    aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
-    $('.overview-toc').append ' <a href=' + aLink + '>' + toTitleCase(aText) + '</a> <span> > </span> '
-    a++
-  $('div.overview-toc span:last-child').remove()
+  numMainHeadSize = $('.heading').size()
+  n = 0
+  while n < numMainHeadSize
+    mainHeading = $('h1.heading').get(n)
+    headingClass = $(mainHeading).text()
+    headToc = '.' + headingClass.toLowerCase() + '-toc'
+    $('.lessons-toc').append('<div class=' + headingClass.toLowerCase() + '-toc' + '><h3>' + headingClass + ': </h3></div>')
 
+    thisHead = '.' + headingClass.toLowerCase() + '-heading'
+    numHead = $(thisHead).size()
+    a = 0
+    while a < numHead
+      thisA = $(thisHead).get(a)
+      aText = $(thisA).text()
+      if aText.indexOf(',') != -1
+        y = aText.indexOf(',') + 2
+        aText = aText.substring(y, aText.length)
+      aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
+      aLink = aLink.replace('/', '-')
+      $(headToc).append ' <a href=' + aLink + '>' + toTitleCase(aText) + '</a> <span> > </span> '
+      a++
+    toRemove = 'div' + headToc + 'span:last-child'
+    $(toRemove).remove()
 
-  numLessonHead = $('.lesson-heading').size()
-  headerB = $('h1.lesson-head').text()
-  $('.lessons-toc').append '<h3>' + headerB + ': </h3>'
-  b = 0
-  while b < numLessonHead
-    thisB = $('.lesson-heading').get(b)
-    bText = $(thisB).text()
-    bText = bText.substring(bText.indexOf(',') + 1, bText.length)
-    bLink = '#' + bText.slice(1,bText.length).toLowerCase()
-    bLink = bLink.replace('/', '-')
-    bLink = bLink.replace(' ', '-')
-    $('.lessons-toc').append (b+1) + ' <a href=' + bLink + '>' + toTitleCase(bText) + '</a> <span> > </span>'
-    b++
-  $('div.lessons-toc span:last-child').remove()
+    # $('div.overview-toc span:last-child').remove()
 
-
-  numExtensionHead = $('.extension-heading').size()
-  headerC = $('h1.extension-head').text()
-  $('.extension-toc').append '<h3>' + headerC + ': </h3>'
-  c = 0
-  while c < numExtensionHead
-    thisC = $('.extension-heading').get(c)
-    cText = $(thisC).text()
-    cText = cText.substring(cText.indexOf(',') + 1, cText.length)
-    cLink = '#' + cText.replace(/\s+/g, '-').toLowerCase()
-    $('.extension-toc').append ' <a href=' + cLink + '>' + toTitleCase(cText) + '</a> <span> > </span>'
-    c++
-  $('div.extension-toc span:last-child').remove()
+    n++
 
 
 )(window.$ or window.jQuery or window.Zepto, window)

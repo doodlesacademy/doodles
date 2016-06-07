@@ -19,19 +19,16 @@
   </div>
   <% end %>
 
-
-<!--fix toc so that nav bar doesn't interfere-->
-
-  <blockquote class="backdrop toc lesson-toc">
+  <blockquote class="backdrop toc lessons-toc">
     <p class="toc-title">Lesson Map</p>
-    <div class="overview-toc"></div>
+    <!-- <div class="overview-toc"></div>
     <div class="lessons-toc"></div>
-    <div class="extension-toc"></div>
+    <div class="extension-toc"></div> -->
   </blockquote>
 
   <hr />
   <div id="overview">
-    <h1 class="overview-head anchor">Overview</h1>
+    <h1 class="overview-head heading anchor">Overview</h1>
     <h2 id='objective' class="overview-heading anchor">objective</h2>
     <p><%= @lesson.objective %></p>
     <h2 id='setup' class="overview-heading anchor">Setup</h2>
@@ -59,7 +56,7 @@
   </div>
 
   <div id="lesson">
-    <h1 class="lesson-head">Lesson</h1>
+    <h1 class="lesson-head heading">Lesson</h1>
 
     <% if @lesson.pre_work != nil && @lesson.pre_work != "" %>
       <a><div class='collapsible' id='pre-work'>
@@ -171,7 +168,7 @@
   <hr />
 
 <div id="extension">
-  <h1 class="extension-head">Extension</h1>
+  <h1 class="extension-head heading">Extension</h1>
 
     <a><div class='collapsible anchor' id='anticipated-problems'>
       <div class='collapsible-heading'>
