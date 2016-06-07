@@ -63,10 +63,10 @@
     str.replace /\w\S*/g, (txt) ->
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
-  numMainHeadSize = $('.heading').size()
-  toRemove = []
+  numOfH1 = $('.heading').size()
+  arrowsToRemove = []
   n = 0
-  while n < numMainHeadSize
+  while n < numOfH1
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
     headToc = '.' + headingClass.toLowerCase() + '-toc'
@@ -93,10 +93,10 @@
       aLink = aLink.replace('/', '-')
       $(headToc).append ' <a href=' + aLink + '>' + aTextFinal + '</a> <span> > </span> '
       a++
-    toRemove.push('div' + headToc + ' span:last-child')
+    arrowsToRemove.push('div' + headToc + ' span:last-child')
     r = 0
-    while r < toRemove.length
-      $(toRemove[r]).remove()
+    while r < arrowsToRemove.length
+      $(arrowsToRemove[r]).remove()
       r++
     n++
 
