@@ -52,7 +52,7 @@
 
   appendInspirationImage()
   appendVimeoVideo()
-  # setupListeners()
+  setupListeners()
 
   $('.collapsible').click ->
     theId = $(this).attr('id')
@@ -63,12 +63,14 @@
     str.replace /\w\S*/g, (txt) ->
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
-  numOfH1 = $('.heading').size()
+  numOfh1 = $('.heading').size()
   arrowsToRemove = []
   n = 0
-  while n < numOfH1
+  while n < numOfh1
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
+    console.log 'headingClass = ' + headingClass
+    console.log 'mainHeading = ' + mainHeading
     headToc = '.' + headingClass.toLowerCase() + '-toc'
     $('.lessons-toc').append('<div class=' + headingClass.toLowerCase() + '-toc' + '><h3>' + headingClass + ': </h3></div>')
 
@@ -78,7 +80,7 @@
     while a < numHead
       thisA = $(thisHead).get(a)
       aText = $(thisA).text()
-      if aText.indexOf(',') != -1
+      if headingClass == 'Lesson'
         y = aText.indexOf(',') + 2
         aText = aText.substring(y, aText.length)
         aTextFinal = toTitleCase((a + 1) + " " + aText)
