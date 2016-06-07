@@ -64,6 +64,7 @@
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
   numMainHeadSize = $('.heading').size()
+  toRemove = []
   n = 0
   while n < numMainHeadSize
     mainHeading = $('h1.heading').get(n)
@@ -84,10 +85,11 @@
       aLink = aLink.replace('/', '-')
       $(headToc).append ' <a href=' + aLink + '>' + toTitleCase(aText) + '</a> <span> > </span> '
       a++
-    toRemove = 'div' + headToc + 'span:last-child'
-    $(toRemove).remove()
-
-    # $('div.overview-toc span:last-child').remove()
+    toRemove.push('div' + headToc + ' span:last-child')
+    r = 0
+    while r < toRemove.length
+      $(toRemove[r]).remove()
+      r++
 
     n++
 
