@@ -39,7 +39,22 @@
     <p><%= @project.books_media %></p>
 
     <h2 id='project-photocopies'>photocopies</h2>
-    <p>placeholder for photocopies</p>
+    <p><%= @project.photocopy %></p>
+    <div class="project-indent">
+      <% if @project.first_photocopy.present? %>
+      <p><%= link_to @project.first_photocopy_file_name, @project.first_photocopy.url %></p>
+      <% else %>
+      <%= "N/A" %>
+      <% end %>
+      <% if @project.second_photocopy.present? %>
+      <p><%= link_to @project.second_photocopy_file_name, @project.second_photocopy.url %></p>
+      <% end %>
+      <% if @project.third_photocopy.present? %>
+      <p><%= link_to @project.third_photocopy_file_name, @project.third_photocopy.url %></p>
+      <% end %>
+      <p><small><%= @project.photocopy_copyright %></small></p>
+      <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for informational and educational purposes, and they are readily available on the internet. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that its use on the site is in accordance with the fair use principle, please contact us by email.</small>
+    </div>
   </div>
   <hr />
 

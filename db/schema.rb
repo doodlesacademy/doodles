@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608130930) do
+ActiveRecord::Schema.define(version: 20160608140502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,6 +217,20 @@ ActiveRecord::Schema.define(version: 20160608130930) do
     t.text     "art_principles"
     t.text     "cross_curricular"
     t.text     "materials_suggestion"
+    t.text     "photocopy"
+    t.text     "photocopy_copyright"
+    t.string   "first_photocopy_file_name"
+    t.string   "first_photocopy_content_type"
+    t.integer  "first_photocopy_file_size"
+    t.datetime "first_photocopy_updated_at"
+    t.string   "second_photocopy_file_name"
+    t.string   "second_photocopy_content_type"
+    t.integer  "second_photocopy_file_size"
+    t.datetime "second_photocopy_updated_at"
+    t.string   "third_photocopy_file_name"
+    t.string   "third_photocopy_content_type"
+    t.integer  "third_photocopy_file_size"
+    t.datetime "third_photocopy_updated_at"
   end
 
   create_table "sections", force: :cascade do |t|
