@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605134752) do
+ActiveRecord::Schema.define(version: 20160608130930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -208,6 +208,15 @@ ActiveRecord::Schema.define(version: 20160605134752) do
     t.string   "featured_artist_image_content_type"
     t.integer  "featured_artist_image_file_size"
     t.datetime "featured_artist_image_updated_at"
+    t.text     "synopsis"
+    t.text     "materials"
+    t.text     "books_media"
+    t.text     "common_core"
+    t.text     "national_core"
+    t.text     "art_elements"
+    t.text     "art_principles"
+    t.text     "cross_curricular"
+    t.text     "materials_suggestion"
   end
 
   create_table "sections", force: :cascade do |t|

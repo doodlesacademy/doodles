@@ -5,7 +5,7 @@
 <% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
 <% if @lesson.objective != nil && @lesson.objective != "" %>
- <%= render "new_lesson" %>
+ <%= render "lesson" %>
 <% else %>
   <%= render "markdown_lesson" %>
 <% end %>

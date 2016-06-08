@@ -1,0 +1,64 @@
+<div class='project-wrapper'>
+
+  <% if @project.featured_artist_image.present? %>
+    <div class="featured-artist">
+      <div class="row">
+        <div class="example col-md-9 vcenter" id="example">
+          <div class="student-image">
+            <%= image_tag @project.featured_artist_image.url(:medium) %>
+          </div>
+          <div class="student-example">
+            STUDENT EXAMPLE
+          </div>
+          <div class="superhero-quote">
+            <%= @project.featured_artist_description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <hr />
+
+  <h1>Project Overview</h1>
+  <div>
+    <h2 id='project-synopsis'>synopsis</h2>
+    <p><%= @project.synopsis %></p>
+  </div>
+  <hr />
+
+  <h1>Setup At A Glance</h1>
+  <div>
+    <h2 id='project-materials'>materials</h2>
+    <p><%= @project.materials %></p>
+    <div class="project-indent">
+      <small>*suggestion: <%= @project.materials_suggestion %></small>
+    </div>
+
+    <h2 id='project-books-media'>books/media</h2>
+    <p><%= @project.books_media %></p>
+
+    <h2 id='project-photocopies'>photocopies</h2>
+    <p>placeholder for photocopies</p>
+  </div>
+  <hr />
+
+  <h1>Standards</h1>
+  <div>
+    <h2 id='project-common-core'>common core</h2>
+    <%= markdown @project.common_core %>
+
+    <h2 id='project-national-core'>national core</h2>
+    <%= markdown @project.national_core %>
+
+    <h2 id='project-art-elements'>art elements</h2>
+    <p><%= @project.art_elements %></p>
+
+    <h2 id='project-art-princples'>art princples</h2>
+    <p><%= @project.art_principles %></p>
+
+    <h2 id='project-cross-curricular'>cross curricular</h2>
+    <p><%= @project.cross_curricular %></p>
+  </div>
+
+</div>

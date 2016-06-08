@@ -6,36 +6,8 @@
 end %>
 <% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
-<% if @project.featured_artist_image.present? %>
-<div class="featured-artist">
-  <!-- <p class="student-example">Student Example</p> -->
-  <!-- <div class="featured-text-image"> -->
-    <!-- <%= image_tag @project.featured_artist_image.url(:medium) %>
-    <div class="featured-artist-description">
-      <%= @project.featured_artist_description %>
-    </div> -->
-    <div class="row">
-      <div class="example col-md-9 vcenter" id="example">
-        <div class="student-image">
-          <%= image_tag @project.featured_artist_image.url(:medium) %>
-        </div>
-        <div class="student-example">
-          STUDENT EXAMPLE
-        </div>
-        <div class="superhero-quote">
-          <%= @project.featured_artist_description %>
-        </div>
-      </div>
-    </div>
-  <!-- </div> -->
-</div>
+<% if @project.synopsis != nil && @project.synopsis != "" %>
+  <%= render "project" %>
+<% else %>
+  <%= render "markdown_project" %>
 <% end %>
-
-<!-- <blockquote class="backdrop toc">
-  <p class="toc-title">Project Overview Map</p>
-  <%= render "shared/table_of_contents", sectionable: @project %>
-</blockquote> -->
-
-<div class='markdown-wrapper'>
-  <%= render "shared/sections", sectionable: @project %>
-</div>
