@@ -28,17 +28,14 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :overview, content_type: ["application/pdf"]
 
   has_attached_file :first_photocopy,
-    styles: {thumbnail: "60x60#"},
     default_url: ""
   validates_attachment_content_type :first_photocopy, content_type: ["application/pdf"]
 
   has_attached_file :second_photocopy,
-    styles: {thumbnail: "60x60#"},
     default_url: ""
   validates_attachment_content_type :second_photocopy, content_type: ["application/pdf"]
 
   has_attached_file :third_photocopy,
-    styles: {thumbnail: "60x60#"},
     default_url: ""
   validates_attachment_content_type :third_photocopy, content_type: ["application/pdf"]
 
