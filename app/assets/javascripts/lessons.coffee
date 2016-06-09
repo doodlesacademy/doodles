@@ -69,8 +69,6 @@
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
-    console.log 'headingClass = ' + headingClass
-    console.log 'mainHeading = ' + mainHeading
     headToc = '.' + headingClass.toLowerCase() + '-toc'
     $('.lessons-toc').append('<div class=' + headingClass.toLowerCase() + '-toc' + '><h3>' + headingClass + ': </h3></div>')
 
