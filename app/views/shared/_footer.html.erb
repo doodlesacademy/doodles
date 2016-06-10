@@ -16,10 +16,16 @@
       <span class="uppercase">Doodles Academy</span> is a nonprofit organization fiscally sponsored by Fractured Atlas
     </div>
     <div class="footer-social">
-      <% @social_links.each do |social_link| %>
-        <%= link_to social_link[:name], social_link[:link], target:"_blank" %>
+
+      <a href="http://twitter.com/doodlesacademy" target="_blank"><img class='footer-logo' src="TwitterLogo_55acee.png" /></a>
       |
-      <% end %>
+      <a href="http://facebook.com/doodlesacademy" target="_blank"><img class='footer-logo' src="FB-f-Logo__blue_50.png" /></a>
+      |
+      <a href="http://instagram.com/doodlesacademy" target="_blank"><img class='footer-logo' src="Instagram-v051916.png" /></a>
+      |
+      <a href="http://linkedin.com/doodlesacademy" target="_blank"><img class='footer-logo' src="In-2C-14px.png" /></a>
+    </div>
+    <div class="footer-social">
       <%= link_to "Contact", contact_path %>
       |
       &copy2016 All Rights Reserved
