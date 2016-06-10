@@ -320,3 +320,24 @@ $error-highlight: lighten($primary-red, 15%);
 .quote {
   background-color: #888;
 }
+
+#subscription_email {
+  background-color: white;
+  color: black;
+
+  &::-webkit-input-placeholder {
+     color: $active-purple;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: $active-purple;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: $active-purple;
+  }
+
+  &:-ms-input-placeholder {
+     color: $active-purple;
+  }
+}
