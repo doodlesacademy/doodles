@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608140502) do
+ActiveRecord::Schema.define(version: 20160611144952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,9 @@ ActiveRecord::Schema.define(version: 20160608140502) do
     t.string   "third_photocopy_content_type"
     t.integer  "third_photocopy_file_size"
     t.datetime "third_photocopy_updated_at"
+    t.text     "first_photocopy_header"
+    t.text     "second_photocopy_header"
+    t.text     "third_photocopy_header"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -231,6 +234,10 @@ ActiveRecord::Schema.define(version: 20160608140502) do
     t.string   "third_photocopy_content_type"
     t.integer  "third_photocopy_file_size"
     t.datetime "third_photocopy_updated_at"
+    t.text     "first_photocopy_header"
+    t.text     "second_photocopy_header"
+    t.text     "third_photocopy_header"
+    t.text     "featured_artist_name"
   end
 
   create_table "sections", force: :cascade do |t|

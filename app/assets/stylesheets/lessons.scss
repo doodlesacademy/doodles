@@ -153,6 +153,11 @@ a.modal-insp:hover {
     text-transform: none;
     font-weight: bold;
   }
+
+  .pdf-indent {
+    margin-left: 10px;
+    font-size: 80%;
+  }
 }
 
 .project-wrapper hr {
@@ -169,6 +174,10 @@ a.modal-insp:hover {
   font-size: 18px;
 }
 
-.project-wrapper .project-indent {
-  margin-left: 10px;
+.project-wrapper, .lesson-wrapper {
+  .pdf-indent {
+    margin-left: 10px;
+    margin-top: -10px;
+    font-size: 85%;
+  }
 }

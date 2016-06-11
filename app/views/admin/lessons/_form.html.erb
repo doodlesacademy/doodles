@@ -76,23 +76,47 @@
     <%= f.text_field :materials %>
   </div>
 
-  <%= render "shared/form_attachment",
-    form: f,
-    entity: @lesson,
-    attribute: :first_photocopy,
-    label: "Photocopy 1" %>
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 1" %>
+      <%= f.text_field :first_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @lesson,
+        attribute: :first_photocopy,
+        label: "Photocopy 1" %>
+    </div>
+  </div>
 
-  <%= render "shared/form_attachment",
-    form: f,
-    entity: @lesson,
-    attribute: :second_photocopy,
-    label: "Photocopy 2" %>
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 2" %>
+      <%= f.text_field :second_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @lesson,
+        attribute: :second_photocopy,
+        label: "Photocopy 2" %>
+    </div>
+  </div>
 
-  <%= render "shared/form_attachment",
-    form: f,
-    entity: @lesson,
-    attribute: :third_photocopy,
-    label: "Photocopy 3" %>
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 3" %>
+      <%= f.text_field :third_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @lesson,
+        attribute: :third_photocopy,
+        label: "Photocopy 3" %>
+    </div>
+  </div>
 
   <div class="field">
     <%= f.label :media %>

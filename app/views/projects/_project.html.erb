@@ -12,6 +12,7 @@
           </div>
           <div class="superhero-quote">
             <%= @project.featured_artist_description %>
+            -<%= @project.featured_artist_name %>
           </div>
         </div>
       </div>
@@ -39,32 +40,53 @@
     <p><%= @project.books_media %></p>
 
     <h2 id='project-photocopies'>photocopies</h2>
-    <p><%= @project.photocopy %></p>
-    <div class="project-indent">
+    <div>
       <% if @project.first_photocopy.present? %>
-      <p><%= link_to @project.first_photocopy_file_name, @project.first_photocopy.url %></p>
+        <p><%= @project.first_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @project.first_photocopy_file_name, @project.first_photocopy.url %></p>
       <% else %>
-      <%= "N/A" %>
+        <%= "N/A" %>
       <% end %>
       <% if @project.second_photocopy.present? %>
-      <p><%= link_to @project.second_photocopy_file_name, @project.second_photocopy.url %></p>
+        <p><%= @project.second_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @project.second_photocopy_file_name, @project.second_photocopy.url %></p>
       <% end %>
       <% if @project.third_photocopy.present? %>
-      <p><%= link_to @project.third_photocopy_file_name, @project.third_photocopy.url %></p>
+        <p><%= @project.third_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @project.third_photocopy_file_name, @project.third_photocopy.url %></p>
       <% end %>
       <p><small><%= @project.photocopy_copyright %></small></p>
-      <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for informational and educational purposes, and they are readily available on the internet. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that its use on the site is in accordance with the fair use principle, please contact us by email.</small>
+      <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
     </div>
   </div>
   <hr />
 
   <h1>Standards</h1>
   <div>
-    <h2 id='project-common-core'>common core</h2>
-    <%= markdown @project.common_core %>
 
-    <h2 id='project-national-core'>national core</h2>
-    <%= markdown @project.national_core %>
+    <% if @project.common_core != blank? %>
+      <a><div class='collapsible' id='project-common-core'>
+        <div class='collapsible-heading'>
+          <h2>common core</h2>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+      </div></a>
+      <div class='project-common-core-collapsed collapsed' hidden>
+        <%= markdown @project.common_core %>
+      </div>
+    <% end %>
+
+    <% if @project.national_core != blank? %>
+      <a><div class='collapsible' id='project-national-core'>
+        <div class='collapsible-heading'>
+          <h2>national core visual art standards</h2>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+      </div></a>
+      <div class='project-national-core-collapsed collapsed' hidden>
+        <%= markdown @project.national_core %>
+      </div>
+    <% end %>
 
     <h2 id='project-art-elements'>art elements</h2>
     <p><%= @project.art_elements %></p>

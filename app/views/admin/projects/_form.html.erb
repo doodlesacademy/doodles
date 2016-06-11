@@ -38,6 +38,11 @@
     attribute: :featured_artist_description %>
 
   <div class="field">
+    <%= f.label :featured_artist_name %>
+    <%= f.text_field :featured_artist_name %>
+  </div>
+
+  <div class="field">
     <%= f.label :synopsis %>
     <%= f.text_field :synopsis %>
   </div>
@@ -57,28 +62,47 @@
     <%= f.text_field :books_media %>
   </div>
 
-  <div class="field">
-    <%= f.label :photocopy %>
-    <%= f.text_field :photocopy %>
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 1" %>
+      <%= f.text_field :first_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :first_photocopy,
+        label: "Photocopy 1" %>
+    </div>
   </div>
 
-  <%= render "shared/form_attachment",
-    form: f,
-    entity: @project,
-    attribute: :first_photocopy,
-    label: "Photocopy 1" %>
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 2" %>
+      <%= f.text_field :second_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :second_photocopy,
+        label: "Photocopy 2" %>
+    </div>
+  </div>
 
-  <%= render "shared/form_attachment",
-    form: f,
-    entity: @project,
-    attribute: :second_photocopy,
-    label: "Photocopy 2" %>
-
-  <%= render "shared/form_attachment",
-    form: f,
-    entity: @project,
-    attribute: :third_photocopy,
-    label: "Photocopy 3" %>
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 3" %>
+      <%= f.text_field :third_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :third_photocopy,
+        label: "Photocopy 3" %>
+    </div>
+  </div>
 
   <div class="field">
     <%= f.label :photocopy_copyright %>
