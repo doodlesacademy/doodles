@@ -31,6 +31,21 @@ class Lesson < ActiveRecord::Base
     default_url: ""
   validates_attachment_content_type :overview, content_type: ["application/pdf"]
 
+  has_attached_file :first_photocopy,
+    styles: {thumbnail: "60x60#"},
+    default_url: ""
+  validates_attachment_content_type :first_photocopy, content_type: ["application/pdf"]
+
+  has_attached_file :second_photocopy,
+    styles: {thumbnail: "60x60#"},
+    default_url: ""
+  validates_attachment_content_type :second_photocopy, content_type: ["application/pdf"]
+
+  has_attached_file :third_photocopy,
+    styles: {thumbnail: "60x60#"},
+    default_url: ""
+  validates_attachment_content_type :third_photocopy, content_type: ["application/pdf"]
+
   def video_id
     return unless @video_uri.present?
     @video_uri.match(/\d+$/).to_s
@@ -41,7 +56,7 @@ class Lesson < ActiveRecord::Base
   #   self.save!
   # end
 
-  def synopsis
+  def synopsis_old
     content = self.sections.first().content
     content = content[0, content.enum_for(:scan, /^## Objective/).map { Regexp.last_match.begin(0) }[0]]
     content = content.gsub(/#+ .*\n/, '')

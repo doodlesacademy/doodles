@@ -1,0 +1,204 @@
+<div class='lesson-wrapper'>
+
+  <div>
+    <h1><%= @lesson.title %></h1>
+  </div>
+
+  <% if @lesson.example_image.exists? %>
+  <div class="featured-artist">
+    <div class="row">
+      <div class="example col-md-12 vcenter" id="example">
+        <div class="student-image">
+          <%= image_tag @lesson.example_image.url(:medium) %>
+        </div>
+        <div class="superhero-quote" id='synopsis'>
+          <%= @lesson.synopsis %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <blockquote class="backdrop toc lessons-toc">
+    <p class="toc-title">Lesson Map</p>
+  </blockquote>
+
+  <hr />
+  <div id="overview">
+    <h1 class="overview-head heading anchor">Overview</h1>
+    <h2 id='objective' class="overview-heading anchor">objective</h2>
+    <p><%= @lesson.objective %></p>
+    <h2 id='setup' class="overview-heading anchor">Setup</h2>
+    <p><%= @lesson.setting_up %></p>
+    <h2 id='materials' class="overview-heading anchor">Materials</h2>
+    <p><%= @lesson.materials %></p>
+    <h2 id='photocopies' class="overview-heading anchor">Photocopies</h2>
+    <p>
+      <% if @lesson.first_photocopy.present? %>
+        <p><%= @lesson.first_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @lesson.first_photocopy_file_name, @lesson.first_photocopy.url %></p>
+      <% else %>
+        <%= "N/A" %>
+      <% end %>
+      <% if @lesson.second_photocopy.present? %>
+      <p><%= @lesson.second_photocopy_header %></p>
+      <p class="pdf-indent"><%= link_to @lesson.second_photocopy_file_name, @lesson.second_photocopy.url %></p>
+      <% end %>
+      <% if @lesson.third_photocopy.present? %>
+      <p><%= @lesson.third_photocopy_header %></p>
+      <p class="pdf-indent"><%= link_to @lesson.third_photocopy_file_name, @lesson.third_photocopy.url %></p>
+      <% end %>
+    </p>
+    <h2 id='media' class="overview-heading anchor">Media</h2>
+    <p><%= @lesson.media %></p>
+  <hr />
+  </div>
+
+  <div id="lesson">
+    <h1 class="lesson-head heading">Lesson</h1>
+
+    <% if @lesson.pre_work != nil && @lesson.pre_work != "" %>
+      <a><div class='collapsible anchor' id='pre-work'>
+        <div class='collapsible-heading'>
+          <h2 class="lesson-heading">2m, pre-work</h2>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+      </div></a>
+      <div class='pre-work-collapsed collapsed' hidden>
+        <h3><%= @lesson.pre_work_heading %></h3>
+        <p><%= @lesson.pre_work %></p>
+      </div>
+    <% end %>
+
+    <% if @lesson.inspiration_image.exists?  %>
+      <h2 id='inspiration' class="lesson-heading anchor">10m, inspiration</h2>
+      <blockquote>
+        <a data-toggle="modal" data-modal-id="modal-insp" class="modal-insp"><div class="insp-img-wrapper"><img src='<%= @lesson.inspiration_image.url(:large) %>' /><span class="glyphicon glyphicon-zoom-in"></span></div></a>
+        <p id="inspiration-image-title"><%= @lesson.inspiration_image_title %></p>
+        <p><%= @lesson.inspiration_image_description %></p>
+      </blockquote>
+      <div class="modal" id='modal-insp'>
+        <div class="modal-content modal-full">
+          <div class="modal-close"></div>
+          <div class="modal-body centered">
+            <img src="<%= @lesson.inspiration_image.url(:large) %>" />
+          </div>
+        </div>
+      </div>
+
+    <div>
+      <h3>look and  discuss an art piece that introduces some of the lesson concepts</h3>
+      <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
+      <p><i>Alternately, allow them to draw or write what they notice on a blank piece of paper or in a sketchbook.</i></p>
+      <p><i>The point of this discussion time is to have students learn and add onto each other’s thoughts. By remaining neutral and simply repeating what students say you allow students to do the heavy mental lifting and also create an environment where there is no wrong answer, fostering creativity and mental risk-taking.</i></p>
+    </div>
+    <% end %>
+  <h2 id='introduction' class="lesson-heading anchor">5m, Introduction</h2>
+  <div>
+  <blockquote>
+    <div class="frame frame--16x9">
+      <iframe src="<%= @lesson.video_uri %>"
+        frameborder="0"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen>
+      </iframe>
+    </div>
+  </blockquote>
+
+  </div>
+  <% if @lesson.video_uri.present? %>
+    <div>
+      <h3>watch the video introduction</h3>
+      <p>Watch Video: Lesson <%= @lesson.order + 1 %>, <%= @project.title %></p>
+      <h3>check for understanding</h3>
+      <p>Check for understanding by asking, “Who was listening closely that can sum up what we are doing today?” Make sure that student artists can list all the steps and clarify anything that needs clarifying.</p>
+    </div>
+    <div>
+      <a><div class='collapsible anchor' id='worktime'>
+        <div class='collapsible-heading'>
+          <h2 class="lesson-heading">20-25m, worktime</h2>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+      </div></a>
+      <div class='worktime-collapsed collapsed' hidden>
+        <h3>independent</h3>
+        <p>The students work independently on their work as the teacher circulates. Foster strong work habits by commenting on student artists who are focused on their work as well as student artist who seems be pushing themselves to try new things.</p>
+        <h3><%= @lesson.worktime_focus %></h3>
+        <p><%= @lesson.worktime %></p>
+      </div>
+    <% end %>
+
+    <% if @lesson.additional_worktime != nil && @lesson.additional_worktime != "" %>
+      <a><div class='collapsible anchor' id='additional-worktime'>
+        <div class='collapsible-heading'>
+          <h2 class="lesson-heading">additional worktime</h2>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+      </div></a>
+      <div class='additional-worktime-collapsed collapsed' hidden>
+        <p><%= @lesson.additional_worktime %></p>
+      </div>
+    <% end %>
+
+    <a><div class='collapsible anchor' id='clean-up-presentations'>
+      <div class='collapsible-heading'>
+        <h2 class="lesson-heading">5-10m, clean-up/presentations</h2>
+      </div>
+      <div class='collapsible-plus'><h2>+</h2></div>
+    </div></a>
+      <div class='clean-up-presentations-collapsed collapsed' hidden>
+        <h3>students discuss the artistic decisions that they made using 'what, how, and why' then take comments or questions.</h3>
+        <p>Depending on the teacher’s style of classroom management, it might be helpful to only choose and train a few kids to clean. The rest of the class can be busy with the presentation. Make sure to train these helpers well in advance so that you aren’t left with a messy room.</p>
+        <p>Clean-up times will vary with materials; get to know your class and allow 5-10 minutes depending on how efficient they are and whether or not the material was messy.</p>
+        <p>Choose presenting student artists in advance and let them know during their work time so that they are prepared.</p>
+        <p>Sharing should work as follows:</p>
+          <ul class="sharing">
+            <li>Student stands by their work. A teacher should hold it, or place it on an easel.</li>
+            <li>The student presents their work, answering What they made, How they made it, and Why they made the decisions that they did. When they are done they ask, “Any comments or questions?” and can take responses from the audience.</li>
+            <li>A note on responses: it is o.k. if an audience member questions or wants clarification from the artist. It is also o.k. if an audience member makes suggestions. But it must be done in a kind, thoughtful, and respectful way.</li>
+            <li>Always end the conversation by asking the class to give the artist a compliment.</li>
+          </ul>
+          <p><%= @lesson.clean_up %></p>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+<div id="extension">
+  <h1 class="extension-head heading">Extension</h1>
+
+    <a><div class='collapsible anchor' id='anticipated-problems'>
+      <div class='collapsible-heading'>
+        <h2 class="extension-heading">anticipated problems</h2>
+      </div>
+      <div class='collapsible-plus'><h2>+</h2></div>
+    </div></a>
+    <div class='anticipated-problems-collapsed collapsed' hidden>
+      <p><%= @lesson.anticipated_problems %></p>
+    </div>
+
+  <a><div class='collapsible anchor' id='early-finishers'>
+    <div class='collapsible-heading'>
+      <h2 id='early-finishers' class="extension-heading">early finishers</h2>
+    </div>
+    <div class='collapsible-plus'><h2>+</h2></div>
+  </div></a>
+  <div class='early-finishers-collapsed collapsed' hidden>
+    <p><%= @lesson.early_finishers %></p>
+  </div>
+</div>
+
+  <h1 class="centered finished">Lesson <%= @lesson.lesson_number %> finished!</h1>
+  <p class="centered finished">
+  <% if @lesson.next_lesson %>
+      <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
+  <% elsif @project.next_project %>
+      <%= project_link @project.next_project, "Next Project", class:"btn btn-blue btn-xl" %>
+  <% else %>
+    <h3 class='centered'>Did you enjoy this project? Sign up to be the first to hear when we release our next project!</h3>
+  <% end %>
+  </p>
+
+</div>

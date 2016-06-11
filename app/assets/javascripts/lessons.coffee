@@ -28,7 +28,7 @@
     $inspiration_image = $('.inspiration-image')
     return unless $inspiration_image.length > 0
     url = $inspiration_image.data('large-url')
-    title = $inspiration_image.data('title')
+    title = '<div class="inspiration-image-title">' + $inspiration_image.data('title') + '</div>'
     description = $inspiration_image.data('description')
     $inspiration = $('#inspiration')
     $el = $("""
@@ -52,6 +52,53 @@
 
   appendInspirationImage()
   appendVimeoVideo()
-  # setupListeners()
+  setupListeners()
+
+  $('.collapsible').click ->
+    theId = $(this).attr('id')
+    $('.' + theId + '-collapsed').toggle()
+    return
+
+  toTitleCase = (str) ->
+    str.replace /\w\S*/g, (txt) ->
+      txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+
+  numOfh1 = $('.heading').size()
+  arrowsToRemove = []
+  n = 0
+  while n < numOfh1
+    mainHeading = $('h1.heading').get(n)
+    headingClass = $(mainHeading).text()
+    headToc = '.' + headingClass.toLowerCase() + '-toc'
+    $('.lessons-toc').append('<div class=' + headingClass.toLowerCase() + '-toc' + '><h3>' + headingClass + ': </h3></div>')
+
+    thisHead = '.' + headingClass.toLowerCase() + '-heading'
+    numHead = $(thisHead).size()
+    a = 0
+    while a < numHead
+      thisA = $(thisHead).get(a)
+      aText = $(thisA).text()
+      if headingClass == 'Lesson'
+        y = aText.indexOf(',') + 2
+        aText = aText.substring(y, aText.length)
+        aTextFinal = toTitleCase((a + 1) + " " + aText)
+      else
+        aTextFinal = toTitleCase(aText)
+      if aTextFinal.indexOf('/') != -1
+        s = aTextFinal.indexOf('/') + 1
+        beforeSlash = aTextFinal.slice(0, s)
+        afterSlash = toTitleCase(aTextFinal.slice(s))
+        aTextFinal = beforeSlash + afterSlash
+      aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
+      aLink = aLink.replace('/', '-')
+      $(headToc).append ' <a href=' + aLink + '>' + aTextFinal + '</a> <span> > </span> '
+      a++
+    arrowsToRemove.push('div' + headToc + ' span:last-child')
+    r = 0
+    while r < arrowsToRemove.length
+      $(arrowsToRemove[r]).remove()
+      r++
+    n++
+
 
 )(window.$ or window.jQuery or window.Zepto, window)

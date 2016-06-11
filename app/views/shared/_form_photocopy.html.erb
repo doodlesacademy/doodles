@@ -1,0 +1,10 @@
+<div class="form-group">
+  <% if entity.present? and entity.send(attribute).present? %>
+    <div class="photocopy">
+      <%= attribute %> attached
+      <%= form.file_field attribute %>
+    </div>
+  <% else %>
+    <%= form.file_field attribute %>
+  <% end %>
+</div>

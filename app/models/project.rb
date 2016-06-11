@@ -12,20 +12,32 @@ class Project < ActiveRecord::Base
 
   has_sections 'At-A-Glance' => [:synopsis, :skills, :materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principles, :cross_curricular]
 
-  has_attached_file :inspiration_image, 
-    styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
+  has_attached_file :inspiration_image,
+    styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" },
     default_url: "images/:style/missing.png"
   validates_attachment_content_type :inspiration_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  has_attached_file :featured_artist_image, 
-    styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 
+  has_attached_file :featured_artist_image,
+    styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" },
     default_url: "images/:style/missing.png"
   validates_attachment_content_type :inspiration_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  has_attached_file :overview, 
+  has_attached_file :overview,
     styles: {thumbnail: "60x60#"},
     default_url: ""
   validates_attachment_content_type :overview, content_type: ["application/pdf"]
+
+  has_attached_file :first_photocopy,
+    default_url: ""
+  validates_attachment_content_type :first_photocopy, content_type: ["application/pdf"]
+
+  has_attached_file :second_photocopy,
+    default_url: ""
+  validates_attachment_content_type :second_photocopy, content_type: ["application/pdf"]
+
+  has_attached_file :third_photocopy,
+    default_url: ""
+  validates_attachment_content_type :third_photocopy, content_type: ["application/pdf"]
 
   def standards
     self.standard.section_contents

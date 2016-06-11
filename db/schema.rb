@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522191734) do
+ActiveRecord::Schema.define(version: 20160611144952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,34 @@ ActiveRecord::Schema.define(version: 20160522191734) do
     t.integer  "example_image_file_size"
     t.datetime "example_image_updated_at"
     t.string   "inspiration_image_title"
+    t.string   "objective"
+    t.string   "materials"
+    t.text     "media"
+    t.text     "setting_up"
+    t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
+    t.text     "anticipated_problems"
+    t.text     "early_finishers"
+    t.text     "pre_work"
+    t.text     "additional_worktime"
+    t.text     "pre_work_heading"
+    t.text     "clean_up"
+    t.string   "first_photocopy_file_name"
+    t.string   "first_photocopy_content_type"
+    t.integer  "first_photocopy_file_size"
+    t.datetime "first_photocopy_updated_at"
+    t.string   "second_photocopy_file_name"
+    t.string   "second_photocopy_content_type"
+    t.integer  "second_photocopy_file_size"
+    t.datetime "second_photocopy_updated_at"
+    t.string   "third_photocopy_file_name"
+    t.string   "third_photocopy_content_type"
+    t.integer  "third_photocopy_file_size"
+    t.datetime "third_photocopy_updated_at"
+    t.text     "first_photocopy_header"
+    t.text     "second_photocopy_header"
+    t.text     "third_photocopy_header"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -183,6 +211,33 @@ ActiveRecord::Schema.define(version: 20160522191734) do
     t.string   "featured_artist_image_content_type"
     t.integer  "featured_artist_image_file_size"
     t.datetime "featured_artist_image_updated_at"
+    t.text     "synopsis"
+    t.text     "materials"
+    t.text     "books_media"
+    t.text     "common_core"
+    t.text     "national_core"
+    t.text     "art_elements"
+    t.text     "art_principles"
+    t.text     "cross_curricular"
+    t.text     "materials_suggestion"
+    t.text     "photocopy"
+    t.text     "photocopy_copyright"
+    t.string   "first_photocopy_file_name"
+    t.string   "first_photocopy_content_type"
+    t.integer  "first_photocopy_file_size"
+    t.datetime "first_photocopy_updated_at"
+    t.string   "second_photocopy_file_name"
+    t.string   "second_photocopy_content_type"
+    t.integer  "second_photocopy_file_size"
+    t.datetime "second_photocopy_updated_at"
+    t.string   "third_photocopy_file_name"
+    t.string   "third_photocopy_content_type"
+    t.integer  "third_photocopy_file_size"
+    t.datetime "third_photocopy_updated_at"
+    t.text     "first_photocopy_header"
+    t.text     "second_photocopy_header"
+    t.text     "third_photocopy_header"
+    t.text     "featured_artist_name"
   end
 
   create_table "sections", force: :cascade do |t|

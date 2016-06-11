@@ -57,6 +57,83 @@
     label: "Inspiration Image" %>
 
   <div class="field">
+    <%= f.label :synopsis %>
+    <%= f.text_field :synopsis %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objective %>
+    <%= f.text_field :objective %>
+  </div>
+
+  <div class="field">
+    <%= f.label :setup %>
+    <%= f.text_field :setting_up %>
+  </div>
+
+  <div class="field">
+    <%= f.label :materials %>
+    <%= f.text_field :materials %>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 1" %>
+      <%= f.text_field :first_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @lesson,
+        attribute: :first_photocopy,
+        label: "Photocopy 1" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 2" %>
+      <%= f.text_field :second_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @lesson,
+        attribute: :second_photocopy,
+        label: "Photocopy 2" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 3" %>
+      <%= f.text_field :third_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @lesson,
+        attribute: :third_photocopy,
+        label: "Photocopy 3" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :media %>
+    <%= f.text_field :media %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pre_work_heading %>
+    <%= f.text_field :pre_work_heading %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pre_work %>
+    <%= f.text_field :pre_work %>
+  </div>
+
+  <div class="field">
     <%= f.label :inspiration_image_title %>
     <%= f.text_field :inspiration_image_title %>
    </div>
@@ -71,7 +148,39 @@
     <%= f.text_field :video_uri %>
   </div>
 
-  <%= render "shared/form_sections", form: f %>
+  <div class="field">
+    <%= f.label :worktime_focus %>
+    <%= f.text_field :worktime_focus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :worktime %>
+    <%= f.text_field :worktime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_worktime %>
+    <%= f.text_field :additional_worktime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clean_up %>
+    <%= f.text_field :clean_up %>
+  </div>
+
+  <div class="field">
+    <%= f.label :anticipated_problems %>
+    <%= f.text_field :anticipated_problems %>
+  </div>
+
+  <div class="field">
+    <%= f.label :early_finishers %>
+    <%= f.text_field :early_finishers %>
+  </div>
+
+  <% if @lesson.early_finishers == nil || @lesson.early_finishers == "" %>
+    <%= render "shared/form_sections", form: f %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

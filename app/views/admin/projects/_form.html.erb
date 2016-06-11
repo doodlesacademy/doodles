@@ -1,4 +1,4 @@
-<% path = @project.persisted? ? admin_project_path(@project) : admin_projects_path %> 
+<% path = @project.persisted? ? admin_project_path(@project) : admin_projects_path %>
 <%= form_for @project, url: path do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
@@ -15,29 +15,128 @@
   <h2><%= @project.title.titleize %></h2>
   <h3><%= @project.academy %></h3>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @project,
     attribute: :overview,
     label: "Project Overview PDF" %>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @project,
     attribute: :inspiration_image,
     label: "Inspiration Image" %>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @project,
     attribute: :featured_artist_image,
     label: "Featured Artist Image" %>
 
-  <%= render "shared/form_text_field", 
+  <%= render "shared/form_text_field",
     form: f,
     attribute: :featured_artist_description %>
-    
-  <%= render "shared/form_sections", form: f %>
+
+  <div class="field">
+    <%= f.label :featured_artist_name %>
+    <%= f.text_field :featured_artist_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :synopsis %>
+    <%= f.text_field :synopsis %>
+  </div>
+
+  <div class="field">
+    <%= f.label :materials %>
+    <%= f.text_field :materials %>
+  </div>
+
+  <div class="field">
+    <%= f.label :materials_suggestion %>
+    <%= f.text_field :materials_suggestion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :books_media %>
+    <%= f.text_field :books_media %>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 1" %>
+      <%= f.text_field :first_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :first_photocopy,
+        label: "Photocopy 1" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 2" %>
+      <%= f.text_field :second_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :second_photocopy,
+        label: "Photocopy 2" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 3" %>
+      <%= f.text_field :third_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :third_photocopy,
+        label: "Photocopy 3" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :photocopy_copyright %>
+    <%= f.text_field :photocopy_copyright %>
+  </div>
+
+  <div class="field">
+    <%= f.label :common_core %>
+    <%= f.text_area :common_core, 'data-uk-htmleditor' => '{markdown:true}' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :national_core %>
+    <%= f.text_area :national_core, 'data-uk-htmleditor' => '{markdown:true}' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :art_elements %>
+    <%= f.text_field :art_elements %>
+  </div>
+
+  <div class="field">
+    <%= f.label :art_principles %>
+    <%= f.text_field :art_principles %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cross_curricular %>
+    <%= f.text_field :cross_curricular %>
+  </div>
+
+  <% if @project.synopsis == nil || @project.synopsis == "" %>
+    <%= render "shared/form_sections", form: f %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

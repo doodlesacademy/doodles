@@ -56,22 +56,3 @@
     padding: 20px;
   }
 }
-
-.insp-img-wrapper {
-  position: relative;
-
-  .glyphicon-zoom-in {
-      visibility: hidden;
-      color: #F1F7F7;
-      // font-size: 200%;
-      position: absolute;
-      top: 10%;
-      left: 90%;
-  }
-}
-
-a.modal-insp:hover {
-  .glyphicon-zoom-in {
-      visibility: visible;
-  }
-}
