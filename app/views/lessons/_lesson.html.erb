@@ -57,7 +57,7 @@
   <div id="lesson">
     <h1 class="lesson-head heading">Lesson</h1>
 
-    <% if @lesson.pre_work != nil && @lesson.pre_work != "" %>
+    <% if @lesson.pre_work.present? %>
       <a><div class='collapsible anchor' id='pre-work'>
         <div class='collapsible-heading'>
           <h2 class="lesson-heading">2m, pre-work</h2>
@@ -86,50 +86,88 @@
         </div>
       </div>
 
-    <div>
-      <h3>look and  discuss an art piece that introduces some of the lesson concepts</h3>
+    <a><div class='collapsible' id="look-at">
+
+      <div class='collapsible-heading'>
+        <h3>look and discuss an art piece that introduces some of the lesson concepts</h3>
+      </div>
+      <div class='collapsible-plus'><h2>+</h2></div>
+
+    </div></a>
+    <div class='look-at-collapsed collapsed' hidden>
       <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
       <p><i>Alternately, allow them to draw or write what they notice on a blank piece of paper or in a sketchbook.</i></p>
       <p><i>The point of this discussion time is to have students learn and add onto each other’s thoughts. By remaining neutral and simply repeating what students say you allow students to do the heavy mental lifting and also create an environment where there is no wrong answer, fostering creativity and mental risk-taking.</i></p>
     </div>
-    <% end %>
-  <h2 id='introduction' class="lesson-heading anchor">5m, Introduction</h2>
-  <div>
-  <blockquote>
-    <div class="frame frame--16x9">
-      <iframe src="<%= @lesson.video_uri %>"
-        frameborder="0"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen>
-      </iframe>
-    </div>
-  </blockquote>
+  <% end %>
 
-  </div>
+  <h2 id='introduction' class="lesson-heading anchor">5m, Introduction</h2>
+
   <% if @lesson.video_uri.present? %>
-    <div>
-      <h3>watch the video introduction</h3>
-      <p>Watch Video: Lesson <%= @lesson.order + 1 %>, <%= @project.title %></p>
-      <h3>check for understanding</h3>
-      <p>Check for understanding by asking, “Who was listening closely that can sum up what we are doing today?” Make sure that student artists can list all the steps and clarify anything that needs clarifying.</p>
-    </div>
-    <div>
-      <a><div class='collapsible anchor' id='worktime'>
+  <h3 id='watch'>watch the video introduction</h3>
+
+  <div>
+    <blockquote>
+      <div class="frame frame--16x9">
+        <iframe src="<%= @lesson.video_uri %>"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen>
+        </iframe>
+      </div>
+    </blockquote>
+  </div>
+
+    <a><div class='collapsible' id="check-for">
+
         <div class='collapsible-heading'>
-          <h2 class="lesson-heading">20-25m, worktime</h2>
+          <h3>check for understanding</h3>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+
+      </div></a>
+      <div class='check-for-collapsed collapsed' hidden>
+      <p>Check for understanding by asking, “Who was listening closely that can sum up what we are doing today?” Make sure that student artists can list all the steps and clarify anything that needs clarifying.</p>
+      <% if @lesson.check_for_understanding.present? %>
+        <%= markdown @lesson.check_for_understanding %>
+      <% end %>
+    </div>
+
+
+    <h2 class="lesson-heading anchor" id='worktime'>20-25m, worktime</h2>
+    <% if @lesson.independent_worktime.present? %>
+      <a><div class='collapsible' id='worktime-ind'>
+        <div class='collapsible-heading'>
+          <h3>independent</h3>
         </div>
         <div class='collapsible-plus'><h2>+</h2></div>
       </div></a>
-      <div class='worktime-collapsed collapsed' hidden>
-        <h3>independent</h3>
-        <p>The students work independently on their work as the teacher circulates. Foster strong work habits by commenting on student artists who are focused on their work as well as student artist who seems be pushing themselves to try new things.</p>
+
+      <div class='worktime-ind-collapsed collapsed' hidden>
+        <p><%= @lesson.independent_worktime %></p>
         <h3><%= @lesson.worktime_focus %></h3>
         <p><%= @lesson.worktime %></p>
       </div>
+    <% elsif @lesson.group_worktime.present? %>
+      <a><div class='collapsible' id='worktime-grp'>
+        <div class='collapsible-heading'>
+          <h3>group</h3>
+        </div>
+        <div class='collapsible-plus'><h2>+</h2></div>
+      </div></a>
+      <div class='worktime-grp-collapsed collapsed' hidden>
+        <p><%= @lesson.group_worktime %></p>
+        <h3><%= @lesson.worktime_focus %></h3>
+        <p><%= @lesson.worktime %></p>
+      </div>
+    <% else %>
+        <h3><%= @lesson.worktime_focus %></h3>
+        <p><%= @lesson.worktime %></p>
+      <% end %>
     <% end %>
 
-    <% if @lesson.additional_worktime != nil && @lesson.additional_worktime != "" %>
+    <% if @lesson.additional_worktime.present? %>
       <a><div class='collapsible anchor' id='additional-worktime'>
         <div class='collapsible-heading'>
           <h2 class="lesson-heading">additional worktime</h2>
@@ -162,7 +200,7 @@
           <p><%= @lesson.clean_up %></p>
       </div>
     </div>
-  </div>
+
 
   <hr />
 
