@@ -64,24 +64,22 @@
   <h1>Standards</h1>
   <div>
 
-    <% if @project.common_core != blank? %>
-      <a><div class='collapsible' id='project-common-core'>
-        <div class='collapsible-heading'>
-          <h2>common core</h2>
+    <% if @project.common_core.present? %>
+      <a><div class='collapsible anchor' id='project-common-core'>
+        <div>
+          <h2>common core<span class="glyphicon glyphicon-plus"></span></h2>
         </div>
-        <div class='collapsible-plus'><h2>+</h2></div>
       </div></a>
       <div class='project-common-core-collapsed collapsed' hidden>
         <%= markdown @project.common_core %>
       </div>
     <% end %>
 
-    <% if @project.national_core != blank? %>
-      <a><div class='collapsible' id='project-national-core'>
-        <div class='collapsible-heading'>
-          <h2>national core visual art standards</h2>
+    <% if @project.national_core.present?  %>
+      <a><div class='collapsible anchor' id='project-national-core'>
+        <div>
+          <h2>national core visual art standards<span class="glyphicon glyphicon-plus"></span></h2>
         </div>
-        <div class='collapsible-plus'><h2>+</h2></div>
       </div></a>
       <div class='project-national-core-collapsed collapsed' hidden>
         <%= markdown @project.national_core %>

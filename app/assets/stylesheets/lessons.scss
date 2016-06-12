@@ -65,32 +65,23 @@
   }
 
   .collapsible {
-    background-color: #F1F7F7;
-    padding: 20px 20px 50px 20px;
-    margin: 20px 0;
-    width: 100%;
+    div {
+      margin: 30px 0;
 
-    h2 {
-      display: inline;
-    }
+      h2, h3 {
+        display: inline;
+        background-color: #F1F7F7;
+        padding: 20px 30px;
+      }
 
-    .collapsible-heading {
-      width: 97%;
-      float: left;
-
-      h3 {
-        margin-right: 20px;
+      .glyphicon-plus {
+        margin-left:20px;
       }
     }
+  }
 
-    .collapsible-plus {
-      width: 3%;
-      float: left;
-
-      h2 {
-        font-size: 300%;
-      }
-    }
+  .collapsed {
+    margin: 0 20px;
   }
 
   h1.finished {
@@ -114,10 +105,6 @@
     margin-bottom: 20px;
   }
 
-}
-
-.collapsed {
-  margin: 0 20px;
 }
 
 .insp-img-wrapper {
@@ -169,10 +156,6 @@ a.modal-insp:hover {
   margin-bottom: -20px;
 }
 
-.project-wrapper h1 {
-  margin-bottom: 25px;
-}
-
 .project-wrapper b {
   text-transform: uppercase;
   font-size: 18px;
@@ -192,17 +175,4 @@ a.modal-insp:hover {
   &:last-child {
     margin-bottom: 20px;
   }
-}
-
-.collapsible-heading h3 {
-  margin-top: 5px;
-}
-
-#look-at, #check-for, #worktime-ind, #worktime-grp {
-  .collapsible-plus h2 {
-    color: #666666;
-  }
-
-  margin-left: 20px;
-  width: 98%;
 }
