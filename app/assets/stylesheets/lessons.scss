@@ -32,6 +32,18 @@
     font-weight: 400;
   }
 
+  li {
+    margin-left: 20px;
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: -10px;
+    }
+  }
+
   hr {
       color: #333333;
   }
@@ -56,7 +68,7 @@
     margin: -10px 0 0 0;
 
     li {
-      margin-left: 30px;
+      margin-left: 20px;
 
       &:last-child {
         margin-bottom: 30px;
@@ -66,10 +78,16 @@
 
   .collapsible {
     div {
-      margin: 25px 0;
+      margin: 25px -20px;
 
-      .glyphicon-plus {
-        margin-left:20px;
+      h2.collapsible-heading, h3.collapsible-heading {
+        background-color: #F1F7F7;
+        padding: 15px 20px;
+      }
+
+      h2.collapsible-plus, h3.collapsible-plus {
+        float: right;
+        font-size: 200%;
       }
     }
   }
@@ -160,13 +178,5 @@ a.modal-insp:hover {
     margin-left: 10px;
     margin-top: -10px;
     font-size: 85%;
-  }
-}
-
-.collapsed li {
-  margin-left: 20px;
-
-  &:last-child {
-    margin-bottom: 20px;
   }
 }

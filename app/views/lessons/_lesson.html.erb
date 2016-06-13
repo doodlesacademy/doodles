@@ -58,12 +58,10 @@
     <h1 class="lesson-head heading">Lesson</h1>
 
     <% if @lesson.pre_work.present? %>
-      <a><div class='collapsible anchor' id='pre-work'>
+      <div class='anchor' id='pre-work'>
         <div>
-          <h2 class="lesson-heading">2m, pre-work<span class="glyphicon glyphicon-plus"></span></h2>
+          <h2 class="lesson-heading">2m, pre-work</h2>
         </div>
-      </div></a>
-      <div class='pre-work-collapsed collapsed' hidden>
         <h3><%= @lesson.pre_work_heading %></h3>
         <p><%= @lesson.pre_work %></p>
       </div>
@@ -85,73 +83,52 @@
         </div>
       </div>
 
-    <a><div class='collapsible' id="look-at">
-
       <div>
-        <h3>look and discuss an art piece that introduces some of the lesson concepts<span class="glyphicon glyphicon-plus"></h3>
+        <h3>look and discuss an art piece that introduces some of the lesson concepts</h3>
+        <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
+        <p><i>Alternately, allow them to draw or write what they notice on a blank piece of paper or in a sketchbook.</i></p>
+        <p><i>The point of this discussion time is to have students learn and add onto each other’s thoughts. By remaining neutral and simply repeating what students say you allow students to do the heavy mental lifting and also create an environment where there is no wrong answer, fostering creativity and mental risk-taking.</i></p>
       </div>
+    <% end %>
 
-    </div></a>
-    <div class='look-at-collapsed collapsed' hidden>
-      <p>Project the inspiration image where students can see it. Give students a moment to study it silently, then begin a brief discussion with the phrase, “What can we find?”. Paraphrase what students say for the benefit of the class, being careful to remain neutral, then ask “What else can we find?”.</p>
-      <p><i>Alternately, allow them to draw or write what they notice on a blank piece of paper or in a sketchbook.</i></p>
-      <p><i>The point of this discussion time is to have students learn and add onto each other’s thoughts. By remaining neutral and simply repeating what students say you allow students to do the heavy mental lifting and also create an environment where there is no wrong answer, fostering creativity and mental risk-taking.</i></p>
-    </div>
-  <% end %>
+    <h2 id='introduction' class="lesson-heading anchor">5m, Introduction</h2>
 
-  <h2 id='introduction' class="lesson-heading anchor">5m, Introduction</h2>
+    <% if @lesson.video_uri.present? %>
+    <h3 id='watch'>watch the video introduction</h3>
 
-  <% if @lesson.video_uri.present? %>
-  <h3 id='watch'>watch the video introduction</h3>
-
-  <div>
-    <blockquote>
-      <div class="frame frame--16x9">
-        <iframe src="<%= @lesson.video_uri %>"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen>
-        </iframe>
-      </div>
-    </blockquote>
-  </div>
-
-    <a><div class='collapsible' id="check-for">
-
-        <div>
-          <h3>check for understanding<span class="glyphicon glyphicon-plus"></span></h3>
+    <div>
+      <blockquote>
+        <div class="frame frame--16x9">
+          <iframe src="<%= @lesson.video_uri %>"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen>
+          </iframe>
         </div>
+      </blockquote>
+    </div>
 
-      </div></a>
-      <div class='check-for-collapsed collapsed' hidden>
-        <p>Check for understanding by asking, “Who was listening closely that can sum up what we are doing today?” Make sure that student artists can list all the steps and clarify anything that needs clarifying.</p>
-        <% if @lesson.check_for_understanding.present? %>
-          <%= markdown @lesson.check_for_understanding %>
-        <% end %>
-      </div>
+    <div>
+      <h3>check for understanding</h3>
+      <p>Check for understanding by asking, “Who was listening closely that can sum up what we are doing today?” Make sure that student artists can list all the steps and clarify anything that needs clarifying.</p>
+      <% if @lesson.check_for_understanding.present? %>
+        <%= markdown @lesson.check_for_understanding %>
+      <% end %>
+    </div>
 
 
     <h2 class="lesson-heading anchor" id='worktime'>20-25m, worktime</h2>
     <% if @lesson.independent_worktime.present? %>
-      <a><div class='collapsible' id='worktime-ind'>
-        <div>
-          <h3>independent<span class="glyphicon glyphicon-plus"></span></h3>
-        </div>
-      </div></a>
-
-      <div class='worktime-ind-collapsed collapsed' hidden>
+      <div>
+        <h3>independent</h3>
         <p><%= @lesson.independent_worktime %></p>
         <h3><%= @lesson.worktime_focus %></h3>
         <p><%= @lesson.worktime %></p>
       </div>
     <% elsif @lesson.group_worktime.present? %>
-      <a><div class='collapsible' id='worktime-grp'>
-        <div>
-          <h3>group<span class="glyphicon glyphicon-plus"></span></h3>
-        </div>
-      </div></a>
-      <div class='worktime-grp-collapsed collapsed' hidden>
+      <div>
+        <h3>group</h3>
         <p><%= @lesson.group_worktime %></p>
         <h3><%= @lesson.worktime_focus %></h3>
         <p><%= @lesson.worktime %></p>
@@ -163,63 +140,45 @@
     <% end %>
 
     <% if @lesson.additional_worktime.present? %>
-      <a><div class='collapsible anchor' id='additional-worktime'>
-        <div>
-          <h2 class="lesson-heading">additional worktime<span class="glyphicon glyphicon-plus"></span></h2>
-        </div>
-      </div></a>
-      <div class='additional-worktime-collapsed collapsed' hidden>
+      <div class='anchor' id='additional-worktime'>
+        <h2 class="lesson-heading">additional worktime</h2>
         <p><%= @lesson.additional_worktime %></p>
       </div>
     <% end %>
 
     <h2 class="lesson-heading anchor" id='clean-up-presentations'>5-10m, clean-up/presentations</h2>
-
-      <a><div class='collapsible' id='students-discuss'>
-        <div>
-          <h3>students discuss the artistic decisions that they made<span class="glyphicon glyphicon-plus"></span></h3>
-        </div>
-      </div></a>
-
-      <div class='students-discuss-collapsed collapsed' hidden>
-        <p>Use 'what, how, and why' and then take comments or questions.</p>
-        <p>Depending on the teacher’s style of classroom management, it might be helpful to only choose and train a few kids to clean. The rest of the class can be busy with the presentation. Make sure to train these helpers well in advance so that you aren’t left with a messy room.</p>
-        <p>Clean-up times will vary with materials; get to know your class and allow 5-10 minutes depending on how efficient they are and whether or not the material was messy.</p>
-        <p>Choose presenting student artists in advance and let them know during their work time so that they are prepared.</p>
-        <p>Sharing should work as follows:</p>
-          <ul class="sharing">
-            <li>Student stands by their work. A teacher should hold it, or place it on an easel.</li>
-            <li>The student presents their work, answering What they made, How they made it, and Why they made the decisions that they did. When they are done they ask, “Any comments or questions?” and can take responses from the audience.</li>
-            <li>A note on responses: it is o.k. if an audience member questions or wants clarification from the artist. It is also o.k. if an audience member makes suggestions. But it must be done in a kind, thoughtful, and respectful way.</li>
-            <li>Always end the conversation by asking the class to give the artist a compliment.</li>
-          </ul>
-          <p><%= @lesson.clean_up %></p>
-      </div>
+    <div>
+      <h3>students discuss the artistic decisions that they made</h3>
+      <p>Use 'what, how, and why' and then take comments or questions.</p>
+      <p>Depending on the teacher’s style of classroom management, it might be helpful to only choose and train a few kids to clean. The rest of the class can be busy with the presentation. Make sure to train these helpers well in advance so that you aren’t left with a messy room.</p>
+      <p>Clean-up times will vary with materials; get to know your class and allow 5-10 minutes depending on how efficient they are and whether or not the material was messy.</p>
+      <p>Choose presenting student artists in advance and let them know during their work time so that they are prepared.</p>
+      <p>Sharing should work as follows:</p>
+        <ul class="sharing">
+          <li>Student stands by their work. A teacher should hold it, or place it on an easel.</li>
+          <li>The student presents their work, answering What they made, How they made it, and Why they made the decisions that they did. When they are done they ask, “Any comments or questions?” and can take responses from the audience.</li>
+          <li>A note on responses: it is o.k. if an audience member questions or wants clarification from the artist. It is also o.k. if an audience member makes suggestions. But it must be done in a kind, thoughtful, and respectful way.</li>
+          <li>Always end the conversation by asking the class to give the artist a compliment.</li>
+        </ul>
+      <p><%= @lesson.clean_up %></p>
     </div>
+  </div>
 
   <hr />
 
-<div id="extension">
-  <h1 class="extension-head heading">Extension</h1>
+  <div id="extension">
+    <h1 class="extension-head heading">Extension</h1>
 
-  <a><div class='collapsible' id='anticipated-problems'>
-    <div>
-      <h2 class="extension-heading anchor">anticipated problems<span class="glyphicon glyphicon-plus"></span></h2>
+    <div id='anticipated-problems'>
+      <h2 class="extension-heading anchor">anticipated problems</h2>
+      <p><%= @lesson.anticipated_problems %></p>
     </div>
-  </div></a>
-  <div class='anticipated-problems-collapsed collapsed' hidden>
-    <p><%= @lesson.anticipated_problems %></p>
-  </div>
 
-  <a><div class='collapsible' id='early-finishers'>
-    <div>
-      <h2 class="extension-heading anchor">early finishers<span class="glyphicon glyphicon-plus"></span></h2>
+    <div id='early-finishers'>
+      <h2 class="extension-heading anchor">early finishers</h2>
+      <p><%= @lesson.early_finishers %></p>
     </div>
-  </div></a>
-  <div class='early-finishers-collapsed collapsed' hidden>
-    <p><%= @lesson.early_finishers %></p>
   </div>
-</div>
 
   <h1 class="centered finished">Lesson <%= @lesson.lesson_number %> finished!</h1>
   <p class="centered finished">
