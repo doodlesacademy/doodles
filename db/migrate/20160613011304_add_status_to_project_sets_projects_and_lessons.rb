@@ -4,12 +4,12 @@ class AddStatusToProjectSetsProjectsAndLessons < ActiveRecord::Migration
     add_column :projects, :status, :integer, default: 0
   end
 
-  ProjectSets.all.each do |set|
+  ProjectSet.all.each do |set|
     set.status = :published
     set.save if set.changed?
   end
 
-  Projects.all.each do |project|
+  Project.all.each do |project|
     project.status = :published
     project.save if project.changed?
   end
