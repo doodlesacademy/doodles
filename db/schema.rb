@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612133611) do
+ActiveRecord::Schema.define(version: 20160613011304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20160612133611) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "synopsis"
     t.text     "worktime_focus"
-    t.text     "worktime"
+    t.text     "synopsis"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
+    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -179,8 +179,8 @@ ActiveRecord::Schema.define(version: 20160612133611) do
     t.string   "title"
     t.integer  "upper_id"
     t.integer  "lower_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "slug"
     t.string   "inspiration_image"
     t.string   "unit"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160612133611) do
     t.string   "project_image_content_type"
     t.integer  "project_image_file_size"
     t.datetime "project_image_updated_at"
+    t.integer  "status",                     default: 0
   end
 
   add_index "project_sets", ["lower_id"], name: "index_project_sets_on_lower_id", using: :btree
@@ -196,8 +197,8 @@ ActiveRecord::Schema.define(version: 20160612133611) do
 
   create_table "projects", force: :cascade do |t|
     t.integer  "lessons_count"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "project_set_id"
     t.integer  "level"
     t.string   "inspiration_image_file_name"
@@ -241,6 +242,7 @@ ActiveRecord::Schema.define(version: 20160612133611) do
     t.text     "second_photocopy_header"
     t.text     "third_photocopy_header"
     t.text     "featured_artist_name"
+    t.integer  "status",                             default: 0
   end
 
   create_table "sections", force: :cascade do |t|
