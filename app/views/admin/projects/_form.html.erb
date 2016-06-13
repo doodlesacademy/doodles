@@ -15,6 +15,8 @@
   <h2><%= @project.title.titleize %></h2>
   <h3><%= @project.academy %></h3>
 
+  <%= render "shared/form_status", form: f, entity: @project %>
+
   <%= render "shared/form_attachment",
     form: f,
     entity: @project,

@@ -12,6 +12,8 @@
     </div>
   <% end %>
 
+  <%= render "shared/form_status", form: f, entity: @project_set %>
+
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
