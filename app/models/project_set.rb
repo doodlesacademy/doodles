@@ -1,5 +1,6 @@
 class ProjectSet < ActiveRecord::Base
   include Slugable
+  include Draftable
 
   has_many :projects, dependent: :destroy
   has_one :gallery, dependent: :destroy

@@ -4,12 +4,12 @@ module Draftable
   extend ActiveSupport::Concern
 
   included do
-    enum status: [:draft, :publish, :archive]
+    enum status: [:draft, :published, :archived]
     after_initialize :init_as_draft
 
     scope :draft, -> { where(status: self.statuses[:draft]) }
-    scope :published, -> { where(status: self.statuses[:publish]) }
-    scope :archived, -> { where(status: self.statuses[:archive]) }
+    scope :published, -> { where(status: self.statuses[:published]) }
+    scope :archived, -> { where(status: self.statuses[:archived]) }
   end
 
   def init_as_draft 

@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   include Sectionable
+  include Draftable
 
   enum level: [ :upper, :lower ]
   belongs_to :project_set

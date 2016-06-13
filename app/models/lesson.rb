@@ -1,8 +1,8 @@
 class Lesson < ActiveRecord::Base
   include Slugable
   include Sectionable
+  include Draftable
 
-  enum status: [:active, :archive]
   default_scope { order(:order) }
 
   has_and_belongs_to_many :supply_items
