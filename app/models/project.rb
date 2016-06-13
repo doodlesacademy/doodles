@@ -55,7 +55,7 @@ class Project < ActiveRecord::Base
 
   def next_project
     return unless self.project_set.unit_number < ProjectSet.count
-    project_set = ProjectSet.find_by(unit_number: self.project_set.unit_number + 1)
+    project_set = ProjectSet.published.find_by(unit_number: self.project_set.unit_number + 1)
     return unless project_set.present?
     project_set.get_project(level: self.level)
   end

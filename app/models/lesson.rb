@@ -64,8 +64,8 @@ class Lesson < ActiveRecord::Base
   end
 
   def next_lesson
-    return unless self.lesson_number < self.project.lessons.count
-    self.project.lessons.find_by(order: self.order + 1)
+    return unless self.lesson_number < self.project.lessons.published.count
+    self.project.lessons.published.find_by(order: self.order + 1)
   end
 
   # Change from zero index to one index
