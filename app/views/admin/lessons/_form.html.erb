@@ -149,6 +149,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :check_for_understanding %>
+    <%= f.text_area :check_for_understanding, 'data-uk-htmleditor' => '{markdown:true}' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :independent_worktime %>
+    <%= f.text_field :independent_worktime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :group_worktime %>
+    <%= f.text_field :group_worktime %>
+  </div>
+
+  <div class="field">
     <%= f.label :worktime_focus %>
     <%= f.text_field :worktime_focus %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611144952) do
+ActiveRecord::Schema.define(version: 20160612133611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,9 @@ ActiveRecord::Schema.define(version: 20160611144952) do
     t.text     "first_photocopy_header"
     t.text     "second_photocopy_header"
     t.text     "third_photocopy_header"
+    t.text     "check_for_understanding"
+    t.text     "independent_worktime"
+    t.text     "group_worktime"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
