@@ -65,8 +65,8 @@ class Admin::LessonsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
       params.require(:lesson).permit(
-        :order, :title, :project_id, :synopsis, :overview, :objective, :setting_up, :materials, :first_photocopy, :first_photocopy_header, :second_photocopy, :second_photocopy_header, :third_photocopy, :third_photocopy_header, :media, :example_image, :inspiration_image, :inspiration_image_title,
-        :inspiration_image_description, :check_for_understanding, :video_name, :video_uri, :pre_work_heading, :pre_work, :independent_worktime, :group_worktime, :worktime, :worktime_focus, :additional_worktime, :clean_up, :anticipated_problems, :early_finishers, sections_attributes: [:id, :order, :content]
+        :order, :title, :project_id, :synopsis, :overview, :objective, :setting_up, :materials, :first_photocopy, :first_photocopy_header, :second_photocopy, :second_photocopy_header, :third_photocopy, :third_photocopy_header, :media, :example_image, :intro_time, :inspiration_image, :inspiration_image_title,
+        :inspiration_image_description, :check_for_understanding, :video_name, :video_uri, :pre_work_heading, :pre_work, :independent_worktime, :group_worktime, :worktime, :worktime_time, :worktime_focus, :additional_worktime, :clean_up, :anticipated_problems, :early_finishers, sections_attributes: [:id, :order, :content]
       )
     end
 end

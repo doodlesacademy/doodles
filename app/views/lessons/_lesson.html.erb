@@ -91,7 +91,13 @@
       </div>
     <% end %>
 
-    <h2 id='introduction' class="lesson-heading anchor">5m, Introduction</h2>
+    <h2 id='introduction' class="lesson-heading anchor">
+      <% if @lesson.intro_time.present? %>
+        <%= @lesson.intro_time %>, 
+      <% else %>
+        5m,
+      <% end %>
+      Introduction</h2>
 
     <% if @lesson.video_uri.present? %>
     <h3 id='watch'>watch the video introduction</h3>
@@ -118,7 +124,13 @@
     </div>
 
 
-    <h2 class="lesson-heading anchor" id='worktime'>20-25m, worktime</h2>
+    <h2 class="lesson-heading anchor" id='worktime'>
+      <% if @lesson.worktime_time.present? %>
+        <%= @lesson.worktime_time %>,
+      <% else %>
+        20-25m,
+      <% end %>
+      worktime</h2>
     <% if @lesson.independent_worktime.present? %>
       <div>
         <h3>independent</h3>
