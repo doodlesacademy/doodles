@@ -146,22 +146,22 @@ a.modal-insp:hover {
   }
 }
 
-.lessons-toc {
-  font-size: 14px;
-  line-height: 22px;
-
-  h3 {
-    display: inline;
-    font-size: 14px;
-    text-transform: none;
-    font-weight: bold;
-  }
-
-  .pdf-indent {
-    margin-left: 10px;
-    font-size: 80%;
-  }
-}
+// .lessons-toc {
+//   font-size: 14px;
+//   line-height: 22px;
+//
+//   h3 {
+//     display: inline;
+//     font-size: 14px;
+//     text-transform: none;
+//     font-weight: bold;
+//   }
+//
+//   .pdf-indent {
+//     margin-left: 10px;
+//     font-size: 80%;
+//   }
+// }
 
 .project-wrapper hr {
   margin-top: 25px;
@@ -179,4 +179,61 @@ a.modal-insp:hover {
     margin-top: -10px;
     font-size: 85%;
   }
+}
+
+.lesson-wrapper {
+  display: inline-block;
+}
+
+#lesson-main {
+  width: 80%;
+  float: right;
+}
+
+#lesson-sidebar {
+  // width: 10%;
+  float: left;
+
+  // blockquote {
+  div {
+    position: fixed;
+    top: 14%;
+    left: 2%;
+    color: #767676;
+    // font-style: normal;
+    // padding-bottom: 40px;
+
+    #lesson-map {
+      margin-left: 15px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-left: 20px;
+      // display: flex;
+      margin-bottom: -15px;
+
+      p {
+        margin-left: 10px;
+        a {
+        color: gray;
+        text-decoration: none;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    a {
+      color: #8DC5E6;
+    }
+
+  }
+}
+
+.atTop {
+  padding-left: 5px;
+  border-left: 2px solid gray;
 }

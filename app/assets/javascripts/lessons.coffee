@@ -70,7 +70,7 @@
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
     headToc = '.' + headingClass.toLowerCase() + '-toc'
-    $('.lessons-toc').append('<div class=' + headingClass.toLowerCase() + '-toc' + '><h3>' + headingClass + ': </h3></div>')
+    $('#lesson-map-sidebar').append('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
 
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
@@ -81,9 +81,9 @@
       if headingClass == 'Lesson'
         y = aText.indexOf(',') + 2
         aText = aText.substring(y, aText.length)
-        aTextFinal = toTitleCase((a + 1) + " " + aText)
-      else
         aTextFinal = toTitleCase(aText)
+      else
+      aTextFinal = toTitleCase(aText)
       if aTextFinal.indexOf('/') != -1
         s = aTextFinal.indexOf('/') + 1
         beforeSlash = aTextFinal.slice(0, s)
@@ -91,14 +91,18 @@
         aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      $(headToc).append ' <a href=' + aLink + '>' + aTextFinal + '</a> <span> > </span> '
+      $(headToc).append '<p><a href=' + aLink + ' >' + aTextFinal + '</a></p>'
       a++
-    arrowsToRemove.push('div' + headToc + ' span:last-child')
-    r = 0
-    while r < arrowsToRemove.length
-      $(arrowsToRemove[r]).remove()
-      r++
     n++
+
+    $distance = $('.lesson-title').offset().top - 80
+    $window = $(window)
+    $window.scroll ->
+      if ($window.scrollTop() >= $distance)
+          $('#lesson-map-sidebar').show()
+      else
+        $('#lesson-map-sidebar').hide()
+      return
 
 
 )(window.$ or window.jQuery or window.Zepto, window)
