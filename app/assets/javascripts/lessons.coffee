@@ -64,12 +64,14 @@
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
   numOfh1 = $('.heading').size()
+  lessonHeadings = []
   n = 0
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
+    lessonHeadings.push(headingClass.toLowerCase())
     headToc = '.' + headingClass.toLowerCase() + '-toc'
-    $('#lesson-map-sidebar').append('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
+    $('#backToTop').before('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
     a = 0
@@ -122,7 +124,6 @@
         $('.lesson-sidebar').hide()
         $('.extension-sidebar').hide()
       return
-
 
 
 )(window.$ or window.jQuery or window.Zepto, window)

@@ -216,8 +216,15 @@ a.modal-insp:hover {
       p {
         margin-left: 10px;
         a {
-        color: gray;
-        text-decoration: none;
+          color: gray;
+          text-decoration: none;
+
+          &:hover {
+            color: #8DC5E6;
+            padding-left: 2px;
+            margin-left: -3px;
+            border-left: 1px solid gray;
+          }
         }
 
         &:last-child {
@@ -230,10 +237,16 @@ a.modal-insp:hover {
       color: #8DC5E6;
     }
 
+    #backToTop {
+      margin-top: 20px;
+      margin-left: 15px;
+    }
+
   }
 }
 
 .atTop {
   padding-left: 2px;
   border-left: 2px solid gray;
+  margin-left: -4px;
 }
