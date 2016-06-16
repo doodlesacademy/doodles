@@ -64,14 +64,12 @@
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
   numOfh1 = $('.heading').size()
-  arrowsToRemove = []
   n = 0
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
     headToc = '.' + headingClass.toLowerCase() + '-toc'
     $('#lesson-map-sidebar').append('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
-
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
     a = 0
@@ -91,7 +89,7 @@
         aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      $(headToc).append '<p><a href=' + aLink + ' >' + aTextFinal + '</a></p>'
+      $(headToc).append '<p id="' + aTextFinal + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
       a++
     n++
 
@@ -103,6 +101,28 @@
       else
         $('#lesson-map-sidebar').hide()
       return
+
+    overviewDistance = $('#overview').offset().top + 80
+    lessonDistance = $('#lesson').offset().top + 80
+    extensionDistance = $('#extension').offset().top + 80
+    lessonFinishedDistance = $('h1.finished').offset().top - 20
+    $window.scroll ->
+      if ($window.scrollTop() >= overviewDistance) && !($window.scrollTop() > lessonDistance)
+        $('.overview-sidebar').show()
+        $('.lesson-sidebar').hide()
+      else if ($window.scrollTop() >= lessonDistance) && !($window.scrollTop() > extensionDistance)
+        $('.overview-sidebar').hide()
+        $('.lesson-sidebar').show()
+        $('.extension-sidebar').hide()
+      else if ($window.scrollTop() > extensionDistance) && !($window.scrollTop() > lessonFinishedDistance)
+        $('.lesson-sidebar').hide()
+        $('.extension-sidebar').show()
+      else
+        $('.overview-sidebar').hide()
+        $('.lesson-sidebar').hide()
+        $('.extension-sidebar').hide()
+      return
+
 
 
 )(window.$ or window.jQuery or window.Zepto, window)
