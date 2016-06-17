@@ -1,7 +1,9 @@
 <% content_for(:page_title) { @lesson.title } %>
 <% content_for(:hero_image) { image_tag @project.inspiration_image.url(:large) } %>
 <% content_for(:hero_title) { "#{@project.title}".titleize } %>
-<% content_for(:hero_subtitle) do render "shared/academy_project_lesson_links", academy: @academy end %>
+<% content_for(:hero_subtitle) do
+  render "shared/academy_project_links", academy: @academy
+end %>
 <% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
 <% if @lesson.objective != nil && @lesson.objective != "" %>
