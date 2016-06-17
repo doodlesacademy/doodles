@@ -91,7 +91,8 @@
         aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      $(headToc).append '<p id="' + aTextFinal + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
+      idText = aTextFinal.replace(' ', '-')
+      $(headToc).append '<p id="' + idText.toLowerCase() + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
       a++
     n++
 
