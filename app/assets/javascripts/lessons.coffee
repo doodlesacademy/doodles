@@ -65,6 +65,7 @@
 
   numOfh1 = $('.heading').size()
   lessonHeadings = []
+  # subHeadings = [[],[],[]]
   n = 0
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
@@ -72,6 +73,7 @@
     lessonHeadings.push(headingClass.toLowerCase())
     headToc = '.' + headingClass.toLowerCase() + '-toc'
     $('#backToTop').before('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
+    ## need to make above class have hyphens b/w words
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
     a = 0
@@ -91,7 +93,8 @@
         aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      $(headToc).append '<p id="' + aTextFinal + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
+      subHeadings[n].push(aTextFinal.toLowerCase())
+      $(headToc).append '<p id="' + aTextFinal.toLowerCase() + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
       a++
     n++
 
@@ -124,6 +127,8 @@
         $('.lesson-sidebar').hide()
         $('.extension-sidebar').hide()
       return
+
+    console.log(subHeadings[1])
 
 
 )(window.$ or window.jQuery or window.Zepto, window)
