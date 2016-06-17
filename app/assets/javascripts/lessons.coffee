@@ -95,22 +95,18 @@
       a++
     n++
 
-    $distance = $('.lesson-title').offset().top - 80
-    $window = $(window)
-    $window.scroll ->
-      if ($window.scrollTop() >= $distance)
-          $('.overview-sidebar').hide()
-          $('#lesson-map-sidebar').show()
-      else
-        $('#lesson-map-sidebar').hide()
-      return
-
     $(window).on 'scroll', ->
       scrollTop = $(this).scrollTop()
+      $distance = $('.lesson-title').offset().top - 90
       overviewDistance = $('#overview').offset().top - 10
       lessonDistance = $('#lesson').offset().top - 10
       extensionDistance = $('#extension').offset().top - 10
       lessonFinishedDistance = $('h1.finished').offset().top - 10
+      if $distance < scrollTop
+        $('.overview-sidebar').hide()
+        $('#lesson-map-sidebar').show()
+      else
+        $('#lesson-map-sidebar').hide()
       if overviewDistance < scrollTop
         $('.lesson-sidebar').hide()
         $('.overview-sidebar').show()
