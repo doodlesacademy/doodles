@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614131344) do
+ActiveRecord::Schema.define(version: 20160617120723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,17 @@ ActiveRecord::Schema.define(version: 20160614131344) do
     t.text     "second_photocopy_header"
     t.text     "third_photocopy_header"
     t.text     "featured_artist_name"
+    t.text     "featured_artist_image_title"
+    t.text     "fourth_photocopy_header"
+    t.text     "fifth_photocopy_header"
+    t.string   "fourth_photocopy_file_name"
+    t.string   "fourth_photocopy_content_type"
+    t.integer  "fourth_photocopy_file_size"
+    t.datetime "fourth_photocopy_updated_at"
+    t.string   "fifth_photocopy_file_name"
+    t.string   "fifth_photocopy_content_type"
+    t.integer  "fifth_photocopy_file_size"
+    t.datetime "fifth_photocopy_updated_at"
   end
 
   create_table "sections", force: :cascade do |t|

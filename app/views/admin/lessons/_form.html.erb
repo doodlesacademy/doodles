@@ -63,7 +63,7 @@
 
   <div class="field">
     <%= f.label :objective %>
-    <%= f.text_field :objective %>
+    <%= f.text_area :objective, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
@@ -190,12 +190,12 @@
 
   <div class="field">
     <%= f.label :clean_up %>
-    <%= f.text_field :clean_up %>
+    <%= f.text_area :clean_up, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label :anticipated_problems %>
-    <%= f.text_field :anticipated_problems %>
+    <%= f.text_area :anticipated_problems, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">

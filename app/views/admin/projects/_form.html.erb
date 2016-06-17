@@ -33,12 +33,17 @@
     attribute: :featured_artist_image,
     label: "Featured Artist Image" %>
 
+  <div class="field">
+    <%= f.label :featured_artist_image_title %>
+    <%= f.text_field :featured_artist_image_title %>
+  </div>
+
   <%= render "shared/form_text_field",
     form: f,
     attribute: :featured_artist_description %>
 
   <div class="field">
-    <%= f.label :featured_artist_name %>
+    <%= f.label "Featured Artist Name and Grade" %>
     <%= f.text_field :featured_artist_name %>
   </div>
 
@@ -104,6 +109,34 @@
     </div>
   </div>
 
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 4" %>
+      <%= f.text_field :fourth_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :fourth_photocopy,
+        label: "Photocopy 4" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 5" %>
+      <%= f.text_field :fifth_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :fifth_photocopy,
+        label: "Photocopy 5" %>
+    </div>
+  </div>
+
   <div class="field">
     <%= f.label :photocopy_copyright %>
     <%= f.text_field :photocopy_copyright %>
@@ -115,7 +148,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :national_core %>
+    <%= f.label 'National Core Visual Arts Standards' %>
     <%= f.text_area :national_core, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
