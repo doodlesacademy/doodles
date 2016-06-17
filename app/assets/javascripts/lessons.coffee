@@ -111,6 +111,16 @@
       if overviewDistance < scrollTop
         $('.lesson-sidebar').hide()
         $('.overview-sidebar').show()
+        numOverviewSidebar = $('.overview-sidebar').size()
+        o = 0
+        while o < numOverviewSidebar
+          thisO = $('.overview-sidebar').get(o)
+          oText = $(thisO).text()
+          console.log oText
+          # create a distance variable for each o
+          # if xDistance < scrollTop
+          # addClass('atTop') to that element
+          o++
       if lessonDistance < scrollTop
         $('.overview-sidebar').hide()
         $('.extension-sidebar').hide()
