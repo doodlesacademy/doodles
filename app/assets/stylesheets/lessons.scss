@@ -130,19 +130,25 @@
 .insp-img-wrapper {
   position: relative;
 
-  .glyphicon-zoom-in {
+  .insp-img-glyph {
       visibility: hidden;
       color: #F1F7F7;
-      font-size: 150%;
+      font-size: 200%;
+      font-style: normal;
       position: absolute;
-      top: 35px;
+      top: 37px;
       left: 480px;
+
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
   }
 }
 
 a.modal-insp:hover {
-  .glyphicon-zoom-in {
-      visibility: visible;
+
+  .insp-img-glyph {
+    visibility: visible;
   }
 }
 
@@ -155,11 +161,6 @@ a.modal-insp:hover {
     font-size: 14px;
     text-transform: none;
     font-weight: bold;
-  }
-
-  .pdf-indent {
-    margin-left: 10px;
-    font-size: 80%;
   }
 }
 
@@ -175,7 +176,6 @@ a.modal-insp:hover {
 
 .project-wrapper, .lesson-wrapper {
   .pdf-indent {
-    margin-left: 10px;
     margin-top: -10px;
     font-size: 85%;
   }

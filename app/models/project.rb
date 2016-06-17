@@ -39,6 +39,14 @@ class Project < ActiveRecord::Base
     default_url: ""
   validates_attachment_content_type :third_photocopy, content_type: ["application/pdf"]
 
+  has_attached_file :fourth_photocopy,
+    default_url: ""
+  validates_attachment_content_type :fourth_photocopy, content_type: ["application/pdf"]
+
+  has_attached_file :fifth_photocopy,
+    default_url: ""
+  validates_attachment_content_type :fifth_photocopy, content_type: ["application/pdf"]
+
   def standards
     self.standard.section_contents
   end
