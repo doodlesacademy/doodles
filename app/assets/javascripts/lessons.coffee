@@ -65,7 +65,6 @@
 
   numOfh1 = $('.heading').size()
   lessonHeadings = []
-  # subHeadings = [[],[],[]]
   n = 0
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
@@ -73,7 +72,6 @@
     lessonHeadings.push(headingClass.toLowerCase())
     headToc = '.' + headingClass.toLowerCase() + '-toc'
     $('#backToTop').before('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
-    ## need to make above class have hyphens b/w words
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
     a = 0
@@ -93,8 +91,7 @@
         aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      subHeadings[n].push(aTextFinal.toLowerCase())
-      $(headToc).append '<p id="' + aTextFinal.toLowerCase() + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
+      $(headToc).append '<p id="' + aTextFinal + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
       a++
     n++
 
@@ -102,33 +99,73 @@
     $window = $(window)
     $window.scroll ->
       if ($window.scrollTop() >= $distance)
+          $('.overview-sidebar').hide()
           $('#lesson-map-sidebar').show()
       else
         $('#lesson-map-sidebar').hide()
       return
 
-    overviewDistance = $('#overview').offset().top + 80
-    lessonDistance = $('#lesson').offset().top + 80
-    extensionDistance = $('#extension').offset().top + 80
-    lessonFinishedDistance = $('h1.finished').offset().top - 20
-    $window.scroll ->
-      if ($window.scrollTop() >= overviewDistance) && !($window.scrollTop() > lessonDistance)
-        $('.overview-sidebar').show()
+    $(window).on 'scroll', ->
+      scrollTop = $(this).scrollTop()
+      overviewDistance = $('#overview').offset().top - 10
+      if overviewDistance < scrollTop
         $('.lesson-sidebar').hide()
-      else if ($window.scrollTop() >= lessonDistance) && !($window.scrollTop() > extensionDistance)
+        $('.overview-sidebar').show()
+      return
+
+    $(window).on 'scroll', ->
+      scrollTop = $(this).scrollTop()
+      lessonDistance = $('#lesson').offset().top - 10
+      if lessonDistance < scrollTop
         $('.overview-sidebar').hide()
-        $('.lesson-sidebar').show()
         $('.extension-sidebar').hide()
-      else if ($window.scrollTop() > extensionDistance) && !($window.scrollTop() > lessonFinishedDistance)
+        $('.lesson-sidebar').show()
+      return
+
+    $(window).on 'scroll', ->
+      scrollTop = $(this).scrollTop()
+      extensionDistance = $('#extension').offset().top - 10
+      if extensionDistance < scrollTop
         $('.lesson-sidebar').hide()
         $('.extension-sidebar').show()
-      else
-        $('.overview-sidebar').hide()
-        $('.lesson-sidebar').hide()
+      return
+
+    $(window).on 'scroll', ->
+      scrollTop = $(this).scrollTop()
+      lessonFinishedDistance = $('h1.finished').offset().top - 10
+      if lessonFinishedDistance < scrollTop
         $('.extension-sidebar').hide()
       return
 
-    console.log(subHeadings[1])
+    # $(window).scroll ->
+    #   hT = $('#overview').offset().top - 200
+    #   hH = $('#overview').outerHeight()
+    #   wH = $(window).height()
+    #   wS = $(this).scrollTop()
+    #   if wS > hT + hH - wH
+    #     $('.overview-sidebar').show()
+    #   return
+
+    # overviewDistance = $('.overview-head').offset().top + 80
+    # lessonDistance = $('.lesson-head').offset().top + 80
+    # extensionDistance = $('.extension-head').offset().top + 80
+    # lessonFinishedDistance = $('h1.finished').offset().top - 20
+    # $window.scroll ->
+    #   if ($window.scrollTop() >= overviewDistance) && !($window.scrollTop() > lessonDistance)
+    #     $('.overview-sidebar').show()
+    #     $('.lesson-sidebar').hide()
+    #   else if ($window.scrollTop() >= lessonDistance) && !($window.scrollTop() > extensionDistance)
+    #     $('.overview-sidebar').hide()
+    #     $('.lesson-sidebar').show()
+    #     $('.extension-sidebar').hide()
+    #   else if ($window.scrollTop() > extensionDistance) && !($window.scrollTop() > lessonFinishedDistance)
+    #     $('.lesson-sidebar').hide()
+    #     $('.extension-sidebar').show()
+    #   else
+    #     $('.overview-sidebar').hide()
+    #     $('.lesson-sidebar').hide()
+    #     $('.extension-sidebar').hide()
+    #   return
 
 
 )(window.$ or window.jQuery or window.Zepto, window)
