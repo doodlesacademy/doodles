@@ -108,64 +108,22 @@
     $(window).on 'scroll', ->
       scrollTop = $(this).scrollTop()
       overviewDistance = $('#overview').offset().top - 10
+      lessonDistance = $('#lesson').offset().top - 10
+      extensionDistance = $('#extension').offset().top - 10
+      lessonFinishedDistance = $('h1.finished').offset().top - 10
       if overviewDistance < scrollTop
         $('.lesson-sidebar').hide()
         $('.overview-sidebar').show()
-      return
-
-    $(window).on 'scroll', ->
-      scrollTop = $(this).scrollTop()
-      lessonDistance = $('#lesson').offset().top - 10
       if lessonDistance < scrollTop
         $('.overview-sidebar').hide()
         $('.extension-sidebar').hide()
         $('.lesson-sidebar').show()
-      return
-
-    $(window).on 'scroll', ->
-      scrollTop = $(this).scrollTop()
-      extensionDistance = $('#extension').offset().top - 10
       if extensionDistance < scrollTop
         $('.lesson-sidebar').hide()
         $('.extension-sidebar').show()
-      return
-
-    $(window).on 'scroll', ->
-      scrollTop = $(this).scrollTop()
-      lessonFinishedDistance = $('h1.finished').offset().top - 10
       if lessonFinishedDistance < scrollTop
         $('.extension-sidebar').hide()
       return
-
-    # $(window).scroll ->
-    #   hT = $('#overview').offset().top - 200
-    #   hH = $('#overview').outerHeight()
-    #   wH = $(window).height()
-    #   wS = $(this).scrollTop()
-    #   if wS > hT + hH - wH
-    #     $('.overview-sidebar').show()
-    #   return
-
-    # overviewDistance = $('.overview-head').offset().top + 80
-    # lessonDistance = $('.lesson-head').offset().top + 80
-    # extensionDistance = $('.extension-head').offset().top + 80
-    # lessonFinishedDistance = $('h1.finished').offset().top - 20
-    # $window.scroll ->
-    #   if ($window.scrollTop() >= overviewDistance) && !($window.scrollTop() > lessonDistance)
-    #     $('.overview-sidebar').show()
-    #     $('.lesson-sidebar').hide()
-    #   else if ($window.scrollTop() >= lessonDistance) && !($window.scrollTop() > extensionDistance)
-    #     $('.overview-sidebar').hide()
-    #     $('.lesson-sidebar').show()
-    #     $('.extension-sidebar').hide()
-    #   else if ($window.scrollTop() > extensionDistance) && !($window.scrollTop() > lessonFinishedDistance)
-    #     $('.lesson-sidebar').hide()
-    #     $('.extension-sidebar').show()
-    #   else
-    #     $('.overview-sidebar').hide()
-    #     $('.lesson-sidebar').hide()
-    #     $('.extension-sidebar').hide()
-    #   return
 
 
 )(window.$ or window.jQuery or window.Zepto, window)
