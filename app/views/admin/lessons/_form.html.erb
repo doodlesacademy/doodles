@@ -54,11 +54,11 @@
     form: f,
     entity: @lesson,
     attribute: :inspiration_image,
-    label: "Inspiration Image" %>
+    label: "Header Image" %>
 
   <div class="field">
     <%= f.label :synopsis %>
-    <%= f.text_field :synopsis %>
+    <%= f.text_area :synopsis, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
@@ -139,18 +139,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :inspiration_image_title %>
+    <%= f.label 'Header Image Title, Artist, Year' %>
     <%= f.text_field :inspiration_image_title %>
    </div>
 
   <div class="field">
-    <%= f.label :inspiration_image_description %>
+    <%= f.label 'Header Image Description' %>
     <%= f.text_field :inspiration_image_description %>
   </div>
 
   <div class="field">
     <%= f.label :video_uri, "Video URL" %>
     <%= f.text_field :video_uri %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">

@@ -34,6 +34,7 @@
 
   li {
     margin-left: 20px;
+    font-size: 16px;
 
     &:last-child {
       margin-bottom: 20px;
@@ -117,6 +118,13 @@
     margin-bottom: 20px;
   }
 
+  #additional-synopsis, #synopsis p {
+
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 20px;
+  }
+
 }
 
 .insp-img-wrapper {
@@ -177,6 +185,5 @@ a.modal-insp:hover {
 .project-wrapper, .lesson-wrapper {
   .pdf-indent {
     margin-top: -10px;
-    font-size: 85%;
   }
 }
