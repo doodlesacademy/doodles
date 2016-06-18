@@ -1,5 +1,14 @@
 <div class='lesson-wrapper'>
 
+    <div id="lesson-sidebar">
+      <div id='lesson-map-sidebar' hidden>
+        <p id='lesson-map'>Lesson <%= @lesson.order + 1 %></p>
+        <p id='backToTop'><a href="#top">Back To Top</a></p>
+      </div>
+    </div>
+
+    <div id='lesson-main'>
+
     <div>
       <h1 class='lesson-title'><%= @lesson.title %></h1>
     </div>
@@ -18,10 +27,6 @@
       </div>
     </div>
     <% end %>
-
-    <blockquote class="backdrop toc lessons-toc">
-      <p class="toc-title">Lesson Map</p>
-    </blockquote>
 
     <hr />
     <div id="overview">
@@ -213,5 +218,6 @@
     <% end %>
     </p>
 
+  </div>
 
 </div>

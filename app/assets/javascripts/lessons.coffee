@@ -64,14 +64,15 @@
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
   numOfh1 = $('.heading').size()
-  arrowsToRemove = []
+  lessonHeadings = []
+  lessonSubheadings = [];
   n = 0
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
     headingClass = $(mainHeading).text()
+    lessonHeadings.push(headingClass.toLowerCase())
     headToc = '.' + headingClass.toLowerCase() + '-toc'
-    $('.lessons-toc').append('<div class=' + headingClass.toLowerCase() + '-toc' + '><h3>' + headingClass + ': </h3></div>')
-
+    $('#backToTop').before('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
     a = 0
@@ -81,9 +82,9 @@
       if headingClass == 'Lesson'
         y = aText.indexOf(',') + 2
         aText = aText.substring(y, aText.length)
-        aTextFinal = toTitleCase((a + 1) + " " + aText)
-      else
         aTextFinal = toTitleCase(aText)
+      else
+      aTextFinal = toTitleCase(aText)
       if aTextFinal.indexOf('/') != -1
         s = aTextFinal.indexOf('/') + 1
         beforeSlash = aTextFinal.slice(0, s)
@@ -91,14 +92,47 @@
         aTextFinal = beforeSlash + afterSlash
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
-      $(headToc).append ' <a href=' + aLink + '>' + aTextFinal + '</a> <span> > </span> '
+      idText = aTextFinal.replace(' ', '-')
+      idText = idText.replace('/', '-')
+      lessonSubheadings.push('#' + idText.toLowerCase())
+      $(headToc).append '<p id="' + idText.toLowerCase() + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
       a++
-    arrowsToRemove.push('div' + headToc + ' span:last-child')
-    r = 0
-    while r < arrowsToRemove.length
-      $(arrowsToRemove[r]).remove()
-      r++
     n++
+
+    $(window).on 'scroll', ->
+      scrollTop = $(this).scrollTop()
+      $distance = $('.lesson-title').offset().top - 90
+      overviewDistance = $('#overview').offset().top - 10
+      lessonDistance = $('#lesson').offset().top - 10
+      extensionDistance = $('#extension').offset().top - 10
+      lessonFinishedDistance = $('h1.finished').offset().top - 10
+      if $distance < scrollTop
+        $('.overview-sidebar').hide()
+        $('#lesson-map-sidebar').show()
+      else
+        $('#lesson-map-sidebar').hide()
+      if overviewDistance < scrollTop
+        $('.lesson-sidebar').hide()
+        $('.overview-sidebar').show()
+      if lessonDistance < scrollTop
+        $('.overview-sidebar').hide()
+        $('.extension-sidebar').hide()
+        $('.lesson-sidebar').show()
+      if extensionDistance < scrollTop
+        $('.lesson-sidebar').hide()
+        $('.extension-sidebar').show()
+      if lessonFinishedDistance < scrollTop
+        $('.extension-sidebar').hide()
+      o = 0
+      while o < lessonSubheadings.length
+        if $(lessonSubheadings[o]).offset().top - 10 < scrollTop
+          $(lessonSubheadings[o + 1] + '-sidebar').removeClass 'atTop'
+          $(lessonSubheadings[o - 1] + '-sidebar').removeClass 'atTop'
+          $(lessonSubheadings[o] + '-sidebar').addClass 'atTop'
+        o++
+      return
+
+
 
 
 )(window.$ or window.jQuery or window.Zepto, window)

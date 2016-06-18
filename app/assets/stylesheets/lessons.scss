@@ -118,11 +118,12 @@
     margin-bottom: 20px;
   }
 
-  #additional-synopsis, #synopsis p {
-
-    font-size: 16px;
-    color: gray;
-    margin-bottom: 20px;
+  #synopsis {
+    p {
+      font-size: 16px;
+      color: gray;
+      margin-bottom: 20px;
+    }
   }
 
 }
@@ -186,4 +187,78 @@ a.modal-insp:hover {
   .pdf-indent {
     margin-top: -10px;
   }
+}
+
+
+.lesson-wrapper {
+  display: inline-block;
+}
+
+#lesson-main {
+  width: 75%;
+  float: right;
+}
+
+#lesson-sidebar {
+  float: left;
+
+  // blockquote {
+    // font-style: normal;
+    // padding-bottom: 45px;
+
+  div {
+    position: fixed;
+    top: 14%;
+    // left: 9%;
+    color: #767676;
+
+    #lesson-map {
+      margin-left: 15px;
+      // margin-left: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-left: 20px;
+      // margin-left: 10px;
+      display: flex;
+      margin-bottom: -15px;
+
+      p {
+        margin-left: 10px;
+        a {
+          color: gray;
+          text-decoration: none;
+
+          &:hover {
+            color: #8DC5E6;
+            padding-left: 2px;
+            margin-left: -3px;
+            border-left: 1px solid gray;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    a {
+      color: #8DC5E6;
+    }
+
+    #backToTop {
+      margin-top: 20px;
+      margin-left: 15px;
+      // margin-left: 5px;
+    }
+
+  }
+}
+
+.atTop a {
+  padding-left: 2px;
+  margin-left: -4px;
+  border-left: 2px solid gray;
 }
