@@ -194,22 +194,26 @@ a.modal-insp:hover {
   // width: 10%;
   float: left;
 
-  // blockquote {
-  div {
+  blockquote {
+    font-style: normal;
+    padding-bottom: 45px;
+
+  // div {
     position: fixed;
     top: 14%;
-    left: 10%;
+    // left: 10%
+    left: 9%;
     color: #767676;
-    // font-style: normal;
-    // padding-bottom: 40px;
 
     #lesson-map {
-      margin-left: 15px;
+      // margin-left: 15px;
+      margin-left: 5px;
     }
 
     p {
       font-size: 14px;
-      margin-left: 20px;
+      // margin-left: 20px;
+      margin-left: 10px;
       display: flex;
       margin-bottom: -15px;
 
@@ -239,14 +243,15 @@ a.modal-insp:hover {
 
     #backToTop {
       margin-top: 20px;
-      margin-left: 15px;
+      // margin-left: 15px;
+      margin-left: 5px;
     }
 
   }
 }
 
-.atTop {
+.atTop a {
   padding-left: 2px;
-  border-left: 2px solid gray;
   margin-left: -4px;
+  border-left: 2px solid gray;
 }

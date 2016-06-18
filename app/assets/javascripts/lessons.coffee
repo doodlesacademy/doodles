@@ -65,6 +65,7 @@
 
   numOfh1 = $('.heading').size()
   lessonHeadings = []
+  lessonSubheadings = [];
   n = 0
   while n < numOfh1
     mainHeading = $('h1.heading').get(n)
@@ -92,6 +93,8 @@
       aLink = '#' + aText.replace(/\s+/g, '-').toLowerCase()
       aLink = aLink.replace('/', '-')
       idText = aTextFinal.replace(' ', '-')
+      idText = idText.replace('/', '-')
+      lessonSubheadings.push('#' + idText.toLowerCase())
       $(headToc).append '<p id="' + idText.toLowerCase() + '-sidebar" ><a href=' + aLink + ' class="' + headingClass.toLowerCase() + '-sidebar" hidden >' + aTextFinal + '</a></p>'
       a++
     n++
@@ -111,16 +114,6 @@
       if overviewDistance < scrollTop
         $('.lesson-sidebar').hide()
         $('.overview-sidebar').show()
-        numOverviewSidebar = $('.overview-sidebar').size()
-        o = 0
-        while o < numOverviewSidebar
-          thisO = $('.overview-sidebar').get(o)
-          oText = $(thisO).text()
-          console.log oText
-          # create a distance variable for each o
-          # if xDistance < scrollTop
-          # addClass('atTop') to that element
-          o++
       if lessonDistance < scrollTop
         $('.overview-sidebar').hide()
         $('.extension-sidebar').hide()
@@ -130,7 +123,16 @@
         $('.extension-sidebar').show()
       if lessonFinishedDistance < scrollTop
         $('.extension-sidebar').hide()
+      o = 0
+      while o < lessonSubheadings.length
+        if $(lessonSubheadings[o]).offset().top < scrollTop
+          $(lessonSubheadings[o + 1] + '-sidebar').removeClass 'atTop'
+          $(lessonSubheadings[o - 1] + '-sidebar').removeClass 'atTop'
+          $(lessonSubheadings[o] + '-sidebar').addClass 'atTop'
+        o++
       return
+
+
 
 
 )(window.$ or window.jQuery or window.Zepto, window)
