@@ -101,7 +101,7 @@
 
     $(window).on 'scroll', ->
       scrollTop = $(this).scrollTop()
-      $distance = $('.lesson-title').offset().top - 90
+      $distance = $('.lesson-title').offset().top - 150
       overviewDistance = $('#overview').offset().top - 10
       lessonDistance = $('#lesson').offset().top - 10
       extensionDistance = $('#extension').offset().top - 10
@@ -123,6 +123,7 @@
         $('.extension-sidebar').show()
       if lessonFinishedDistance < scrollTop
         $('.extension-sidebar').hide()
+        $('#lesson-map-sidebar').hide()
       o = 0
       while o < lessonSubheadings.length
         if $(lessonSubheadings[o]).offset().top - 10 < scrollTop
