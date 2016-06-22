@@ -79,7 +79,7 @@
     while a < numHead
       thisA = $(thisHead).get(a)
       aText = $(thisA).text()
-      if headingClass == 'Lesson'
+      if aText.indexOf(',') != -1
         y = aText.indexOf(',') + 2
         aText = aText.substring(y, aText.length)
         aTextFinal = toTitleCase(aText)
