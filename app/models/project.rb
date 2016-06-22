@@ -29,23 +29,22 @@ class Project < ActiveRecord::Base
 
   has_attached_file :first_photocopy,
     default_url: ""
-  validates_attachment_content_type :first_photocopy, content_type: ["application/pdf"]
+  validates_attachment_content_type :first_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
 
   has_attached_file :second_photocopy,
     default_url: ""
-  validates_attachment_content_type :second_photocopy, content_type: ["application/pdf"]
-
+  validates_attachment_content_type :second_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
   has_attached_file :third_photocopy,
     default_url: ""
-  validates_attachment_content_type :third_photocopy, content_type: ["application/pdf"]
+  validates_attachment_content_type :third_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
 
   has_attached_file :fourth_photocopy,
     default_url: ""
-  validates_attachment_content_type :fourth_photocopy, content_type: ["application/pdf"]
+  validates_attachment_content_type :fourth_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
 
   has_attached_file :fifth_photocopy,
     default_url: ""
-  validates_attachment_content_type :fifth_photocopy, content_type: ["application/pdf"]
+  validates_attachment_content_type :fifth_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
 
   def standards
     self.standard.section_contents
