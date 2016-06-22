@@ -165,8 +165,31 @@
 
       <% if @lesson.additional_worktime.present? %>
         <div class='anchor' id='additional-worktime'>
-          <h2 class="lesson-heading">additional worktime</h2>
-          <p><%= @lesson.additional_worktime %></p>
+          <h2 class="lesson-heading">
+          <% if @lesson.additional_worktime_time.present? %>
+            <%= @lesson.additional_worktime_time %>, additional worktime</h2>
+          <% else %>
+            20-25m, additional worktime</h2>
+          <% end %>
+
+        <% if @lesson.additional_independent_worktime.present? %>
+          <div>
+            <h3>independent</h3>
+            <p><%= @lesson.additional_independent_worktime %></p>
+            <h3><%= @lesson.additional_worktime_focus %></h3>
+            <p><%= @lesson.additional_worktime %></p>
+          </div>
+        <% elsif @lesson.additional_group_worktime.present? %>
+          <div>
+            <h3>group</h3>
+            <p><%= @lesson.additional_group_worktime %></p>
+            <h3><%= @lesson.additional_worktime_focus %></h3>
+            <p><%= @lesson.additional_worktime %></p>
+          </div>
+        <% else %>
+            <h3><%= @lesson.additional_worktime_focus %></h3>
+            <p><%= @lesson.additional_worktime %></p>
+        <% end %>
         </div>
       <% end %>
 
