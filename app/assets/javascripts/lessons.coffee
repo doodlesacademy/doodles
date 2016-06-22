@@ -101,7 +101,8 @@
 
     $(window).on 'scroll', ->
       scrollTop = $(this).scrollTop()
-      $distance = $('.lesson-title').offset().top - 150
+      # below will change to "- 150" when I add persistent menu to projects
+      $distance = $('.lesson-title').offset().top - 110
       overviewDistance = $('#overview').offset().top - 10
       lessonDistance = $('#lesson').offset().top - 10
       extensionDistance = $('#extension').offset().top - 10

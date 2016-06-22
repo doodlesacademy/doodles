@@ -3,7 +3,7 @@
   <% if @project.featured_artist_image.present? %>
     <div class="featured-artist">
       <div class="row">
-        <div class="example col-md-14 vcenter" id="example">
+        <div class="example col-md-12 vcenter" id="example">
           <div class="student-image">
             <%= image_tag @project.featured_artist_image.url(:medium) %>
           </div>
@@ -12,7 +12,7 @@
           </div>
           <div class="superhero-quote">
             <p class='featured-artist-attribution'><%= @project.featured_artist_image_title %></p>
-            <%= @project.featured_artist_description %>
+            <p class='featured-artist-attribution'><%= @project.featured_artist_description %></p>
             <p class='featured-artist-attribution'>-<%= @project.featured_artist_name %></p>
           </div>
         </div>
