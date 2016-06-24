@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613011304) do
+ActiveRecord::Schema.define(version: 20160622114647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,13 +76,13 @@ ActiveRecord::Schema.define(version: 20160613011304) do
   create_table "lessons", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "title"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "video_uri"
     t.string   "slug"
     t.string   "inspiration_image"
     t.text     "inspiration_image_description"
-    t.integer  "status",                         default: 0
+    t.integer  "status",                          default: 0
     t.string   "inspiration_image_file_name"
     t.string   "inspiration_image_content_type"
     t.integer  "inspiration_image_file_size"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20160613011304) do
     t.string   "overview_content_type"
     t.integer  "overview_file_size"
     t.datetime "overview_updated_at"
-    t.integer  "order",                          default: 1
+    t.integer  "order",                           default: 1
     t.string   "example_image_file_name"
     t.string   "example_image_content_type"
     t.integer  "example_image_file_size"
@@ -128,6 +128,13 @@ ActiveRecord::Schema.define(version: 20160613011304) do
     t.text     "check_for_understanding"
     t.text     "independent_worktime"
     t.text     "group_worktime"
+    t.text     "intro_time"
+    t.text     "worktime_time"
+    t.text     "instructions"
+    t.text     "additional_independent_worktime"
+    t.text     "additional_group_worktime"
+    t.text     "additional_worktime_time"
+    t.text     "additional_worktime_focus"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -243,6 +250,17 @@ ActiveRecord::Schema.define(version: 20160613011304) do
     t.text     "third_photocopy_header"
     t.text     "featured_artist_name"
     t.integer  "status",                             default: 0
+    t.text     "featured_artist_image_title"
+    t.text     "fourth_photocopy_header"
+    t.text     "fifth_photocopy_header"
+    t.string   "fourth_photocopy_file_name"
+    t.string   "fourth_photocopy_content_type"
+    t.integer  "fourth_photocopy_file_size"
+    t.datetime "fourth_photocopy_updated_at"
+    t.string   "fifth_photocopy_file_name"
+    t.string   "fifth_photocopy_content_type"
+    t.integer  "fifth_photocopy_file_size"
+    t.datetime "fifth_photocopy_updated_at"
   end
 
   create_table "sections", force: :cascade do |t|

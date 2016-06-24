@@ -55,11 +55,12 @@ class Admin::ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(
-        :overview, :featured_artist_name, :synopsis, :materials, :materials_suggestion,
-        :books_media, :photocopy, :first_photocopy_header, :first_photocopy, :second_photocopy,
-        :second_photocopy_header, :third_photocopy, :third_photocopy_header, :photocopy_copyright,
-        :common_core, :national_core, :art_elements, :art_principles, :cross_curricular,
-        :inspiration_image, :featured_artist_image, :featured_artist_description,
+        :overview, :featured_artist_name, :featured_artist_image_title, :synopsis, :materials,
+        :materials_suggestion, :books_media, :photocopy, :first_photocopy_header, :first_photocopy,
+        :second_photocopy, :second_photocopy_header, :third_photocopy, :third_photocopy_header,
+        :fourth_photocopy, :fourth_photocopy_header, :fifth_photocopy, :fifth_photocopy_header,
+        :photocopy_copyright, :common_core, :national_core, :art_elements, :art_principles,
+        :cross_curricular, :inspiration_image, :featured_artist_image, :featured_artist_description,
         sections_attributes: [:id, :order, :content], :status
       )
     end

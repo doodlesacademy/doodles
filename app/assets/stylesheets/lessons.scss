@@ -32,6 +32,19 @@
     font-weight: 400;
   }
 
+  li {
+    margin-left: 20px;
+    font-size: 1.2em;
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      margin-top: -10px;
+    }
+  }
+
   hr {
       color: #333333;
   }
@@ -56,7 +69,7 @@
     margin: -10px 0 0 0;
 
     li {
-      margin-left: 30px;
+      margin-left: 20px;
 
       &:last-child {
         margin-bottom: 30px;
@@ -66,10 +79,16 @@
 
   .collapsible {
     div {
-      margin: 25px 0;
+      margin: 25px -20px;
 
-      .glyphicon-plus {
-        margin-left:20px;
+      h2.collapsible-heading, h3.collapsible-heading {
+        background-color: #F1F7F7;
+        padding: 15px 20px;
+      }
+
+      h2.collapsible-plus, h3.collapsible-plus {
+        float: right;
+        font-size: 200%;
       }
     }
   }
@@ -99,6 +118,14 @@
     margin-bottom: 20px;
   }
 
+  #synopsis {
+    p {
+      font-size: 16px;
+      color: gray;
+      margin-bottom: 20px;
+    }
+  }
+
 }
 
 .insp-img-wrapper {
@@ -112,19 +139,25 @@
 .insp-img-wrapper {
   position: relative;
 
-  .glyphicon-zoom-in {
+  .insp-img-glyph {
       visibility: hidden;
       color: #F1F7F7;
-      font-size: 150%;
+      font-size: 200%;
+      font-style: normal;
       position: absolute;
-      top: 35px;
+      top: 37px;
       left: 480px;
+
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
   }
 }
 
 a.modal-insp:hover {
-  .glyphicon-zoom-in {
-      visibility: visible;
+
+  .insp-img-glyph {
+    visibility: visible;
   }
 }
 
@@ -137,11 +170,6 @@ a.modal-insp:hover {
     font-size: 14px;
     text-transform: none;
     font-weight: bold;
-  }
-
-  .pdf-indent {
-    margin-left: 10px;
-    font-size: 80%;
   }
 }
 
@@ -157,16 +185,80 @@ a.modal-insp:hover {
 
 .project-wrapper, .lesson-wrapper {
   .pdf-indent {
-    margin-left: 10px;
     margin-top: -10px;
-    font-size: 85%;
   }
 }
 
-.collapsed li {
-  margin-left: 20px;
 
-  &:last-child {
-    margin-bottom: 20px;
+.lesson-wrapper {
+  display: inline-block;
+}
+
+#lesson-main {
+  width: 75%;
+  float: right;
+}
+
+#lesson-sidebar {
+  float: left;
+
+  // blockquote {
+    // font-style: normal;
+    // padding-bottom: 45px;
+
+  div {
+    position: fixed;
+    top: 14%;
+    // left: 9%;
+    color: #767676;
+
+    #lesson-map {
+      margin-left: 15px;
+      // margin-left: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-left: 20px;
+      // margin-left: 10px;
+      display: flex;
+      margin-bottom: -15px;
+
+      p {
+        margin-left: 10px;
+        a {
+          color: gray;
+          text-decoration: none;
+
+          &:hover {
+            color: #8DC5E6;
+            padding-left: 2px;
+            margin-left: -3px;
+            border-left: 1px solid gray;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    a {
+      color: #8DC5E6;
+    }
+
+    #backToTop {
+      margin-top: 20px;
+      margin-left: 15px;
+      // margin-left: 5px;
+    }
+
   }
+}
+
+.atTop a {
+  padding-left: 4px;
+  margin-left: -6px;
+  border-left: 2px solid gray;
 }

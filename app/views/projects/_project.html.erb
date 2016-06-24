@@ -3,7 +3,7 @@
   <% if @project.featured_artist_image.present? %>
     <div class="featured-artist">
       <div class="row">
-        <div class="example col-md-9 vcenter" id="example">
+        <div class="example col-md-12 vcenter" id="example">
           <div class="student-image">
             <%= image_tag @project.featured_artist_image.url(:medium) %>
           </div>
@@ -11,8 +11,9 @@
             STUDENT EXAMPLE
           </div>
           <div class="superhero-quote">
-            <%= @project.featured_artist_description %>
-            -<%= @project.featured_artist_name %>
+            <p class='featured-artist-attribution'><%= @project.featured_artist_image_title %></p>
+            <p class='featured-artist-attribution'><%= @project.featured_artist_description %></p>
+            <p class='featured-artist-attribution'>-<%= @project.featured_artist_name %></p>
           </div>
         </div>
       </div>
@@ -30,6 +31,13 @@
 
   <h1>Setup At A Glance</h1>
   <div>
+    <h2 id='project-lesson-plan'>Lesson Plan</h2>
+    <% if @project.overview.present? %>
+      <p><%= link_to @project.overview_file_name, @project.overview.url %></p>
+    <% else %>
+      <p><%= "N/A" %></p>
+    <% end %>
+
     <h2 id='project-materials'>materials</h2>
     <p><%= @project.materials %></p>
     <div class="project-indent">
@@ -55,7 +63,18 @@
         <p><%= @project.third_photocopy_header %></p>
         <p class="pdf-indent"><%= link_to @project.third_photocopy_file_name, @project.third_photocopy.url %></p>
       <% end %>
-      <p><small><%= @project.photocopy_copyright %></small></p>
+      <% if @project.fourth_photocopy.present? %>
+        <p><%= @project.fourth_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @project.fourth_photocopy_file_name, @project.fourth_photocopy.url %></p>
+      <% end %>
+      <% if @project.fifth_photocopy.present? %>
+        <p><%= @project.fifth_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @project.fifth_photocopy_file_name, @project.fifth_photocopy.url %></p>
+      <% end %>
+      <% if @project.photocopy_copyright.present? %>
+        <small><%= @project.photocopy_copyright %></small>
+        <br>
+      <% end %>
       <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
     </div>
   </div>
@@ -67,7 +86,7 @@
     <% if @project.common_core.present? %>
       <a><div class='collapsible' id='project-common-core'>
         <div>
-          <h2>common core<span class="glyphicon glyphicon-plus"></span></h2>
+          <h2 class="collapsible-heading">common core<span><h2 class="collapsible-plus">+</h2></span></h2>
         </div>
       </div></a>
       <div class='project-common-core-collapsed collapsed' hidden>
@@ -78,7 +97,7 @@
     <% if @project.national_core.present?  %>
       <a><div class='collapsible' id='project-national-core'>
         <div>
-          <h2>national core visual art standards<span class="glyphicon glyphicon-plus"></span></h2>
+          <h2 class="collapsible-heading">national core visual arts standards<span><h2 class="collapsible-plus">+</h2></span></h2>
         </div>
       </div></a>
       <div class='project-national-core-collapsed collapsed' hidden>
@@ -86,14 +105,21 @@
       </div>
     <% end %>
 
-    <h2 id='project-art-elements'>art elements</h2>
-    <p><%= @project.art_elements %></p>
+    <a><div class='collapsible' id='project-foundations'>
+      <div>
+        <h2 class="collapsible-heading">foundations<span><h2 class="collapsible-plus">+</h2></span></h2>
+      </div>
+    </div></a>
+    <div class='project-foundations-collapsed collapsed' hidden>
+      <h2 id='project-art-elements'>art elements</h2>
+      <p><%= @project.art_elements %></p>
 
-    <h2 id='project-art-princples'>art princples</h2>
-    <p><%= @project.art_principles %></p>
+      <h2 id='project-art-princples'>art principles</h2>
+      <p><%= @project.art_principles %></p>
 
-    <h2 id='project-cross-curricular'>cross curricular</h2>
-    <p><%= @project.cross_curricular %></p>
+      <h2 id='project-cross-curricular'>cross curricular</h2>
+      <p><%= @project.cross_curricular %></p>
+    </div>
   </div>
 
 </div>

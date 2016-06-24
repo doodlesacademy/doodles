@@ -60,12 +60,12 @@
 
   <div class="field">
     <%= f.label :synopsis %>
-    <%= f.text_field :synopsis %>
+    <%= f.text_area :synopsis, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label :objective %>
-    <%= f.text_field :objective %>
+    <%= f.text_area :objective, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
@@ -126,6 +126,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :intro_time %>
+    <%= f.text_field :intro_time %>
+  </div>
+
+  <div class="field">
     <%= f.label :pre_work_heading %>
     <%= f.text_field :pre_work_heading %>
   </div>
@@ -136,18 +141,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :inspiration_image_title %>
+    <%= f.label 'Header Image Title, Artist, Year' %>
     <%= f.text_field :inspiration_image_title %>
    </div>
 
   <div class="field">
-    <%= f.label :inspiration_image_description %>
+    <%= f.label 'Header Image Description' %>
     <%= f.text_field :inspiration_image_description %>
   </div>
 
   <div class="field">
     <%= f.label :video_uri, "Video URL" %>
     <%= f.text_field :video_uri %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
@@ -166,6 +176,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :worktime_time %>
+    <%= f.text_field :worktime_time %>
+  </div>
+
+  <div class="field">
     <%= f.label :worktime_focus %>
     <%= f.text_field :worktime_focus %>
   </div>
@@ -176,18 +191,38 @@
   </div>
 
   <div class="field">
+    <%= f.label :additional_independent_worktime %>
+    <%= f.text_field :additional_independent_worktime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_group_worktime %>
+    <%= f.text_field :additional_group_worktime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_worktime_focus %>
+    <%= f.text_field :additional_worktime_focus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_worktime_time %>
+    <%= f.text_field :additional_worktime_time %>
+  </div>
+
+  <div class="field">
     <%= f.label :additional_worktime %>
     <%= f.text_field :additional_worktime %>
   </div>
 
   <div class="field">
     <%= f.label :clean_up %>
-    <%= f.text_field :clean_up %>
+    <%= f.text_area :clean_up, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label :anticipated_problems %>
-    <%= f.text_field :anticipated_problems %>
+    <%= f.text_area :anticipated_problems, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
