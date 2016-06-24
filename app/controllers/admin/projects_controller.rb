@@ -59,9 +59,9 @@ class Admin::ProjectsController < ApplicationController
         :materials_suggestion, :books_media, :photocopy, :first_photocopy_header, :first_photocopy,
         :second_photocopy, :second_photocopy_header, :third_photocopy, :third_photocopy_header,
         :fourth_photocopy, :fourth_photocopy_header, :fifth_photocopy, :fifth_photocopy_header,
-        :photocopy_copyright, :common_core, :national_core, :art_elements, :art_principles,
+        :photocopy_copyright, :common_core, :national_core, :art_elements, :art_principles, :status,
         :cross_curricular, :inspiration_image, :featured_artist_image, :featured_artist_description,
-        sections_attributes: [:id, :order, :content], :status
+        sections_attributes: [:id, :order, :content]
       )
     end
 end

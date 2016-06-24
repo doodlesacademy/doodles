@@ -69,12 +69,12 @@ class Admin::LessonsController < ApplicationController
         :materials, :first_photocopy, :first_photocopy_header, :second_photocopy,
         :second_photocopy_header, :third_photocopy, :third_photocopy_header, :media,
         :example_image, :intro_time, :inspiration_image, :inspiration_image_title,
-        :inspiration_image_description, :check_for_understanding, :instructions,
+        :inspiration_image_description, :check_for_understanding, :instructions, :status,
         :video_name, :video_uri, :pre_work_heading, :pre_work, :independent_worktime,
         :group_worktime, :worktime, :worktime_time, :worktime_focus, :additional_worktime,
         :additional_independent_worktime, :additional_group_worktime, :additional_worktime_focus,
         :additional_worktime_time, :clean_up, :anticipated_problems, :early_finishers,
-        sections_attributes: [:id, :order, :content], :status
+        sections_attributes: [:id, :order, :content]
       )
     end
 end
