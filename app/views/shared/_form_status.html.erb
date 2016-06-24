@@ -1,4 +1,4 @@
 <div class="form-group">
   <%= form.label :status, 'Status' %>
-  <%= form.input :status, as: :select, collection: entity.class.statuses.keys.to_a %>
+  <%= form.select :status, entity.class.statuses.keys %>
 </div>
