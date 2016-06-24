@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   include Slugable
   include Draftable
-  default_scope { where(status: Page.statuses[:publish]) }
+  default_scope { where(status: Page.statuses[:published]) }
   
   has_attached_file :hero_image, 
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }, 

@@ -28,6 +28,8 @@
   </div>
   <% end %>
 
+  <%= render "shared/form_status", form: f, entity: @lesson %>
+
   <div class="field">
     <%= f.label :order %>
     <%= f.text_field :order %>

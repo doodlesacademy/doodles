@@ -12,11 +12,11 @@ class LessonsController < ApplicationController
   private
 
   def set_lesson
-    @project_set = ProjectSet.find_by_slug(params[:project_slug])
+    @project_set = ProjectSet.published.find_by_slug(params[:project_slug])
     redirect_to projects_path unless @project_set.present?
     @project = @project_set.get_project(level: @academy)
     redirect_to projects_path unless @project.present?
-    @lesson = @project.lessons.find_by_slug(params[:slug])
+    @lesson = @project.lessons.published.find_by_slug(params[:slug])
     redirect_to_project unless @lesson.present?
   end
 

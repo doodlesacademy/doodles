@@ -1,5 +1,6 @@
 class ProjectSet < ActiveRecord::Base
   include Slugable
+  include Draftable
 
   has_many :projects, dependent: :destroy
   has_one :gallery, dependent: :destroy
@@ -24,7 +25,7 @@ class ProjectSet < ActiveRecord::Base
   def get_project(level: :lower)
     level = level.to_sym
     return unless [:upper, :lower].include? level
-    self.projects.find_by_level(Project.levels[level])
+    self.projects.published.find_by_level(Project.levels[level])
   end
 
   private
@@ -32,6 +33,4 @@ class ProjectSet < ActiveRecord::Base
     Project.create(project_set: self, level: "upper")
     Project.create(project_set: self, level: "lower")
   end
-
-  
 end
