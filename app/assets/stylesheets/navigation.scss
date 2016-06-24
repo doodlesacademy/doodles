@@ -41,12 +41,13 @@
       width: auto;
     }
     @include ease;
+    margin-left: -100px;
   }
 
   .nav-menu {
     list-style-type: none;
     list-style: none;
-    margin-left: 50px;
+    margin-left: 100px;
 
     li {
       display: inline-block;

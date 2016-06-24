@@ -72,7 +72,7 @@
     headingClass = $(mainHeading).text()
     lessonHeadings.push(headingClass.toLowerCase())
     headToc = '.' + headingClass.toLowerCase() + '-toc'
-    $('#backToTop').before('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
+    $('#lesson-map').append('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
     numHead = $(thisHead).size()
     a = 0

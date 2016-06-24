@@ -195,7 +195,7 @@ a.modal-insp:hover {
 }
 
 #lesson-main {
-  width: 75%;
+  width: 82%;
   float: right;
 }
 
@@ -213,14 +213,16 @@ a.modal-insp:hover {
     color: #767676;
 
     #lesson-map {
-      margin-left: 15px;
+      // margin-left: 15px;
+      margin-left: -60px;
       // margin-left: 5px;
     }
 
     p {
       font-size: 14px;
-      margin-left: 20px;
+      // margin-left: 20px;
       // margin-left: 10px;
+      margin-left: -60px;
       display: flex;
       margin-bottom: -15px;
 
@@ -246,12 +248,6 @@ a.modal-insp:hover {
 
     a {
       color: #8DC5E6;
-    }
-
-    #backToTop {
-      margin-top: 20px;
-      margin-left: 15px;
-      // margin-left: 5px;
     }
 
   }
