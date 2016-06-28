@@ -134,6 +134,10 @@
         o++
       return
 
+    $('#lesson-sidebar div p p a').click ->
+      $('p.atTop').removeClass 'atTop'
+      return
+
 
 
 
