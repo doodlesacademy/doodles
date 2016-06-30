@@ -259,3 +259,11 @@ a.modal-insp:hover {
   margin-left: -6px;
   border-left: 2px solid gray;
 }
+
+@media (max-width: 640px)
+{
+    #mySlider
+    {
+        display: none;
+    }
+}
