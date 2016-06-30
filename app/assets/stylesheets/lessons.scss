@@ -266,8 +266,7 @@ a.modal-insp:hover {
 //   }
 // }
 
-@media only screen and (max-width: 600px)
-and (-webkit-min-device-pixel-ratio: 0) {
+@media screen and (max-device-width: 600px) {
   #lesson-sidebar {
     visibility: hidden;
     display: none;
