@@ -89,6 +89,8 @@
     width: 100px;
     @include nav-menu-font;
     font-size: 1em;
-    padding: 6px 9px;
+    padding: 5px 9px 6px 9px;
+    margin-bottom: 3px;
+    margin-left: -20px;
   }
 }
