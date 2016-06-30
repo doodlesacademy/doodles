@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20160622114647) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "worktime_focus"
     t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
-    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -249,7 +249,6 @@ ActiveRecord::Schema.define(version: 20160622114647) do
     t.text     "second_photocopy_header"
     t.text     "third_photocopy_header"
     t.text     "featured_artist_name"
-    t.integer  "status",                             default: 0
     t.text     "featured_artist_image_title"
     t.text     "fourth_photocopy_header"
     t.text     "fifth_photocopy_header"
@@ -261,6 +260,7 @@ ActiveRecord::Schema.define(version: 20160622114647) do
     t.string   "fifth_photocopy_content_type"
     t.integer  "fifth_photocopy_file_size"
     t.datetime "fifth_photocopy_updated_at"
+    t.integer  "status",                             default: 0
   end
 
   create_table "sections", force: :cascade do |t|

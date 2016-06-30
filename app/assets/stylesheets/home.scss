@@ -341,3 +341,13 @@ $error-highlight: lighten($primary-red, 15%);
      color: $active-purple;
   }
 }
+
+.homepage {
+  border-top: 5px solid $primary-blue;
+}
+
+h2.high-q {
+  color: $primary-blue;
+  font-weight: 800;
+  font-size: 42px;
+}
