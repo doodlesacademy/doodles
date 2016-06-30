@@ -275,12 +275,17 @@ a.modal-insp:hover {
     }
     .doodles-nav {
       margin-left: 50px;
+
     }
     span.nav-donate-btn {
       margin-left: -60px;
     }
     .nav-menu {
       margin-left: 40px;
+
+      li {
+        padding: 0 20px;
+      }
     }
   }
 }
