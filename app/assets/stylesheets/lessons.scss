@@ -260,12 +260,6 @@ a.modal-insp:hover {
   border-left: 2px solid gray;
 }
 
-// @media (max-width: 640px) {
-//   #lesson-sidebar {
-//     display: none;
-//   }
-// }
-
 @media screen and (max-device-width: 600px) {
   #lesson-sidebar {
     visibility: hidden;
