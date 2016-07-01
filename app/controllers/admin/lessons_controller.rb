@@ -59,7 +59,7 @@ class Admin::LessonsController < ApplicationController
     def set_project
       @project_set = ProjectSet.find_by_slug params[:project_slug]
       @project = @project_set.get_project level: params[:project_level].to_sym
-      params[:lesson][:project_id] = @project.id
+      params[:lesson][:project_id] = @project&.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
