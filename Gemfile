@@ -16,7 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'unicorn'
+gem 'puma'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
