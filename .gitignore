@@ -57,3 +57,6 @@ node_modules/*
 /config/application.yml
 .byebug_history
 *.dump
+
+# <alex> I use this file locally for a personal task list...
+TODO.md
