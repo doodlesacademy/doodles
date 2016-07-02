@@ -16,8 +16,8 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.project.title %></td>
-        <td><%= lesson.project.academy %></td>
+        <td><%= lesson.project.present? ? lesson.project.title : "" %></td>
+        <td><%= lesson.project.present? ? lesson.project.academy : "" %></td>
         <td><%= lesson.title %></td>
         <td><%= "#{time_ago_in_words(lesson.updated_at)} ago".titleize %></td>
         <td><%= link_to 'Show', admin_lesson_path(lesson) %></td>
