@@ -25,7 +25,7 @@ class ProjectSet < ActiveRecord::Base
   def get_project(level: :lower)
     level = level.to_sym
     return unless [:upper, :lower].include? level
-    self.projects.published.find_by_level(Project.levels[level])
+    self.projects.find_by_level(Project.levels[level])
   end
 
   private
