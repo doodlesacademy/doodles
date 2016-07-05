@@ -67,6 +67,8 @@
 }
 
 .homepage .homepage-section:nth-child(2) {
+  padding: 0;
+  height: calc(100vw / 1.77);
   border-bottom: 5px solid rgba(220, 31, 38, 1);
 }
 
@@ -375,4 +377,12 @@ h2.high-q {
   font-weight: 800;
   font-size: 48px;
   line-height: 1.1;
+}
+
+.homepage-section .homepage-content {
+  #first-video iframe {
+    width: 100vw;
+    margin-left: -260px;
+    height: calc(100vw / 1.78);
+  }
 }
