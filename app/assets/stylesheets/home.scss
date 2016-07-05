@@ -46,6 +46,30 @@
 
 }
 
+.high-q {
+  max-width: 810px;
+  text-align: center;
+  margin-top: 50px;
+
+  p.lead {
+    text-align: left;
+    margin-left: 18px;
+    color: #999999;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+
+.homepage .homepage-section:first-child {
+  background-color: rgba(249, 249, 249, 1);
+  border-bottom: 5px solid rgba(253, 205, 11, 1);
+}
+
+.homepage .homepage-section:nth-child(2) {
+  border-bottom: 5px solid rgba(220, 31, 38, 1);
+}
+
 .homepage-gallery {
   @include grid(homepage-gallery-item);
   height: 200px;
