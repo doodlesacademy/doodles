@@ -36,6 +36,9 @@
       <p><%= @lesson.setting_up %></p>
       <h2 id='materials' class="overview-heading anchor">Materials</h2>
       <p><%= @lesson.materials %></p>
+      <% if @lesson.materials_note.present? %>
+        <p>NOTE: <%= @lesson.materials_note %></p>
+      <% end %>
       <h2 id='photocopies' class="overview-heading anchor">Photocopies</h2>
       <p>
         <% if @lesson.first_photocopy.present? %>
@@ -116,6 +119,9 @@
               </div>
             </blockquote>
           </div>
+          <% if @lesson.video_note.present? %>
+            <p>NOTE: <%= @lesson.video_note %></p>
+          <% end %>
       <% else %>
       <h2 id='introduction' class="lesson-heading anchor">
         <% if @lesson.intro_time.present? %>
