@@ -28,48 +28,54 @@
   }
 
   p {
-    font-size: 1.2em;
-  }
-
-  h2 {
-    font-size: 26px;
-    font-weight: 500;
-    &.jumbo {
-      text-align: left;
-      font-size: 60px;
-      font-weight: 300;
-      line-height: 60px;
-      padding-bottom: 10px;
-      padding-top: 50px;
-    }
-  }
-
-}
-
-.high-q {
-  max-width: 810px;
-  text-align: center;
-  margin-top: 50px;
-
-  p.lead {
-    text-align: left;
-    margin-left: 18px;
-    color: #999999;
     font-weight: 400;
     font-size: 28px;
     line-height: 40px;
   }
+
+  h2 {
+    // font-size: 26px;
+    // font-weight: 500;
+    // &.jumbo {
+    //   text-align: left;
+    //   font-size: 60px;
+    //   font-weight: 300;
+    //   line-height: 60px;
+    //   padding-bottom: 10px;
+    //   padding-top: 50px;
+    // }
+    text-align: left;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.9em;
+    line-height: 1.1;
+  }
+
 }
 
-.homepage .homepage-section:first-child {
-  background-color: rgba(249, 249, 249, 1);
-  border-bottom: 5px solid rgba(253, 205, 11, 1);
-}
+// .high-q { //jank
+//   max-width: 810px;
+//   text-align: center;
+//   margin-top: 50px;
+//
+//   p.lead {
+//     text-align: left;
+//     margin-left: 18px;
+//     color: #999999;
+//     font-weight: 400;
+//     font-size: 28px;
+//     line-height: 40px;
+//   }
+// }
 
-.homepage .homepage-section:nth-child(2) {
+// .homepage .homepage-section:first-child {
+//   background-color: rgba(249, 249, 249, 1);
+//   border-bottom: 5px solid rgba(253, 205, 11, 1);
+// }
+
+.homepage .homepage-section:nth-child(2) { //maybe add a class instead?
   padding: 0;
-  height: calc(100vw / 1.77);
-  border-bottom: 5px solid rgba(220, 31, 38, 1);
+  height: calc(100vw / 1.78);
 }
 
 .homepage-gallery {
@@ -352,24 +358,20 @@ $error-highlight: lighten($primary-red, 15%);
   color: black;
 
   &::-webkit-input-placeholder {
-     color: $active-purple;
+     color: $warm-gray;
   }
 
   &:-moz-placeholder { /* Firefox 18- */
-     color: $active-purple;
+     color: $warm-gray;
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
-     color: $active-purple;
+     color: $warm-gray;
   }
 
   &:-ms-input-placeholder {
-     color: $active-purple;
+     color: $warm-gray;
   }
-}
-
-.homepage {
-  border-top: 5px solid $primary-blue;
 }
 
 h2.high-q {
@@ -384,5 +386,17 @@ h2.high-q {
     width: 100vw;
     margin-left: -260px;
     height: calc(100vw / 1.78);
+  }
+}
+
+.white-section {
+  background-color: #fff;
+
+  p {
+    color: #999;
+  }
+
+  h2 {
+    color: $primary-blue;
   }
 }
