@@ -14,7 +14,7 @@ class Lesson < ActiveRecord::Base
   alias_attribute :name, :title
   after_initialize :set_order
 
-  has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, 'Independent Worktime', 'Clean Up/Presenations'], issues: [:anticipated_problems, :early_finishers]
+  has_sections overview: [:synopsis, :objective, :setup, :media, :photocopies, ], instructions: [:inspiration, :introduction, 'Independent Worktime', 'Clean Up/Presentations'], issues: [:anticipated_problems, :early_finishers]
 
   has_attached_file :example_image,
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" },
