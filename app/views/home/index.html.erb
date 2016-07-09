@@ -55,16 +55,26 @@
   <section class="homepage-section hero quote white-section">
     <div class="homepage-content hero-content">
       <h2 class='jumbo'>Testimonials</h2>
-      <div class="left-arrow">
-        <%= image_tag 'left-arrow.png' %>
+      <div class="quote-block">
+        <div class="left-arrow">
+          <a id="left-arrow"><%= image_tag 'left-arrow.png' %></a>
+        </div>
+        <blockquote id="testimonials">
+          <div class="quote-contents"></div>
+        </blockquote>
+        <div class="right-arrow">
+          <a id="right-arrow"><%= image_tag 'right-arrow.png' %></a>
+        </div>
       </div>
-      <blockquote id="testimonials">
-        <div class="quote-contents"></div>
-      </blockquote>
       <div class="quote-sayer"></div>
+      <div class='dots'>
+        <a id='dot0'><%= image_tag 'dot.png'%></a>
+        <a id='dot1'><%= image_tag 'dot.png'%></a>
+        <a id='dot2'><%= image_tag 'dot.png'%></a>
+      </div>
     </div>
 
-    <div class="quote-selector"></div>
+    <!-- <div class="quote-selector"></div> -->
   </section>
   <section class="homepage-section hero">
     <%= image_tag 'u36.png', class:"hero-img", style:"height:100%;" %>

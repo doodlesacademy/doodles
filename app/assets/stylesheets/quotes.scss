@@ -56,32 +56,29 @@
 
 #testimonials {
   max-width: 650px;
+  height: 350px;
   background-color: $warm-gray;
   color: white;
   padding: 10px;
   border-radius: 10px;
   border: none;
-  text-align: left;
   font-style: normal;
 }
 
-.quote-contents:after {
+#testimonials:after {
     content: "";
     position: absolute;
-    // bottom: 20px;
-    bottom: 125px;
-    left: 520px;
+    bottom: 170px;
+    left: 555px;
     border-width: 60px 40px 0;
     border-style: solid;
     border-color: $warm-gray transparent;
-    // display: block;
-    // width: 20px;
 }
 
 .quote-sayer {
   text-align: right;
-  margin-top: 70px;
-  margin-right: 100px;
+  margin-top: 450px;
+  margin-right: 55px;
   text-transform: uppercase;
 }
 
@@ -93,9 +90,33 @@
 .left-arrow, .right-arrow {
   background-color: white;
   img {
-    height: 15%;
-    width: 15%;
     opacity: 0.2;
     filter: alpha(opacity=80);
+  }
+}
+
+.quote-block {
+  margin-left: -75px;
+  width: 900px;
+  clear: both;
+  .left-arrow, .right-arrow {
+    width: 130px;
+    float: left;
+  }
+  .left-arrow {
+    margin-top: 137px;
+  }
+  .right-arrow {
+    margin-top: 130px;
+  }
+  #testimonials {
+    width: 640px;
+    float: left;
+  }
+}
+
+.dots {
+  img {
+    padding-right: 10px;
   }
 }

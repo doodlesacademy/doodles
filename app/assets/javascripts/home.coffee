@@ -172,8 +172,91 @@
     'Laura Harris'
     'Erin Scott'
   ]
-  $('.quote-contents').append quotes[0]
-  $('.quote-sayer').append '<p>' + quotePersons[0] + '</p>'
+  quote_number = 0
+  $('.quote-contents').append quotes[quote_number]
+  $('.quote-sayer').append '<p>' + quotePersons[quote_number] + '</p>'
+
+  nextQuote = ->
+    $('.quote-contents').text quotes[quote_number = ++quote_number % quotes.length]
+    $('.quote-sayer p').text quotePersons[quote_number = ++quote_number % quotePersons.length]
+    setTimeout nextQuote, 5000
+    return
+
+  setTimeout nextQuote, 5000
+  # need to reset setTimeout on click
+  $('#right-arrow').click ->
+    if quote_number == 2
+      quote_number = 0
+    else
+      quote_number += 1
+    $('.quote-contents').text(quotes[quote_number])
+    $('.quote-sayer p').text(quotePersons[quote_number])
+    return
+
+  $('#left-arrow').click ->
+    if quote_number == 0
+      quote_number = 2
+    else
+      quote_number -= 1
+    $('.quote-contents').text(quotes[quote_number])
+    $('.quote-sayer p').text(quotePersons[quote_number])
+    return
+
+  $('#dot0').click ->
+    quote_number = 0
+    $('.quote-contents').text(quotes[quote_number])
+    $('.quote-sayer p').text(quotePersons[quote_number])
+    return
+
+  $('#dot1').click ->
+    quote_number = 1
+    $('.quote-contents').text(quotes[quote_number])
+    $('.quote-sayer p').text(quotePersons[quote_number])
+    return
+
+  $('#dot2').click ->
+    quote_number = 2
+    $('.quote-contents').text(quotes[quote_number])
+    $('.quote-sayer p').text(quotePersons[quote_number])
+    return
+
+  return
+
+  # $('#right-arrow').click ->
+  #   if quote_number == 2
+  #     quote_number = 0
+  #   else
+  #     quote_number += 1
+  #   $('.quote-contents').text(quotes[quote_number])
+  #   $('.quote-sayer p').text(quotePersons[quote_number])
+  #   return
+
+  # $('#left-arrow').click ->
+  #   if quote_number == 0
+  #     quote_number = 2
+  #   else
+  #     quote_number -= 1
+  #   $('.quote-contents').text(quotes[quote_number])
+  #   $('.quote-sayer p').text(quotePersons[quote_number])
+  #   return
+  #
+  # $('#dot0').click ->
+  #   quote_number = 0
+  #   $('.quote-contents').text(quotes[quote_number])
+  #   $('.quote-sayer p').text(quotePersons[quote_number])
+  #   return
+  #
+  # $('#dot1').click ->
+  #   quote_number = 1
+  #   $('.quote-contents').text(quotes[quote_number])
+  #   $('.quote-sayer p').text(quotePersons[quote_number])
+  #   return
+  #
+  # $('#dot2').click ->
+  #   quote_number = 2
+  #   $('.quote-contents').text(quotes[quote_number])
+  #   $('.quote-sayer p').text(quotePersons[quote_number])
+  #   return
 
   # Email submission
   hasValue = _.debounce (e) ->
