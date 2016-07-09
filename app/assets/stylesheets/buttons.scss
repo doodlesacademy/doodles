@@ -76,6 +76,21 @@
 
 .btn-white {
   @include button-theme(white);
+  color: black;
+
+  &:visited {
+    color: black;
+    &:hover, &:active {
+      color: black;
+    }
+  }
+
+  &:hover {
+    color: black;
+  }
+  &:active {
+    color: black;
+  }
 }
 
 .btn-warmgray {

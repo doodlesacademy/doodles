@@ -1,11 +1,17 @@
 .quote-contents {
   @include primary-font;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 1.6em;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
+  // font-style: italic;
   text-transform: none;
   transition: opacity 300ms ease;
+
+  // background-color: $warm-gray;
+  // color: white;
+  // padding: 10px;
+  // border-radius: 30px;
+  margin: 40px;
 
   &.is-hidden {
     opacity: 0;
@@ -37,7 +43,7 @@
   transition: opacity 200ms ease;
 
   &:last-child {
-   margin-right: 0; 
+   margin-right: 0;
   }
   &.is-active,
   &:hover {
@@ -45,5 +51,51 @@
   }
   &:hover {
     cursor: pointer;
+  }
+}
+
+#testimonials {
+  max-width: 650px;
+  background-color: $warm-gray;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  text-align: left;
+  font-style: normal;
+}
+
+.quote-contents:after {
+    content: "";
+    position: absolute;
+    // bottom: 20px;
+    bottom: 125px;
+    left: 520px;
+    border-width: 60px 40px 0;
+    border-style: solid;
+    border-color: $warm-gray transparent;
+    // display: block;
+    // width: 20px;
+}
+
+.quote-sayer {
+  text-align: right;
+  margin-top: 70px;
+  margin-right: 100px;
+  text-transform: uppercase;
+}
+
+.homepage-content .quote-sayer p {
+  font-weight: 800;
+  color: $primary-blue;
+}
+
+.left-arrow, .right-arrow {
+  background-color: white;
+  img {
+    height: 15%;
+    width: 15%;
+    opacity: 0.2;
+    filter: alpha(opacity=80);
   }
 }

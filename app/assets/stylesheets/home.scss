@@ -47,7 +47,7 @@
     text-align: left;
     color: #fff;
     font-weight: 800;
-    font-size: 1.9em;
+    font-size: 1.8em;
     line-height: 1.1;
   }
 
@@ -398,5 +398,15 @@ h2.high-q {
 
   h2 {
     color: $primary-blue;
+  }
+}
+
+.homepage-content {
+  a {
+    margin-top: 30px;
+  }
+
+  &.hero-content {
+    letter-spacing: normal;
   }
 }
