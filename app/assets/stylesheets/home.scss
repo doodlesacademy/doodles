@@ -410,3 +410,34 @@ h2.high-q {
     letter-spacing: normal;
   }
 }
+
+#lesson-gallery {
+  margin-left: -200px;
+  width: 900px;
+  clear: both;
+  .left-arrow, .right-arrow {
+    width: 130px;
+    float: left;
+  }
+  // .left-arrow {
+  //   margin-top: 137px;
+  // }
+  // .right-arrow {
+  //   margin-top: 130px;
+  // }
+  .gal {
+    width: 200px;
+    float: left;
+    // margin-right: 20px;
+
+      div {
+        &:first-child {
+          margin-right: 20px;
+      }
+    }
+
+    // &:nth-child(n+3) {
+    //   margin-right: 0;
+    // }
+  }
+}
