@@ -18,7 +18,6 @@
 .homepage-content {
   max-width: $homepage-max-width;
   margin: 0 auto;
-  padding-bottom: 2em;
 
   .lead {
     font-size: 28px;
@@ -34,16 +33,6 @@
   }
 
   h2 {
-    // font-size: 26px;
-    // font-weight: 500;
-    // &.jumbo {
-    //   text-align: left;
-    //   font-size: 60px;
-    //   font-weight: 300;
-    //   line-height: 60px;
-    //   padding-bottom: 10px;
-    //   padding-top: 50px;
-    // }
     text-align: left;
     color: #fff;
     font-weight: 800;
@@ -52,26 +41,6 @@
   }
 
 }
-
-// .high-q { //jank
-//   max-width: 810px;
-//   text-align: center;
-//   margin-top: 50px;
-//
-//   p.lead {
-//     text-align: left;
-//     margin-left: 18px;
-//     color: #999999;
-//     font-weight: 400;
-//     font-size: 28px;
-//     line-height: 40px;
-//   }
-// }
-
-// .homepage .homepage-section:first-child {
-//   background-color: rgba(249, 249, 249, 1);
-//   border-bottom: 5px solid rgba(253, 205, 11, 1);
-// }
 
 .homepage .homepage-section:nth-child(2) { //maybe add a class instead?
   padding: 0;
@@ -402,7 +371,7 @@ h2.high-q {
 }
 
 .homepage-content {
-  a {
+  .btn-white {
     margin-top: 30px;
   }
 
@@ -412,32 +381,37 @@ h2.high-q {
 }
 
 #lesson-gallery {
-  margin-left: -200px;
+  margin-left: -90px;
   width: 900px;
   clear: both;
   .left-arrow, .right-arrow {
     width: 130px;
     float: left;
   }
-  // .left-arrow {
-  //   margin-top: 137px;
-  // }
-  // .right-arrow {
-  //   margin-top: 130px;
-  // }
+  .right-arrow {
+    margin-top: -7px;
+  }
+  div {
+    &:nth-child(2), &:nth-child(3) {
+      margin-right: 20px;
+    }
+  }
+
   .gal {
     width: 200px;
     float: left;
-    // margin-right: 20px;
-
-      div {
-        &:first-child {
-          margin-right: 20px;
-      }
     }
+}
 
-    // &:nth-child(n+3) {
-    //   margin-right: 0;
-    // }
-  }
+#doodles-provides {
+  margin-top: 200px;
+}
+
+
+#lessons-that-inspire {
+  margin-bottom: 40px;
+}
+
+#high-quality {
+  height: 600px;
 }
