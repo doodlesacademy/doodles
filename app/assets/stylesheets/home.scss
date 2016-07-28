@@ -109,3 +109,28 @@
     }
   }
 }
+
+////////////////////////
+
+#lesson-gallery {
+  margin-left: -90px;
+  width: 900px;
+  clear: both;
+  .left-arrow, .right-arrow {
+    width: 130px;
+    float: left;
+  }
+  .right-arrow {
+    margin-top: -7px;
+  }
+  div {
+    &:nth-child(2), &:nth-child(3) {
+      margin-right: 20px;
+    }
+  }
+
+  .gal {
+    width: 200px;
+    float: left;
+    }
+}
