@@ -3,7 +3,7 @@
   $nav = $('.doodles-nav')
   $body = $('.body')
   $window = $(window)
-  $quote = $('.quote .quote-contents')
+  $quote = $('#quotes p')
   $parallax = $('.parallax')
   $parallax_offset = null
   $parallax_height = null
@@ -173,8 +173,8 @@
     'Erin Scott'
   ]
   quote_number = 0
-  $('.quote-contents').append quotes[quote_number]
-  $('.quote-sayer').append '<p>' + quotePersons[quote_number] + '</p>'
+  $('#quotes p').append quotes[quote_number]
+  $('.quoted-parent').append '<p>' + quotePersons[quote_number] + '</p>'
   $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
 
   nextQuote = ->
@@ -184,8 +184,8 @@
       $('#dot1 img').attr("src", "assets/dot.png");
     else
       $('#dot2 img').attr("src", "assets/dot.png");
-    $('.quote-contents').text quotes[quote_number = ++quote_number % quotes.length]
-    $('.quote-sayer p').text quotePersons[quote_number = quote_number % quotePersons.length]
+    $('#quotes p').text quotes[quote_number = ++quote_number % quotes.length]
+    $('.quoted-parent p').text quotePersons[quote_number = quote_number % quotePersons.length]
     $('#dot' + (quote_number) + ' img').attr("src", "assets/bluedot.png");
     setTimeout nextQuote, 5000
     return
@@ -199,8 +199,8 @@
     else
       quote_number += 1
       $('#dot' + (quote_number - 1) + ' img').attr("src", "assets/dot.png");
-    $('.quote-contents').text(quotes[quote_number])
-    $('.quote-sayer p').text(quotePersons[quote_number])
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
     $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
     return
 
@@ -211,15 +211,16 @@
     else
       quote_number -= 1
       $('#dot' + (quote_number + 1) + ' img').attr("src", "assets/dot.png");
-    $('.quote-contents').text(quotes[quote_number])
-    $('.quote-sayer p').text(quotePersons[quote_number])
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
     $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
     return
 
+
   $('#dot0').click ->
     quote_number = 0
-    $('.quote-contents').text(quotes[quote_number])
-    $('.quote-sayer p').text(quotePersons[quote_number])
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
     $('#dot0 img').attr("src", "assets/bluedot.png");
     $('#dot1 img').attr("src", "assets/dot.png");
     $('#dot2 img').attr("src", "assets/dot.png");
@@ -227,8 +228,8 @@
 
   $('#dot1').click ->
     quote_number = 1
-    $('.quote-contents').text(quotes[quote_number])
-    $('.quote-sayer p').text(quotePersons[quote_number])
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
     $('#dot0 img').attr("src", "assets/dot.png");
     $('#dot1 img').attr("src", "assets/bluedot.png");
     $('#dot2 img').attr("src", "assets/dot.png");
@@ -236,8 +237,8 @@
 
   $('#dot2').click ->
     quote_number = 2
-    $('.quote-contents').text(quotes[quote_number])
-    $('.quote-sayer p').text(quotePersons[quote_number])
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
     $('#dot0 img').attr("src", "assets/dot.png");
     $('#dot1 img').attr("src", "assets/dot.png");
     $('#dot2 img').attr("src", "assets/bluedot.png");

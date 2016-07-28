@@ -1,417 +1,108 @@
-.homepage {}
+.homepage {
 
-.title {
-  text-align: center;
-}
-
-.homepage-section {
-  padding: 100px 0 150px;
-}
-
-
-.homepage-section.hero {
-  max-height: 800px;
-  height: 800px;
-  padding: 0;
-}
-
-.homepage-content {
-  max-width: $homepage-max-width;
-  margin: 0 auto;
-
-  .lead {
-    font-size: 28px;
-    font-weight: 300;
-    text-align: left;
-    line-height: 1.3em;
+  section {
+    padding: 100px 0 100px;
   }
 
-  p {
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 40px;
-  }
-
-  h2 {
-    text-align: left;
-    color: #fff;
-    font-weight: 800;
-    font-size: 1.8em;
-    line-height: 1.1;
-  }
-
-}
-
-.homepage .homepage-section:nth-child(2) { //maybe add a class instead?
-  padding: 0;
-  height: calc(100vw / 1.78);
-}
-
-.homepage-gallery {
-  @include grid(homepage-gallery-item);
-  height: 200px;
-  margin-top: 30px;
-}
-
-.homepage-gallery-item {
-  position: relative;
-  background-color: $primary-blue;
-
-  img {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    transition: opacity 300ms ease;
-  }
-
-  &:hover {
-    cursor: pointer;
-    img {
-      opacity: 0.4;
-    }
-  }
-}
-
-.homepage-gallery-item-play-btn {
-  display: none;
-  position: absolute;
-  $size: 20px;
-  border-top: $size solid transparent;
-  border-bottom: $size solid transparent;
-  border-left: (1.5*$size) solid white;
-  transform: translate3d(-50%, -50%, 0);
-  top: 50%;
-  left: 50%;
-
-  .homepage-gallery-item:hover & {
-    display: block;
-  }
-}
-
-.homepage-gallery-item-title {
-  @include textCap;
-  display: none;
-  color: white;
-  text-align: center;
-  width: 100%;
-
-  position: absolute;
-  left: 50%;
-  top: 75%;
-  transform: translate3d(-50%, -50%, 0);
-  z-index: 1;
-
-  .homepage-gallery-item:hover & {
-    display: block;
-  }
-}
-
-$error-highlight: lighten($primary-red, 15%);
-
-.homepage-newsletter-signup {
-  display: flex;
-  width: 80%;
-  margin: 60px auto 40px;
-}
-
-
-.homepage-newsletter-signup-email,
-.homepage-newsletter-signup-submit {
-  display: flex;
-  justify-content: center;
-}
-
-.homepage-newsletter-signup-email {
-  align-items: center;
-  width: 70%;
-  margin: 0 5%;
-  position: relative;
-  flex-direction: column;
-
-  .input--text {
-    width: 100%;
-    padding: 3%;
-  }
-
-  &.is-error {
-    .homepage-newsletter-signup-message {
-      opacity: 1;
-      color: $error-highlight;
-      transition: opacity 100ms ease;
-    }
-
-    .input--text {
-      border-bottom-color: $error-highlight;
-    }
-  }
-}
-
-.homepage-newsletter-signup-message {
-  position: absolute;
-  top: -15px;
-  left: 12px;
-  font-size: 12px;
-  margin: 10px 0;
-  padding: 0;
-  line-height: 0;
-  opacity: 0;
-}
-
-.homepage-newsletter-signup-submit {
-  align-items: flex-start;
-  width: 30%;
-
-  .btn {
-    display: block;
-  }
-}
-
-.homepage-board {
-  @include grid(homepage-board-member, 4, 20px);
-
-  .homepage-board-member {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    position: relative;
-  }
-
-  p.homepage-board-member-portrait-about {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    width: 100%;
-    font-size: 14px;
-    transition: opacity 200ms ease;
-    transform: translate3d(-50%, -50%, 0);
-    text-align: center;
-    opacity: 0;
-  }
-
-  .homepage-board-member-portrait {
-    position: relative;
-
-    img {
-      z-index: 1;
-      opacity: 1;
-      border-radius: 100%;
-      max-width: 100%;
-      height: auto;
-      margin: 0;
-      transition: opacity 300ms ease;
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      img {
-        opacity: 0.5;
-      }
-
-      .homepage-board-member-portrait-bg {
-        opacity: 1;
-      }
-
-      .homepage-board-member-portrait-about {
-        opacity: 1;
-      }
-    }
-  }
-
-  .homepage-board-member-portrait-bg {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 100%;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 200ms ease;
-  }
-
-  .homepage-board-member-name,
-  .homepage-board-member-title {
-    line-height: 1.4em;
-    padding: 0;
-    margin: 0;
-    font-weight: 300;
-  }
-
-  .homepage-board-member-name {
-    margin-top: 8px;
-  }
-
-  .homepage-board-member-title {
-    font-size: 14px;
-  }
-}
-
-.about-wrapper {
-  p, h2 {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .left-set {
-    width: 25%;
-    margin-right: 45px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    float: left;
-  }
-
-  .right-set {
-    width: 25%;
-    margin-left: 45px;
-    margin-bottom: 30px;
-    float: right;
-  }
-}
-
-.donation-wrapper {
-  width: 75%;
-  margin: 0 auto;
-
-  #donation {
-    border: 1px solid #4B4583;
-    padding: 30px;
+  .homepage-content {
+    max-width: $homepage-max-width;
+    margin: 0 auto;
 
     p {
-      line-height: 1.75em;
+      font-size: 28px;
+      font-weight: 300;
+      text-align: left;
+      line-height: 1.3em;
     }
 
-    input[type='submit'] {
-      @include textCap;
-      background-color: $active-purple;
+    h2 {
+      text-align: left;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 1.1;
+      color: $primary-blue
+    }
+
+    iframe {
+      width: 100vw;
+      margin-left: -260px;
+      height: calc(100vw / 1.78);
+    }
+
+
+    blockquote {
+      max-width: 650px;
+      height: 350px;
+      background-color: $primary-blue;
       color: white;
-      outline: none;
+      padding: 10px;
+      border-radius: 10px;
       border: none;
-      border-radius: 0;
-      height: 50px;
-      padding: 0 30px;
-      transition: background-color 300ms ease;
+      font-style: normal;
+      float: left;
 
-      &:hover {
-        background-color: lighten($active-purple, 10%)
+      p {
+        margin: 40px;
       }
 
-      &:active {
-        transition: none;
-        background-color: darken($active-purple, 10%)
+    }
+
+    .quoted-parent {
+      text-align: right;
+      margin-top: 63%;
+      margin-left: 57%;
+
+      p {
+        font-weight: 800;
+        color: $warm-gray;
+      }
+
+      &:before {
+          content: "";
+          position: absolute;
+          margin-top: -95px;
+          left: 700px;
+          border-width: 60px 40px 0;
+          border-style: solid;
+          border-color: $primary-blue transparent;
       }
     }
 
-    input[type='text'] {
-      margin-left: 124px;
-      padding: 0 30px;
-      height: 50px;
-      width: 30%;
-      font-weight: 400;
-      letter-spacing: 0.05em;
+    .dots {
+      text-align: center;
+      margin-top: 40px;
+      margin-left: -60px;
+      img {
+      padding-right: 10px;
+      }
     }
-  }
-}
 
-.thanks {
-  p.low-set {
-   margin-top: 50px;
-  }
-}
-
-.quote {
-  background-color: #888;
-}
-
-#subscription_email {
-  background-color: white;
-  color: black;
-
-  &::-webkit-input-placeholder {
-     color: $warm-gray;
   }
 
-  &:-moz-placeholder { /* Firefox 18- */
-     color: $warm-gray;
-  }
+  .image-background-section {
+    position: relative;
 
-  &::-moz-placeholder {  /* Firefox 19+ */
-     color: $warm-gray;
-  }
+    .background-image-color {
+      background-color: $primary-blue;
+    }
 
-  &:-ms-input-placeholder {
-     color: $warm-gray;
-  }
-}
+    img {
+      width: 100%;
+      opacity: 0.75;
+    }
 
-h2.high-q {
-  color: $primary-blue;
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 1.1;
-}
+    .homepage-content {
+      width: 750px; //is this right?
+      color: white;
+      position: absolute;
+      // left: 200px;
+      left: 22%;
+      top: 33%;
+    }
 
-.homepage-section .homepage-content {
-  #first-video iframe {
-    width: 100vw;
-    margin-left: -260px;
-    height: calc(100vw / 1.78);
-  }
-}
-
-.white-section {
-  background-color: #fff;
-
-  p {
-    color: #999;
-  }
-
-  h2 {
-    color: $primary-blue;
-  }
-}
-
-.homepage-content {
-  .btn-white {
-    margin-top: 30px;
-  }
-
-  &.hero-content {
-    letter-spacing: normal;
-  }
-}
-
-#lesson-gallery {
-  margin-left: -90px;
-  width: 900px;
-  clear: both;
-  .left-arrow, .right-arrow {
-    width: 130px;
-    float: left;
-  }
-  .right-arrow {
-    margin-top: -7px;
-  }
-  div {
-    &:nth-child(2), &:nth-child(3) {
-      margin-right: 20px;
+    h2, p {
+      color: white;
     }
   }
 
-  .gal {
-    width: 200px;
-    float: left;
-    }
-}
-
-#doodles-provides {
-  margin-top: 200px;
-}
-
-
-#lessons-that-inspire {
-  margin-bottom: 40px;
-}
-
-#high-quality {
-  height: 600px;
 }
