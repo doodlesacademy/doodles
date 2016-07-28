@@ -92,17 +92,20 @@
     }
 
     .homepage-content {
-      width: 750px; //is this right?
+      width: 750px;
       color: white;
       position: absolute;
-      // left: 200px;
       left: 22%;
-      top: 33%;
+      top: 28%;
     }
 
     h2, p {
       color: white;
     }
-  }
 
+    .btn-white {
+      margin-left: 70%;
+      margin-top: 20px;
+    }
+  }
 }
