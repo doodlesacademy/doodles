@@ -73,95 +73,7 @@
 
   $('div[data-video-id]').on('click', showVideo)
 
-  # Quotes
-  # quotes = []
-  # quotes.push
-  #   content: 'Since [our daughter\’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.'
-  #   person: "Kara Bloom"
-  # quotes.push
-  #   content: 'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter\’s life.'
-  #   person: "Laura Harris"
-  # quotes.push
-  #   content: 'The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health.'
-  #   person: "Erin Scott"
-  #
-  # quote_rotate_speed = 8000
-  # quote_rotate_interval = null
-  # quote_rotate_current_index = 0
-  #
-  # "content person".split(" ").map (selector) ->
-  #   $quote.append("<div class='quote-#{selector}'></div>")
-  #   # $quote.append("<div class='quote-#{selector}'></div>")
-  # $quote_content = $quote.find('.quote-content')
-  # $quote_person = $quote.find('.quote-person')
-  # $quote_selector = $('.quote .quote-selector')
-  #
-  # initQuotes = ->
-  #   quotes.map (quote, index) ->
-  #     $selector = $ "<i class='quote-selector-bubble' data-quote-id='#{index}'>•</i>"
-  #     $quote_selector.append $selector
-  #
-  #   $quote_selector.on 'click', '.quote-selector-bubble', (e) ->
-  #     $target = $(e.currentTarget)
-  #     quote_id = $target.data('quote-id')
-  #     selectQuote(quote_id)
-  #     quote_rotate_current_index = quote_id
-  #
-  #   $('.quote').on 'mouseenter', ->
-  #     clearInterval quote_rotate_interval
-  #
-  #   $('.quote').on 'mouseleave', ->
-  #     rotateQuotes()
-  #
-  #   selectQuote()
-  #   rotateQuotes()
-  #
-  # rotateQuotes = ->
-  #   quote_rotate_interval = setInterval ->
-  #     i = quote_rotate_current_index += 1
-  #     i = i % 3
-  #     selectQuote(i)
-  #   , quote_rotate_speed
-  #
-  # setActiveBubble = (active_index = 0) ->
-  #   return unless 0 <= active_index < quotes.length
-  #   $quote_selector.children().map (index, bubble) ->
-  #     $bubble = $(bubble)
-  #     $bubble.toggleClass "is-active", index is active_index
-  #
-  # selectQuote = (index = 0) ->
-  #   return unless 0 <= index < quotes.length
-  #   quote = quotes[index]
-  #   toggleQuote()
-  #   setActiveBubble(index)
-  #   $quote.one "transitionend", ->
-  #     switchQuote(quote)
-  #     toggleQuote()
-  #
-  # toggleQuote = (hide) ->
-  #   hide ?= not $quote.hasClass "is-hidden"
-  #   $quote.toggleClass "is-hidden", hide
-  #
-  # switchQuote = (quote) ->
-  #   return unless quote? and quote.person? and quote.content?
-  #   $quote_content.text quote.content
-  #   $quote_person.text quote.person
-  #
-  # initQuotes()
-  $quote_content = undefined
-  quotePersons = undefined
-  $quote_person = undefined
-  $quote_selector = undefined
-  initQuotes = undefined
-  quote_rotate_current_index = undefined
-  quote_rotate_interval = undefined
-  quote_rotate_speed = undefined
-  quotes = undefined
-  rotateQuotes = undefined
-  selectQuote = undefined
-  setActiveBubble = undefined
-  switchQuote = undefined
-  toggleQuote = undefined
+
   quotes = [
     'Since [our daughter’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.'
     'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.'
@@ -192,30 +104,6 @@
 
   setTimeout nextQuote, 5000
   # need to reset setTimeout on click
-  $('#right-arrow').click ->
-    if quote_number == 2
-      quote_number = 0
-      $('#dot2 img').attr("src", "assets/dot.png");
-    else
-      quote_number += 1
-      $('#dot' + (quote_number - 1) + ' img').attr("src", "assets/dot.png");
-    $('#quotes p').text(quotes[quote_number])
-    $('.quoted-parent p').text(quotePersons[quote_number])
-    $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
-    return
-
-  $('#left-arrow').click ->
-    if quote_number == 0
-      quote_number = 2
-      $('#dot0 img').attr("src", "assets/dot.png");
-    else
-      quote_number -= 1
-      $('#dot' + (quote_number + 1) + ' img').attr("src", "assets/dot.png");
-    $('#quotes p').text(quotes[quote_number])
-    $('.quoted-parent p').text(quotePersons[quote_number])
-    $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
-    return
-
 
   $('#dot0').click ->
     quote_number = 0

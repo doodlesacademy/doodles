@@ -5,9 +5,26 @@
 <%end %>
 
 <div class="homepage">
+
+  <section class="homepage-section hero white-section" id="high-quality">
+    <div class='homepage-content hero-content white-section'>
+      <h2>Quality arts education for all.</h2>
+      <p class="lead">
+        Our mission is to expand children's access to high-quality arts education.
+        Our vision is that every child receives an arts education that inspires and rewards creativity, growth and problem solving, irrespective of cost or zip code.
+      </p>
+  </div>
+  </section>
+  <section class="homepage-section">
+     <div class="homepage-content">
+       <div id="first-video" class="frame frame--16x9">
+         <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+       </div>
+     </div>
+   </section>
+   
  <section class="homepage-section hero white-section" id="high-quality">
    <div class='homepage-content hero-content white-section'>
-     <!-- <h2>High-quality arts education for all.</h2> -->
      <h2>Quality arts education for all.</h2>
      <p class="lead">
        Our mission is to expand children's access to high-quality arts education.
