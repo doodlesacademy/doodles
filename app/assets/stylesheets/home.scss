@@ -46,7 +46,7 @@
 
     .quoted-parent {
       text-align: right;
-      margin-top: 63%;
+      margin-top: 58%;
       margin-left: 57%;
 
       p {
@@ -56,9 +56,7 @@
 
       &:before {
           content: "";
-          position: absolute;
-          margin-top: -95px;
-          left: 700px;
+          margin-right: 200px;
           border-width: 60px 40px 0;
           border-style: solid;
           border-color: $primary-blue transparent;
@@ -94,7 +92,7 @@
     url('u43.png');
     background-size: cover;
     width: 100vw;
-    height: calc(100vw / 1.5);
+    height: 750px;
     position: relative;
     float: left;
 
@@ -163,7 +161,6 @@
     width: 480px;
     float: left;
     margin-bottom: 60px;
-    // margin-bottom: 20px;
 
     &:nth-child(3) {
       opacity: 0.6;
@@ -171,11 +168,7 @@
   }
 
   .btn-blue {
-    // margin-left: 800px;
-    // margin-bottom: 40px;
     position: absolute;
-    // left: 68%;
-    // top: 295px;
     left: 60%;
     top: 175px;
   }
