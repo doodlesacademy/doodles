@@ -13,10 +13,6 @@
     </div>
   </section>
 
-  <!-- <section>
-    <h2 style="text-align:center;font-size:60px;">HOLD FOR GALLERY</h2>
-  </section> -->
-
   <section>
     <div class="homepage-content">
       <div id="lesson-gallery">
@@ -24,26 +20,19 @@
           <a><%= image_tag 'left-arrow.png' %></a>
         </div>
         <div class='gal'>
-          <%= image_tag 'gal1.png' %>
+          <%= image_tag 'gal1.jpg' %>
         </div>
         <div class='gal'>
           <%= image_tag 'gal2.jpg' %>
         </div>
-        <div class='gal'>
-          <%= image_tag 'gal3.png' %>
-        </div>
         <div class="right-arrow">
           <a><%= image_tag 'right-arrow.png' %></a>
         </div>
+        <a class="btn btn-xl btn-blue" href='/projects'>
+          See Projects
+        </a>
       </div>
-      <a class="btn btn-xl btn-warmgray" href='/projects'>
-        See More Projects
-      </a>
-    </div>
-  </section>
 
-  <section>
-    <div class="homepage-content">
       <h2>The Doodles Difference</h2>
       <p>
         Doodles Academy provides an online curriculum that includes video examples, lesson plans, supply lists, and links to Common Core and Visual Art standards.  We make it easy for educators of all types and experience levels to bring a comprehensive and open-ended curriculum to their students.
@@ -55,10 +44,8 @@
   </section>
 
   <section>
-     <div class="homepage-content">
-       <div>
-         <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-       </div>
+     <div>
+       <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
      </div>
    </section>
 
@@ -75,25 +62,24 @@
    </section>
 
    <section class="image-background-section">
-     <div class="background-image-color">
-       <%= image_tag 'u43.png' %>
-     </div>
-     <div class="homepage-content">
-       <h2>
-         Art is not optional.
-       </h2>
+     <div class="image-background-content">
        <p>
+         <span class="emulate-h2">Art is not optional.</span>
+         <br>
+         <br>
          Students engaged in the arts consistently score higher on standardized tests, stay in school longer, and pursue more advanced degrees.
-       </p>
-       <p>
+         <br>
+         <br>
          We offer our complete program on a donation basis, no strings attached, to any family, school, or community center that needs it.
-       </p>
-       <p>
+         <br>
+         <br>
          Without donations, this would be impossible.
+         <a class="btn btn-xl btn-white" href="/donate">
+           Donate Now
+         </a>
        </p>
-       <a class="btn btn-xl btn-white" href="/donate">
-         Donate Now
-       </a>
+     </div>
+    <!-- </div> -->
    </section>
 
    <section>

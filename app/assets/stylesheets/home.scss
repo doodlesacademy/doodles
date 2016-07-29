@@ -1,7 +1,11 @@
 .homepage {
 
   section {
-    padding: 100px 0 100px;
+    padding-top: 150px;
+
+    &:last-child {
+      padding-bottom: 100px;
+    }
   }
 
   .homepage-content {
@@ -22,13 +26,6 @@
       line-height: 1.1;
       color: $primary-blue
     }
-
-    iframe {
-      width: 100vw;
-      margin-left: -260px;
-      height: calc(100vw / 1.78);
-    }
-
 
     blockquote {
       max-width: 650px;
@@ -79,58 +76,107 @@
 
   }
 
+  iframe {
+    width: 100vw;
+    margin: 0 auto;
+    height: calc(100vw / 1.78);
+  }
+
   .image-background-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    background:
+    linear-gradient(
+      rgba(65, 158, 213, 0.3),
+      rgba(65, 158, 213, 0.3)
+    ),
+    url('u43.png');
+    background-size: cover;
+    width: 100vw;
+    height: calc(100vw / 1.5);
     position: relative;
+    float: left;
 
-    .background-image-color {
-      background-color: $primary-blue;
-    }
+    .image-background-content {
 
-    img {
-      width: 100%;
-      opacity: 0.75;
-    }
+      p {
+        color: white;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        transform: translate(-45%, -50%);
 
-    .homepage-content {
-      width: 750px;
-      color: white;
-      position: absolute;
-      left: 22%;
-      top: 28%;
-    }
+        font-size: 2em;
+        font-weight: 300;
+        text-align: left;
+        line-height: 1.3em;
+      }
 
-    h2, p {
-      color: white;
-    }
+      .emulate-h2 {
+        font-weight: 800;
+        font-size: 2em;
+        line-height: 1.1;
+      }
 
-    .btn-white {
-      margin-left: 70%;
-      margin-top: 20px;
+      .btn-white {
+        margin-left: 70%;
+        margin-top: 20px;
+      }
     }
   }
+
+
 }
+
+
 
 ////////////////////////
 
 #lesson-gallery {
-  margin-left: -90px;
-  width: 900px;
+  position: relative;
+  margin-left: -250px;
+  width: 100vw;
   clear: both;
+
   .left-arrow, .right-arrow {
     width: 130px;
     float: left;
+    margin-top: 120px;
+
+    img {
+      opacity: 0.2;
+      filter: alpha(opacity=80);
+    }
   }
   .right-arrow {
-    margin-top: -7px;
+    margin-top: 113px;
   }
   div {
-    &:nth-child(2), &:nth-child(3) {
+    &:nth-child(2) {
       margin-right: 20px;
     }
   }
 
   .gal {
-    width: 200px;
+    width: 480px;
     float: left;
+    margin-bottom: 60px;
+    // margin-bottom: 20px;
+
+    &:nth-child(3) {
+      opacity: 0.6;
     }
+  }
+
+  .btn-blue {
+    // margin-left: 800px;
+    // margin-bottom: 40px;
+    position: absolute;
+    // left: 68%;
+    // top: 295px;
+    left: 60%;
+    top: 175px;
+  }
 }
