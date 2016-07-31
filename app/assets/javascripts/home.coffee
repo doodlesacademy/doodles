@@ -74,6 +74,47 @@
   $('div[data-video-id]').on('click', showVideo)
 
 
+  gal_images = ['gal1.jpg', 'gal2.jpg', 'gal3.jpg', 'gal4.jpg', 'gal5.jpg', 'gal6.jpg']
+
+  img_number = 0
+  left_gal_img = gal_images[img_number + 1]
+  right_gal_img = gal_images[img_number]
+
+  $('.img_left').attr("src", "assets/#{left_gal_img}")
+  $('.img_right').attr("src", "assets/#{right_gal_img}")
+
+  $('.right-arrow').click ->
+    if img_number == 5
+      console.log 'hello'
+      left_gal_img = 'gal2.jpg'
+      right_gal_img = 'gal1.jpg'
+      img_number = 0
+    else if img_number == 4
+      left_gal_img = 'gal1.jpg'
+      right_gal_img = 'gal6.jpg'
+      img_number = 5
+    else
+      img_number += 1
+      left_gal_img = gal_images[img_number + 1]
+      right_gal_img = gal_images[img_number]
+    $('.img_left').attr("src", "assets/#{left_gal_img}")
+    $('.img_right').attr("src", "assets/#{right_gal_img}")
+    return
+
+  $('.left-arrow').click ->
+    if img_number == 0
+      left_gal_img = 'gal1.jpg'
+      right_gal_img = 'gal6.jpg'
+      img_number = 5
+    else
+      img_number -= 1
+      left_gal_img = gal_images[img_number + 1]
+      right_gal_img = gal_images[img_number]
+    $('.img_left').attr("src", "assets/#{left_gal_img}")
+    $('.img_right').attr("src", "assets/#{right_gal_img}")
+    return
+
+
   quotes = [
     'Since [our daughter’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.'
     'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.'

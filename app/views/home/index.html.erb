@@ -13,26 +13,24 @@
     </div>
   </section>
 
-  <section>
-    <div class="homepage-content">
-      <div id="lesson-gallery">
-        <div class="left-arrow">
-          <a><%= image_tag 'left-arrow.png' %></a>
-        </div>
-        <div class='gal'>
-          <%= image_tag 'gal1.jpg' %>
-        </div>
-        <div class='gal'>
-          <%= image_tag 'gal2.jpg' %>
-        </div>
-        <div class="right-arrow">
-          <a><%= image_tag 'right-arrow.png' %></a>
-        </div>
+  <section class="lesson-gallery-wrapper">
+    <div id="lesson-gallery">
+      <div id="gal_left">
+        <img class="img_left">
+        <a><%= image_tag 'left-arrow.png', class: "left-arrow" %></a>
+      </div>
+      <div id="gal_right">
+        <img class="img_right">
+        <a><%= image_tag 'right-arrow.png', class: "right-arrow" %></a>
         <a class="btn btn-xl btn-blue" href='/projects'>
           See Projects
         </a>
       </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="homepage-content">
       <h2>The Doodles Difference</h2>
       <p>
         Doodles Academy provides an online curriculum that includes video examples, lesson plans, supply lists, and links to Common Core and Visual Art standards.  We make it easy for educators of all types and experience levels to bring a comprehensive and open-ended curriculum to their students.
@@ -79,7 +77,6 @@
          </a>
        </p>
      </div>
-    <!-- </div> -->
    </section>
 
    <section>

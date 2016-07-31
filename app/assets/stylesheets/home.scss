@@ -125,51 +125,50 @@
     }
   }
 
+  .lesson-gallery-wrapper {
+    width: 100vw;
+    margin-bottom: -80px;
 
-}
+    #lesson-gallery {
+      width: 80%;
+      margin: 0 auto;
 
 
+      #gal_left, #gal_right {
+        width: 500px;
+        height: calc(width * 0.785);
+        display: inline-block;
+        position: relative;
 
-////////////////////////
+        .img_left, .img_right {
+          position: relative;
+        }
 
-#lesson-gallery {
-  position: relative;
-  margin-left: -250px;
-  width: 100vw;
-  clear: both;
+        a {
 
-  .left-arrow, .right-arrow {
-    width: 130px;
-    float: left;
-    margin-top: 120px;
+          .left-arrow {
+            width: 130px;
+            position: absolute;
+            top: 135px;
+            left: -15px;
+          }
 
-    img {
-      opacity: 0.2;
-      filter: alpha(opacity=80);
+          .right-arrow {
+            width: 130px;
+            position: absolute;
+            top: 135px;
+            right: -15px;
+          }
+        }
+      }
+
+      .btn-blue {
+        top: 315px;
+        right: 25px;
+        position: absolute;
+      }
     }
   }
-  .right-arrow {
-    margin-top: 113px;
-  }
-  div {
-    &:nth-child(2) {
-      margin-right: 20px;
-    }
-  }
 
-  .gal {
-    width: 480px;
-    float: left;
-    margin-bottom: 60px;
 
-    &:nth-child(3) {
-      opacity: 0.6;
-    }
-  }
-
-  .btn-blue {
-    position: absolute;
-    left: 60%;
-    top: 175px;
-  }
 }
