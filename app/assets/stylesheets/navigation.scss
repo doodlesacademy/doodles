@@ -84,7 +84,7 @@
       }
     }
 
-    #nav-logo a:after {
+    #nav-logo a:after, #nav-about a:after {
       opacity: 0;
     }
   }
@@ -94,7 +94,10 @@
     display: inline-block;
 
     &:hover {
-      padding-top: 12px;
+      padding-top: 33px;
+      padding-bottom: 23px;
+      margin-top: 30px;
+      margin-bottom: 43px;
       background-color: lighten($primary-blue, 15%);
     }
   }
