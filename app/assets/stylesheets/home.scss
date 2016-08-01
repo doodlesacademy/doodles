@@ -133,9 +133,25 @@
       width: 80%;
       margin: 0 auto;
 
+      .left-arrow {
+        width: 130px;
+        -webkit-filter: contrast(60%);
+        // position: absolute;
+        // top: 135px;
+        // left: -15px;
+      }
+
+      .right-arrow {
+        width: 130px;
+        -webkit-filter: contrast(60%);
+        // position: absolute;
+        // top: 135px;
+        // right: -15px;
+      }
+
 
       #gal_left, #gal_right {
-        width: 500px;
+        width: 360px;
         height: calc(width * 0.785);
         display: inline-block;
         position: relative;
@@ -144,26 +160,17 @@
           position: relative;
         }
 
-        a {
-
-          .left-arrow {
-            width: 130px;
-            position: absolute;
-            top: 135px;
-            left: -15px;
-          }
-
-          .right-arrow {
-            width: 130px;
-            position: absolute;
-            top: 135px;
-            right: -15px;
-          }
+        small {
+          color: white;
+          position: absolute;
+          top: 20px;
+          left: 15px;
         }
+
       }
 
       .btn-blue {
-        top: 315px;
+        top: 200px;
         right: 25px;
         position: absolute;
       }
