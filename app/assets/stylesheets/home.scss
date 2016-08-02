@@ -130,29 +130,17 @@
     margin-bottom: -80px;
 
     #lesson-gallery {
-      width: 80%;
+      width: 90%;
       margin: 0 auto;
 
-      .left-arrow {
+      .left-arrow, .right-arrow {
         width: 130px;
         -webkit-filter: contrast(60%);
-        // position: absolute;
-        // top: 135px;
-        // left: -15px;
       }
-
-      .right-arrow {
-        width: 130px;
-        -webkit-filter: contrast(60%);
-        // position: absolute;
-        // top: 135px;
-        // right: -15px;
-      }
-
 
       #gal_left, #gal_right {
-        width: 360px;
-        height: calc(width * 0.785);
+        width: 430px;
+        height: calc(width * 0.634);
         display: inline-block;
         position: relative;
 
@@ -164,14 +152,14 @@
           color: white;
           position: absolute;
           top: 20px;
-          left: 15px;
+          left: 30px;
         }
 
       }
 
       .btn-blue {
-        top: 200px;
-        right: 25px;
+        top: 190px;
+        right: 30px;
         position: absolute;
       }
     }

@@ -74,7 +74,7 @@
   $('div[data-video-id]').on('click', showVideo)
 
 
-  gal_images = ['gal1.jpg', 'gal2.jpg', 'gal3.jpg', 'gal4.jpg', 'gal5.jpg', 'gal6.jpg']
+  gal_images = ['gal1.jpg', 'gal2.jpg', 'gal3.jpg', 'gal4.jpg', 'gal5.jpg']
 
   img_number = 0
   left_gal_img = gal_images[img_number + 1]
@@ -84,15 +84,15 @@
   $('.img_right').attr("src", "assets/#{right_gal_img}")
 
   $('.right-arrow').click ->
-    if img_number == 5
+    if img_number == 4
       console.log 'hello'
       left_gal_img = 'gal2.jpg'
       right_gal_img = 'gal1.jpg'
       img_number = 0
-    else if img_number == 4
+    else if img_number == 3
       left_gal_img = 'gal1.jpg'
-      right_gal_img = 'gal6.jpg'
-      img_number = 5
+      right_gal_img = 'gal5.jpg'
+      img_number = 4
     else
       img_number += 1
       left_gal_img = gal_images[img_number + 1]
@@ -104,8 +104,8 @@
   $('.left-arrow').click ->
     if img_number == 0
       left_gal_img = 'gal1.jpg'
-      right_gal_img = 'gal6.jpg'
-      img_number = 5
+      right_gal_img = 'gal5.jpg'
+      img_number = 4
     else
       img_number -= 1
       left_gal_img = gal_images[img_number + 1]
