@@ -1,0 +1,40 @@
+.about-wrapper {
+
+  p, h2 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .left-set {
+    width: 25%;
+    margin-right: 45px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    float: left;
+  }
+
+  .right-set {
+    width: 25%;
+    margin-left: 45px;
+    margin-bottom: 30px;
+    float: right;
+  }
+
+  section {
+    padding: 100px 0 150px;
+  }
+
+  div.homepage-content {
+    text-align: center;
+
+    div {
+      display: inline;
+    }
+  }
+
+  .btn-blue {
+    margin-left: 60px;
+  }
+
+}
