@@ -125,42 +125,37 @@
     }
   }
 
-  .lesson-gallery-wrapper {
-    width: 1100px;
-    margin: 0 auto;
+  #homepage-lesson-gallery-section {
+    margin-bottom: -140px;
+  }
 
-    #lesson-gallery {
-      width: 100%;
+  #homepage-lesson-gallery-div {
 
-      .left-arrow, .right-arrow {
-        width: 130px;
-        -webkit-filter: contrast(60%);
-      }
+    .left-arrow, .right-arrow {
+      -webkit-filter: contrast(60%);
+      margin-top: 150%;
+    }
 
-      #gal_left, #gal_right {
-        width: 380px;
-        height: calc(width * 0.634);
-        display: inline-block;
+    #gal_left, #gal_right {
+      position: relative;
+
+      .img_left, .img_right {
         position: relative;
-
-        .img_left, .img_right {
-          position: relative;
-        }
-
-        small {
-          color: white;
-          position: absolute;
-          top: 20px;
-          left: 30px;
-        }
-
       }
 
-      .btn-blue {
-        top: 170px;
-        right: 30px;
+      small {
+        color: white;
         position: absolute;
+        top: 20px;
+        left: 35px;
       }
+
+    }
+
+    .btn-blue {
+      bottom: 20px;
+      right: 35px;
+      position: absolute;
     }
   }
 

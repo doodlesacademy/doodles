@@ -13,20 +13,27 @@
     </div>
   </section>
 
-  <section class="lesson-gallery-wrapper">
-    <div id="lesson-gallery">
-      <a><%= image_tag 'left-arrow.png', class: "left-arrow" %></a>
-      <div id="gal_left">
+  <section id="homepage-lesson-gallery-section" class="container">
+    <div id="homepage-lesson-gallery-div" class="row">
+      <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
+        <a><%= image_tag 'left-arrow.png', class: "left-arrow" %></a>
+      </div>
+      <div id="gal_left" class="col-lg-5 col-md-6 col-s-12">
         <img class="img_left">
         <small>images from 'Near & Far' project</small>
-      </div>
-      <div id="gal_right">
-        <img class="img_right">
-        <a class="btn btn-xl btn-blue" href='/projects'>
+        <a class="btn btn-xl btn-blue hidden-lg hidden-md" href='/projects'>
           See Projects
         </a>
       </div>
-      <a><%= image_tag 'right-arrow.png', class: "right-arrow" %></a>
+      <div id="gal_right" class="col-lg-5 col-md-6 hidden-sm hidden-xs">
+        <img class="img_right">
+        <a class="btn btn-xl btn-blue hidden-sm hidden-xs" href='/projects'>
+          See Projects
+        </a>
+      </div>
+      <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
+        <a><%= image_tag 'right-arrow.png', class: "right-arrow" %></a>
+      </div>
     </div>
   </section>
 
