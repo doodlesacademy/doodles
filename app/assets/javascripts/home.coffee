@@ -1,6 +1,7 @@
 (($, window) -> $ ->
   $document = $(document)
   $nav = $('.doodles-nav')
+  $dropdown_content = $('.dropdown-content')
   $body = $('.body')
   $window = $(window)
   $quote = $('.quote .quote-contents')
@@ -211,5 +212,10 @@
       handleEmailSubmission(e)
     else if $email_input.val().length is 0
       $email.removeClass "is-error"
+
+  $('.collapsible').click ->
+    theId = $(this).attr('id')
+    $('.' + theId + '-collapsed').toggle()
+    return
 
 )(window.$ or window.jQuery or window.Zepto, window)

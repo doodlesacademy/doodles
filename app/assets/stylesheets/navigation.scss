@@ -29,9 +29,56 @@
     background-color: $primary-blue;
     height: 65px;
 
-    .brand {
+    .brand { //necessary?
       transform: scale(0.8);
     }
+
+    /////////////////////////////////////////////////
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      &:hover {
+        padding-top: 33px;
+        padding-bottom: 24px;
+        margin-top: 33px;
+        margin-bottom: 43px;
+        background-color: lighten($primary-blue, 15%);
+      }
+    }
+
+    .dropdown-content {
+        @include nav-menu-font;
+        color: white;
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: lighten($primary-blue, 25%);
+        min-width: 195px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        margin-top: 24px;
+        z-index: 1;
+
+        a {
+          display: block;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+    }
+
+    // .dropdown:hover .dropdown-content {
+    //   display: block;
+    // }
+
+    .dropdown:hover {
+      .dropdown-content {
+        visibility: visible;
+      }
+    }
+
+    ///////////////////////////////////
   }
 
   .nav-menu {
@@ -65,40 +112,12 @@
       }
     }
 
-    #nav-logo a:hover, #nav-donate-btn a:hover {
-      border-bottom: none;
+    #nav-logo, #nav-donate-btn, .dropdown {
+      a:hover {
+        border-bottom: none;
+      }
     }
   }
 
-  /////////////////////////////////////////////////
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-
-    &:hover {
-      padding-top: 33px;
-      padding-bottom: 23px;
-      margin-top: 30px;
-      margin-bottom: 43px;
-      background-color: lighten($primary-blue, 15%);
-    }
-  }
-
-  .dropdown-content {
-      @include nav-menu-font;
-      color: white;
-      display: none;
-      position: absolute;
-      left: 0;
-      background-color: lighten($primary-blue, 25%);
-      min-width: 192px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      padding: 12px 16px;
-      z-index: 1;
-  }
-
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
 }
