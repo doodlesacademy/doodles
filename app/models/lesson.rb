@@ -70,6 +70,10 @@ class Lesson < ActiveRecord::Base
     self.order + 1
   end
 
+  def has_new_format?
+    self.objective.present?
+  end
+
   private
 
   def set_order
