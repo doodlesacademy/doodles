@@ -37,57 +37,40 @@
   .nav-menu {
     list-style-type: none;
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    li {
-      display: inline-block;
+    div {
       @include nav-menu-font;
-      padding: 0 60px;
 
       a, a:visited {
         color: white;
-        text-decoration: none;
 
-        &:after {
-          content: '';
-          display: block;
-          background-color: white;
-          opacity: 0;
-          margin-top: 2px;
-          height: 2px;
-          width: 100%;
-          transition: opacity 250ms ease;
+        &:hover {
+          cursor: pointer;
+          border-bottom: 2px solid white;
         }
       }
 
-      &.current a:after,
-      &:hover a:after {
-        opacity: 1;
-      }
-
-      &:hover {
-        cursor: pointer;
-      }
     }
     #nav-donate-btn {
-      background-color: $primary-blue;
-      padding: 5px 20px 3px 20px;
-      border-radius: 5px;
-      margin-left: 40px;
-      margin-right: 50px;
-
-      a:after {
-        opacity: 0;
-      }
-
-      &:hover {
-        background-color: darken($primary-blue, 15%);
+      a {
+        background-color: $primary-blue;
+        border-radius: 3px;
+        padding: 5px 20px;
+        &:hover {
+          background-color: darken($primary-blue, 15%);
+        }
       }
     }
 
-    #nav-logo a:after, #nav-about a:after {
-      opacity: 0;
+    #nav-logo a:hover, #nav-donate-btn a:hover {
+      border-bottom: none;
     }
   }
+
+  /////////////////////////////////////////////////
 
   .dropdown {
     position: relative;
