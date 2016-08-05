@@ -57,7 +57,13 @@
         <% end %>
       </p>
       <h2 id='media' class="overview-heading anchor">Media</h2>
-      <p><%= @lesson.media %></p>
+      <p>
+        <% if @lesson.media.present? %>
+          <%= @lesson.media %>
+        <% else %>
+          <%= "N/A" %>
+        <% end %>
+      </p>
     <hr />
     </div>
 
