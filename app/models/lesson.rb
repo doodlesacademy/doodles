@@ -48,16 +48,15 @@ class Lesson < ActiveRecord::Base
     @video_uri.match(/\d+$/).to_s
   end
 
-  # def destroy
-  #   self.archive!
-  #   self.save!
-  # end
-
   def synopsis_old
     content = self.sections.first().content
     content = content[0, content.enum_for(:scan, /^## Objective/).map { Regexp.last_match.begin(0) }[0]]
     content = content.gsub(/#+ .*\n/, '')
     return content
+  end
+
+  def first_lesson
+    self.project.lessons.published.find_by(order: 0)
   end
 
   def next_lesson
