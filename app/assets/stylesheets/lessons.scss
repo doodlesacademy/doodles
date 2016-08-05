@@ -126,6 +126,10 @@
     }
   }
 
+  .modal-body img {
+    max-height: 100vh;
+  }
+
 }
 
 .insp-img-wrapper {
@@ -202,27 +206,18 @@ a.modal-insp:hover {
 #lesson-sidebar {
   float: left;
 
-  // blockquote {
-    // font-style: normal;
-    // padding-bottom: 45px;
-
   div {
     position: fixed;
     top: 14%;
-    // left: 9%;
     color: #767676;
 
     #lesson-map {
-      // margin-left: 15px;
       margin-left: -60px;
       line-height: 1.75;
-      // margin-left: 5px;
     }
 
     p {
       font-size: 14px;
-      // margin-left: 20px;
-      // margin-left: 10px;
       margin-left: -60px;
       display: flex;
       margin-bottom: -15px;
