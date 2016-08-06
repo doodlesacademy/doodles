@@ -218,4 +218,8 @@
     $('.' + theId + '-collapsed').toggle()
     return
 
+  $('.dropdown').hover ->
+    $('.dropdown-content').show()
+    return
+
 )(window.$ or window.jQuery or window.Zepto, window)
