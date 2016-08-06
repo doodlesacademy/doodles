@@ -159,18 +159,18 @@
           <h3>independent</h3>
           <p><%= @lesson.independent_worktime %></p>
           <h3><%= @lesson.worktime_focus %></h3>
-          <p><%= @lesson.worktime %></p>
+          <p><%= markdown @lesson.worktime %></p>
         </div>
       <% elsif @lesson.group_worktime.present? %>
         <div>
           <h3>group</h3>
           <p><%= @lesson.group_worktime %></p>
           <h3><%= @lesson.worktime_focus %></h3>
-          <p><%= @lesson.worktime %></p>
+          <p><%= markdown @lesson.worktime %></p>
         </div>
       <% else %>
           <h3><%= @lesson.worktime_focus %></h3>
-          <p><%= @lesson.worktime %></p>
+          <p><%= markdown @lesson.worktime %></p>
       <% end %>
 
 
@@ -237,7 +237,7 @@
 
       <div id='early-finishers'>
         <h2 class="extension-heading anchor">early finishers</h2>
-        <p><%= @lesson.early_finishers %></p>
+        <p><%= markdown @lesson.early_finishers %></p>
       </div>
     </div>
 
