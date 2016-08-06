@@ -13,25 +13,19 @@
         <a href="/projects">projects</a>
       </div>
       <div class="col-md-2" id="nav-logo">
-        <a href="/"><%= image_tag 'doodle_white_logo_only.png', alt:"Doodles Academy", size: "40" %></a></li>
+        <a href="/"><%= image_tag 'doodle_white_logo_only.png', alt:"Doodles Academy", size: "50", class: "brand" %></a></li>
       </div>
-      <div class="col-md-2">
-        <a href="/contact">contact us</a>
+      <div class="col-md-2 dropdown">
+        <a>contact us</a>
+        <div class="dropdown-content">
+          <a href="/contact" hidden>get in touch</a>
+          <!-- <a href="#" hidden>join our mailing list</a> -->
+          <a href="/class" hidden>PDX Classes</a>
+        </div>
       </div>
       <div id="nav-donate-btn" class="col-md-2">
         <a href="/donate">donate</a>
       </div>
-  <!-- <ul class="nav-menu">
-    <li id="nav-about" class="dropdown"><a href="#" >about us</a> -->
-      <!-- <div class="dropdown-content">
-        <p>Hello World!</p>
-      </div> -->
-    <!-- </li>
-    <li class="<%= 'current' if current_page?('/projects') %>"><a href="/projects">projects</a></li>
-    <li id="nav-logo"><a href="/"><%= image_tag 'doodle_white_logo_only.png', alt:"Doodles Academy", size: "40" %></a></li>
-    <li><a href="#">contact us</a></li>
-    <li id="nav-donate-btn"><a href="/donate">donate</a></li>
-  </ul> -->
     </div>
   </div>
 </div>

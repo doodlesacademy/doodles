@@ -218,8 +218,11 @@
     $('.' + theId + '-collapsed').toggle()
     return
 
-  $('.dropdown').hover ->
-    $('.dropdown-content').show()
+  $('.dropdown').hover (->
+    $(this).find('.dropdown-content').show().slow()
+    return
+  ), ->
+    $('.dropdown-content').hide()
     return
 
 )(window.$ or window.jQuery or window.Zepto, window)
