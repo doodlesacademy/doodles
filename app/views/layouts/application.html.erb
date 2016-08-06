@@ -17,7 +17,7 @@
 <body>
   <%= render "shared/hero" %>
   <%= render "shared/navigation" %>
-  <% if @homepage || @disable_shared %>
+  <% if @homepage %>
   <%= yield %>
   <% else %>
   <div class="wrapper">
@@ -25,6 +25,7 @@
   </div>
   <% end %>
 
+  <%= render "shared/subscribe"  unless @disable_shared %>
   <%= render "shared/footer" unless @disable_shared %>
   <%= render "shared/ga" %>
 </body>

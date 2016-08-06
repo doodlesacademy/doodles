@@ -1,6 +1,16 @@
-.subscribe-wrapper {
+.subscribe {
   background-color: $warm-gray;
-  margin-top: -3%;
-  padding-top: 5%;
-  padding-bottom: 10%;
+  padding-top: 20px;
+  margin-bottom: -20px;
+}
+
+.subscribe-top {
+  background-color:#999;
+  margin-top:-4%;
+  padding-top:8%;
+}
+
+.subscribe-bottom {
+  background-color:#999;
+  padding-bottom:8%;
 }
