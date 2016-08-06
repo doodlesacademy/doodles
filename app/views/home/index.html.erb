@@ -1,82 +1,108 @@
-<% content_for (:hero_content) { image_tag 'doodle_white.png', size: "350"} %>
+<% content_for (:hero_content) { image_tag 'doodle_white.png', size: "350" } %>
 <% content_for :hero_content do %>
- <h2 style="margin-top: -50px;"> Students aren't carbon copies.</h2>
- <h2 style="margin-top: -10px;"> Why should their art be? </h2>
 <%end %>
 
 <div class="homepage">
- <section class="homepage-section">
+
+  <section>
     <div class="homepage-content">
-      <div class="frame frame--16x9" style="margin: 50px 0">
-        <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      </div>
-      <p class="lead">
-        Our mission is to expand children's access to high-quality arts education.
-        Our vision is that every child receives an arts education that inspires and rewards creativity, growth and problem solving, irrespective of cost or zip code.
+      <h2>Students aren't carbon copies, why should their art be?</h2>
+      <p>
+        With Doodles Academy, educators of all backgrounds can offer their students a comprehensive, standards-aligned, open-ended curriculum with excellence and ease.
       </p>
     </div>
   </section>
 
-  <section class="homepage-section hero">
-    <%= image_tag 'quotes/imagequilt.jpg', class:"hero-img", style:"height:100%;" %>
-    <div class="homepage-content hero-content">
-      <h2 class='jumbo'>
-        Art lessons that inspire real creativity.
-      </h2>
-      <p class='lead'>
-        Doodles provides high-quality art education that inspires and rewards individual creativity, growth, and problem solving.
-      </p>
-      <p class='lead' style="font-size: 75%">
-        Artwork from Near & Far project
-      </p>
-      <div style='text-align: right;'>
-        <a class="btn btn-xl btn-yellow" href='/projects'>
-          See More Projects
+  <section id="homepage-lesson-gallery-section" class="container">
+    <div id="homepage-lesson-gallery-div" class="row">
+      <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
+        <a><%= image_tag 'left-arrow.png', class: "left-arrow" %></a>
+      </div>
+      <div id="gal_left" class="col-lg-5 col-md-6 col-s-12">
+        <img class="img_left">
+        <small>images from 'Near & Far' project</small>
+        <a class="btn btn-xl btn-blue hidden-lg hidden-md" href='/projects'>
+          See Projects
         </a>
+      </div>
+      <div id="gal_right" class="col-lg-5 col-md-6 hidden-sm hidden-xs">
+        <img class="img_right">
+        <a class="btn btn-xl btn-blue hidden-sm hidden-xs" href='/projects'>
+          See Projects
+        </a>
+      </div>
+      <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
+        <a><%= image_tag 'right-arrow.png', class: "right-arrow" %></a>
       </div>
     </div>
   </section>
-  <section class="homepage-section">
+
+  <section>
     <div class="homepage-content">
-      <h2 class='jumbo'>
-        We make high-quality art education easy.
-      </h2>
-      <div>
-        <p class='lead'>
-          Doodles Academy brings art education to underserved students. We provide a free online curriculum and partner with schools in order to bring art classes where there would otherwise be none.
-        </p>
-      </div>
-      <div style='text-align: right;'>
-        <a class="btn btn-xl btn-blue" href='/projects'>
-          Go to Lesson Plans
-        </a>
-      </div>
-  </section>
-  <section class="hero quote">
-    <div class="hero-content">
-      <div class="quote-contents"></div>
-    </div>
-    <div class="quote-selector"></div>
-  </section>
-  <section class="homepage-section bg-accent-green">
-    <div class="homepage-content">
-      <!-- <h2 style="font-size: 26px; font-weight: 500;"> -->
-      <h2 class='jumbo'>
-        Every student deserves art.
-      </h2>
-      <div>
-        <p class='lead'>
-         Our vision is that every child receives an arts education that inspires and rewards creativity, growth and problem solving, irrespective of school budget, zip code, or student demographics.
-        </p>
-        <p class='lead'>
-         Donations help us develop and offer our free classes and free online curriculum, bringing high-quality art education to students everywhere.
-        </p>
-      </div>
-      <div style='text-align: right;'>
-        <a class="btn btn-xl btn-white" href="/donate">
-          Donate Now
-        </a>
-      </div>
+      <h2>The Doodles Difference</h2>
+      <p>
+        Doodles Academy provides an online curriculum that includes video examples, lesson plans, supply lists, and links to Common Core and Visual Art standards.  We make it easy for educators of all types and experience levels to bring a comprehensive and open-ended curriculum to their students.
+      </p>
+      <p>
+        Our projects allow room for every child to tell her own story.  We provide lessons that scaffold skills and ideas, challenging students to think complexly, but chunking it down so that they don't become overwhelmed.  Discussion and exploration is built into each project, encouraging students to find their own creative solutions.
+      </p>
     </div>
   </section>
+
+  <section>
+     <div>
+       <iframe src="<%= @intro_video_url %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+     </div>
+   </section>
+
+   <section>
+     <div class="homepage-content">
+       <h2>High quality art education for all.</h2>
+       <p>
+         Our mission is to expand children's access to high-quality arts education.
+       </p>
+       <p>
+         Our vision is that every child receives an arts education that inspires and rewards creativity, growth and problem solving.
+       </p>
+     </div>
+   </section>
+
+   <section class="image-background-section">
+     <div class="image-background-content">
+       <p>
+         <span class="emulate-h2">Art is not optional.</span>
+         <br>
+         <br>
+         Students engaged in the arts consistently score higher on standardized tests, stay in school longer, and pursue more advanced degrees.
+         <br>
+         <br>
+         We offer our complete program on a donation basis, no strings attached, to any family, school, or community center that needs it.
+         <br>
+         <br>
+         Without donations, this would be impossible.
+         <a class="btn btn-xl btn-white" href="/donate">
+           Donate Now
+         </a>
+       </p>
+     </div>
+   </section>
+
+   <section>
+     <div class="homepage-content">
+       <h2>Testimonials</h2>
+       <blockquote>
+         <div id="quotes">
+           <p></p>
+         </div>
+       </blockquote>
+       <div class="quoted-parent"></div>
+       <div class='dots'>
+         <a id='dot0'><%= image_tag 'dot.png'%></a>
+         <a id='dot1'><%= image_tag 'dot.png'%></a>
+         <a id='dot2'><%= image_tag 'dot.png'%></a>
+       </div>
+     </div>
+   </section>
+
+
 </div>

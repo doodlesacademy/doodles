@@ -63,7 +63,7 @@
     str.replace /\w\S*/g, (txt) ->
       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
-  numOfh1 = $('.heading').size()
+  numOfh1 = $('.heading').length
   lessonHeadings = []
   lessonSubheadings = [];
   n = 0
@@ -74,7 +74,7 @@
     headToc = '.' + headingClass.toLowerCase() + '-toc'
     $('#lesson-map').append('<p><a id="' + headingClass.toLowerCase() + '-sidebar" ' + 'class="' + headingClass.toLowerCase() + '-toc" ' + 'href="#' + headingClass.toLowerCase() + '" >' + toTitleCase(headingClass) + '</a></p>')
     thisHead = '.' + headingClass.toLowerCase() + '-heading'
-    numHead = $(thisHead).size()
+    numHead = $(thisHead).length
     a = 0
     while a < numHead
       thisA = $(thisHead).get(a)

@@ -3,7 +3,7 @@
   $nav = $('.doodles-nav')
   $body = $('.body')
   $window = $(window)
-  $quote = $('.quote .quote-contents')
+  $quote = $('#quotes p')
   $parallax = $('.parallax')
   $parallax_offset = null
   $parallax_height = null
@@ -73,80 +73,107 @@
 
   $('div[data-video-id]').on('click', showVideo)
 
-  # Quotes
-  quotes = []
-  quotes.push
-    content: '"Since [our daughter\’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles."'
-    person: "Kara Bloom"
-  quotes.push
-    content: '“With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter\’s life.”'
-    person: "Laura Harris"
-  quotes.push
-    content: '"The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health."'
-    person: "Erin Scott"
 
-  quote_rotate_speed = 8000
-  quote_rotate_interval = null
-  quote_rotate_current_index = 0
+  gal_images = ['gal1.jpg', 'gal2.jpg', 'gal3.jpg', 'gal4.jpg', 'gal5.jpg']
 
-  "content person".split(" ").map (selector) ->
-    $quote.append("<div class='quote-#{selector}'></div>")
-  $quote_content = $quote.find('.quote-content')
-  $quote_person = $quote.find('.quote-person')
-  $quote_selector = $('.quote .quote-selector')
+  img_number = 0
+  left_gal_img = gal_images[img_number + 1]
+  right_gal_img = gal_images[img_number]
 
-  initQuotes = ->
-    quotes.map (quote, index) ->
-      $selector = $ "<i class='quote-selector-bubble' data-quote-id='#{index}'>•</i>"
-      $quote_selector.append $selector
+  $('.img_left').attr("src", "assets/#{left_gal_img}")
+  $('.img_right').attr("src", "assets/#{right_gal_img}")
 
-    $quote_selector.on 'click', '.quote-selector-bubble', (e) ->
-      $target = $(e.currentTarget)
-      quote_id = $target.data('quote-id')
-      selectQuote(quote_id)
-      quote_rotate_current_index = quote_id
+  $('.right-arrow').click ->
+    if img_number == 4
+      console.log 'hello'
+      left_gal_img = 'gal2.jpg'
+      right_gal_img = 'gal1.jpg'
+      img_number = 0
+    else if img_number == 3
+      left_gal_img = 'gal1.jpg'
+      right_gal_img = 'gal5.jpg'
+      img_number = 4
+    else
+      img_number += 1
+      left_gal_img = gal_images[img_number + 1]
+      right_gal_img = gal_images[img_number]
+    $('.img_left').attr("src", "assets/#{left_gal_img}")
+    $('.img_right').attr("src", "assets/#{right_gal_img}")
+    return
 
-    $('.quote').on 'mouseenter', ->
-      clearInterval quote_rotate_interval
+  $('.left-arrow').click ->
+    if img_number == 0
+      left_gal_img = 'gal1.jpg'
+      right_gal_img = 'gal5.jpg'
+      img_number = 4
+    else
+      img_number -= 1
+      left_gal_img = gal_images[img_number + 1]
+      right_gal_img = gal_images[img_number]
+    $('.img_left').attr("src", "assets/#{left_gal_img}")
+    $('.img_right').attr("src", "assets/#{right_gal_img}")
+    return
 
-    $('.quote').on 'mouseleave', ->
-      rotateQuotes()
 
-    selectQuote()
-    rotateQuotes()
+  quotes = [
+    'Since [our daughter’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.'
+    'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.'
+    'The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health.'
+  ]
+  quotePersons = [
+    'Kara Bloom'
+    'Laura Harris'
+    'Erin Scott'
+  ]
+  quote_number = 0
+  $('#quotes p').append quotes[quote_number]
+  $('.quoted-parent').append '<p>' + quotePersons[quote_number] + '</p>'
+  $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
 
-  rotateQuotes = ->
-    quote_rotate_interval = setInterval ->
-      i = quote_rotate_current_index += 1
-      i = i % 3
-      selectQuote(i)
-    , quote_rotate_speed
+  nextQuote = ->
+    if quote_number == 0
+      $('#dot0 img').attr("src", "assets/dot.png");
+    else if quote_number == 1
+      $('#dot1 img').attr("src", "assets/dot.png");
+    else
+      $('#dot2 img').attr("src", "assets/dot.png");
+    $('#quotes p').text quotes[quote_number = ++quote_number % quotes.length]
+    $('.quoted-parent p').text quotePersons[quote_number = quote_number % quotePersons.length]
+    $('#dot' + (quote_number) + ' img').attr("src", "assets/bluedot.png");
+    setTimeout nextQuote, 5000
+    return
 
-  setActiveBubble = (active_index = 0) ->
-    return unless 0 <= active_index < quotes.length
-    $quote_selector.children().map (index, bubble) ->
-      $bubble = $(bubble)
-      $bubble.toggleClass "is-active", index is active_index
+  setTimeout nextQuote, 5000
+  # need to reset setTimeout on click
 
-  selectQuote = (index = 0) ->
-    return unless 0 <= index < quotes.length
-    quote = quotes[index]
-    toggleQuote()
-    setActiveBubble(index)
-    $quote.one "transitionend", ->
-      switchQuote(quote)
-      toggleQuote()
+  $('#dot0').click ->
+    quote_number = 0
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
+    $('#dot0 img').attr("src", "assets/bluedot.png");
+    $('#dot1 img').attr("src", "assets/dot.png");
+    $('#dot2 img').attr("src", "assets/dot.png");
+    return
 
-  toggleQuote = (hide) ->
-    hide ?= not $quote.hasClass "is-hidden"
-    $quote.toggleClass "is-hidden", hide
+  $('#dot1').click ->
+    quote_number = 1
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
+    $('#dot0 img').attr("src", "assets/dot.png");
+    $('#dot1 img').attr("src", "assets/bluedot.png");
+    $('#dot2 img').attr("src", "assets/dot.png");
+    return
 
-  switchQuote = (quote) ->
-    return unless quote? and quote.person? and quote.content?
-    $quote_content.text quote.content
-    $quote_person.text quote.person
+  $('#dot2').click ->
+    quote_number = 2
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
+    $('#dot0 img').attr("src", "assets/dot.png");
+    $('#dot1 img').attr("src", "assets/dot.png");
+    $('#dot2 img').attr("src", "assets/bluedot.png");
+    return
 
-  initQuotes()
+  return
 
   # Email submission
   hasValue = _.debounce (e) ->

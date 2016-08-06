@@ -197,7 +197,7 @@
 
   <div class="field">
     <%= f.label :worktime %>
-    <%= f.text_field :worktime %>
+    <%= f.text_area :worktime, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
@@ -237,7 +237,7 @@
 
   <div class="field">
     <%= f.label :early_finishers %>
-    <%= f.text_field :early_finishers %>
+    <%= f.text_area :early_finishers, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <% if @lesson.early_finishers == nil || @lesson.early_finishers == "" %>

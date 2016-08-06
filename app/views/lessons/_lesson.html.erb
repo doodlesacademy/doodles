@@ -57,7 +57,13 @@
         <% end %>
       </p>
       <h2 id='media' class="overview-heading anchor">Media</h2>
-      <p><%= @lesson.media %></p>
+      <p>
+        <% if @lesson.media.present? %>
+          <%= @lesson.media %>
+        <% else %>
+          <%= "N/A" %>
+        <% end %>
+      </p>
     <hr />
     </div>
 
@@ -153,18 +159,18 @@
           <h3>independent</h3>
           <p><%= @lesson.independent_worktime %></p>
           <h3><%= @lesson.worktime_focus %></h3>
-          <p><%= @lesson.worktime %></p>
+          <p><%= markdown @lesson.worktime %></p>
         </div>
       <% elsif @lesson.group_worktime.present? %>
         <div>
           <h3>group</h3>
           <p><%= @lesson.group_worktime %></p>
           <h3><%= @lesson.worktime_focus %></h3>
-          <p><%= @lesson.worktime %></p>
+          <p><%= markdown @lesson.worktime %></p>
         </div>
       <% else %>
           <h3><%= @lesson.worktime_focus %></h3>
-          <p><%= @lesson.worktime %></p>
+          <p><%= markdown @lesson.worktime %></p>
       <% end %>
 
 
@@ -231,7 +237,7 @@
 
       <div id='early-finishers'>
         <h2 class="extension-heading anchor">early finishers</h2>
-        <p><%= @lesson.early_finishers %></p>
+        <p><%= markdown @lesson.early_finishers %></p>
       </div>
     </div>
 
@@ -239,10 +245,8 @@
     <p class="centered finished">
     <% if @lesson.next_lesson %>
         <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
-    <% elsif @project.next_project %>
-        <%= project_link @project.next_project, "Next Project", class:"btn btn-blue btn-xl" %>
-        <h3 class='centered sign-up-below'>Did you enjoy this project? Sign up below to be the first to hear when we release our next project!</h3>
     <% else %>
+      <%= lesson_link @lesson.first_lesson, "First Lesson", class:"btn btn-blue btn-xl" %>
       <h3 class='centered sign-up-below'>Did you enjoy this project? Sign up below to be the first to hear when we release our next project!</h3>
     <% end %>
     </p>
