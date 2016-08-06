@@ -1,7 +1,7 @@
 <% if academy == :lower %>
-  Lower Academy Projects /
-  <%= link_to "Upper Academy Projects", project_path("upper", @project.slug) %>
+  Lower Academy /
+  <%= link_to "Upper Academy", project_path("upper", @project.slug) %>
 <% else %>
-  <%= link_to "Lower Academy Projects", project_path("lower", @project.slug) %>
-  / Upper Academy Projects
+  <%= link_to "Lower Academy", project_path("lower", @project.slug) %>
+  / Upper Academy
 <% end %>

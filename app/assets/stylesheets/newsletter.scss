@@ -1,7 +1,7 @@
 // Newsletter Subscription Form
 .input__text {
   border: none;
-  background-color: $input-purple;
+  background-color: $primary-blue;
   color: white;
   outline: none;
   height: 38px;
@@ -13,7 +13,7 @@
   transition: background-color 300ms ease;
 
   &:focus {
-    background-color: lighten($input-purple, 10%)
+    background-color: lighten($primary-blue, 10%)
   }
 
   @include placeholder {
@@ -35,7 +35,7 @@
 
 .newsletter__submit {
   @include textCap;
-  background-color: $active-purple;
+  background-color: $primary-blue;
   color: white;
   outline: none;
   border: none;
@@ -45,11 +45,17 @@
   transition: background-color 300ms ease;
 
   &:hover {
-    background-color: lighten($active-purple, 10%)
+    background-color: darken($primary-blue, 10%)
   }
 
   &:active {
     transition: none;
-    background-color: darken($active-purple, 10%)
+    background-color: darken($primary-blue, 10%)
+  }
+}
+
+.thanks {
+  p.low-set {
+   margin-top: 50px;
   }
 }
