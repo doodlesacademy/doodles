@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get "supporters", to: "donors#index"
   get "classes", to: "home#classes"
   get "donate", to: "home#donate"
-  get "subscribe", to: "home#subscribe"
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
