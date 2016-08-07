@@ -25,6 +25,13 @@
 
   $window.scroll(onScroll)
 
+  $('.dropdown').hover (->
+    $(this).find('.dropdown-content').show().slow()
+    return
+  ), ->
+    $('.dropdown-content').hide()
+    return
+
   VIDEO_EMBED =
     vimeo: _.template "https://player.vimeo.com/video/<%= video_id %>?autoplay=1"
 
@@ -84,7 +91,7 @@
   $('.img_left').attr("src", "assets/#{left_gal_img}")
   $('.img_right').attr("src", "assets/#{right_gal_img}")
 
-  $('.right-arrow').click ->
+  $('.left-arrow').click ->
     if img_number == 4
       console.log 'hello'
       left_gal_img = 'gal2.jpg'
@@ -102,7 +109,7 @@
     $('.img_right').attr("src", "assets/#{right_gal_img}")
     return
 
-  $('.left-arrow').click ->
+  $('.right-arrow').click ->
     if img_number == 0
       left_gal_img = 'gal1.jpg'
       right_gal_img = 'gal5.jpg'
@@ -243,13 +250,6 @@
   $('.collapsible').click ->
     theId = $(this).attr('id')
     $('.' + theId + '-collapsed').toggle()
-    return
-
-  $('.dropdown').hover (->
-    $(this).find('.dropdown-content').show().slow()
-    return
-  ), ->
-    $('.dropdown-content').hide()
     return
 
 )(window.$ or window.jQuery or window.Zepto, window)
