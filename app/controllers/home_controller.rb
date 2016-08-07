@@ -28,6 +28,10 @@ class HomeController < ApplicationController
   def donor
   end
 
+  def subscribe
+    @disable_shared = true
+  end
+
   def page
     @page = Page.find_by_slug(params[:slug])
     not_found unless @page.present?

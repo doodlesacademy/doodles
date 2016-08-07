@@ -1,17 +1,31 @@
 <div class="doodles-nav hidden">
-  <div class="brand">
-    <a href="/"><%= image_tag 'doodle_white.png', class:"logo", alt:"Doodles Academy" %></a>
+  <div class="container">
+    <div class="row nav-menu">
+      <div class="col-md-2 dropdown">
+        <a>about us</a>
+        <div class="dropdown-content">
+          <a href="/about" hidden>our story</a>
+          <a href="/supporters" hidden>supporters</a>
+          <a href="/team" hidden>team</a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <a href="/projects">projects</a>
+      </div>
+      <div class="col-md-2" id="nav-logo">
+        <a href="/"><%= image_tag 'doodle_white_logo_only.png', alt:"Doodles Academy", size: "50", class: "brand" %></a></li>
+      </div>
+      <div class="col-md-2 dropdown">
+        <a>contact us</a>
+        <div class="dropdown-content">
+          <a href="/contact" hidden>get in touch</a>
+          <a href="/subscribe" hidden>join our mailing list</a>
+          <a href="/class" hidden>PDX Classes</a>
+        </div>
+      </div>
+      <div id="nav-donate-btn" class="col-md-2">
+        <a href="/donate">donate</a>
+      </div>
+    </div>
   </div>
-  <ul class="nav-menu">
-    <% @pages.each do |page| %>
-    <%= nav_link page[:name], page[:path] %>
-    <% end %>
-    <li class="nav-menu-item donate<%= ' current' if current_page?('/donate') %>">
-      <a href="/donate">
-        <span class="btn btn-blue nav-donate-btn">
-          Donate
-        </span>
-      </a>
-    </li>
-  </ul>
 </div>

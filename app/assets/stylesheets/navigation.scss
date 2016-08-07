@@ -32,64 +32,85 @@
     .brand {
       transform: scale(0.8);
     }
-  }
 
-  .brand {
-    height: 100px;
-    img {
-      height: 100%;
-      width: auto;
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      &:hover {
+        padding-top: 33px;
+        padding-bottom: 24px;
+        margin-top: 33px;
+        margin-bottom: 43px;
+        background-color: #70beeb;
+      }
     }
-    @include ease;
-    margin-left: -100px;
+
+    .dropdown-content {
+        @include nav-menu-font;
+        color: white;
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #9adaff;
+        min-width: 195px;
+        border-radius: 0 0 50px 50px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        margin-top: 24px;
+        z-index: 1;
+
+        a {
+          display: block;
+          text-transform: lowercase;
+          font-size: 1.1em;
+          margin-top: 20px;
+          margin-bottom: 40px;
+
+          &:last-child {
+            margin-bottom: 30px;
+          }
+        }
+    }
   }
 
   .nav-menu {
     list-style-type: none;
     list-style: none;
-    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    li {
-      display: inline-block;
+    div {
       @include nav-menu-font;
-      padding: 0 30px;
 
       a, a:visited {
         color: white;
-        text-decoration: none;
 
-        &:after {
-          content: '';
-          display: block;
-          background-color: white;
-          opacity: 0;
-          margin-top: 2px;
-          height: 2px;
-          width: 100%;
-          transition: opacity 250ms ease;
+        &:hover {
+          cursor: pointer;
+          border-bottom: 2px solid white;
         }
       }
 
-      &.current:not(.donate) a:after,
-      &:hover:not(.donate) a:after {
-        opacity: 1;
+    }
+    #nav-donate-btn {
+      a {
+        background-color: $primary-blue;
+        border-radius: 3px;
+        padding: 5px 20px;
+        &:hover {
+          background-color: darken($primary-blue, 15%);
+        }
       }
+    }
 
-      &.current .nav-donate-btn {
-        background-color: darken($primary-blue, 15%);
-      }
-
-      &:hover {
-        cursor: pointer;
+    #nav-logo, #nav-donate-btn, .dropdown {
+      a:hover {
+        border-bottom: none;
       }
     }
   }
 
-  .nav-donate-btn {
-    width: 100px;
-    @include nav-menu-font;
-    font-size: 1em;
-    padding: 5px 9px 6px 9px;
-    margin-bottom: 3px;
-  }
+
 }

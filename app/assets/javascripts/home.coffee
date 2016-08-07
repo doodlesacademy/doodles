@@ -1,6 +1,7 @@
 (($, window) -> $ ->
   $document = $(document)
   $nav = $('.doodles-nav')
+  $dropdown_content = $('.dropdown-content')
   $body = $('.body')
   $window = $(window)
   $quote = $('#quotes p')
@@ -23,6 +24,13 @@
   onScroll()
 
   $window.scroll(onScroll)
+
+  $('.dropdown').hover (->
+    $(this).find('.dropdown-content').show().slow()
+    return
+  ), ->
+    $('.dropdown-content').hide()
+    return
 
   VIDEO_EMBED =
     vimeo: _.template "https://player.vimeo.com/video/<%= video_id %>?autoplay=1"
@@ -238,5 +246,10 @@
       handleEmailSubmission(e)
     else if $email_input.val().length is 0
       $email.removeClass "is-error"
+
+  $('.collapsible').click ->
+    theId = $(this).attr('id')
+    $('.' + theId + '-collapsed').toggle()
+    return
 
 )(window.$ or window.jQuery or window.Zepto, window)
