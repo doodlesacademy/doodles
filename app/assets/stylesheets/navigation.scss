@@ -7,6 +7,9 @@
   letter-spacing: 1px;
 }
 
+// @media all and (max-width: 480px) { .dropdown { display: none; } }
+
+
 // Nav-bar
 .doodles-nav {
   position: fixed;
@@ -73,7 +76,7 @@
         position: absolute;
         left: 0;
         background-color: #9adaff;
-        min-width: 195px;
+        min-width: 100%;
         border-radius: 0 0 50px 50px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         padding: 12px 16px;
