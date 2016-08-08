@@ -24,6 +24,17 @@
   background-color: transparent;
   @include ease;
 
+  #nav-donate-btn {
+    a {
+      background-color: $primary-blue;
+      border-radius: 3px;
+      padding: 5px 20px;
+      &:hover {
+        background-color: darken($primary-blue, 15%);
+      }
+    }
+  }
+
   #no-hero + &,
   &.is-scrolled {
     background-color: $primary-blue;
@@ -31,6 +42,15 @@
 
     .brand {
       transform: scale(0.8);
+    }
+
+    #nav-donate-btn {
+      a {
+        background-color: $primary-green;
+        &:hover {
+          background-color: darken($primary-green, 5%);
+        }
+      }
     }
 
     .dropdown {
@@ -93,16 +113,6 @@
         }
       }
 
-    }
-    #nav-donate-btn {
-      a {
-        background-color: $primary-blue;
-        border-radius: 3px;
-        padding: 5px 20px;
-        &:hover {
-          background-color: darken($primary-blue, 15%);
-        }
-      }
     }
 
     #nav-logo, #nav-donate-btn, .dropdown {
