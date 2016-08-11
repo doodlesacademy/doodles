@@ -1,29 +1,19 @@
 <% content_for(:page_title) { 'Projects' } %>
 <% content_for(:hero_image) { image_tag 'heros/project.jpg' } %>
 
-<p class="centered">
-  <a data-toggle="modal" data-modal-id="modal-units">
-    What are units?
-  </a>
-</p>
-
-<div class="project-grid">
+<div class='individual-project'>
   <% @projects.each do |set| %>
-  <div class="project-grid-item" data-project-slug="<%= set.slug %>">
-    <div class="project-grid-item-unit-title">
-      <%= "Unit #{set.unit_number}: #{set.unit}" %>
-    </div>
-    <div class="project-grid-item-image" style="background-image: url(
-      <%= set.project_image.url(:medium) %>)">
+    <div class="project-grid-item" data-project-slug="<%= set.slug %>">
+      <!-- <div class="project-grid-item-unit-title">
+        <%= "Unit #{set.unit_number}: #{set.unit}" %>
+      </div> -->
+      <div class="project-grid-item-image" style="background-image: url(
+        <%= set.project_image.url(:medium) %>)">
+      </div>
     </div>
     <div class="project-grid-item-title"><%= set.title %></div>
-  </div>
   <% end %>
 </div>
-
-
-<%= render "shared/modal", id: "modal-units", title: "What are Units?", body: "You can do lessons in any order that you please. \n However, by following the units in order, students experience a scaffolded learning structure that gradually adds complexity without overwhelming them. \n By the end of the 2016 school year, there will be over a year’s worth of weekly, scaffolded art lessons. Project development is ongoing, and projects will continue to be be added to each unit so that educators can choose projects fitting into their specific classroom's learning objectives. \n Sign up to receive notifications of new projects by email." %>
-
 
 <div class="modal" id="academy-select">
   <div class="modal-content">
