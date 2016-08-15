@@ -3,17 +3,26 @@
 
 <div class='individual-project'>
   <% @projects.each do |set| %>
+    <div>Unit <%= "#{set.unit_number} #{set.unit}" %></div>
+    <p class="project-grid-item"><%= set.title %></p>
+  <% end %>
+</div>
+
+<!-- <%= @unit_number %> -->
+
+  <!-- <% @projects.each do |set| %>
     <div class="project-grid-item" data-project-slug="<%= set.slug %>">
-      <!-- <div class="project-grid-item-unit-title">
+      <div class="project-grid-item-unit-title">
         <%= "Unit #{set.unit_number}: #{set.unit}" %>
-      </div> -->
+        <%= "Hi #{set.unit}" %>
+      </div>
       <div class="project-grid-item-image" style="background-image: url(
         <%= set.project_image.url(:medium) %>)">
       </div>
     </div>
     <div class="project-grid-item-title"><%= set.title %></div>
   <% end %>
-</div>
+</div> -->
 
 <div class="modal" id="academy-select">
   <div class="modal-content">
