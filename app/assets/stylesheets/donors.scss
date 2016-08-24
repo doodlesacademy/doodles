@@ -1,23 +1,35 @@
-.donors, .community-partners {
-  text-align: center;
-  text-transform: none;
-  font-weight: 300;
-}
+.supporters {
 
-.partners-image {
-  width: 35%;
-  float: right;
-  margin: 2em;
-}
+  h1 {
+    text-align: center;
+    text-transform: none;
+    font-weight: 300;
+    margin-bottom: 1.3em;
 
-ul.donors {
-  text-align: left;
-  margin: 3em 0 6em 0;
-  column-count: 3;
-
-  li {
-    // display: inline;
-    list-style: none;
-    break-inside: avoid;
+    &:nth-of-type(2) {
+      margin-bottom: 1em;
+    }
   }
+
+  h2:first-of-type {
+    margin-left: 140px;
+  }
+
+  .partners-image {
+    width: 35%;
+    float: right;
+    margin: 2em;
+  }
+
+  ul.donors {
+    text-align: left;
+    margin: 0 0 3.5em 0;
+    column-count: 3;
+
+    li {
+      list-style: none;
+      break-inside: avoid;
+    }
+  }
+
 }
