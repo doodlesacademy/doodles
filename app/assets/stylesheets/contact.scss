@@ -1,32 +1,74 @@
 .contact-page {
   
+  width: 1000px;
+  color: $warm-gray;
+
+  h1 {
+    font-weight: 800;
+  }
+
+  h3 {
+    color: $warm-gray;
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-top: 20px;
+    }
+  }
+
+  .last-name, .first-name {
+    width: 48%;
+    display: inline-block;
+  }
+
+  .last-name {
+    input, label {
+      margin-left: 36px;
+    }
+  }
+
+  .field {
+    margin: 1em 0;
+    input:not([type='checkbox']),
+    textarea {
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1.5em;
+    }
+    label {
+      text-transform: none;
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
+
+  select {
+    margin: 20px 0 20px 10px;
+    width: 75%;
+  }
+
+  input[type='checkbox'] {
+    -webkit-appearance:none;
+    margin-right: 5px;
+    margin-bottom: -5px;
+    width:20px;
+    height:20px;
+    background:white;
+    border:1px solid #ddd;
+  }
+
+  .btn-blue {
+    margin-top: 10px;
+  }
+
+  .contact-logo {
+    width: 60px;
+    height: 60px;
+
+    &:first-of-type {
+      margin-right: 10px;
+    }
+  }
+
 
 }
-
-// .location-grid {
-//   padding: 50px 0;
-//   @include grid(location, 3, 0px);
-// }
-//
-// .location {
-//   position: relative;
-//   overflow: hidden;
-//   max-height: 200px;
-// }
-//
-// .location-img {
-//   background-color: black;
-// }
-//
-// .location-img img {
-//   width: 100%;
-//   opacity: 0.6;
-// }
-//
-// .location-name {
-//   @include vh-center;
-//   text-transform: uppercase;
-//   color: white;
-//   font-weight: 600;
-//   letter-spacing: 1px;
-// }
