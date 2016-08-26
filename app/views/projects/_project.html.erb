@@ -53,7 +53,7 @@
         <p><%= @project.first_photocopy_header %></p>
         <p class="pdf-indent"><%= link_to @project.first_photocopy_file_name, @project.first_photocopy.url %></p>
       <% else %>
-        <%= "N/A" %>
+        <p><%= "N/A" %></p>
       <% end %>
       <% if @project.second_photocopy.present? %>
         <p><%= @project.second_photocopy_header %></p>
