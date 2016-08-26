@@ -1,81 +1,71 @@
 <% content_for(:page_title) { ('Contact') } %>
 <% content_for(:hero_image) { image_tag 'heros/contact.jpg' } %>
 
-<p class="lead centered location-copy">
-  Doodles Academy operates as a distributed team across the United States!
-</p>
+<div class="contact-page">
+  <h1>Let's stay in touch.</h1>
+  <h3>Message us.</h3>
+  <%= form_tag("/contact", class: "contact-form") do -%>
+    <div class="field">
+      <label for="contact_request[email_address]">Email</label>
+      <input type="text" name="contact_request[email_address]">
+    </div>
 
-<div class="location-grid">
-  <div class="location">
-    <div class="location-img">
-      <%= image_tag 'location/new-york.png' %>
+    <div>
+      <div class="field first-name">
+        <label for="contact_request[first_name]">First Name</label>
+        <input type="text" name="contact_request[first_name]">
+      </div>
+
+      <div class="field last-name">
+        <label for="contact_request[last_name]">Last Name</label>
+        <input type="text" name="contact_request[last_name]">
+      </div>
     </div>
-    <div class="location-name">New York, NY</div>
-  </div>
-  <div class="location">
-    <div class="location-img">
-      <%= image_tag 'location/portland.png' %>
+
+    <div class="field">
+      <label for="contact_request[location]">Location</label>
+      <input type="text" name="contact_request[location]">
     </div>
-    <div class="location-name">Portland, OR</div>
-  </div>
-  <div class="location">
-    <div class="location-img">
-      <%= image_tag 'location/grand-rapids.png' %>
+
+    <div class="field">
+      <label for="contact_request[involvement]">
+        How are you involved in education?
+      </label>
+      <select name="contact_request[involvement]">
+        <option>I'm a classroom teacher</option>
+        <option>I'm an arts teacher</option>
+        <option>I'm an administrator</option>
+        <option>I'm part of the PTA</option>
+        <option>I'm a parent who is home-schooling</option>
+        <option>I'm a parent</option>
+        <option>I'm an arts-education activitist/part of a nonprofit/volunteer</option>
+      </select>
     </div>
-    <div class="location-name">Grand Rapids, MI</div>
-  </div>
+
+    <div class="field">
+      <label for="contact_request[message]">
+        Message
+      </label>
+      <textarea name="contact_request[message]"></textarea>
+    </div>
+    <div class="field">
+      <input type="checkbox" name="contact_request[subscribe]"></input><span>Receive notifications when new lessons are available on the website.</span>
+    </div>
+    <div class="field">
+      <input type="checkbox" name="contact_request[subscribe]"></input><span>Receive notifications when there is a new feature on the website.</span>
+    </div>
+    <div class="field">
+      <input type="checkbox" name="contact_request[subscribe]"></input><span>Receive occasional organizational updates.</span>
+    </div>
+
+    <div>
+      <input type="submit" class="btn btn-large btn-blue" value="send">
+    </div>
+
+    <h3>Follow us:</h3>
+
+    <a href="http://facebook.com/doodlesacademy" target="_blank"><%= image_tag 'FB-f-Logo__blue_50.png', class:"contact-logo", alt:"Facebook"  %></a>
+
+    <a href="http://instagram.com/doodlesacademy" target="_blank"><%= image_tag 'Instagram-v051916.png', class:"contact-logo", alt:"Instagram"  %></a>
 </div>
-
-<p class="lead">
-  Feel free to get in touch with us.
-</p>
-<%= form_tag("/contact", class: "contact-form") do -%>
-  <div class="field">
-    <label for="contact_request[email_address]">Email</label>
-    <input type="text" name="contact_request[email_address]">
-  </div>
-
-  <div class="field">
-    <label for="contact_request[first_name]">First Name</label>
-    <input type="text" name="contact_request[first_name]">
-  </div>
-
-  <div class="field">
-    <label for="contact_request[last_name]">Last Name</label>
-    <input type="text" name="contact_request[last_name]">
-  </div>
-
-  <div class="field">
-    <label for="contact_request[location]">Location</label>
-    <input type="text" name="contact_request[location]">
-  </div>
-
-  <div class="field">
-    <label for="contact_request[involvement]">
-      How are you involved in education?
-    </label>
-    <select name="contact_request[involvement]">
-      <option>I'm a classroom teacher</option>
-      <option>I'm an arts teacher</option>
-      <option>I'm an administrator</option>
-      <option>I'm part of the PTA</option>
-      <option>I'm a parent who is home-schooling</option>
-      <option>I'm a parent</option>
-      <option>I'm an arts-education activitist/part of a nonprofit/volunteer</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label for="contact_request[message]">
-      Message
-    </label>
-    <textarea name="contact_request[message]"></textarea>
-  </div>
-  <div class="field">
-    <input type="checkbox" name="contact_request[subscribe]" checked></input> Subscribe me to the Doodles newsletter.
-  </div>
-
-  <div class='centered'>
-    <input type="submit" class="btn btn-large btn-orange" value="Send us a message">
-  </div>
 <% end -%>
