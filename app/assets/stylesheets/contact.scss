@@ -1,5 +1,5 @@
 .contact-page {
-  
+
   width: 1000px;
   color: $warm-gray;
 
@@ -57,6 +57,10 @@
     border:1px solid #ddd;
   }
 
+  input[type='checkbox']:checked {
+    background: radial-gradient(circle at center, $primary-blue .6ex, white .7ex);
+  }
+
   .btn-blue {
     margin-top: 10px;
   }
@@ -70,5 +74,14 @@
     }
   }
 
+  .thanks {
+    width: 900px;
+    p {
+      text-align: justify;
+      font-size: 1.6em;
+      margin: 40px 0;
+    }
+
+  }
 
 }
