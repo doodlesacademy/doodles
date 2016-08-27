@@ -61,6 +61,7 @@ class Admin::ProjectsController < ApplicationController
         :fourth_photocopy, :fourth_photocopy_header, :fifth_photocopy, :fifth_photocopy_header,
         :photocopy_copyright, :common_core, :national_core, :art_elements, :art_principles, :status,
         :cross_curricular, :inspiration_image, :featured_artist_image, :featured_artist_description,
+        :engage_ny, :next_gen_sci,
         sections_attributes: [:id, :order, :content]
       )
     end

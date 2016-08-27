@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706122858) do
+ActiveRecord::Schema.define(version: 20160827134855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -263,6 +263,8 @@ ActiveRecord::Schema.define(version: 20160706122858) do
     t.integer  "fifth_photocopy_file_size"
     t.datetime "fifth_photocopy_updated_at"
     t.integer  "status",                             default: 0
+    t.text     "engage_ny"
+    t.text     "next_gen_sci"
   end
 
   create_table "sections", force: :cascade do |t|

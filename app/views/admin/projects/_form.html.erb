@@ -169,6 +169,16 @@
     <%= f.text_field :cross_curricular %>
   </div>
 
+  <div class="field">
+    <%= f.label :engage_ny %>
+    <%= f.text_field :engage_ny %>
+  </div>
+
+  <div class="field">
+    <%= f.label :next_gen_sci %>
+    <%= f.text_field :next_gen_sci %>
+  </div>
+
   <% if @project.synopsis == nil || @project.synopsis == "" %>
     <%= render "shared/form_sections", form: f %>
   <% end %>
