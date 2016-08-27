@@ -126,10 +126,6 @@
     }
   }
 
-  .modal-body img {
-    max-height: 100vh;
-  }
-
 }
 
 .insp-img-wrapper {
@@ -156,6 +152,10 @@
       -moz-transform: rotate(45deg);
       -o-transform: rotate(45deg);
   }
+}
+
+#modal-insp .modal-full .modal-body img {
+  max-height: 80vh;
 }
 
 a.modal-insp:hover {
