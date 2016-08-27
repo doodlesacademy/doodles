@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
 
   default_scope { order('updated_at desc') }
 
-  has_sections 'At-A-Glance' => [:synopsis, :skills, :materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principles, :cross_curricular]
+  has_sections 'At-A-Glance' => [:synopsis, :skills, :materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principles, :cross_curricular, :engage_ny, :next_gen_sci]
 
   has_attached_file :inspiration_image,
     styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" },

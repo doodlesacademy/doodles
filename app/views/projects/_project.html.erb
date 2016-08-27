@@ -117,9 +117,32 @@
       <h2 id='project-art-princples'>art principles</h2>
       <p><%= @project.art_principles %></p>
 
+    </div>
+
+    <a><div class='collapsible' id='project-integrations'>
+      <div>
+        <h2 class="collapsible-heading">integrations<span><h2 class="collapsible-plus">+</h2></span></h2>
+      </div>
+    </div></a>
+    <div class='project-integrations-collapsed collapsed' hidden>
       <h2 id='project-cross-curricular'>cross curricular</h2>
       <p><%= @project.cross_curricular %></p>
+
+      <h2 id='project-engage-ny'>engage NY</h2>
+      <% if @project.engage_ny.present? %>
+        <p><%= @project.engage_ny %></p>
+      <% else %>
+        <p>N/A</p>
+      <% end %>
+
+      <h2 id='project-next-gen-sci'>next generation science</h2>
+      <% if @project.next_gen_sci.present? %>
+        <p><%= @project.next_gen_sci %></p>
+      <% else %>
+        <p>N/A</p>
+      <% end %>
     </div>
+
   </div>
 
 </div>
