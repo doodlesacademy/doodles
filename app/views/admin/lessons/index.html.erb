@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @lessons.each do |lesson| %>
+    <% @lessons.sort_by(&:lesson_number).each do |lesson| %>
       <tr>
         <td><%= lesson.project.present? ? lesson.project.title : "" %></td>
         <td><%= lesson.project.present? ? lesson.project.academy : "" %></td>
@@ -28,4 +28,3 @@
 </table>
 
 <br>
-
