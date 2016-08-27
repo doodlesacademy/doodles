@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Project Title</th>
-      <th>Lsn Num</th>
       <th>Academy</th>
       <th>Lesson Title</th>
+      <th>#</th>
       <th>Updated</th>
       <th colspan="2">Actions</th>
     </tr>
@@ -18,9 +18,9 @@
     <% @lessons.sort_by(&:project).sort.each do |lesson| %>
       <tr>
         <td><%= lesson.project.present? ? lesson.project.title : "" %></td>
-        <td><%= lesson.project.present? ? lesson.lesson_number : "" %></td>
         <td><%= lesson.project.present? ? lesson.project.academy : "" %></td>
         <td><%= lesson.title %></td>
+        <td><%= lesson.project.present? ? lesson.lesson_number : "" %></td>
         <td><%= "#{time_ago_in_words(lesson.updated_at)} ago".titleize %></td>
         <td><%= link_to 'Show', admin_lesson_path(lesson) %></td>
         <td><%= link_to 'Edit', edit_admin_lesson_path(lesson) %></td>
