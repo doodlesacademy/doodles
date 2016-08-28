@@ -15,9 +15,9 @@
   </p>
 
   <div class="project-grid">
-    <% @units.each do |unit| %>
+    <% @units.order(:order).each do |unit| %>
       <div><h2><%= unit.full_title %></h2></div>
-      <% unit.project_sets.each do |set| %>
+      <% unit.project_sets.published.each do |set| %>
       <div class="project-grid-item" data-project-slug="<%= set.slug %>">
         <div class="project-grid-item-image" style="background-image: url(
           <%= set.project_image.url(:medium) %>)">
