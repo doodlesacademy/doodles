@@ -1,48 +1,57 @@
 <% content_for(:page_title) { 'Projects' } %>
 <% content_for(:hero_image) { image_tag 'heros/project.jpg' } %>
 
-<p class="centered">
-  <a data-toggle="modal" data-modal-id="modal-units">
-    What are units?
-  </a>
-</p>
+<div class="projects-index">
+  <h1 class="centered">an overview:</h1>
 
-<div class="project-grid">
-  <% @projects.each do |set| %>
-  <div class="project-grid-item" data-project-slug="<%= set.slug %>">
-    <div class="project-grid-item-unit-title">
-      <%= "Unit #{set.unit_number}: #{set.unit}" %>
-    </div>
-    <div class="project-grid-item-image" style="background-image: url(
-      <%= set.project_image.url(:medium) %>)">
-    </div>
-    <div class="project-grid-item-title"><%= set.title %></div>
+ <div>
+   <iframe src="https://player.vimeo.com/video/169613263?" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ </div>
+
+  <p class="centered what-are-units">
+    <a data-toggle="modal" data-modal-id="modal-units">
+      What are units?
+    </a>
+  </p>
+
+  <div class="project-grid">
+    <% @units.each do |unit| %>
+      <div><h2><%= unit.full_title %></h2></div>
+      <% unit.project_sets.each do |set| %>
+      <div class="project-grid-item" data-project-slug="<%= set.slug %>">
+        <div class="project-grid-item-image" style="background-image: url(
+          <%= set.project_image.url(:medium) %>)">
+        </div>
+        <div class="project-grid-item-title"><%= set.title %></div>
+      </div>
+      <% end %>
+    <% end %>
   </div>
-  <% end %>
+
 </div>
 
 
-<%= render "shared/modal", id: "modal-units", title: "What are Units?", body: "You can do lessons in any order that you please. \n However, by following the units in order, students experience a scaffolded learning structure that gradually adds complexity without overwhelming them. \n By the end of the 2016 school year, there will be over a year’s worth of weekly, scaffolded art lessons. Project development is ongoing, and projects will continue to be be added to each unit so that educators can choose projects fitting into their specific classroom's learning objectives. \n Sign up to receive notifications of new projects by email." %>
+  <%= render "shared/modal", id: "modal-units", title: "What are Units?", body: "You can do lessons in any order that you please. \n However, by following the units in order, students experience a scaffolded learning structure that gradually adds complexity without overwhelming them. \n By the end of the 2016 school year, there will be over a year’s worth of weekly, scaffolded art lessons. Project development is ongoing, and projects will continue to be be added to each unit so that educators can choose projects fitting into their specific classroom's learning objectives. \n Sign up to receive notifications of new projects by email." %>
 
 
-<div class="modal" id="academy-select">
-  <div class="modal-content">
-    <div class="modal-close"></div>
-    <div class="modal-title">
-      <h2>Please choose an academy:</h2>
-    </div>
-    <div class="modal-body">
-      <div class="btn-group">
-        <div class="btn btn-academy" data-level="lower">
-          Lower Academy
-          <div class="academy-info">Grades 1-2</div>
-        </div>
-        <div class="btn btn-academy" data-level="upper">
-          Upper Academy
-          <div class="academy-info">Grades 3-5</div>
+  <div class="modal" id="academy-select">
+    <div class="modal-content">
+      <div class="modal-close"></div>
+      <div class="modal-title">
+        <h2>Please choose an academy:</h2>
+      </div>
+      <div class="modal-body">
+        <div class="btn-group">
+          <div class="btn btn-academy" data-level="lower">
+            Lower Academy
+            <div class="academy-info">Grades 1-2</div>
+          </div>
+          <div class="btn btn-academy" data-level="upper">
+            Upper Academy
+            <div class="academy-info">Grades 3-5</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"28ca6056cf1fcbb59340d2de6","lid":"434752e97b"}) })</script>

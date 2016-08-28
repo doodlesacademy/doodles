@@ -1,15 +1,11 @@
-.project-grid {
-  @include grid(project-grid-item);
-  width: $content-max-width;
-  margin: 4em auto 0;
-}
+
 
 .project-grid-item {
-  display: flex;
-  flex-direction: column;
+  // display: inline-block;
+  width: 300px;
   padding: 1em;
   margin-bottom: 24px;
-  border: 1px solid darken(white, 10%);
+  margin-right: 10px;
   transition: 200ms ease;
 
   .project-grid:hover &:hover {
@@ -161,4 +157,34 @@
       font-size: 16px;
       color: gray;
     }
+}
+
+.projects-index {
+
+  .what-are-units {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  h1 {
+    font-weight: 800;
+    color: $primary-blue;
+    font-size: 3em;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    text-align: left;
+    font-weight: 800;
+    font-size: 2.5em;
+    line-height: 1.1;
+    color: $primary-blue;
+  }
+
+  iframe {
+    width: 80vw;
+    margin: 0 auto;
+    height: calc(80vw / 1.78);
+  }
+
 }
