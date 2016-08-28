@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   before_action :find_project_set_and_project, only: [:show]
 
   def index
-    @projects = ProjectSet.published.all
+    # @projects = ProjectSet.published.all
+    @units = Unit.all.includes(:project_sets)
   end
 
   def edit

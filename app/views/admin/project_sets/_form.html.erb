@@ -1,4 +1,4 @@
-<% path = @project_set.persisted? ? admin_project_set_path(@project_set) : admin_project_sets_path %> 
+<% path = @project_set.persisted? ? admin_project_set_path(@project_set) : admin_project_sets_path %>
 <%= form_for @project_set, url: path do |f| %>
   <% if @project_set.errors.any? %>
     <div id="error_explanation">
@@ -19,20 +19,15 @@
     <%= f.text_field :title %>
   </div>
 
-  <%= render "shared/form_attachment", 
-    form: f, 
+  <%= render "shared/form_attachment",
+    form: f,
     entity: @project_set,
     attribute: :project_image,
     label: "Project Image" %>
 
   <div class="field">
-    <%= f.label :unit_number %>
-    <%= f.text_field :unit_number %>
-  </div>
-
-  <div class="field">
     <%= f.label :unit %>
-    <%= f.text_field :unit %>
+    <%= f.collection_select(:unit_id, Unit.all, :id, :full_title) %>
   </div>
 
   <div class="actions">
