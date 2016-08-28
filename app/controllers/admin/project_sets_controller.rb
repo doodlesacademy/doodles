@@ -54,6 +54,6 @@ class Admin::ProjectSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_project_set_params
-      params.require(:project_set).permit(:title, :project_image, :unit, :unit_number, :status)
+      params.require(:project_set).permit(:title, :project_image, :unit_id, :status)
     end
 end
