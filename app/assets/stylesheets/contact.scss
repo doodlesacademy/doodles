@@ -1,33 +1,32 @@
 .contact-page {
+  text-align: left;
 
-  width: 1000px;
-  color: $warm-gray;
-
-  h1 {
-    font-weight: 800;
-  }
-
-  h3 {
+    width: 1000px;
     color: $warm-gray;
-  }
 
-  #contact-follow-us {
-    margin-top: 40px;
-  }
-
-  .last-name, .first-name {
-    width: 48%;
-    display: inline-block;
-  }
-
-  .last-name {
-    input, label {
-      margin-left: 36px;
+    h1 {
+      text-align: left;
+      margin-left: 2%;
+      font-weight: 800;
     }
-  }
+
+    h3 {
+      text-align: left;
+      margin-left: 2%;
+      color: $warm-gray;
+    }
+
+    #contact-follow-us {
+      margin-top: 40px;
+    }
 
   .mc-field-group {
+    text-align: left;
     #mce-EMAIL, #mce-FNAME, #mce-LNAME {
+      font-family: $primary-font;
+      font-weight: 300;
+      height: 40px;
+      width: 97%;
       border-radius: 10px;
       font-size: 1.5em;
     }
