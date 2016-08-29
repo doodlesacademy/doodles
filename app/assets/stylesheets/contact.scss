@@ -6,13 +6,11 @@
 
     h1 {
       text-align: left;
-      margin-left: 2%;
       font-weight: 800;
     }
 
     h3 {
       text-align: left;
-      margin-left: 2%;
       color: $warm-gray;
     }
 
@@ -25,8 +23,6 @@
     #mce-EMAIL, #mce-FNAME, #mce-LNAME {
       font-family: $primary-font;
       font-weight: 300;
-      height: 40px;
-      width: 97%;
       border-radius: 10px;
       font-size: 1.5em;
     }
