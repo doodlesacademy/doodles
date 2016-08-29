@@ -3,11 +3,34 @@
     <div class="newsletter__notice centered">
       Stay in touch! Sign up to be notified of new projects and organization updates.
     </div>
-    <div class="newsletter__form">
+    <!-- <div class="newsletter__form">
       <%= form_tag("/subscribe") do -%>
         <%= text_field_tag('subscription[email]', '', class: "input__text", placeholder: 'Your email address') %>
         <%= submit_tag("Sign Up Here", class: "newsletter__submit") %>
       <% end -%>
+    </div> -->
+
+
+
+    <!-- Begin MailChimp Signup Form -->
+  <!-- <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css"> -->
+  	<!-- /*#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}*/
+  	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+  	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */ -->
+  <!-- </style> -->
+  <div id="mc_embed_signup"  class="newsletter__form">
+    <form action="//doodles-academy.us10.list-manage.com/subscribe/post?u=28ca6056cf1fcbb59340d2de6&amp;id=434752e97b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+
+    	<input type="email" value="" name="EMAIL" class="email input__text" id="mce-EMAIL" placeholder="Your email address" required>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_28ca6056cf1fcbb59340d2de6_434752e97b" tabindex="-1" value=""></div>
+        <span class="clear"><input type="submit" value="sign up here" name="subscribe" id="mc-embedded-subscribe" class="button newsletter__submit"></span>
+        </div>
+    </form>
     </div>
+
+    <!--End mc_embed_signup-->
   </div>
 </div>

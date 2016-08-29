@@ -1,61 +1,67 @@
 // Newsletter Subscription Form
-.input__text {
-  border: none;
-  background-color: $primary-blue;
-  color: white;
-  outline: none;
-  height: 38px;
-  padding: 0 30px;
-  height: 50px;
-  width: 450px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  transition: background-color 300ms ease;
+.subscribe {
+  .newsletter {
+    #mc_embed_signup.newsletter__form {
+        background-color: $warm-gray;
+    }
 
-  &:focus {
-    background-color: lighten($primary-blue, 10%)
-  }
+    #mce-EMAIL.input__text.email {
+      border: none;
+      border-radius: 0;
+      margin-left: -30px;
+      color: $warm-gray;
+      outline: none;
+      height: 38px;
+      padding: 0 30px;
+      height: 50px;
+      width: 450px;
+      font-weight: 400;
+      font-family: $primary-font;
+      letter-spacing: 0.05em;
+      transition: background-color 300ms ease;
 
-  @include placeholder {
-    color: rgba(white, 0.4);
-    font-weight: 300;
-  }
-}
+      @include placeholder {
+        font-weight: 300;
+      }
+    }
 
-.newsletter__form {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
+    .newsletter__form {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
 
-.newsletter__notice {
-  color: white;
-  padding: 30px 0;
-}
+    .newsletter__notice {
+      color: white;
+      padding: 30px 0;
+      margin-bottom: -10px;
+    }
 
-.newsletter__submit {
-  @include textCap;
-  background-color: $primary-blue;
-  color: white;
-  outline: none;
-  border: none;
-  border-radius: 0;
-  height: 50px;
-  padding: 0 30px;
-  transition: background-color 300ms ease;
+    .newsletter__submit, #mc-embedded-subscribe.newsletter__submit.button {
+      @include textCap;
+      background-color: $primary-blue;
+      color: white;
+      outline: none;
+      border: none;
+      border-radius: 0;
+      height: 50px;
+      padding: 0 30px;
+      transition: background-color 300ms ease;
 
-  &:hover {
-    background-color: darken($primary-blue, 10%)
-  }
+      &:hover {
+        background-color: darken($primary-blue, 10%)
+      }
 
-  &:active {
-    transition: none;
-    background-color: darken($primary-blue, 10%)
-  }
-}
+      &:active {
+        transition: none;
+        background-color: darken($primary-blue, 10%)
+      }
+    }
 
-.thanks {
-  p.low-set {
-   margin-top: 50px;
+    .thanks {
+      p.low-set {
+       margin-top: 50px;
+      }
+    }
   }
 }
