@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828191104) do
+ActiveRecord::Schema.define(version: 20160830121845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(version: 20160828191104) do
     t.text     "additional_worktime_focus"
     t.text     "video_note"
     t.text     "materials_note"
+    t.text     "first_photocopy_url"
+    t.text     "second_photocopy_url"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -266,6 +268,8 @@ ActiveRecord::Schema.define(version: 20160828191104) do
     t.integer  "status",                             default: 0
     t.text     "engage_ny"
     t.text     "next_gen_sci"
+    t.text     "first_photocopy_url"
+    t.text     "second_photocopy_url"
   end
 
   create_table "sections", force: :cascade do |t|
