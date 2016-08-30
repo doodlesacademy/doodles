@@ -88,6 +88,10 @@
       <%= f.label "Photocopy 1" %>
       <%= f.text_field :first_photocopy_header %>
     </div>
+    <div class="field photocopy-admin">
+      <%= f.label "web link" %>
+      <%= f.text_field :first_photocopy_url %>
+    </div>
     <div>
       <%= render "shared/form_photocopy",
         form: f,
@@ -101,6 +105,10 @@
     <div class="field photocopy-admin">
       <%= f.label "Photocopy 2" %>
       <%= f.text_field :second_photocopy_header %>
+    </div>
+    <div class="field photocopy-admin">
+      <%= f.label "web link" %>
+      <%= f.text_field :second_photocopy_url %>
     </div>
     <div>
       <%= render "shared/form_photocopy",
