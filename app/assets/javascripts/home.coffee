@@ -6,12 +6,20 @@
   $window = $(window)
   $quote = $('#quotes p')
   $parallax = $('.parallax')
+  $footerSubmit = $('#footer-submit')
   $parallax_offset = null
   $parallax_height = null
   navHeight = $nav.height()
   $lightbox = null
   $close_btn = null
   scrollClass = "is-scrolled"
+
+  $($footerSubmit).click ->
+    $submittedEmail = $('.input__text').val()
+    console.log($submittedEmail)
+    window.location.replace 'http://www.doodles-academy.org/contact'
+    $('input#mce-EMAIL').val($submittedEmail)
+    return
 
   onScroll = ->
     top = $document.scrollTop()
