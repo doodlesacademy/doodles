@@ -14,12 +14,14 @@
   $close_btn = null
   scrollClass = "is-scrolled"
 
+
   $($footerSubmit).click ->
     $submittedEmail = $('.input__text').val()
+    window.location.replace '/contact'
+    $('#mce-EMAIL').val($submittedEmail)
     console.log($submittedEmail)
-    window.location.replace 'http://www.doodles-academy.org/contact'
-    $('input#mce-EMAIL').val($submittedEmail)
     return
+
 
   onScroll = ->
     top = $document.scrollTop()
