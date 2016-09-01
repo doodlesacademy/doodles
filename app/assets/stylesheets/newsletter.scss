@@ -1,14 +1,17 @@
 // Newsletter Subscription Form
 .subscribe {
   .newsletter {
-    #mc_embed_signup.newsletter__form {
+    
+    .newsletter__form {
         background-color: $warm-gray;
+        display: flex;
+        align-content: center;
+        justify-content: center;
     }
 
-    #mce-EMAIL.input__text.email {
+    #email-submit {
       border: none;
       border-radius: 0;
-      // margin-left: -20px;
       color: $warm-gray;
       outline: none;
       height: 38px;
@@ -25,19 +28,13 @@
       }
     }
 
-    .newsletter__form {
-      display: flex;
-      align-content: center;
-      justify-content: center;
-    }
-
     .newsletter__notice {
       color: white;
       padding: 30px 0;
       margin-bottom: -10px;
     }
 
-    .newsletter__submit, #mc-embedded-subscribe.newsletter__submit.button {
+    .newsletter__submit {
       @include textCap;
       background-color: $primary-blue;
       color: white;

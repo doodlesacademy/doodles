@@ -6,12 +6,27 @@
   $window = $(window)
   $quote = $('#quotes p')
   $parallax = $('.parallax')
+  $footerSubmit = $('#footer-submit')
   $parallax_offset = null
   $parallax_height = null
   navHeight = $nav.height()
   $lightbox = null
   $close_btn = null
   scrollClass = "is-scrolled"
+
+  getUrlVars = ->
+    vars = {}
+    url = decodeURIComponent(window.location.href.replace(/\+/g, '%20'))
+    parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) ->
+      vars[key] = value
+      return
+    )
+    vars
+
+  text = getUrlVars()['email-submit']
+
+  $('#mce-EMAIL').val(text)
+
 
   onScroll = ->
     top = $document.scrollTop()
