@@ -14,13 +14,18 @@
   $close_btn = null
   scrollClass = "is-scrolled"
 
+  getUrlVars = ->
+    vars = {}
+    url = decodeURIComponent(window.location.href.replace(/\+/g, '%20'))
+    parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) ->
+      vars[key] = value
+      return
+    )
+    vars
 
-  $($footerSubmit).click ->
-    $submittedEmail = $('.input__text').val()
-    window.location.replace '/contact'
-    $('#mce-EMAIL').val($submittedEmail)
-    console.log($submittedEmail)
-    return
+  text = getUrlVars()['email-submit']
+
+  $('#mce-EMAIL').val(text)
 
 
   onScroll = ->
