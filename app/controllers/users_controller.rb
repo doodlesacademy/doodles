@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     else
       render :edit, user: @user
     end
- 
+
   end
 
   def edit
@@ -38,8 +38,8 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_params 
-    params.require(:user).permit(:role)
+  def user_params
+    params.require(:user).permit(:role, :first_name, :last_name, :gender)
   end
 
 end

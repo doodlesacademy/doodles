@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
     "#{name[0,3]}...#{name[-3,3]}@#{domain}"
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def salutation
+    self.gender.downcase == "m" ? "Mr." : "Mrs."
+  end
+
   private
   def set_role
     self.role ||= 'visitor'

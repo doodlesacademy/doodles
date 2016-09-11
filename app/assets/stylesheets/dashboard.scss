@@ -1,15 +1,30 @@
 .dashboard {
+
+  width: 100%;
+  text-align: center;
+
+  .teacher-image {
+    display: inline-block;
+  }
+
   #person-icon {
     padding: 5px;
     border: 1px solid $warm-gray;
     border-radius: 100px;
-    display: block;
-    margin: 1em auto;
+  }
+
+  #camera-icon {
+    margin-top: 160px;
+    margin-left: -20px;
   }
 
   .dashboard-fields {
     width: 70%;
     margin: 0 auto;
+  }
+
+  h1, h4, p {
+    text-align: justify;
   }
 
   h1 {
@@ -33,7 +48,7 @@
     text-align: center;
     color: $primary-blue;
     text-transform: capitalize;
-    margin-top: 20px;
+    margin: 40px 0;
   }
 
   p {

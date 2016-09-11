@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830121845) do
+ActiveRecord::Schema.define(version: 20160911152957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20160830121845) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "synopsis"
     t.text     "worktime_focus"
-    t.text     "worktime"
+    t.text     "synopsis"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
+    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -314,6 +314,9 @@ ActiveRecord::Schema.define(version: 20160830121845) do
     t.datetime "updated_at",                          null: false
     t.integer  "status",                 default: 0
     t.integer  "role",                   default: 0
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
