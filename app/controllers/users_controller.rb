@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @profiles = Profile.all
   end
 
   def show
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:role, :first_name, :last_name, :gender)
+    params.require(:user).permit(:role, :profile_id)
   end
 
 end

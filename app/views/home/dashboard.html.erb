@@ -9,7 +9,7 @@
 
   <div class="dashboard-fields">
     <h1 class="welcome">
-      welcome, <%= "#{current_user.salutation} #{current_user.last_name}" %>!
+      welcome, <%= "#{current_user.profile.salutation} #{current_user.profile.last_name}" %>!
       <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon") %>
     </h1>
 
