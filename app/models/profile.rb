@@ -5,8 +5,4 @@ class Profile < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
-  def salutation
-    self.gender.downcase == "m" ? "Mr." : "Mrs."
-  end
-
 end
