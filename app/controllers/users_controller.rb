@@ -3,24 +3,14 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @profiles = Profile.all
   end
 
   def show
     @user = User.find(params[:id])
-    # @profile = Profile.find(params[:id])
-    @profile = @user.profile.find(params[:user_id])
-    @title = @profile.title
   end
 
   def create
     @user = User.create(user_params)
-    # @profile = Profile.where(user_id: @user.id, profile_params).first_or_create
-    # redirect_to action: 'show', id: @user.id
-    # @profile = user.profiles.build(params[:profile])
-    # @profile.save
-    # @profile = Profile.create(user_id: @user.id, profile_params)
-    @profile = @user.profile.create(profile_params)
   end
 
   def update
@@ -48,7 +38,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:role :profile, :title, :profile[:title])
+    params.require(:user).permit(:role)
   end
 
 end
