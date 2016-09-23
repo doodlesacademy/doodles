@@ -190,6 +190,12 @@ ActiveRecord::Schema.define(version: 20160921121431) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"
+    t.string   "school"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "occupation"
+    t.string   "grades"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"

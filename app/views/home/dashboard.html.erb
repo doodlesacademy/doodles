@@ -20,10 +20,10 @@
           classroom data
           <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon") %>
         </h4>
-        <p>School</p>
-        <p>City, State</p>
-        <p>Occupation</p>
-        <p>grades</p>
+        <p><%= "School: #{current_user.profile.school}" %></p>
+        <p><%= "#{current_user.profile.city_state_country}" %></p>
+        <p><%= "Occupation: #{current_user.profile.occupation}" %></p>
+        <p><%= "Grades: #{current_user.profile.grades}" %></p>
       </div>
       <div>
         <h4>

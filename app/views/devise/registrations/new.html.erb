@@ -14,12 +14,42 @@
 
     <div class="field">
       <%= fp.label :first_name %><br />
-      <%= fp.text_field :first_name, autofocus: true %>
+      <%= fp.text_field :first_name %>
     </div>
 
     <div class="field">
       <%= fp.label :last_name %><br />
-      <%= fp.text_field :last_name, autofocus: true %>
+      <%= fp.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= fp.label :school %><br />
+      <%= fp.text_field :school %>
+    </div>
+
+    <div class="field">
+      <%= fp.label :city %><br />
+      <%= fp.text_field :city %>
+    </div>
+
+    <div class="field">
+        <%= fp.label :state %>
+        <%= fp.select :state, Profile::STATES %>
+    </div>
+
+    <div class="field">
+      <%= fp.label :country %><br />
+      <%= fp.text_field :country %>
+    </div>
+
+    <div class="field">
+      <%= fp.label :occupation %><br />
+      <%= fp.text_field :occupation %>
+    </div>
+
+    <div class="field">
+      <%= fp.label :grades %><br />
+      <%= fp.text_field :grades %>
     </div>
   <% end %>
 
