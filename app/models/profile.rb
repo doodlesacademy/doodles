@@ -1,5 +1,8 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
+  has_attached_file :instructor_image,
+  styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :instructor_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   def profile
     super || build_profile
@@ -65,8 +68,8 @@ class Profile < ActiveRecord::Base
       ['Wyoming', 'WY']
     ]
 
-  def city_state_country
-    "#{self.city}, #{self.state}\n#{self.country}"
+  def city_state
+    "#{self.city}, #{self.state}"
   end
 
 end

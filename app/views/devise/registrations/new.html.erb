@@ -6,7 +6,12 @@
 
   <%= devise_error_messages! %>
 
-  <%= f.fields_for :profile do |fp| %>
+  <%= f.fields_for :profile, :html => { :multipart => true } do |fp| %>
+    <div>
+      <%= fp.label "Pic of You" %><br />
+      <%= fp.file_field :instructor_image %>
+    </div>
+
     <div class="field">
       <%= fp.label :title %><br />
       <%= fp.text_field :title, autofocus: true %>
