@@ -3,13 +3,13 @@
 
 <div class="dashboard">
   <div class="teacher-image">
-    <%= image_tag current_user.profile.instructor_image.url, id: "person-icon" %>
+    <%= image_tag current_user.profile.instructor_image.url(:small), id: "person-icon" %>
     <%= image_tag("camera-icon.png", size: "35x35",alt: "camera icon", id: "camera-icon") %>
   </div>
 
   <%= form_for :user do |f| %>
 
-    <%= f.fields_for :profile, :html => { :multipart => true } do |fp| %>
+    <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
       <div class="field">
         <%= f.file_field :instructor_image %>
       </div>

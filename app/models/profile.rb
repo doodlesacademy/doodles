@@ -1,7 +1,8 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_attached_file :instructor_image,
-  styles: { large: "900x900>", medium: "300x300>", thumb: "100x100>" }
+    styles: { large: "900x900#", medium: "300x300#", small: "200x200#", thumb: "100x100#" },
+    default_url: "images/person-icon.png"
   validates_attachment_content_type :instructor_image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   def profile
