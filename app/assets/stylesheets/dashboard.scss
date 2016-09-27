@@ -1,0 +1,77 @@
+.dashboard {
+
+  width: 100%;
+
+  .teacher-image {
+    // display: inline-block;
+    text-align: center;
+  }
+
+  #person-icon {
+    padding: 5px;
+    border: 1px solid $warm-gray;
+    border-radius: 100%;
+  }
+
+  #profile_instructor_image {
+    color: red;
+    border: 0;
+  }
+
+  #camera-icon {
+    margin-top: 160px;
+    margin-left: -20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .dashboard-fields {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  h1, h4, p {
+    text-align: justify;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  h1, h4 {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  h1, p {
+    color: $warm-gray;
+  }
+
+  h4 {
+    color: $primary-blue;
+  }
+
+  .welcome {
+    text-align: center;
+    color: $primary-blue;
+    text-transform: capitalize;
+    margin: 40px 0;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-left: 2em;
+    font-weight: 200;
+  }
+
+  input {
+    margin-right: 10px;
+  }
+
+  .pencil-icon:hover {
+    cursor: pointer;
+  }
+
+}

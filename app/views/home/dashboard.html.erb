@@ -1,0 +1,82 @@
+<% content_for(:page_title) { ('Dashboard') } %>
+<% content_for(:hero_image) { image_tag 'heros/dashboard.jpg' } %>
+
+<div class="dashboard">
+  <div class="teacher-image">
+    <%= image_tag current_user.profile.instructor_image.url(:small), id: "person-icon" %>
+    <%= image_tag("camera-icon.png", size: "35x35",alt: "camera icon", id: "camera-icon") %>
+  </div>
+
+    <%= fields_for current_user.profile, html: { multipart: true } do |f| %>
+      <%= f.file_field :instructor_image, class: 'filestyle',
+       :'data-classButton' => 'btn btn-primary',
+       :'data-input' => 'false', classIcon:  'icon-plus',
+       :'data-buttonText' => 'Your label here'  %>
+    <% end %>
+
+  <div class="dashboard-fields">
+    <h1 class="welcome">
+      welcome, <%= "#{current_user.profile.title} #{current_user.profile.last_name}" %>!
+      <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon") %>
+    </h1>
+
+    <div id="edit-name" hidden>
+      <%= form_for current_user do |f| %>
+        <%= f.fields_for current_user.profile do |fp| %>
+
+          <div class="field">
+            <%= fp.label :title %><br />
+            <%= fp.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= fp.label :first_name %><br />
+            <%= fp.text_field :first_name %>
+          </div>
+
+          <div class="field">
+            <%= fp.label :last_name %><br />
+            <%= fp.text_field :last_name %>
+          </div>
+
+          <div class="actions">
+            <%= fp.submit "Save changes" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div>
+      <h1>account settings:</h1>
+      <div>
+        <h4>
+          classroom data
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon") %>
+        </h4>
+        <p><%= "School: #{current_user.profile.school}" %></p>
+        <p><%= "#{current_user.profile.city_state}" %></p>
+        <p><%= "#{current_user.profile.country}" %></p>
+        <p><%= "Occupation: #{current_user.profile.occupation}" %></p>
+        <p><%= "Grades: #{current_user.profile.grades}" %></p>
+      </div>
+      <div>
+        <h4>
+          contact preferences
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon") %>
+        </h4>
+        <p>PLEASE NOTE THAT ALL MEMBERS WILL RECEIVE OUR NEWSLETTER</p>
+        <p><%= current_user.email %></p>
+        <p><input type="checkbox" checked>Yes!  I want to be notified of new lessons on the website</p>
+      </div>
+    </div>
+    <div>
+      <h1>artroom</h1>
+      <div>
+        <h4>continue where you left off:</h4>
+      </div>
+      <div>
+        <h4>view your curriculum & supply lists:</h4>
+      </div>
+    </div>
+  </div>
+</div>
