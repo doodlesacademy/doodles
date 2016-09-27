@@ -7,20 +7,44 @@
     <%= image_tag("camera-icon.png", size: "35x35",alt: "camera icon", id: "camera-icon") %>
   </div>
 
-  <%= form_for :user do |f| %>
-
-    <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
-      <div class="field">
-        <%= f.file_field :instructor_image %>
-      </div>
+    <%= fields_for current_user.profile, html: { multipart: true } do |f| %>
+      <%= f.file_field :instructor_image, class: 'filestyle',
+       :'data-classButton' => 'btn btn-primary',
+       :'data-input' => 'false', classIcon:  'icon-plus',
+       :'data-buttonText' => 'Your label here'  %>
     <% end %>
-  <% end %>
 
   <div class="dashboard-fields">
     <h1 class="welcome">
       welcome, <%= "#{current_user.profile.title} #{current_user.profile.last_name}" %>!
       <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon") %>
     </h1>
+
+    <div id="edit-name" hidden>
+      <%= form_for current_user do |f| %>
+        <%= f.fields_for current_user.profile do |fp| %>
+
+          <div class="field">
+            <%= fp.label :title %><br />
+            <%= fp.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= fp.label :first_name %><br />
+            <%= fp.text_field :first_name %>
+          </div>
+
+          <div class="field">
+            <%= fp.label :last_name %><br />
+            <%= fp.text_field :last_name %>
+          </div>
+
+          <div class="actions">
+            <%= fp.submit "Save changes" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
     <div>
       <h1>account settings:</h1>

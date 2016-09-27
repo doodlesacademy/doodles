@@ -1,10 +1,10 @@
 .dashboard {
 
   width: 100%;
-  text-align: center;
 
   .teacher-image {
-    display: inline-block;
+    // display: inline-block;
+    text-align: center;
   }
 
   #person-icon {
@@ -13,9 +13,18 @@
     border-radius: 100%;
   }
 
+  #profile_instructor_image {
+    color: red;
+    border: 0;
+  }
+
   #camera-icon {
     margin-top: 160px;
     margin-left: -20px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .dashboard-fields {
@@ -59,6 +68,10 @@
 
   input {
     margin-right: 10px;
+  }
+
+  .pencil-icon:hover {
+    cursor: pointer;
   }
 
 }

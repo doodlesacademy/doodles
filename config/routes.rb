@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "donate", to: "home#donate"
   get "subscribe", to: "home#subscribe"
   get "dashboard", to: "home#dashboard"
+  post "dashboard", to: "users#update"
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'

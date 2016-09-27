@@ -33,11 +33,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-      if resource.sign_in_count == 1
+      # if resource.sign_in_count == 1
          dashboard_path
-      else
-         root_path
-      end
+      # else
+        #  root_path
+      # end
   end
 
   protected
