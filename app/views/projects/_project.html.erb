@@ -41,7 +41,7 @@
     <h2 id='project-materials'>materials</h2>
     <p><%= @project.materials %></p>
     <div class="project-indent">
-      <small>*suggestion: <%= @project.materials_suggestion %></small>
+      <p>*suggestion: <%= @project.materials_suggestion %></p>
     </div>
 
     <h2 id='project-books-media'>books/media</h2>
@@ -82,10 +82,10 @@
         <p class="pdf-indent"><%= link_to @project.fifth_photocopy_file_name, @project.fifth_photocopy.url %></p>
       <% end %>
       <% if @project.photocopy_copyright.present? %>
-        <small><%= @project.photocopy_copyright %></small>
+        <p><%= @project.photocopy_copyright %></p>
         <br>
       <% end %>
-      <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
+      <p>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</p>
     </div>
   </p>
   <hr />
