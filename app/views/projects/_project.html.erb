@@ -137,13 +137,22 @@
       <h2 id='project-cross-curricular'>cross curricular</h2>
       <p><%= @project.cross_curricular %></p>
 
-      <h2 id='project-engage-ny'>engage NY</h2>
-      <% if @project.engage_ny.present? %>
-        <p><%= @project.engage_ny %></p>
+      <% if @academy == :lower %>
+        <h2 id='project-engage-ny'>Core Knowledge</h2>
+        <% if @project.engage_ny.present? %>
+          <p><%= @project.engage_ny %></p>
+        <% else %>
+          <p>N/A</p>
+        <% end %>
       <% else %>
-        <p>N/A</p>
+        <h2 id='project-engage-ny'>Expeditionary Learning</h2>
+        <% if @project.engage_ny.present? %>
+          <p><%= @project.engage_ny %></p>
+        <% else %>
+          <p>N/A</p>
+        <% end %>
       <% end %>
-
+      
       <h2 id='project-next-gen-sci'>next generation science</h2>
       <% if @project.next_gen_sci.present? %>
         <p><%= @project.next_gen_sci %></p>
