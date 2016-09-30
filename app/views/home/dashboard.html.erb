@@ -3,8 +3,12 @@
 
 <div class="dashboard">
   <div class="teacher-image">
-    <%= image_tag current_user.profile.instructor_image.url(:small), id: "person-icon" %>
-    <%= image_tag("camera-icon.png", size: "35x35",alt: "camera icon", id: "camera-icon") %>
+    <% if current_user.profile.instructor_image.present? %>
+      <%= image_tag current_user.profile.instructor_image.url(:small), id: "person-icon" %>
+    <% else %>
+      <%= image_tag("person-icon.png", size: "200x200", alt: "person icon", id: "person-icon") %>
+    <% end %>
+    <%= image_tag("camera-icon.png", size: "35x35", alt: "camera icon", id: "camera-icon") %>
   </div>
 
     <%= fields_for current_user.profile, html: { multipart: true } do |f| %>
