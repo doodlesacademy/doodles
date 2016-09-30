@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20160923133312) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "synopsis"
     t.text     "worktime_focus"
-    t.text     "worktime"
+    t.text     "synopsis"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
+    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -333,6 +333,9 @@ ActiveRecord::Schema.define(version: 20160923133312) do
     t.datetime "updated_at",                          null: false
     t.integer  "status",                 default: 0
     t.integer  "role",                   default: 0
+    t.string   "gender"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
