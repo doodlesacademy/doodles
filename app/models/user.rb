@@ -2,9 +2,7 @@ class User < ActiveRecord::Base
   enum role: [:visitor, :editor, :staff, :admin]
   enum status: [:active, :archived]
 
-  # attr_accessible :profile_attributes
   has_one :profile
-  # nest form fields w/in nested
   accepts_nested_attributes_for :profile, allow_destroy: true
 
   default_scope { where(status: User.statuses[:active]) }

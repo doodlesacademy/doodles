@@ -1,5 +1,12 @@
 <h2>Epit <%= resource_name.to_s.humanize %></h2>
 
+<%= form_for current_user, url: profile_path do |f| %>
+   <%= f.fields_for :profile do |p| %>
+      <%= p.text_field :title %>
+   <% end %>
+   <%= f.submit %>
+<% end %>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -11,10 +18,10 @@
   </div>
 
 
-  <%= f.fields_for :profiles, html: { multipart: true } do |fp| %>
+  <%= f.fields_for resource.profile, html: { multipart: true } do |fp| %>
     <div>
       <%= fp.label "Pic of You" %><br />
-      <%= fp.file_field :instructor_image %>
+      <%= fp.file_field :avatar %>
     </div>
 
 

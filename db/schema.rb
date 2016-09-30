@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923133312) do
+ActiveRecord::Schema.define(version: 20160930225746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20160923133312) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "synopsis"
     t.text     "worktime_focus"
-    t.text     "worktime"
+    t.text     "synopsis"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
+    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -196,13 +196,13 @@ ActiveRecord::Schema.define(version: 20160923133312) do
     t.string   "country"
     t.string   "occupation"
     t.string   "grades"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "user_id"
-    t.string   "instructor_image_file_name"
-    t.string   "instructor_image_content_type"
-    t.integer  "instructor_image_file_size"
-    t.datetime "instructor_image_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "project_sets", force: :cascade do |t|

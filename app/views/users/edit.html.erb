@@ -4,10 +4,10 @@
   <%= f.select :role do %>
     <%= options_for_select(User.roles.map { |role, _| [role.capitalize, role] }) %>
   <% end %>
-  <%= f.fields_for :profiles, html: { multipart: true } do |fp| %>
+  <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
     <div>
       <%= fp.label "Pic of You" %><br />
-      <%= fp.file_field :instructor_image %>
+      <%= fp.file_field :avatar %>
     </div>
 
 
