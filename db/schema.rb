@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930225746) do
+ActiveRecord::Schema.define(version: 20160930225013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20160930225746) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "worktime_focus"
     t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
-    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
