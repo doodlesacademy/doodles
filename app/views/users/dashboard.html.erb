@@ -11,12 +11,16 @@
     <%= image_tag("camera-icon.png", size: "35x35", alt: "camera icon", id: "camera-icon") %>
   </div>
 
-    <%= fields_for current_user.profile, html: { multipart: true } do |f| %>
-      <%= f.file_field :avatar, class: 'filestyle',
-       :'data-classButton' => 'btn btn-primary',
-       :'data-input' => 'false', classIcon:  'icon-plus',
-       :'data-buttonText' => 'Your label here'  %>
+  <div id="edit-avatar" hidden>
+    <%= form_for current_user, url: profile_path do |f| %>
+       <%= f.fields_for :profile, html: { multipart: true } do |p| %>
+        <div>
+          <%= p.file_field :avatar %>
+        </div>
+      <% end %>
+      <%= f.submit id: 'update-avatar' %>
     <% end %>
+  </div>
 
   <div class="dashboard-fields">
     <h1 class="welcome">
