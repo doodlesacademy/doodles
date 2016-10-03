@@ -1,84 +1,86 @@
-<h2>Sign up</h2>
+<div class='sign-up'>
+  <h2>Sign up</h2>
 
-<% resource.build_profile if resource.profile.nil? %>
+  <% resource.build_profile if resource.profile.nil? %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <%= devise_error_messages! %>
+    <%= devise_error_messages! %>
 
-  <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
-    <div>
-      <%= fp.label "Pic of You" %><br />
-      <%= fp.file_field :avatar %>
+    <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
+      <div>
+        <%= fp.label "Pic of You" %><br />
+        <%= fp.file_field :avatar %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :title %><br />
+        <%= fp.text_field :title, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :first_name %><br />
+        <%= fp.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :last_name %><br />
+        <%= fp.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :school %><br />
+        <%= fp.text_field :school %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :city %><br />
+        <%= fp.text_field :city %>
+      </div>
+
+      <div class="field">
+          <%= fp.label :state %>
+          <%= fp.select :state, Profile::STATES %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :country %><br />
+        <%= fp.text_field :country %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :occupation %><br />
+        <%= fp.text_field :occupation %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :grades %><br />
+        <%= fp.text_field :grades %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= fp.label :title %><br />
-      <%= fp.text_field :title, autofocus: true %>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
     <div class="field">
-      <%= fp.label :first_name %><br />
-      <%= fp.text_field :first_name %>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
-    <div class="field">
-      <%= fp.label :last_name %><br />
-      <%= fp.text_field :last_name %>
-    </div>
-
-    <div class="field">
-      <%= fp.label :school %><br />
-      <%= fp.text_field :school %>
-    </div>
-
-    <div class="field">
-      <%= fp.label :city %><br />
-      <%= fp.text_field :city %>
-    </div>
-
-    <div class="field">
-        <%= fp.label :state %>
-        <%= fp.select :state, Profile::STATES %>
-    </div>
-
-    <div class="field">
-      <%= fp.label :country %><br />
-      <%= fp.text_field :country %>
-    </div>
-
-    <div class="field">
-      <%= fp.label :occupation %><br />
-      <%= fp.text_field :occupation %>
-    </div>
-
-    <div class="field">
-      <%= fp.label :grades %><br />
-      <%= fp.text_field :grades %>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
