@@ -74,8 +74,26 @@
     cursor: pointer;
   }
 
-  .edit-user-data {
-    color: red;
+  .edit-user-data div {
+    margin: 1.6em 0;
+    label {
+      @include label-font-styles;
+    }
+    input:not([type='checkbox']),
+    textarea {
+      @include input-styles;
+      border-radius: 25px;
+      color: $warm-gray;
+      width: 300px;
+      padding: 10px 5px;
+      padding-left: 10px;
+      font-size: 1em;
+      font-style: italic;
+    }
+  }
+
+  #contact-preferences {
+    margin-top: 20px;
   }
 
 }

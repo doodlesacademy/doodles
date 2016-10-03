@@ -44,7 +44,7 @@
             <%= p.text_field :last_name %>
           </div>
          <% end %>
-         <%= f.submit %>
+         <%= f.submit class: 'btn btn-blue'%>
       <% end %>
     </div>
 
@@ -92,11 +92,11 @@
               <%= p.text_field :grades %>
             </div>
            <% end %>
-           <%= f.submit %>
+           <%= f.submit class: 'btn btn-blue' %>
         <% end %>
       </div>
 
-      <div>
+      <div id="contact-preferences">
         <h4>
           contact preferences
           <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon") %>
