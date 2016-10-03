@@ -3,7 +3,6 @@
   width: 100%;
 
   .teacher-image {
-    // display: inline-block;
     text-align: center;
   }
 
@@ -79,17 +78,25 @@
     label {
       @include label-font-styles;
     }
-    input:not([type='checkbox']),
-    textarea {
+    input {
       @include input-styles;
       border-radius: 25px;
-      color: $warm-gray;
+      color: white;
       width: 300px;
       padding: 10px 5px;
       padding-left: 10px;
       font-size: 1em;
       font-style: italic;
+
+      &[type=submit] {
+        color: white;
+        border: 0;
+      }
     }
+  }
+
+  .actions {
+    color: white;
   }
 
   #contact-preferences {

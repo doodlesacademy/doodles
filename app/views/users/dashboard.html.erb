@@ -44,7 +44,9 @@
             <%= p.text_field :last_name %>
           </div>
          <% end %>
-         <%= f.submit class: 'btn btn-blue'%>
+         <div class="actions">
+           <%= f.submit "Update" %>
+         </div>
       <% end %>
     </div>
 
@@ -92,19 +94,48 @@
               <%= p.text_field :grades %>
             </div>
            <% end %>
-           <%= f.submit class: 'btn btn-blue' %>
+           <div class="actions">
+             <%= f.submit "Update" %>
+           </div>
         <% end %>
       </div>
 
       <div id="contact-preferences">
         <h4>
           contact preferences
-          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon") %>
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-email") %>
         </h4>
-        <p>PLEASE NOTE THAT ALL MEMBERS WILL RECEIVE OUR NEWSLETTER</p>
-        <p><%= current_user.email %></p>
-        <p><input type="checkbox" checked>Yes!  I want to be notified of new lessons on the website</p>
+        <div id="email-data">
+          <p>PLEASE NOTE THAT ALL MEMBERS WILL RECEIVE OUR NEWSLETTER</p>
+          <p><%= current_user.email %></p>
+          <p><input type="checkbox" checked>Yes!  I want to be notified of new lessons on the website</p>
+        </div>
       </div>
+
+      <div id="edit-email" class="edit-user-data" hidden>
+        <%= form_for current_user do |f| %>
+
+          <div>
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <div>
+            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div>
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div>
+        <% end %>
+      </div>
+
     </div>
     <div>
       <h1>artroom</h1>

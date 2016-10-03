@@ -9,6 +9,11 @@
     $('#classroom-data').toggle()
     return
 
+  $('#pencil-email').click ->
+    $('#edit-email').toggle()
+    $('#email-data').toggle()
+    return
+
   $('#camera-icon').click ->
     $('#user_profile_attributes_avatar').trigger 'click'
     return
