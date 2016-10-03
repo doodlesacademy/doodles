@@ -1,7 +1,12 @@
 (($, window) -> $ ->
 
-  $('.pencil-icon:first-of-type').click ->
-    $('#edit-name').show()
+  $('#pencil-name').click ->
+    $('#edit-name').toggle()
+    return
+
+  $('#pencil-classroom').click ->
+    $('#edit-classroom-data').toggle()
+    $('#classroom-data').toggle()
     return
 
   $('#camera-icon').click ->

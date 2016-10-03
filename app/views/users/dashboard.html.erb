@@ -25,22 +25,22 @@
   <div class="dashboard-fields">
     <h1 class="welcome">
       welcome, <%= "#{current_user.profile.title} #{current_user.profile.last_name}" %>!
-      <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon") %>
+      <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon", id: "pencil-name") %>
     </h1>
 
-    <div id="edit-name" hidden>
+    <div id="edit-name" class="edit-user-data" hidden>
       <%= form_for current_user, url: profile_path do |f| %>
          <%= f.fields_for :profile do |p| %>
           <div>
-            <%= p.label :title %>
+            <%= p.label :title %><br />
             <%= p.text_field :title %>
           </div>
           <div>
-            <%= p.label :first_name %>
+            <%= p.label :first_name %><br />
             <%= p.text_field :first_name %>
           </div>
           <div>
-            <%= p.label :last_name %>
+            <%= p.label :last_name %><br />
             <%= p.text_field :last_name %>
           </div>
          <% end %>
@@ -53,14 +53,49 @@
       <div>
         <h4>
           classroom data
-          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon") %>
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-classroom") %>
         </h4>
-        <p><%= "School: #{current_user.profile.school}" %></p>
-        <p><%= "#{current_user.profile.city_state}" %></p>
-        <p><%= "#{current_user.profile.country}" %></p>
-        <p><%= "Occupation: #{current_user.profile.occupation}" %></p>
-        <p><%= "Grades: #{current_user.profile.grades}" %></p>
+        <div id="classroom-data">
+          <p><%= "School: #{current_user.profile.school}" %></p>
+          <p><%= "#{current_user.profile.city_state}" %></p>
+          <p><%= "#{current_user.profile.country}" %></p>
+          <p><%= "Occupation: #{current_user.profile.occupation}" %></p>
+          <p><%= "Grades: #{current_user.profile.grades}" %></p>
       </div>
+      </div>
+
+      <div id="edit-classroom-data" class="edit-user-data" hidden>
+        <%= form_for current_user, url: profile_path do |f| %>
+           <%= f.fields_for :profile do |p| %>
+            <div>
+              <%= p.label :school %><br />
+              <%= p.text_field :school %>
+            </div>
+            <div>
+              <%= p.label :city %><br />
+              <%= p.text_field :city %>
+            </div>
+            <div>
+              <%= p.label :state %><br />
+              <%= p.text_field :state %>
+            </div>
+            <div>
+              <%= p.label :country %><br />
+              <%= p.text_field :country %>
+            </div>
+            <div>
+              <%= p.label :occupation %><br />
+              <%= p.text_field :occupation %>
+            </div>
+            <div>
+              <%= p.label "Grades Taught" %><br />
+              <%= p.text_field :grades %>
+            </div>
+           <% end %>
+           <%= f.submit %>
+        <% end %>
+      </div>
+
       <div>
         <h4>
           contact preferences
