@@ -14,13 +14,15 @@ class ApplicationController < ActionController::Base
 
   def editor_only!
     unless current_user.editor? || current_user.admin?
-      redirect_to new_user_session_path
+      # redirect_to new_user_session_path
+      redirect_to dashboard
     end
   end
 
   def admin_only!
     unless authenticate_user! && current_user.admin?
-      redirect_to new_user_session_path
+      # redirect_to new_user_session_path
+      redirect_to dashboard
     end
   end
 
