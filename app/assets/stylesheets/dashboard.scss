@@ -103,4 +103,12 @@
     margin-top: 20px;
   }
 
+  #logout-button {
+    margin-top: 40px;
+    background-color: $primary-green;
+    a {
+      color: white;
+    }
+  }
+
 }
