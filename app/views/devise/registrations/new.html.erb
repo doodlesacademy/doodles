@@ -7,74 +7,55 @@
 
     <%= devise_error_messages! %>
 
-    <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
-      <div>
-        <%= fp.label "Pic of You" %><br />
-        <%= fp.file_field :avatar %>
+    <%= f.fields_for :profile do |fp| %>
+
+      <div class="field">
+        <%= fp.text_field :title, autofocus: true, placeholder: "title" %>
       </div>
 
       <div class="field">
-        <%= fp.label :title %><br />
-        <%= fp.text_field :title, autofocus: true %>
+        <%= fp.text_field :first_name, placeholder: "first name" %>
       </div>
 
       <div class="field">
-        <%= fp.label :first_name %><br />
-        <%= fp.text_field :first_name %>
+        <%= fp.text_field :last_name, placeholder: "last name" %>
       </div>
 
       <div class="field">
-        <%= fp.label :last_name %><br />
-        <%= fp.text_field :last_name %>
+        <%= fp.text_field :school, placeholder: "school" %>
       </div>
 
       <div class="field">
-        <%= fp.label :school %><br />
-        <%= fp.text_field :school %>
+        <%= fp.text_field :city, placeholder: "city" %>
       </div>
 
       <div class="field">
-        <%= fp.label :city %><br />
-        <%= fp.text_field :city %>
+          <%= fp.text_field :state, placeholder: "state" %>
       </div>
 
       <div class="field">
-          <%= fp.label :state %>
-          <%= fp.select :state, Profile::STATES %>
+        <%= fp.text_field :country, placeholder: "country" %>
       </div>
 
       <div class="field">
-        <%= fp.label :country %><br />
-        <%= fp.text_field :country %>
+        <%= fp.text_field :occupation, placeholder: "occupation" %>
       </div>
 
       <div class="field">
-        <%= fp.label :occupation %><br />
-        <%= fp.text_field :occupation %>
-      </div>
-
-      <div class="field">
-        <%= fp.label :grades %><br />
-        <%= fp.text_field :grades %>
+        <%= fp.text_field :grades, placeholder: "grades" %>
       </div>
     <% end %>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email, placeholder: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "password (#{@minimum_password_length} characters minimum)" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" %>
     </div>
 
     <div class="actions">

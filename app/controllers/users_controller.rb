@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :admin_only!
+  before_action :authenticate_user!, :admin_only!, only: [:index, :show, :edit]
 
   def index
     @users = User.all
@@ -34,6 +34,10 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.update_attribute(:status, User.statuses[:archived])
+  end
+
+  def dashboard
+    redirect_to '/users/sign_in' unless current_user.present?
   end
 
   private
