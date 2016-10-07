@@ -75,10 +75,11 @@
 
   .edit-user-data div {
     margin: 1.6em 0;
-    label {
+    label, label[for="mce-EMAIL"] {
       @include label-font-styles;
+      font-family: 'Raleway', sans-serif;
     }
-    input {
+    input, #mce-EMAIL, #mc-embedded-subscribe, #current-pw {
       @include input-styles;
       border-radius: 25px;
       color: $warm-gray;
@@ -93,6 +94,23 @@
         border: 0;
       }
     }
+  }
+
+  #mce-EMAIL {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  #mc-embedded-subscribe {
+    margin: 0;
+  }
+
+  #mc_embed_signup form {
+    padding: 0;
+    margin: 0;
+  }
+
+  #mc_embed_signup .mc-field-group {
+    padding: 0;
   }
 
   .actions {
