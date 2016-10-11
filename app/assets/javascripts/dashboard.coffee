@@ -14,6 +14,10 @@
     $('#email-data').toggle()
     return
 
+  $('#pencil-password').click ->
+    $('#edit-password').toggle()
+    return
+
   $('#camera-icon').click ->
     $('#user_profile_attributes_avatar').trigger 'click'
     return
