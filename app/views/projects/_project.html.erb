@@ -41,7 +41,7 @@
     <h2 id='project-materials'>materials</h2>
     <p><%= @project.materials %></p>
     <div class="project-indent">
-      <small>*suggestion: <%= @project.materials_suggestion %></small>
+      <p>*suggestion: <%= @project.materials_suggestion %></p>
     </div>
 
     <h2 id='project-books-media'>books/media</h2>
@@ -82,10 +82,9 @@
         <p class="pdf-indent"><%= link_to @project.fifth_photocopy_file_name, @project.fifth_photocopy.url %></p>
       <% end %>
       <% if @project.photocopy_copyright.present? %>
-        <small><%= @project.photocopy_copyright %></small>
-        <br>
+        <p><%= @project.photocopy_copyright %></p>
       <% end %>
-      <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
+      <p>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</p>
     </div>
   </p>
   <hr />
@@ -138,11 +137,20 @@
       <h2 id='project-cross-curricular'>cross curricular</h2>
       <p><%= @project.cross_curricular %></p>
 
-      <h2 id='project-engage-ny'>engage NY</h2>
-      <% if @project.engage_ny.present? %>
-        <p><%= @project.engage_ny %></p>
+      <% if @academy == :lower %>
+        <h2 id='project-engage-ny'>Core Knowledge</h2>
+        <% if @project.engage_ny.present? %>
+          <p><%= @project.engage_ny %></p>
+        <% else %>
+          <p>N/A</p>
+        <% end %>
       <% else %>
-        <p>N/A</p>
+        <h2 id='project-engage-ny'>Expeditionary Learning</h2>
+        <% if @project.engage_ny.present? %>
+          <p><%= @project.engage_ny %></p>
+        <% else %>
+          <p>N/A</p>
+        <% end %>
       <% end %>
 
       <h2 id='project-next-gen-sci'>next generation science</h2>
@@ -156,3 +164,4 @@
   </div>
 
 </div>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"28ca6056cf1fcbb59340d2de6","lid":"434752e97b"}) })</script>

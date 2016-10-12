@@ -6,7 +6,7 @@
 end %>
 <% content_for(:lesson_links) { render "shared/lesson_links", project: @project } %>
 
-<% if @project.synopsis != nil && @project.synopsis != "" %>
+<% if @project.synopsis.present? %>
   <%= render "project" %>
 <% else %>
   <%= render "markdown_project" %>

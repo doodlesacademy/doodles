@@ -12,12 +12,24 @@
     max-width: $homepage-max-width;
     margin: 0 auto;
 
-    p {
-      font-size: 28px;
+    p, li {
+      font-size: 2em;
       font-weight: 300;
       text-align: left;
       line-height: 1.3em;
     }
+
+    ul {
+      color: $primary-blue;
+      columns: 2;
+
+      li {
+        font-size: 1.3em;
+        list-style-position: inside;
+      }
+    }
+
+
 
     h2 {
       text-align: left;
@@ -78,6 +90,17 @@
     width: 100vw;
     margin: 0 auto;
     height: calc(100vw / 1.78);
+  }
+
+  #image_home_summary {
+    background:
+    url('home_summary.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 750px;
+    position: relative;
+    float: left;
+    margin-bottom: 100px;
   }
 
   .image-background-section {
