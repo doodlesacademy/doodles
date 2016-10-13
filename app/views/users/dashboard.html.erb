@@ -2,14 +2,15 @@
 <% content_for(:hero_image) { image_tag 'heros/dashboard.jpg' } %>
 
 <div class="dashboard">
-  <div class="teacher-image">
+
+  <section class="avatar">
     <% if current_user.profile.avatar.present? %>
       <%= image_tag current_user.profile.avatar.url(:small), id: "person-icon" %>
     <% else %>
       <%= image_tag("person-icon.png", size: "200x200", alt: "person icon", id: "person-icon") %>
     <% end %>
     <%= image_tag("camera-icon.png", size: "35x35", alt: "camera icon", id: "camera-icon") %>
-  </div>
+  </section>
 
   <div id="edit-avatar" hidden>
     <%= form_for current_user, url: profile_path do |f| %>
@@ -23,12 +24,15 @@
   </div>
 
   <div class="dashboard-fields">
-    <h1 class="welcome">
-      welcome, <%= "#{current_user.profile.title} #{current_user.profile.last_name}" %>!
-      <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon", id: "pencil-name") %>
-    </h1>
 
-    <div id="edit-name" class="edit-user-data" hidden>
+    <section>
+      <h1 class="welcome">
+        welcome, <%= "#{current_user.profile.title} #{current_user.profile.last_name}" %>!
+        <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon", id: "pencil-name") %>
+      </h1>
+    </section>
+
+    <section id="edit-name" class="edit-user-data" hidden>
       <%= form_for current_user, url: profile_path do |f| %>
          <%= f.fields_for :profile do |p| %>
           <div>
@@ -48,25 +52,25 @@
            <%= f.submit "Update" %>
          </div>
       <% end %>
-    </div>
+    </section>
 
-    <div>
+    <section>
       <h1>account settings:</h1>
-      <div>
+      <section>
         <h4>
           classroom data
           <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-classroom") %>
         </h4>
-        <div id="classroom-data">
+        <section id="classroom-data">
           <p><%= "School: #{current_user.profile.school}" %></p>
           <p><%= "#{current_user.profile.city_state}" %></p>
           <p><%= "#{current_user.profile.country}" %></p>
           <p><%= "Occupation: #{current_user.profile.occupation}" %></p>
           <p><%= "Grades: #{current_user.profile.grades}" %></p>
-      </div>
-      </div>
+        </section>
+      </section>
 
-      <div id="edit-classroom-data" class="edit-user-data" hidden>
+      <section id="edit-classroom-data" class="edit-user-data" hidden>
         <%= form_for current_user, url: profile_path do |f| %>
            <%= f.fields_for :profile do |p| %>
             <div>
@@ -98,9 +102,9 @@
              <%= f.submit "Update" %>
            </div>
         <% end %>
-      </div>
+      </section>
 
-      <div id="contact-preferences">
+      <section id="contact-preferences">
         <h4>
           contact preferences
           <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-email") %>
@@ -108,9 +112,9 @@
         <div id="email-data">
           <p><%= current_user.email %></p>
         </div>
-      </div>
+      </section>
 
-      <div id="edit-email" class="edit-user-data" hidden>
+      <section id="edit-email" class="edit-user-data" hidden>
         <%= form_for current_user do |f| %>
           <div class="field">
             <%= f.label :email %><br />
@@ -121,16 +125,16 @@
             <%= f.submit "Update" %>
           </div>
         <% end %>
-      </div>
+      </section>
 
-      <div id="change-password">
+      <section id="change-password">
         <h4>
           change password
           <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-password") %>
         </h4>
-      </div>
+      </section>
 
-      <div id="edit-password" class="edit-user-data" hidden>
+      <section id="edit-password" class="edit-user-data" hidden>
         <%= form_for current_user do |f| %>
 
           <div class="field">
@@ -147,10 +151,11 @@
             <%= f.submit "Update" %>
           </div>
         <% end %>
-      </div>
+      </section>
 
-    </div>
-    <div>
+    </section>
+
+    <section>
       <h1>artroom</h1>
       <div>
         <h4>continue where you left off:</h4>
@@ -158,9 +163,12 @@
       <div>
         <h4>view your curriculum & supply lists:</h4>
       </div>
-    </div>
+    </section>
+
     <div id="logout-button" class="btn">
       <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
     </div>
+
   </div>
+
 </div>

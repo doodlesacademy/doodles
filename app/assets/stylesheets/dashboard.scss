@@ -2,7 +2,7 @@
 
   width: 100%;
 
-  .teacher-image {
+  .avatar {
     text-align: center;
   }
 
@@ -10,11 +10,6 @@
     padding: 5px;
     border: 1px solid $warm-gray;
     border-radius: 100%;
-  }
-
-  #profile_avatar {
-    color: red;
-    border: 0;
   }
 
   #camera-icon {
@@ -75,11 +70,11 @@
 
   .edit-user-data div {
     margin: 1.6em 0;
-    label, label[for="mce-EMAIL"] {
+    label {
       @include label-font-styles;
       font-family: 'Raleway', sans-serif;
     }
-    input, #mce-EMAIL, #mc-embedded-subscribe, #current-pw {
+    input {
       @include input-styles;
       border-radius: 25px;
       color: $warm-gray;
@@ -87,34 +82,12 @@
       padding: 10px 5px;
       padding-left: 10px;
       font-size: 1em;
-      font-style: italic;
 
       &[type=submit] {
         color: white;
         border: 0;
       }
     }
-  }
-
-  #mce-EMAIL {
-    font-family: 'Raleway', sans-serif;
-  }
-
-  #mc-embedded-subscribe {
-    margin: 0;
-  }
-
-  #mc_embed_signup form {
-    padding: 0;
-    margin: 0;
-  }
-
-  #mc_embed_signup .mc-field-group {
-    padding: 0;
-  }
-
-  .actions {
-    color: white;
   }
 
   #contact-preferences {
