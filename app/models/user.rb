@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   after_initialize :set_role
 
+  has_many :favorites
+  has_many :favorite_projects, through: :favorites, source: :project_set
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

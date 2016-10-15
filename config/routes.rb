@@ -22,7 +22,10 @@ Rails.application.routes.draw do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
   end
 
-  resources :users
+  resources :users do
+    resources :favorites, only: [:create, :destroy]
+  end
+
   resources :projects, param: :slug, only: [:index]
   scope ':academy' do
     resources :projects, param: :slug, only: [:show] do
