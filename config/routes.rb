@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "classes", to: "home#classes"
   get "donate", to: "home#donate"
   get "subscribe", to: "home#subscribe"
+  get "dashboard", to: "users#dashboard"
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    resource :profile, only: [:show, :update]
     resources :favorites, only: [:create, :destroy]
   end
 

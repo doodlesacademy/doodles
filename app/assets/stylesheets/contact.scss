@@ -1,38 +1,29 @@
 .contact-page {
+  text-align: left;
 
-  width: 1000px;
-  color: $warm-gray;
-
-  h1 {
-    font-weight: 800;
-  }
-
-  h3 {
+    width: 1000px;
     color: $warm-gray;
-    margin-bottom: 20px;
 
-    &:last-of-type {
-      margin-top: 20px;
+    h1 {
+      text-align: left;
+      font-weight: 800;
     }
-  }
 
-  .last-name, .first-name {
-    width: 48%;
-    display: inline-block;
-  }
-
-  .last-name {
-    input, label {
-      margin-left: 36px;
+    h3 {
+      text-align: left;
+      color: $warm-gray;
     }
-  }
 
-  .field {
-    margin: 1em 0;
-    input:not([type='checkbox']),
-    textarea {
+    #contact-follow-us {
+      margin-top: 40px;
+    }
+
+  .mc-field-group {
+    text-align: left;
+    #mce-EMAIL, #mce-FNAME, #mce-LNAME {
+      font-family: $primary-font;
+      font-weight: 300;
       border-radius: 10px;
-      padding: 10px;
       font-size: 1.5em;
     }
     label {
@@ -40,29 +31,10 @@
       font-size: 1em;
       font-weight: 500;
     }
-  }
 
-  select {
-    margin: 20px 0 20px 10px;
-    width: 75%;
-  }
-
-  input[type='checkbox'] {
-    -webkit-appearance:none;
-    margin-right: 5px;
-    margin-bottom: -5px;
-    width:20px;
-    height:20px;
-    background:white;
-    border:1px solid #ddd;
-  }
-
-  input[type='checkbox']:checked {
-    background: radial-gradient(circle at center, $primary-blue .6ex, white .7ex);
-  }
-
-  .btn-blue {
-    margin-top: 10px;
+    &.input-group .mc-checks {
+      margin-right: 5px;
+    }
   }
 
   .contact-logo {
@@ -83,5 +55,4 @@
     }
 
   }
-
 }

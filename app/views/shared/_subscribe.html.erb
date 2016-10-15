@@ -4,10 +4,10 @@
       Stay in touch! Sign up to be notified of new projects and organization updates.
     </div>
     <div class="newsletter__form">
-      <%= form_tag("/subscribe") do -%>
-        <%= text_field_tag('subscription[email]', '', class: "input__text", placeholder: 'Your email address') %>
-        <%= submit_tag("Sign Up Here", class: "newsletter__submit") %>
-      <% end -%>
+      <form method="GET" action="/contact">
+        <input type="text" class="input__text" placeholder="Your email address" id="email-submit" name="email-submit" />
+        <input type="submit" class="newsletter__submit" value="sign up here"/>
+      </form>
     </div>
   </div>
 </div>

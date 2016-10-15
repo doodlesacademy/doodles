@@ -3,13 +3,23 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :define_pages_and_social_links, :define_academy_level, :homepage?
-  before_action :authenticate_user!, :editor_only!, only: [:edit, :update, :delete]
+  before_action :define_pages_and_social_links, :define_academy_level, :homepage?, :user_sign_up_in?
+  # before_action :authenticate_user!, :editor_only!, only: [:edit, :update, :delete]
+  # Devise Parameters
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def homepage?
     @homepage = (request.path =~ /^\/$/).present?
   end
-  
+
+  def user_sign_up_in?
+    @user_sign_up_in = (request.path =~ /\/users\/sign/).present?
+  end
+
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
+
   def editor_only!
     unless current_user.editor? || current_user.admin?
       redirect_to new_user_session_path
@@ -28,6 +38,13 @@ class ApplicationController < ActionController::Base
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+  end
+
+  protected
+  # Devise Parameters
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << [profile_attributes: [:first_name, :last_name, :avatar, :title, :school, :city, :state, :country, :occupation, :grades, :user_id]]
+    devise_parameter_sanitizer.for(:account_update) << [:email, :password, :password_confirmation, :current_password, profile_attributes: [:first_name, :last_name, :avatar, :title, :school, :city, :state, :country, :occupation, :grades, :user_id]]
   end
 
   private

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :admin_only!
+  before_action :authenticate_user!, :admin_only!, only: [:index, :show, :edit]
 
   def index
     @users = User.all
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to action: 'show', id: @user.id
   end
 
   def update
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
     else
       render :edit, user: @user
     end
- 
+
   end
 
   def edit
@@ -37,9 +36,13 @@ class UsersController < ApplicationController
     @user.update_attribute(:status, User.statuses[:archived])
   end
 
+  def dashboard
+    redirect_to '/users/sign_in' unless current_user.present?
+  end
+
   private
-  def user_params 
-    params.require(:user).permit(:role)
+  def user_params
+    params.require(:user).permit(:role, :email, :password, :password_confirmation, :current_password)
   end
 
 end

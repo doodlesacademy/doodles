@@ -68,8 +68,7 @@ class Admin::LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(
         :order, :title, :project_id, :synopsis, :overview, :objective, :setting_up,
-        :materials, :materials_note, :first_photocopy, :first_photocopy_header, :second_photocopy,
-        :second_photocopy_header, :third_photocopy, :third_photocopy_header, :media,
+        :materials, :materials_note, :first_photocopy, :first_photocopy_header,  :first_photocopy_url, :second_photocopy, :second_photocopy_header, :second_photocopy_url, :third_photocopy, :third_photocopy_header, :media,
         :example_image, :intro_time, :inspiration_image, :inspiration_image_title,
         :inspiration_image_description, :check_for_understanding, :instructions, :status,
         :video_name, :video_uri, :video_note, :pre_work_heading, :pre_work, :independent_worktime,

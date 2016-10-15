@@ -41,13 +41,19 @@
       <% end %>
       <h2 id='photocopies' class="overview-heading anchor">Photocopies</h2>
       <p>
-        <% if @lesson.first_photocopy.present? %>
+        <% if @lesson.first_photocopy_url.present? %>
+        <p>photocopy 1</p>
+        <p class="pdf-indent"><a href="<%= @lesson.first_photocopy_url %>"><%= @lesson.first_photocopy_header %></a></p>
+        <% elsif @lesson.first_photocopy.present? %>
           <p><%= @lesson.first_photocopy_header %></p>
           <p class="pdf-indent"><%= link_to @lesson.first_photocopy_file_name, @lesson.first_photocopy.url %></p>
         <% else %>
           <%= "N/A" %>
         <% end %>
-        <% if @lesson.second_photocopy.present? %>
+        <% if @lesson.second_photocopy_url.present? %>
+        <p>photocopy 2</p>
+        <p class="pdf-indent"><a href="<%= @lesson.second_photocopy_url %>"><%= @lesson.second_photocopy_header %></a></p>
+        <% elsif @lesson.second_photocopy.present? %>
         <p><%= @lesson.second_photocopy_header %></p>
         <p class="pdf-indent"><%= link_to @lesson.second_photocopy_file_name, @lesson.second_photocopy.url %></p>
         <% end %>

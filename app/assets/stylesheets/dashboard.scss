@@ -1,0 +1,109 @@
+.dashboard {
+
+  width: 100%;
+
+  .avatar {
+    text-align: center;
+  }
+
+  #person-icon {
+    padding: 5px;
+    border: 1px solid $warm-gray;
+    border-radius: 100%;
+  }
+
+  #camera-icon {
+    margin-top: 160px;
+    margin-left: -20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .dashboard-fields {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  h1, h4, p {
+    text-align: justify;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  h1, h4 {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  h1, p {
+    color: $warm-gray;
+  }
+
+  h4 {
+    color: $primary-blue;
+  }
+
+  .welcome {
+    text-align: center;
+    color: $primary-blue;
+    text-transform: capitalize;
+    margin: 40px 0;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-left: 2em;
+    font-weight: 200;
+  }
+
+  input {
+    margin-right: 10px;
+  }
+
+  .pencil-icon:hover {
+    cursor: pointer;
+  }
+
+  .edit-user-data div {
+    margin: 1.6em 0;
+    label {
+      @include label-font-styles;
+      font-family: 'Raleway', sans-serif;
+    }
+    input {
+      @include input-styles;
+      border-radius: 25px;
+      color: $warm-gray;
+      width: 300px;
+      padding: 10px 5px;
+      padding-left: 10px;
+      font-size: 1em;
+
+      &[type=submit] {
+        color: white;
+        border: 0;
+      }
+    }
+  }
+
+  #contact-preferences {
+    margin-top: 20px;
+  }
+
+  #logout-button {
+    margin-top: 40px;
+    background-color: $primary-green;
+    a {
+      color: white;
+    }
+  }
+
+  .glyphicon-star {
+    margin-right: 5px;
+  }
+
+}

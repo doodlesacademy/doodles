@@ -2,70 +2,81 @@
 <% content_for(:hero_image) { image_tag 'heros/contact.jpg' } %>
 
 <div class="contact-page">
-  <h1>Let's stay in touch.</h1>
-  <h3>Message us.</h3>
-  <%= form_tag("/contact", class: "contact-form") do -%>
-    <div class="field">
-      <label for="contact_request[email_address]">Email</label>
-      <input type="text" name="contact_request[email_address]">
-    </div>
 
-    <div>
-      <div class="field first-name">
-        <label for="contact_request[first_name]">First Name</label>
-        <input type="text" name="contact_request[first_name]">
+  <!-- Begin MailChimp Signup Form -->
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+  We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  </style>
+  <div id="mc_embed_signup">
+    <form action="//doodles-academy.us10.list-manage.com/subscribe/post?u=28ca6056cf1fcbb59340d2de6&id=434752e97b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <h1>Let's stay in touch</h1>
+        <h3>Drop us a line at: <a href="mailto:info@doodles-academy.org" target="_top">info@doodles-academy.org</a></h3>
+      <h3>Subscribe to our mailing list</h3>
+      <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+      <div class="mc-field-group">
+        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
       </div>
-
-      <div class="field last-name">
-        <label for="contact_request[last_name]">Last Name</label>
-        <input type="text" name="contact_request[last_name]">
+      <div class="mc-field-group">
+        <label for="mce-FNAME">First Name </label>
+        <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
       </div>
-    </div>
+      <div class="mc-field-group">
+        <label for="mce-LNAME">Last Name </label>
+        <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+      </div>
+      <div class="mc-field-group input-group">
+        <h3>Tell us what emails would be relevant to you: </h3>
+        <ul><li><input type="checkbox" value="1" name="group[7449][1]" id="mce-group[7449]-7449-0" class="mc-checks"><label for="mce-group[7449]-7449-0">emails for classroom teachers</label></li>
+          <li><input type="checkbox" value="2" name="group[7449][2]" id="mce-group[7449]-7449-1" class="mc-checks"><label for="mce-group[7449]-7449-1">emails for art teachers</label></li>
+          <li><input type="checkbox" value="4" name="group[7449][4]" id="mce-group[7449]-7449-2" class="mc-checks"><label for="mce-group[7449]-7449-2">emails for administrators</label></li>
+          <li><input type="checkbox" value="8" name="group[7449][8]" id="mce-group[7449]-7449-3" class="mc-checks"><label for="mce-group[7449]-7449-3">emails for PTA members</label></li>
+          <li><input type="checkbox" value="16" name="group[7449][16]" id="mce-group[7449]-7449-4" class="mc-checks"><label for="mce-group[7449]-7449-4">emails for home-schooling families</label></li>
+          <li><input type="checkbox" value="32" name="group[7449][32]" id="mce-group[7449]-7449-5" class="mc-checks"><label for="mce-group[7449]-7449-5">emails for parents/home users</label></li>
+          <li><input type="checkbox" value="64" name="group[7449][64]" id="mce-group[7449]-7449-6" class="mc-checks"><label for="mce-group[7449]-7449-6">emails for arts-education activists/ non-profits/volunteers</label></li>
+          <li><input type="checkbox" value="32768" name="group[7449][32768]" id="mce-group[7449]-7449-7" class="mc-checks"><label for="mce-group[7449]-7449-7">emails for afterschool programs, or similar organizations</label></li>
+        </ul>
+      </div>
+  <div class="mc-field-group input-group">
+    <h3>Lesson Notifications </h3>
+    <ul>
+      <li><input type="radio" value="16384" name="group[11229]" id="mce-group[11229]-11229-0" class="mc-checks" checked><label for="mce-group[11229]-11229-0">Yes, please notify me when new projects are loaded on the website</label></li>
+      <li><input type="radio" value="524288" name="group[11229]" id="mce-group[11229]-11229-1" class="mc-checks"><label for="mce-group[11229]-11229-1">No, thank you.</label></li>
+    </ul>
+  </div>
+  <div class="mc-field-group input-group">
+    <h3>New Feature Notifications </h3>
+    <ul>
+      <li><input type="radio" value="131072" name="group[11233]" id="mce-group[11233]-11233-0" class="mc-checks" checked><label for="mce-group[11233]-11233-0">Yes, please notify me when new features are available on the website.</label></li>
+      <li><input type="radio" value="1048576" name="group[11233]" id="mce-group[11233]-11233-1" class="mc-checks"><label for="mce-group[11233]-11233-1">No, thank you.</label></li>
+    </ul>
+  </div>
+  <div class="mc-field-group input-group">
+    <h3>Is it ok if we send you (very) occasional updates  </h3>
+    <ul>
+      <li><input type="radio" value="262144" name="group[11237]" id="mce-group[11237]-11237-0" class="mc-checks" checked><label for="mce-group[11237]-11237-0">Yep! I'm interested to know how Doodles is helping to expand access to art education.</label></li>
+      <li><input type="radio" value="2097152" name="group[11237]" id="mce-group[11237]-11237-1" class="mc-checks"><label for="mce-group[11237]-11237-1">No, thank you.</label></li>
+    </ul>
+  </div>
+  	<div id="mce-responses" class="clear">
+  		<div class="response" id="mce-error-response" style="display:none"></div>
+  		<div class="response" id="mce-success-response" style="display:none"></div>
+  	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_28ca6056cf1fcbb59340d2de6_434752e97b" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+      </div>
+      <h3 id="contact-follow-us">Follow us:</h3>
 
-    <div class="field">
-      <label for="contact_request[location]">Location</label>
-      <input type="text" name="contact_request[location]">
-    </div>
+      <a href="http://facebook.com/doodlesacademy" target="_blank"><%= image_tag 'FB-f-Logo__blue_50.png', class:"contact-logo", alt:"Facebook"  %></a>
 
-    <div class="field">
-      <label for="contact_request[involvement]">
-        How are you involved in education?
-      </label>
-      <select name="contact_request[involvement]">
-        <option>I'm a classroom teacher</option>
-        <option>I'm an arts teacher</option>
-        <option>I'm an administrator</option>
-        <option>I'm part of the PTA</option>
-        <option>I'm a parent who is home-schooling</option>
-        <option>I'm a parent</option>
-        <option>I'm an arts-education activitist/part of a nonprofit/volunteer</option>
-      </select>
-    </div>
+      <a href="http://instagram.com/doodlesacademy" target="_blank"><%= image_tag 'Instagram-v051916.png', class:"contact-logo", alt:"Instagram"  %></a>
+  </form>
+  </div>
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  <!--End mc_embed_signup-->
 
-    <div class="field">
-      <label for="contact_request[message]">
-        Message
-      </label>
-      <textarea name="contact_request[message]"></textarea>
-    </div>
-    <div class="field">
-      <input type="checkbox" name="contact_request[subscribe]" checked></input><span>Receive notifications when new lessons are available on the website.</span>
-    </div>
-    <div class="field">
-      <input type="checkbox" name="contact_request[subscribe]" checked></input><span>Receive notifications when there is a new feature on the website.</span>
-    </div>
-    <div class="field">
-      <input type="checkbox" name="contact_request[subscribe]" checked></input><span>Receive occasional organizational updates.</span>
-    </div>
-
-    <div>
-      <input type="submit" class="btn btn-large btn-blue" value="send">
-    </div>
-
-    <h3>Follow us:</h3>
-
-    <a href="http://facebook.com/doodlesacademy" target="_blank"><%= image_tag 'FB-f-Logo__blue_50.png', class:"contact-logo", alt:"Facebook"  %></a>
-
-    <a href="http://instagram.com/doodlesacademy" target="_blank"><%= image_tag 'Instagram-v051916.png', class:"contact-logo", alt:"Instagram"  %></a>
 </div>
-<% end -%>

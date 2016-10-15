@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911000631) do
+ActiveRecord::Schema.define(version: 20160930225013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(version: 20160911000631) do
     t.text     "additional_worktime_focus"
     t.text     "video_note"
     t.text     "materials_note"
+    t.text     "first_photocopy_url"
+    t.text     "second_photocopy_url"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -196,6 +198,25 @@ ActiveRecord::Schema.define(version: 20160911000631) do
     t.string   "hero_image_content_type"
     t.integer  "hero_image_file_size"
     t.datetime "hero_image_updated_at"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "title"
+    t.string   "school"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "occupation"
+    t.string   "grades"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "project_sets", force: :cascade do |t|
@@ -280,6 +301,8 @@ ActiveRecord::Schema.define(version: 20160911000631) do
     t.integer  "status",                             default: 0
     t.text     "engage_ny"
     t.text     "next_gen_sci"
+    t.text     "first_photocopy_url"
+    t.text     "second_photocopy_url"
   end
 
   create_table "sections", force: :cascade do |t|
