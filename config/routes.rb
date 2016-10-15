@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resource :profile, only: [:show, :update]
     resources :favorites, only: [:create, :destroy]
   end
+  resource :profile, only: [:show, :update]
 
   resources :projects, param: :slug, only: [:index]
   scope ':academy' do
