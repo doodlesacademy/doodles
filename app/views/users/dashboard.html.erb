@@ -156,13 +156,14 @@
     </section>
 
     <section>
-      <h1>artroom</h1>
+      <h1>artroom:</h1>
       <div>
-        <h4>continue where you left off:</h4>
+        <h4><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>favorite projects</h4>
       </div>
-      <div>
-        <h4>view your curriculum & supply lists:</h4>
-      </div>
+      <a href="/lower/projects/<%= ProjectSet.first.title.downcase %>">
+      <%= image_tag(ProjectSet.first.project_image, size: "100x100") %>
+      <div><%= ProjectSet.first.title %></div>
+      </a>
     </section>
 
     <div id="logout-button" class="btn">
