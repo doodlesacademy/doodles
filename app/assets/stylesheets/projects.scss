@@ -188,3 +188,13 @@
   }
 
 }
+
+.favorite {
+  color: $primary-blue;
+  margin: 10px;
+  top: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
