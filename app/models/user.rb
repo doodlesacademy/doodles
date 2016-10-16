@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
 
   after_initialize :set_role
 
-  has_many :favorites
-  has_many :favorite_projects, through: :favorites, source: :project_set
+  has_many :projects
+
+  has_many :favorite_projects # just the 'relationships'
+  has_many :favorites, through: :favorite_projects, source: :project
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930225013) do
+ActiveRecord::Schema.define(version: 20161016184745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,6 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "bookmarks", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "project_set_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "contact_requests", force: :cascade do |t|
     t.string   "email_address"
     t.string   "first_name"
@@ -64,11 +57,11 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.integer  "lifetime_donation"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",        null: false
-    t.integer  "project_set_id", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "favorite_projects", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "feedback_messages", force: :cascade do |t|
@@ -115,11 +108,11 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "worktime_focus"
     t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
-    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
