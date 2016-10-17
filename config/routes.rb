@@ -23,10 +23,6 @@ Rails.application.routes.draw do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
   end
 
-  resources :projects do
-    put :favorite, on: :member
-  end
-
   resources :users
   resource :profile, only: [:show, :update]
 
@@ -36,6 +32,10 @@ Rails.application.routes.draw do
       resources :lessons, param: :slug, only: [:index, :show]
       get "gallery", to: "project#gallery", as: 'gallery'
     end
+  end
+
+  resources :projects do
+    put :favorite, on: :member
   end
 
   get '*', to: 'page_controller#show'
