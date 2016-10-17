@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     put :favorite, on: :member
   end
 
+  resources :users
   resource :profile, only: [:show, :update]
 
   resources :projects, param: :slug, only: [:index]

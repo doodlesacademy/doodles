@@ -160,11 +160,14 @@
       <div>
         <h4><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>favorite projects</h4>
       </div>
-      <h1><%= current_user.favorites.first %></h1>
-      <a href="/lower/projects/<%= ProjectSet.first.title.downcase %>">
-      <%= image_tag(ProjectSet.first.project_image, size: "100x100") %>
-      <div><%= ProjectSet.first.title %></div>
-      </a>
+      <% current_user.favorites.each do |favorite| %>
+        <div style="display:inline-block;margin-left:10px;" class="favorite-in-dashboard">
+          <a href="/lower/projects/<%= favorite.slug %>">
+          <%= image_tag(favorite.project_set.project_image, size: "100x100") %>
+          <p class="favorite-project-title"><%= favorite.title %></p>
+          </a>
+        </div>
+        <% end %>
     </section>
 
     <div id="logout-button" class="btn">
