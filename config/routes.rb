@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
   end
 
-  # config/routes.rb
   resources :projects do
     put :favorite, on: :member
   end

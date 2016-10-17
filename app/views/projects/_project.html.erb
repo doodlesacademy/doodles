@@ -23,7 +23,6 @@
   <hr />
 
   <h1>Project Overview<span class="favorite glyphicon glyphicon-star-empty"  aria-hidden="true"></span></h1>
-  <%= @project %>
   <% if current_user %>
     <%= link_to "favorite", favorite_project_path(@project, type: "favorite"), method: :put %>
     <%= link_to "unfavorite", favorite_project_path(@project, type: "unfavorite"), method: :put %>
