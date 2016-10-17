@@ -1,39 +1,33 @@
 .sign-up {
-  text-align: center;
-  padding: 120px 0 80px 0;
-  margin-top: -40px;
-  background-image: url("sign_up_background.jpg");
+
+  margin-top: -2em;
+  margin-left: 5em;
+
+  div {
+    display: inline-block;
+  }
 
   h2, a {
-    color: white;
+    color: $primary-blue;
   }
 
   .field {
-    margin: 1.6em 0;
-    label {
-      @include label-font-styles;
+    margin: 0.5em;
+    width: 25em;
+    &.smaller-field {
+      width: 5em;
     }
-    input:not([type='checkbox']),
-    textarea {
-      @include input-styles;
-      border-radius: 25px;
-      text-align: center;
+    input:not([type='checkbox']) {
+      border-radius: 0.75em;
       color: $warm-gray;
-      width: 600px;
-      padding: 10px;
-      font-size: 1.5em;
-      font-style: italic;
     }
   }
 
-  .actions {
-    margin-bottom: 10px;
+  .actions, a {
+    margin: 2em 0;
     .btn {
       background-color: $primary-green;
     }
   }
 
-  label {
-    color: white;
-  }
 }
