@@ -36,7 +36,7 @@
 
       <div class="field smaller-field">
         <%= fp.label :state %>
-        <%= fp.text_field :state, placeholder: "ST" %>
+        <%= fp.select(:state, options_for_select(us_states)) %>
       </div>
 
       <div class="field">

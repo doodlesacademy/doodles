@@ -17,9 +17,34 @@
     &.smaller-field {
       width: 5em;
     }
-    input:not([type='checkbox']) {
+    input:not([type='checkbox']), select {
       border-radius: 0.75em;
       color: $warm-gray;
+      &:focus {
+        color: $primary-blue
+      }
+    }
+  }
+
+  select {
+    &:invalid, &:valid { color: #ccc; }
+    width: 6em;
+    height: 2.4em;
+    appearance: none;
+    border: 1px solid $accent-gray;
+    padding: 0.4em;
+
+    &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+    }
+
+    &:focus {
+      border-color: $primary-blue;
+      &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 $primary-blue;
+      }
     }
   }
 
