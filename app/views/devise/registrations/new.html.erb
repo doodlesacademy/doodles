@@ -1,5 +1,8 @@
+<% content_for(:page_title) { ('Sign Up') } %>
+<% content_for(:hero_image) { image_tag 'heros/sign_up.jpg' } %>
+
 <div class='sign-up'>
-  <h2>Sign up</h2>
+  <h2>Welcome aboard!</h2>
 
   <% resource.build_profile if resource.profile.nil? %>
 
@@ -79,5 +82,4 @@
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
 </div>

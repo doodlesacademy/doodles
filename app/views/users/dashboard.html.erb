@@ -26,7 +26,7 @@
   <div class="dashboard-fields">
 
     <section>
-      <h1 class="welcome">
+      <h1 class="greeting">
         <% if current_user.profile.title.present? && current_user.profile.last_name.present? %>
           <%= "#{current_user.profile.greeting}, #{current_user.profile.title} #{current_user.profile.last_name}" %>!
         <% elsif current_user.profile.first_name.present? %>
@@ -79,27 +79,27 @@
       <section id="edit-classroom-data" class="edit-user-data" hidden>
         <%= form_for current_user, url: profile_path do |f| %>
            <%= f.fields_for :profile do |p| %>
-            <div>
+            <div class="field">
               <%= p.label :school %><br />
               <%= p.text_field :school %>
             </div>
-            <div>
+            <div class="field">
               <%= p.label :city %><br />
               <%= p.text_field :city %>
             </div>
-            <div>
+            <div class="field">
               <%= p.label :state %><br />
-              <%= p.text_field :state %>
+              <%= p.select(:state, options_for_select(us_states, current_user.profile.state)) %>
             </div>
-            <div>
+            <div class="field">
               <%= p.label :country %><br />
               <%= p.text_field :country %>
             </div>
-            <div>
+            <div class="field">
               <%= p.label :occupation %><br />
               <%= p.text_field :occupation %>
             </div>
-            <div>
+            <div class="field">
               <%= p.label "Grades Taught" %><br />
               <%= p.text_field :grades %>
             </div>
@@ -143,12 +143,12 @@
       <section id="edit-password" class="edit-user-data" hidden>
         <%= form_for current_user do |f| %>
 
-          <div class="field">
+          <div class="field password_field">
             <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
             <%= f.password_field :password, autocomplete: "off" %>
           </div>
 
-          <div class="field">
+          <div class="field password_field">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
@@ -175,10 +175,6 @@
         </div>
         <% end %>
     </section>
-
-    <div id="logout-button" class="btn">
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    </div>
 
   </div>
 

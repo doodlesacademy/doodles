@@ -47,7 +47,7 @@
     color: $primary-blue;
   }
 
-  .welcome {
+  .greeting {
     text-align: center;
     color: $primary-blue;
     text-transform: capitalize;
@@ -68,38 +68,63 @@
     cursor: pointer;
   }
 
-  .edit-user-data div {
-    margin: 1.6em 0;
-    label {
-      @include label-font-styles;
-      font-family: 'Raleway', sans-serif;
+  .field {
+    display: inline-block;
+    margin: 0.5em;
+    width: 20em;
+    &.password_field {
+      width: 30em;
+      display: block;
     }
-    input {
-      @include input-styles;
-      border-radius: 25px;
-      color: $warm-gray;
-      width: 300px;
-      padding: 10px 5px;
-      padding-left: 10px;
-      font-size: 1em;
+    input:not([type='checkbox']), select {
+      border-radius: 0.75em;
+      color: #333;
+    }
+      ::-webkit-input-placeholder {
+        color: $warm-gray;
+      }
 
-      &[type=submit] {
-        color: white;
-        border: 0;
+      :-moz-placeholder { /* Firefox 18- */
+        color: $warm-gray;  
+      }
+
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: $warm-gray;  
+      }
+
+      :-ms-input-placeholder {  
+        color: $warm-gray;  
+      }
+    }
+
+  select {
+    &:valid { color: #333; }
+    width: 8em;
+    height: 2.4em;
+    appearance: none;
+    border: 1px solid $accent-gray;
+    padding: 0.4em;
+
+    &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+    }
+
+    &:focus {
+      border-color: $primary-blue;
+      &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #333;
       }
     }
   }
 
-  #contact-preferences {
-    margin-top: 20px;
+  .actions {
+    margin: 1.5em 0 1.5em 1em;
   }
 
-  #logout-button {
-    margin-top: 40px;
-    background-color: $primary-green;
-    a {
-      color: white;
-    }
+  #contact-preferences {
+    margin-top: 20px;
   }
 
   .glyphicon-star {

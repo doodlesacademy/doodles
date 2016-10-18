@@ -5,11 +5,15 @@
         <% if current_user %>
           <a href="/dashboard">dashboard</a>
         <% else %>
-          <a href="/users/sign_in">sign in</a>
+          <a href="/users/sign_up">sign up</a>
         <% end %>
       </div>
       <div class="col-md-2 col-xs-3">
-        <a href="/users/sign_up">sign up</a>
+        <% if current_user %>
+          <%= link_to('logout', destroy_user_session_path, :method => :delete) %>
+        <% else %>
+          <a href="/users/sign_in">sign in</a>
+        <% end %>
       </div>
       <div class="col-md-2 col-xs-3">
         <a href="/projects">projects</a>

@@ -18,9 +18,9 @@ class Profile < ActiveRecord::Base
   end
 
   def greeting
-    if Time.now.hour < 12
+    if Time.now.localtime.hour < 12
       time_greeting = 'good morning'
-    elsif Time.now.hour < 6
+    elsif Time.now.localtime.hour < 18
       time_greeting = 'good afternoon'
     else
       time_greeting = 'good evening'
