@@ -1,6 +1,22 @@
 <div class="doodles-nav hidden">
   <div class="container">
     <div class="row nav-menu">
+      <div class="col-md-2 col-xs-3">
+        <% if current_user %>
+          <a href="/dashboard">dashboard</a>
+        <% else %>
+          <a href="/users/sign_in">sign in</a>
+        <% end %>
+      </div>
+      <div class="col-md-2 col-xs-3">
+        <a href="/users/sign_up">sign up</a>
+      </div>
+      <div class="col-md-2 col-xs-3">
+        <a href="/projects">projects</a>
+      </div>
+      <div class="col-md-2 col-xs-3" id="nav-logo">
+        <a href="/"><%= image_tag 'doodle_white_logo_only.png', alt:"Doodles Academy", size: "50", class: "brand" %></a></li>
+      </div>
       <div class="col-md-2 col-xs-3 dropdown">
         <a href="/about">about us</a>
         <div class="dropdown-content">
@@ -8,12 +24,6 @@
           <a href="/supporters" hidden>supporters</a>
           <a href="/team" hidden>team</a>
         </div>
-      </div>
-      <div class="col-md-2 col-xs-3">
-        <a href="/projects">projects</a>
-      </div>
-      <div class="col-md-2 col-xs-3" id="nav-logo">
-        <a href="/"><%= image_tag 'doodle_white_logo_only.png', alt:"Doodles Academy", size: "50", class: "brand" %></a></li>
       </div>
       <div class="col-md-2 col-xs-3 dropdown">
         <a href="/contact">contact us</a>
