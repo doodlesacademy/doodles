@@ -73,4 +73,21 @@ class Profile < ActiveRecord::Base
     "#{self.city}, #{self.state}"
   end
 
+  def greeting
+    if Time.now.hour < 12
+      time_greeting = 'good morning'
+    elsif Time.now.hour < 6
+      time_greeting = 'good afternoon'
+    else
+      time_greeting = 'good evening'
+    end
+    greetings = %w(hello welcome greetings)
+    greetings.push(time_greeting)
+    greetings.sample
+  end
+
+  def classroom_fields
+    %w(school city state country occupation grades)
+  end
+
 end

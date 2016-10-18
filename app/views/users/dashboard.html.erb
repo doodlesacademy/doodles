@@ -27,7 +27,13 @@
 
     <section>
       <h1 class="welcome">
-        welcome, <%= "#{current_user.profile.title} #{current_user.profile.last_name}" %>!
+        <% if current_user.profile.title.present? && current_user.profile.last_name.present? %>
+          <%= "#{current_user.profile.greeting}, #{current_user.profile.title} #{current_user.profile.last_name}" %>!
+        <% elsif current_user.profile.first_name.present? %>
+          <%= "#{current_user.profile.greeting}, #{current_user.profile.first_name}" %>!
+        <% else %>
+          <%= "#{current_user.profile.greeting}!" %>
+        <% end %>
         <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon", id: "pencil-name") %>
       </h1>
     </section>
@@ -62,11 +68,11 @@
           <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-classroom") %>
         </h4>
         <section id="classroom-data">
-          <p><%= "School: #{current_user.profile.school}" %></p>
-          <p><%= "#{current_user.profile.city_state}" %></p>
-          <p><%= "#{current_user.profile.country}" %></p>
-          <p><%= "Occupation: #{current_user.profile.occupation}" %></p>
-          <p><%= "Grades: #{current_user.profile.grades}" %></p>
+          <% current_user.profile.classroom_fields.each do |classroom_field| %>
+            <% if current_user.profile[classroom_field].present? %>
+              <p><%= "#{classroom_field.capitalize}: #{current_user.profile[classroom_field]}" %></p>
+            <% end %>
+          <% end %>
         </section>
       </section>
 
