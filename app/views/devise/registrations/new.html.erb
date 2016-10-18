@@ -9,54 +9,70 @@
 
     <%= f.fields_for :profile do |fp| %>
 
-      <div class="field">
-        <%= fp.text_field :title, autofocus: true, placeholder: "title" %>
+      <div class="field smaller-field">
+        <%= fp.label :title %>
+        <%= fp.text_field :title, autofocus: true, placeholder: "M." %>
       </div>
 
       <div class="field">
-        <%= fp.text_field :first_name, placeholder: "first name" %>
+        <%= fp.label :first_name %>
+        <%= fp.text_field :first_name, placeholder: "Chris" %>
       </div>
 
       <div class="field">
-        <%= fp.text_field :last_name, placeholder: "last name" %>
+        <%= fp.label :last_name%>
+        <%= fp.text_field :last_name, placeholder: "Smith" %>
       </div>
 
       <div class="field">
-        <%= fp.text_field :school, placeholder: "school" %>
+        <%= fp.label :school %>
+        <%= fp.text_field :school, placeholder: "Your School" %>
       </div>
 
       <div class="field">
-        <%= fp.text_field :city, placeholder: "city" %>
+        <%= fp.label :city %>
+        <%= fp.text_field :city, placeholder: "Your City" %>
+      </div>
+
+      <div class="field smaller-field">
+        <%= fp.label :state %>
+        <%= fp.text_field :state, placeholder: "ST" %>
       </div>
 
       <div class="field">
-          <%= fp.text_field :state, placeholder: "state" %>
+        <%= fp.label :country %>
+        <%= fp.text_field :country, placeholder: "Your Country" %>
       </div>
 
       <div class="field">
-        <%= fp.text_field :country, placeholder: "country" %>
+        <%= fp.label :occupation %>
+        <%= fp.text_field :occupation, placeholder: "Educator" %>
       </div>
 
-      <div class="field">
-        <%= fp.text_field :occupation, placeholder: "occupation" %>
-      </div>
-
-      <div class="field">
-        <%= fp.text_field :grades, placeholder: "grades" %>
+      <div class="field smaller-field">
+        <%= fp.label :grades %>
+        <%= fp.text_field :grades, placeholder: "K-12" %>
       </div>
     <% end %>
 
     <div class="field">
-      <%= f.email_field :email, placeholder: "email" %>
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: "Your Email" %>
+    </div>
+
+    <br>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "password (#{@minimum_password_length} characters minimum)" %>
-    </div>
-
-    <div class="field">
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" %>
     </div>
+
+    <br>
 
     <div class="actions">
       <%= f.submit "Sign up" %>

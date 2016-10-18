@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :define_pages_and_social_links, :define_academy_level, :homepage?, :user_sign_up_in?
+  before_action :define_pages_and_social_links, :define_academy_level, :homepage?, :user_sign_in?
   # before_action :authenticate_user!, :editor_only!, only: [:edit, :update, :delete]
   # Devise Parameters
   before_filter :configure_permitted_parameters, if: :devise_controller?
@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     @homepage = (request.path =~ /^\/$/).present?
   end
 
-  def user_sign_up_in?
-    @user_sign_up_in = (request.path =~ /\/users\/sign/).present?
+  def user_sign_in?
+    @user_sign_in = (request.path =~ /\/users\/sign_in/).present?
   end
 
   def after_sign_in_path_for(resource)
