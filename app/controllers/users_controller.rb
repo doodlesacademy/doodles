@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @user.update_attribute(:status, User.statuses[:archived])
   end
 
-  def dashboard
+  def artroom
     redirect_to '/users/sign_in' unless current_user.present?
   end
 

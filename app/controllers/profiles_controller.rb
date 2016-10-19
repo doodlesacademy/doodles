@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    redirect_to dashboard_path if current_user.update profile_params
+    redirect_to artroom_path if current_user.update profile_params
   end
 
   private

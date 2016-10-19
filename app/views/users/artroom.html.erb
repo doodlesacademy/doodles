@@ -1,7 +1,8 @@
-<% content_for(:page_title) { ('Dashboard') } %>
-<% content_for(:hero_image) { image_tag 'heros/dashboard.jpg' } %>
+<% content_for(:page_title) { ('Artroom') } %>
+<% content_for(:hero_image) { image_tag 'heros/artroom.jpg' } %>
+<% content_for(:page_beta) { ('beta') }%>
 
-<div class="dashboard">
+<div class="artroom">
 
   <section class="avatar">
     <% if current_user.profile.avatar.present? %>
@@ -23,7 +24,7 @@
     <% end %>
   </div>
 
-  <div class="dashboard-fields">
+  <div class="artroom-fields">
 
     <section>
       <h1 class="greeting">
@@ -167,7 +168,7 @@
         <h4><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>favorite projects</h4>
       </div>
       <% current_user.favorites.each do |favorite| %>
-        <div style="display:inline-block;margin-left:10px;" class="favorite-in-dashboard">
+        <div class="favorite-in-artroom">
           <a href="/lower/projects/<%= favorite.slug %>">
           <%= image_tag(favorite.project_set.project_image, size: "100x100") %>
           <p class="favorite-project-title"><%= favorite.title %></p>
