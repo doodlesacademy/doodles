@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :admin_only!, only: [:index, :show, :edit]
+  before_filter :count_visits
 
   def index
     @users = User.all
@@ -41,6 +42,12 @@ class UsersController < ApplicationController
   end
 
   private
+  def count_visits
+    value = (cookies[:visits] || '0').to_i
+    cookies[:visits] = (value + 1).to_s
+    @visits = cookies[:visits]
+  end
+  
   def user_params
     params.require(:user).permit(:role, :email, :password, :password_confirmation, :current_password)
   end

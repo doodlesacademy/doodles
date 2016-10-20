@@ -1,14 +1,14 @@
 (($, window) -> $ ->
 
-  $modal = $('#artroomModal')
-  $modal_close = $modal.find('.modal-close')
-  toggleModal = (toggle) ->
-    $modal.toggleClass "is-active", toggle
-  # $('#artroomModalBtn').on 'click', ->
-  #   toggleModal(true)
-  #   return
-  toggleModal(true)
-  $modal_close.on 'click', -> toggleModal(false)
+  visits = document.getElementById('visits').className
+  if visits <= 1
+    $modal = $('#artroomModal')
+    $modal_close = $modal.find('.modal-close')
+    toggleModal = (toggle) ->
+      $modal.toggleClass "is-active", toggle
+    toggleModal(true)
+    $modal_close.on 'click', -> toggleModal(false)
+    return
 
   $('#pencil-name').click ->
     $('#edit-name').toggle()
