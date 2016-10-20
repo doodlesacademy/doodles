@@ -1,5 +1,15 @@
 (($, window) -> $ ->
 
+  $modal = $('#artroomModal')
+  $modal_close = $modal.find('.modal-close')
+  toggleModal = (toggle) ->
+    $modal.toggleClass "is-active", toggle
+  # $('#artroomModalBtn').on 'click', ->
+  #   toggleModal(true)
+  #   return
+  toggleModal(true)
+  $modal_close.on 'click', -> toggleModal(false)
+
   $('#pencil-name').click ->
     $('#edit-name').toggle()
     return
@@ -23,7 +33,7 @@
     return
 
   $('#user_profile_attributes_avatar').change ->
-      $('#update-avatar').trigger 'click'
+    $('#update-avatar').trigger 'click'
     return
 
 
