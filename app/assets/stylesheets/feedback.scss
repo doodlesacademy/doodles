@@ -1,0 +1,20 @@
+#feedback {
+    margin: 1em 0 6em 10em;
+    div {
+      h3 {
+        color: $primary-blue;
+        margin-bottom: 0.5em;
+      }
+      &.field {
+        float: left;
+        width: 100%;
+      }
+      textarea {
+        width: 90%;
+        border-radius: 0.75em;
+      }
+      .actions {
+        width: 100%;
+      }
+    }
+  }

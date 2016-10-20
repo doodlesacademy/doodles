@@ -164,10 +164,7 @@
     </section>
 
     <section>
-      <h1>artroom:</h1>
-      <div>
-        <h4><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>favorite projects</h4>
-      </div>
+      <h1><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>saved projects</h1>
       <% current_user.favorites.each do |favorite| %>
         <div class="favorite-in-artroom">
           <a href="/lower/projects/<%= favorite.slug %>">
@@ -177,8 +174,9 @@
         </div>
         <% end %>
     </section>
-
   </div>
+
+  <%= render "shared/feedback" %>
 
 </div>
 
