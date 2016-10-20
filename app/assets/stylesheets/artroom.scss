@@ -143,9 +143,13 @@
 }
 
 .hero-page-title {
-  p {
-    transform: rotate(-40deg);
-    margin: -1em 0 0 8em;
+  span {
+    font-size: 75%;
     color: $primary-green;
+    font-family: 'Special Elite', cursive;
+    border: 2px dashed $primary-green;
+    width: 3em;
+    border-radius: 0.75em;
+    padding: 0.25em 0.35em 0 0.25em;
   }
 }
