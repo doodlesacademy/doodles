@@ -196,3 +196,19 @@
     </div>
   </div>
 
+<script>
+  var $modal, $modal_close, toggleModal, visits;
+
+  visits = document.getElementById('visits').className;
+  if (visits <= 1) {
+    $modal = $('#artroomModal');
+    $modal_close = $modal.find('.modal-close');
+    toggleModal = function(toggle) {
+      return $modal.toggleClass("is-active", toggle);
+    };
+    toggleModal(true);
+    $modal_close.on('click', function() {
+      return toggleModal(false);
+    });
+  }
+</script>
