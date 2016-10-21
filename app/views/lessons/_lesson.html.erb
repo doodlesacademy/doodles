@@ -250,7 +250,7 @@
     <h1 class="centered finished">Lesson <%= @lesson.lesson_number %> finished!</h1>
     <p class="centered finished">
     <% if @lesson.next_lesson %>
-        <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
+        <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl", id: "next-lesson" %>
     <% else %>
       <%= link_to "Projects", projects_path, class:"btn btn-blue btn-xl" %>
       <h3 class='centered sign-up-below'>Did you enjoy this project? Sign up below to be the first to hear when we release our next project!</h3>
@@ -259,6 +259,6 @@
 
   </div>
 
-  <%= render "shared/feedback" %>
+    <%= render "shared/feedback" %>
 
 </div>

@@ -1,5 +1,6 @@
 #feedback {
     margin: 1em 0 6em 10em;
+    
     div {
       h3 {
         color: $primary-blue;
@@ -15,6 +16,9 @@
       }
       .actions {
         width: 100%;
+      }
+      input[type="radio"] {
+        width: 3em;
       }
     }
   }

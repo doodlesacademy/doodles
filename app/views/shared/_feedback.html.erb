@@ -1,5 +1,13 @@
+  
   <section id="feedback">
     <form action="mailto:info@doodles-academy.org" method="post" enctype="text/plain" >
+      <% if controller_name == 'lessons' %>
+        <div>
+          <h3>was this lesson clear?</h3>
+          <input type="radio" NAME="was lesson clear?" VALUE="y">Yes</input>
+          <input type="radio" NAME="was lesson clear?" VALUE="n">No</input>
+        </div>
+      <% end %>
       <div class="field">
         <h3>We welcome feedback and suggestions for new features!</h3>
         <textarea rows="4" name="feedback" placeholder="Your input here..."></textarea>
