@@ -1,0 +1,155 @@
+.artroom {
+
+  width: 100%;
+
+  .avatar {
+    text-align: center;
+  }
+
+  #person-icon {
+    padding: 5px;
+    border: 1px solid $warm-gray;
+    border-radius: 100%;
+  }
+
+  #camera-icon {
+    margin-top: 160px;
+    margin-left: -20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .artroom-fields {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  h1, h4, p {
+    text-align: justify;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  h1, h4 {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  h1, p {
+    color: $warm-gray;
+  }
+
+  h4 {
+    color: $primary-blue;
+  }
+
+  .greeting {
+    text-align: center;
+    color: $primary-blue;
+    text-transform: capitalize;
+    margin: 40px 0;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-left: 2em;
+    font-weight: 200;
+  }
+
+  input {
+    margin-right: 10px;
+  }
+
+  .pencil-icon:hover {
+    cursor: pointer;
+  }
+
+  .field {
+    display: inline-block;
+    margin: 0.5em;
+    width: 20em;
+    &.password_field {
+      width: 30em;
+      display: block;
+    }
+    input:not([type='checkbox']), select {
+      border-radius: 0.75em;
+      color: #333;
+    }
+      ::-webkit-input-placeholder {
+        color: $warm-gray;
+      }
+
+      :-moz-placeholder { /* Firefox 18- */
+        color: $warm-gray;  
+      }
+
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: $warm-gray;  
+      }
+
+      :-ms-input-placeholder {  
+        color: $warm-gray;  
+      }
+    }
+
+  select {
+    &:valid { color: #333; }
+    width: 8em;
+    height: 2.4em;
+    appearance: none;
+    border: 1px solid $accent-gray;
+    padding: 0.4em;
+
+    &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+    }
+
+    &:focus {
+      border-color: $primary-blue;
+      &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #333;
+      }
+    }
+  }
+
+  .actions {
+    margin: 1.5em 0 1.5em 1em;
+  }
+
+  #contact-preferences {
+    margin-top: 20px;
+  }
+
+  .glyphicon-star {
+    margin-right: 5px;
+  }
+
+  p.favorite-project-title {
+    margin: 5px 0 0 0;
+  }
+
+  div.favorite-in-artroom {
+    display:inline-block;
+    margin-left:10px;
+  }
+
+}
+
+.hero-page-title, #artroomModal {
+  span {
+    font-size: 75%;
+    color: $primary-green;
+    font-family: 'Special Elite', cursive;
+    border: 2px dashed $primary-green;
+    width: 3em;
+    border-radius: 0.75em;
+    padding: 0.25em 0.35em 0 0.25em;
+  }
+}

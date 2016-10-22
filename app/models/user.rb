@@ -2,9 +2,17 @@ class User < ActiveRecord::Base
   enum role: [:visitor, :editor, :staff, :admin]
   enum status: [:active, :archived]
 
+  has_one :profile
+  accepts_nested_attributes_for :profile, allow_destroy: true
+
   default_scope { where(status: User.statuses[:active]) }
 
   after_initialize :set_role
+
+  has_many :projects
+
+  has_many :favorite_projects # just the 'relationships'
+  has_many :favorites, through: :favorite_projects, source: :project
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
