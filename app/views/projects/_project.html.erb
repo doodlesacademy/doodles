@@ -29,6 +29,8 @@
       <% else %>
         <%= link_to (content_tag(:span, "", class: "favorite glyphicon glyphicon-star-empty")), favorite_project_path(@project, type: "favorite"), method: :put %>
       <% end %>
+    <% else %>
+      <span class="glyphicon glyphicon-star-empty" id="favorite_nonuser"></span>
     <% end %></h1>
   <div>
     <h2 id='project-synopsis'>synopsis</h2>
@@ -163,3 +165,33 @@
   </div>
 
 </div>
+
+<div class="modal" id="projectFavoriteModal">
+  <div class="modal-content">
+    <div class="modal-close"></div>
+    <div class="modal-title">
+      <h1>Sign in to access this feature!</h1>
+    </div>
+    <div class="modal-body">
+    <h2><a href="/users/sign_in">Sign in</a> or <a href="/users/sign_up">sign up</a> with us to favorite<span class="glyphicon glyphicon-star"></span> a project!</h2>
+    </div>
+  </div>
+</div>
+
+<script>
+  var $modal, $modal_close, toggleModal;
+
+  $('#favorite_nonuser').on('click', function(){
+    $modal = $('#projectFavoriteModal');
+    $modal_close = $modal.find('.modal-close');
+    toggleModal = function(toggle) {
+      return $modal.toggleClass("is-active", toggle);
+    };
+    toggleModal(true);
+    $modal_close.on('click', function() {
+      return toggleModal(false);
+    });
+  });
+    
+</script>
+

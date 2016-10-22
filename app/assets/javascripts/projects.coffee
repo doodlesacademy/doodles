@@ -36,11 +36,6 @@
     $modal = $ "##{modal_id}"
     toggleModal($modal, true)
 
-  $('.favorite').click ->
-    $(this).toggleClass 'glyphicon-star'
-    $(this).toggleClass 'glyphicon-star-empty'
-    return
-
   setupListeners()
 
 )(window.$ or window.jQuery or window.Zepto, window)

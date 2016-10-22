@@ -189,12 +189,21 @@
 
 }
 
-.favorite {
+.glyphicon-star, .glyphicon-star-empty {
   color: $primary-blue;
-  margin: 10px;
-  top: 5px;
+  &.favorite, &#favorite_nonuser {
+    margin: 10px;
+    top: 5px;
 
-  &:hover {
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
+
+ #projectFavoriteModal {
+  h1 {
+     margin-top: 1em;
+   }
+ }
+
