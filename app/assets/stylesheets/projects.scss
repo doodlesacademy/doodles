@@ -189,6 +189,28 @@
 
 }
 
+
+#academy-select {
+
+  text-align: center;
+
+  .modal-content {
+    max-height: 95vh;
+
+    img {
+      float: left;
+      margin-right: 30px;
+    }
+
+    .modal-synopsis {
+      p {
+        font-size: 12px;
+        text-align: left;
+      }
+    }
+  }
+}
+
 .glyphicon-star, .glyphicon-star-empty {
   color: $primary-blue;
   &.favorite, &#favorite_nonuser {
