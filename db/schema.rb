@@ -64,15 +64,6 @@ ActiveRecord::Schema.define(version: 20161026132313) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "project_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
-
   create_table "feedback_messages", force: :cascade do |t|
     t.text     "body"
     t.string   "sender"
@@ -117,11 +108,11 @@ ActiveRecord::Schema.define(version: 20161026132313) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "worktime_focus"
     t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
-    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -354,13 +345,5 @@ ActiveRecord::Schema.define(version: 20161026132313) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "video_bookmarks", force: :cascade do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "lesson_id",                  null: false
-    t.boolean  "completed",  default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
 
 end

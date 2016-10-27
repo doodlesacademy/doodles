@@ -131,8 +131,12 @@
     margin-right: 5px;
   }
 
-  p.favorite-project-title {
+  p.favorite-project-title, p.favorite-academy {
     margin: 5px 0 0 0;
+  }
+
+  p.favorite-academy {
+    font-size: 75%;
   }
 
   div.favorite-in-artroom {
