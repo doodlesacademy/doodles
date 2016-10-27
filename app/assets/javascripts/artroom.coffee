@@ -23,7 +23,7 @@
     return
 
   $('#user_profile_attributes_avatar').change ->
-      $('#update-avatar').trigger 'click'
+    $('#update-avatar').trigger 'click'
     return
 
 

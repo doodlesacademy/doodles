@@ -1,7 +1,8 @@
-<% content_for(:page_title) { ('Dashboard') } %>
-<% content_for(:hero_image) { image_tag 'heros/dashboard.jpg' } %>
+<% content_for(:page_title) { ('Artroom') } %>
+<% content_for(:hero_image) { image_tag 'heros/artroom.jpg' } %>
+<% content_for(:page_beta) { ('beta') }%>
 
-<div class="dashboard">
+<div class="artroom">
 
   <section class="avatar">
     <% if current_user.profile.avatar.present? %>
@@ -23,7 +24,7 @@
     <% end %>
   </div>
 
-  <div class="dashboard-fields">
+  <div class="artroom-fields">
 
     <section>
       <h1 class="greeting">
@@ -36,6 +37,7 @@
         <% end %>
         <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon", id: "pencil-name") %>
       </h1>
+      <span id="visits" class="<%= @visits %>" hidden></span>
     </section>
 
     <section id="edit-name" class="edit-user-data" hidden>
@@ -162,12 +164,9 @@
     </section>
 
     <section>
-      <h1>artroom:</h1>
-      <div>
-        <h4><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>favorite projects</h4>
-      </div>
+      <h1><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>saved projects</h1>
       <% current_user.favorites.each do |favorite| %>
-        <div style="display:inline-block;margin-left:10px;" class="favorite-in-dashboard">
+        <div class="favorite-in-artroom">
           <a href="/lower/projects/<%= favorite.slug %>">
           <%= image_tag(favorite.project_set.project_image, size: "100x100") %>
           <p class="favorite-project-title"><%= favorite.title %></p>
@@ -175,7 +174,39 @@
         </div>
         <% end %>
     </section>
-
   </div>
 
+  <%= render "shared/feedback" %>
+
 </div>
+
+    <div class="modal" id="artroomModal">
+    <div class="modal-content">
+      <div class="modal-close"></div>
+      <div class="modal-title">
+        <h2>Welcome to the artroom!  <span>beta</span></h2>
+      </div>
+      <div class="modal-body">
+      <p>New features are being released regularly. 
+      We welcome your feedback on current features and suggestions for those you would like to see!</p>
+      <p>Drop us a line at: <a href="mailto:info@doodles-academy.org" target="_top">info@doodles-academy.org</a></p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  var $modal, $modal_close, toggleModal, visits;
+
+  visits = document.getElementById('visits').className;
+  if (visits <= 1) {
+    $modal = $('#artroomModal');
+    $modal_close = $modal.find('.modal-close');
+    toggleModal = function(toggle) {
+      return $modal.toggleClass("is-active", toggle);
+    };
+    toggleModal(true);
+    $modal_close.on('click', function() {
+      return toggleModal(false);
+    });
+  }
+</script>
