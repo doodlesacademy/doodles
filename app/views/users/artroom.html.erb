@@ -164,7 +164,7 @@
     </section>
 
     <section>
-      <h1>most recent lesson</h1>
+      <h1>in progress</h1>
         <div class="favorite-in-artroom">
           <% @lesson = Lesson.find_by_id(current_user.last_lesson_id) %>
            <% @lesson_project = Project.find_by_id(@lesson.project_id) %>

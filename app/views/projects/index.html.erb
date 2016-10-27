@@ -16,11 +16,14 @@
 
   <div class="project-grid">
     <% @units.order(:order).each do |unit| %>
-      <div><h2><%= unit.full_title %></h2></div>
       <% @unit_id = unit.id %>
+      <div><h2 id="<%= "#{unit.order}" %>"><%= "#{@unit_id}#{unit.full_title}" %></h2></div>
+      
       <% @unit_title = unit.title %>
       <% unit.project_sets.published.each do |set| %>
-      <div class="project-grid-item" data-project-slug="<%= set.slug %>">
+      <div class="project-grid-item" data-unit-full-title="<%= unit.full_title %>" data-project-slug="<%= set.slug %>" id="<%= set.id %>">
+        <% @set_id = set.id %>
+        <% @set_title = set.title %>
         <div class="project-grid-item-image" style="background-image: url(
           <%= set.project_image.url(:medium) %>)">
         </div>
@@ -45,7 +48,7 @@
       <div class="modal-title"></div>
       <div class="modal-body">
         <div>
-          <h4>UNIT <%= @unit_id %> : <%= @unit_title.capitalize %></h4>
+          <h4 id="unit-full-title-modal"></h4>
           <h4>PROJECT : <%= @project_title %></h4>
           <%= image_tag(@featured_artist_image) %>
           <div class='modal-synopsis'>
