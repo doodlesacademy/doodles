@@ -117,23 +117,33 @@
           <% else %>
             5m, Introduction video</h2>
           <% end %>
-            <h3 id='watch'>watch the video introduction</h3>
+            <h3 id='watch'>watch the video introduction
+              <% if @lesson.vimeo_offline_url.present? %>
+                or <a class="vimeo-offline" href="<%= @lesson.vimeo_offline_url %>" target="new">download </a> 
+                for offline viewing
+              <% end %>
+            </h3>
+            
 
           <div>
-            <blockquote>
+            <blockquote class="vimeo-player">
               <div class="frame frame--16x9">
-                <iframe src="https://player.vimeo.com/video/<%= @lesson.video_uri %>"
+                <iframe
+                  src="https://player.vimeo.com/video/<%= @lesson.video_uri %>"
                   frameborder="0"
                   webkitallowfullscreen
                   mozallowfullscreen
                   allowfullscreen>
                 </iframe>
               </div>
+              
             </blockquote>
           </div>
+          
           <% if @lesson.video_note.present? %>
             <p>NOTE: <%= @lesson.video_note %></p>
           <% end %>
+         
       <% else %>
       <h2 id='introduction' class="lesson-heading anchor">
         <% if @lesson.intro_time.present? %>
