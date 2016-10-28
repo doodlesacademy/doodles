@@ -195,11 +195,13 @@
   text-align: center;
 
   .modal-content {
-    max-height: 95vh;
+    max-height: 98vh;
 
     img {
       float: left;
       margin-right: 30px;
+      height: 30%;
+      width: 30%;
     }
 
     .modal-synopsis {
@@ -207,6 +209,10 @@
         font-size: 12px;
         text-align: left;
       }
+    }
+
+    .select-grade {
+      margin-top: 10vh;
     }
   }
 }
