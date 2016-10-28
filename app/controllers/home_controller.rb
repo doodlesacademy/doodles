@@ -39,7 +39,7 @@ class HomeController < ApplicationController
 
   private
     def featured_lessons
-      @intro_video_url = "https://player.vimeo.com/video/151472643"
+      @intro_video_url = "https://player.vimeo.com/video/187513105"
       @featured_lessons = []
       @featured_lessons.push({
           title: "Symbol & Self",
