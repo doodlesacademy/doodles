@@ -15,15 +15,12 @@
     unit_id = $(this).attr('id')
     unit_full_title = $project.data('unit-full-title')
     $('#unit-full-title-modal').text(unit_full_title)
-    # console.log(unit_id)
-    # unit_full_title = $('h2#unit-full-title')
-    # unit_full_title = $('h2#unit-full-title').first().text()
-    # $('#unit-full-title-modal').text(unit_full_title)
-    # unit_full_title = $('h2#unit-full-title').text
-    # $('#unit-number').text(project_id)
-    # $('#unit-number').text(unit_full_title)
-    # console.log(unit_full_title)
-    # console.log(project_id)
+    project_title = $project.data('project-title')
+    $('#project-title-modal').text('PROJECT : ' + project_title)
+    project_synopsis = $project.data('project-synopsis')
+    $('#project-synopsis-modal').text(project_synopsis)
+    project_featured_image = $project.data('project-featured-image')
+    $('#project-featured-image-modal').attr('src', project_featured_image)
     toggleAcademyModal(true)
 
   selectAcademy = (e) ->

@@ -17,13 +17,13 @@
   <div class="project-grid">
     <% @units.order(:order).each do |unit| %>
       <% @unit_id = unit.id %>
-      <div><h2 id="<%= "#{unit.order}" %>"><%= "#{@unit_id}#{unit.full_title}" %></h2></div>
+      <div><h2 id="<%= "#{unit.order}" %>"><%= "#{unit.full_title}" %></h2></div>
       
       <% @unit_title = unit.title %>
       <% unit.project_sets.published.each do |set| %>
-      <div class="project-grid-item" data-unit-full-title="<%= unit.full_title %>" data-project-slug="<%= set.slug %>" id="<%= set.id %>">
-        <% @set_id = set.id %>
-        <% @set_title = set.title %>
+      <% @set_id = set.id %>
+      <% @set_title = set.title %>
+      <div class="project-grid-item" data-unit-full-title="<%= unit.full_title %>" data-project-title="<%= set.title %>"  data-project-featured-image="<%= Project.find_by_project_set_id(set.id).featured_artist_image %>" data-project-synopsis="<%= Project.find_by_project_set_id(set.id).synopsis %>" data-project-slug="<%= set.slug %>" id="<%= set.id %>">
         <div class="project-grid-item-image" style="background-image: url(
           <%= set.project_image.url(:medium) %>)">
         </div>
@@ -49,11 +49,11 @@
       <div class="modal-body">
         <div>
           <h4 id="unit-full-title-modal"></h4>
-          <h4>PROJECT : <%= @project_title %></h4>
-          <%= image_tag(@featured_artist_image) %>
+          <h4 id="project-title-modal"></h4>
+          <img src="#" id="project-featured-image-modal">
           <div class='modal-synopsis'>
             <h4>SYNOPSIS</h4>
-            <p><%= @synopsis %></p>
+            <p id="project-synopsis-modal"></p>
           </div>
         </div>
         <h4>Please select your grade level:</h4>
