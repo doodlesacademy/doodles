@@ -16,18 +16,18 @@
 
   <div class="project-grid">
     <% @units.order(:order).each do |unit| %>
-      <div><h2><%= unit.full_title %></h2></div>
-      <% @unit_id = unit.id %>
-      <% @unit_title = unit.title %>
+      <div><h2 id="<%= "#{unit.order}" %>"><%= "#{unit.full_title}" %></h2></div>      
       <% unit.project_sets.published.each do |set| %>
-      <div class="project-grid-item" data-project-slug="<%= set.slug %>">
+      <div class="project-grid-item" 
+        data-unit-full-title="<%= unit.full_title %>" 
+        data-project-title="<%= set.title %>"  
+        data-project-featured-image="<%= Project.find_by_project_set_id(set.id).featured_artist_image %>" 
+        data-project-synopsis="<%= Project.find_by_project_set_id(set.id).synopsis %>" 
+        data-project-slug="<%= set.slug %>" id="<%= set.id %>">
         <div class="project-grid-item-image" style="background-image: url(
           <%= set.project_image.url(:medium) %>)">
         </div>
         <div class="project-grid-item-title"><%= set.title %></div>
-        <% @project_title = set.title %>
-        <% @synopsis = Project.find_by_project_set_id(set.id).synopsis %>
-        <% @featured_artist_image = Project.find_by_project_set_id(set.id).featured_artist_image %>
       </div>
       <% end %>
     <% end %>
@@ -45,15 +45,15 @@
       <div class="modal-title"></div>
       <div class="modal-body">
         <div>
-          <h4>UNIT <%= @unit_id %> : <%= @unit_title.capitalize %></h4>
-          <h4>PROJECT : <%= @project_title %></h4>
-          <%= image_tag(@featured_artist_image) %>
+          <h4 id="unit-full-title-modal"></h4>
+          <h4 id="project-title-modal"></h4>
+          <img src="#" id="project-featured-image-modal">
           <div class='modal-synopsis'>
             <h4>SYNOPSIS</h4>
-            <p><%= @synopsis %></p>
+            <p id="project-synopsis-modal"></p>
           </div>
         </div>
-        <h4>Please select your grade level:</h4>
+        <h4 class="select-grade">Please select your grade level:</h4>
         <div class="btn-group">
           <div class="btn btn-academy" data-level="lower">
             Lower Academy
