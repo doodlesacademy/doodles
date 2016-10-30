@@ -22,7 +22,7 @@
 
   <hr />
 
-  <h1>Project Overview</span>
+  <h1>Project Overview
     <% if current_user %>
       <% if current_user.favorite_projects.exists?(project_id: @project.id) %>
         <%= link_to (content_tag(:span, "", class: "favorite glyphicon glyphicon-star")), favorite_project_path(@project, type: "unfavorite"), method: :put %>

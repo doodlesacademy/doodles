@@ -217,17 +217,25 @@
   }
 }
 
-.glyphicon-star, .glyphicon-star-empty {
-  color: $primary-blue;
-  &.favorite, &#favorite_nonuser {
-    margin: 10px;
-    top: 5px;
+  .btn {
+    width: 200px;
+  }
 
+  .save-project {
+    background-color: $primary-green;
     &:hover {
-      cursor: pointer;
+      background-color: darken($primary-green, 5%);
+    }
+    margin-top: 5px;
+    color: white;
+    font-size: 10px;
+
+    .modal-favorite-star {
+      color: white;
+      top: 0;
+      margin: 4px;
     }
   }
-}
 
  #projectFavoriteModal {
   h1 {

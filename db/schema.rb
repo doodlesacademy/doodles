@@ -108,11 +108,11 @@ ActiveRecord::Schema.define(version: 20161028161647) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "worktime_focus"
     t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
-    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -341,9 +341,6 @@ ActiveRecord::Schema.define(version: 20161028161647) do
     t.datetime "updated_at",                          null: false
     t.integer  "status",                 default: 0
     t.integer  "role",                   default: 0
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "gender"
     t.integer  "last_lesson_id"
   end
 

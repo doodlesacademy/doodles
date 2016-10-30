@@ -43,15 +43,15 @@
     <section id="edit-name" class="edit-user-data" hidden>
       <%= form_for current_user, url: profile_path do |f| %>
          <%= f.fields_for :profile do |p| %>
-          <div>
+          <div class="field">
             <%= p.label :title %><br />
             <%= p.text_field :title %>
           </div>
-          <div>
+          <div class="field">
             <%= p.label :first_name %><br />
             <%= p.text_field :first_name %>
           </div>
-          <div>
+          <div class="field">
             <%= p.label :last_name %><br />
             <%= p.text_field :last_name %>
           </div>
