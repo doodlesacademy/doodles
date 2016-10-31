@@ -212,7 +212,7 @@
     }
 
     .select-grade {
-      margin-top: 10vh;
+      margin-top: 100px;
     }
   }
 }
@@ -222,9 +222,9 @@
   }
 
   .save-project {
-    background-color: $primary-green;
+    background-color: $darker-blue;
     &:hover {
-      background-color: darken($primary-green, 5%);
+      background-color: darken($darker-blue, 5%);
     }
     margin-top: 5px;
     color: white;
