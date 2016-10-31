@@ -17,6 +17,7 @@ class LessonsController < ApplicationController
     @project = @project_set.get_project(level: @academy)
     redirect_to projects_path unless @project.present?
     @lesson = @project.lessons.published.find_by_slug(params[:slug])
+    current_user.set_last_viewed(lesson: @lesson) unless current_user.nil?
     redirect_to_project unless @lesson.present?
   end
 

@@ -1,0 +1,228 @@
+<% content_for(:page_title) { ('Artroom') } %>
+<% content_for(:hero_image) { image_tag 'heros/artroom.jpg' } %>
+<% content_for(:page_beta) { ('beta') }%>
+
+<div class="artroom">
+
+  <section class="avatar">
+    <% if current_user.profile.avatar.present? %>
+      <%= image_tag current_user.profile.avatar.url(:small), id: "person-icon" %>
+    <% else %>
+      <%= image_tag("person-icon.png", size: "200x200", alt: "person icon", id: "person-icon") %>
+    <% end %>
+    <%= image_tag("camera-icon.png", size: "35x35", alt: "camera icon", id: "camera-icon") %>
+  </section>
+
+  <div id="edit-avatar" hidden>
+    <%= form_for current_user, url: profile_path do |f| %>
+       <%= f.fields_for :profile, html: { multipart: true } do |p| %>
+        <div>
+          <%= p.file_field :avatar %>
+        </div>
+      <% end %>
+      <%= f.submit id: 'update-avatar' %>
+    <% end %>
+  </div>
+
+  <div class="artroom-fields">
+
+    <section>
+      <h1 class="greeting">
+        <% if current_user.profile.title.present? && current_user.profile.last_name.present? %>
+          <%= "#{current_user.profile.greeting}, #{current_user.profile.title} #{current_user.profile.last_name}" %>!
+        <% elsif current_user.profile.first_name.present? %>
+          <%= "#{current_user.profile.greeting}, #{current_user.profile.first_name}" %>!
+        <% else %>
+          <%= "#{current_user.profile.greeting}!" %>
+        <% end %>
+        <%= image_tag("pencil-icon.png", size: "25x25",alt: "pencil icon", class: "pencil-icon", id: "pencil-name") %>
+      </h1>
+      <span id="visits" class="<%= @visits %>" hidden></span>
+    </section>
+
+    <section id="edit-name" class="edit-user-data" hidden>
+      <%= form_for current_user, url: profile_path do |f| %>
+         <%= f.fields_for :profile do |p| %>
+          <div class="field">
+            <%= p.label :title %><br />
+            <%= p.text_field :title %>
+          </div>
+          <div class="field">
+            <%= p.label :first_name %><br />
+            <%= p.text_field :first_name %>
+          </div>
+          <div class="field">
+            <%= p.label :last_name %><br />
+            <%= p.text_field :last_name %>
+          </div>
+         <% end %>
+         <div class="actions">
+           <%= f.submit "Update" %>
+         </div>
+      <% end %>
+    </section>
+
+    <section>
+      <h1>account settings:</h1>
+      <section>
+        <h4>
+          classroom data
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-classroom") %>
+        </h4>
+        <section id="classroom-data">
+          <% current_user.profile.classroom_fields.each do |classroom_field| %>
+            <% if current_user.profile[classroom_field].present? %>
+              <p><%= "#{classroom_field.capitalize}: #{current_user.profile[classroom_field]}" %></p>
+            <% end %>
+          <% end %>
+        </section>
+      </section>
+
+      <section id="edit-classroom-data" class="edit-user-data" hidden>
+        <%= form_for current_user, url: profile_path do |f| %>
+           <%= f.fields_for :profile do |p| %>
+            <div class="field">
+              <%= p.label :school %><br />
+              <%= p.text_field :school %>
+            </div>
+            <div class="field">
+              <%= p.label :city %><br />
+              <%= p.text_field :city %>
+            </div>
+            <div class="field">
+              <%= p.label :state %><br />
+              <%= p.select(:state, options_for_select(us_states, current_user.profile.state)) %>
+            </div>
+            <div class="field">
+              <%= p.label :country %><br />
+              <%= p.text_field :country %>
+            </div>
+            <div class="field">
+              <%= p.label :occupation %><br />
+              <%= p.text_field :occupation %>
+            </div>
+            <div class="field">
+              <%= p.label "Grades Taught" %><br />
+              <%= p.text_field :grades %>
+            </div>
+           <% end %>
+           <div class="actions">
+             <%= f.submit "Update" %>
+           </div>
+        <% end %>
+      </section>
+
+      <section id="contact-preferences">
+        <h4>
+          contact preferences
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-email") %>
+        </h4>
+        <div id="email-data">
+          <p><%= current_user.email %></p>
+        </div>
+      </section>
+
+      <section id="edit-email" class="edit-user-data" hidden>
+        <%= form_for current_user do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, placeholder: current_user.email %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div>
+        <% end %>
+      </section>
+
+      <section id="change-password">
+        <h4>
+          change password
+          <%= image_tag("pencil-icon.png", size: "20x20",alt: "pencil icon", class: "pencil-icon", id: "pencil-password") %>
+        </h4>
+      </section>
+
+      <section id="edit-password" class="edit-user-data" hidden>
+        <%= form_for current_user do |f| %>
+
+          <div class="field password_field">
+            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div class="field password_field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div>
+        <% end %>
+      </section>
+
+    </section>
+
+   <section>
+      <h1>in progress</h1>
+        <div class="favorite-in-artroom">
+          <% @lesson = Lesson.find_by_id(current_user.last_lesson_id) %>
+          <% if @lesson %>
+            <% @lesson_project = Project.find_by_id(@lesson.project_id) %>
+            <a href="/<%= @lesson.level %>/projects/<%= @lesson_project.slug %>/lessons/<%= @lesson.slug %>">
+              <%= image_tag(@lesson.example_image, size: "100x100") %>
+              <p class="favorite-project-title"><%= @lesson.title %></p>
+              <p class="favorite-academy"><%= @lesson.level.capitalize %> Academy</p>
+            </a>
+          <% end %>
+        </div>
+    </section>
+
+    <section>
+      <h1><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>saved projects</h1>
+      <% current_user.favorites.each do |favorite| %>
+        <div class="favorite-in-artroom">
+          <a href="/<%= favorite.level %>/projects/<%= favorite.slug %>">
+          <%= image_tag(favorite.project_set.project_image, size: "100x100") %>
+          <p class="favorite-project-title"><%= favorite.title %></p>
+          <p class="favorite-academy"><%= favorite.level.capitalize %> Academy</p>
+          </a>
+        </div>
+        <% end %>
+    </section>
+  </div>
+
+  <%= render "shared/feedback" %>
+
+</div>
+
+    <div class="modal" id="artroomModal">
+    <div class="modal-content">
+      <div class="modal-close"></div>
+      <div class="modal-title">
+        <h2>Welcome to the artroom!  <span>beta</span></h2>
+      </div>
+      <div class="modal-body">
+      <p>New features are being released regularly. 
+      We welcome your feedback on current features and suggestions for those you would like to see!</p>
+      <p>Drop us a line at: <a href="mailto:info@doodles-academy.org" target="_top">info@doodles-academy.org</a></p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  var $modal, $modal_close, toggleModal, visits;
+
+  visits = document.getElementById('visits').className;
+  if (visits <= 1) {
+    $modal = $('#artroomModal');
+    $modal_close = $modal.find('.modal-close');
+    toggleModal = function(toggle) {
+      return $modal.toggleClass("is-active", toggle);
+    };
+    toggleModal(true);
+    $modal_close.on('click', function() {
+      return toggleModal(false);
+    });
+  }
+</script>

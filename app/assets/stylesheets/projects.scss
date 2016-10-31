@@ -182,9 +182,56 @@
   }
 
   iframe {
-    width: 80vw;
+    width: 960px;
     margin: 0 auto;
-    height: calc(80vw / 1.78);
+    height: calc(960px / 1.78);
   }
 
 }
+
+
+#academy-select {
+
+  text-align: center;
+
+  .modal-content {
+    max-height: 98vh;
+
+    img {
+      float: left;
+      margin-right: 30px;
+      height: 30%;
+      width: 30%;
+    }
+
+    .modal-synopsis {
+      p {
+        font-size: 12px;
+        text-align: left;
+      }
+    }
+
+    .select-grade {
+      margin-top: 100px;
+    }
+  }
+}
+
+.glyphicon-star, .glyphicon-star-empty {
+  color: $primary-blue;
+  &.favorite, &#favorite_nonuser {
+    margin: 10px;
+    top: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+ #projectFavoriteModal {
+  h1 {
+     margin-top: 1em;
+   }
+ }
+

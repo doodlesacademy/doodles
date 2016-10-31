@@ -11,6 +11,12 @@ class Project < ActiveRecord::Base
 
   default_scope { order('updated_at desc') }
 
+  belongs_to :user
+
+  # Favorited by users
+  has_many :favorite_projects # just the 'relationships'
+  has_many :favorited_by, through: :favorite_projects, source: :user
+
   has_sections 'At-A-Glance' => [:synopsis, :skills, :materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principles, :cross_curricular, :engage_ny, :next_gen_sci]
 
   has_attached_file :inspiration_image,

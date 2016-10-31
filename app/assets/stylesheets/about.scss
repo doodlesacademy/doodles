@@ -1,5 +1,12 @@
 .about-wrapper {
 
+ iframe {
+    width: 700px;
+    margin: 0 8em;
+    height: calc(700px / 1.78);
+    // margin-bottom: 40px;
+  }
+
   p, h2 {
     width: 75%;
     margin-left: auto;

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "classes", to: "home#classes"
   get "donate", to: "home#donate"
   get "subscribe", to: "home#subscribe"
+  get "artroom", to: "users#artroom"
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
@@ -23,12 +24,18 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resource :profile, only: [:show, :update]
+
   resources :projects, param: :slug, only: [:index]
   scope ':academy' do
     resources :projects, param: :slug, only: [:show] do
       resources :lessons, param: :slug, only: [:index, :show]
       get "gallery", to: "project#gallery", as: 'gallery'
     end
+  end
+
+  resources :projects do
+    put :favorite, on: :member
   end
 
   get '*', to: 'page_controller#show'

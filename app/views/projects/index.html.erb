@@ -16,9 +16,14 @@
 
   <div class="project-grid">
     <% @units.order(:order).each do |unit| %>
-      <div><h2><%= unit.full_title %></h2></div>
+      <div><h2 id="<%= "#{unit.order}" %>"><%= "#{unit.full_title}" %></h2></div>      
       <% unit.project_sets.published.each do |set| %>
-      <div class="project-grid-item" data-project-slug="<%= set.slug %>">
+      <div class="project-grid-item" 
+        data-unit-full-title="<%= unit.full_title %>" 
+        data-project-title="<%= set.title %>"  
+        data-project-featured-image="<%= Project.find_by_project_set_id(set.id).featured_artist_image %>" 
+        data-project-synopsis="<%= Project.find_by_project_set_id(set.id).synopsis %>" 
+        data-project-slug="<%= set.slug %>" id="<%= set.id %>">
         <div class="project-grid-item-image" style="background-image: url(
           <%= set.project_image.url(:medium) %>)">
         </div>
@@ -37,10 +42,17 @@
   <div class="modal" id="academy-select">
     <div class="modal-content">
       <div class="modal-close"></div>
-      <div class="modal-title">
-        <h2>Please choose an academy:</h2>
-      </div>
+      <div class="modal-title"></div>
       <div class="modal-body">
+        <div>
+          <h4 id="unit-full-title-modal"></h4>
+          <h4 id="project-title-modal"></h4>
+          <img src="#" id="project-featured-image-modal">
+          <div class='modal-synopsis'>
+            <p id="project-synopsis-modal"></p>
+          </div>
+        </div>
+        <h4 class="select-grade">Please select your grade level:</h4>
         <div class="btn-group">
           <div class="btn btn-academy" data-level="lower">
             Lower Academy

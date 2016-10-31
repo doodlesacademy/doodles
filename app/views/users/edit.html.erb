@@ -1,4 +1,5 @@
-<h1>Edit User</h1>
+<h1>Eckit User</h1>
+<!-- /users/<user_id>/edit -->
 <h3><%= @user.hidden_email %></h3>
 <%= form_for @user do |f| %>
   <%= f.select :role do %>
@@ -8,4 +9,3 @@
 <% end %>
 
 <%= render "shared/destroy_button", entity: @user %>
-
