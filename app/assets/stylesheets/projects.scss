@@ -157,10 +157,6 @@
       font-size: 16px;
       color: gray;
     }
-
-    a:active, a:visited {
-      text-decoration: none;
-    }
 }
 
 .projects-index {
@@ -233,5 +229,23 @@
   h1 {
      margin-top: 1em;
    }
+ }
+
+ .fave-a {
+   &:link {
+        text-decoration: none;
+    }
+
+    &:visited {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:active {
+        text-decoration: none;
+    }
  }
 
