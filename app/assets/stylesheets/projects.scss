@@ -157,6 +157,10 @@
       font-size: 16px;
       color: gray;
     }
+
+    a:active, a:visited {
+      text-decoration: none;
+    }
 }
 
 .projects-index {
@@ -212,20 +216,16 @@
     }
 
     .select-grade {
-      margin-top: 125px;
+      margin-top: 150px;
     }
   }
 }
 
-.glyphicon-star, .glyphicon-star-empty {
+.favorite {
   color: $primary-blue;
-  &.favorite, &#favorite_nonuser {
-    margin: 10px;
-    top: 5px;
-
-    &:hover {
-      cursor: pointer;
-    }
+  font-size: 80%;
+  &:hover {
+    cursor: pointer;
   }
 }
 

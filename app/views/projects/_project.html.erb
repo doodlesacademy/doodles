@@ -25,9 +25,9 @@
   <h1>Project Overview</span>
     <% if current_user %>
       <% if current_user.favorite_projects.exists?(project_id: @project.id) %>
-        <%= link_to (content_tag(:span, "", class: "favorite glyphicon glyphicon-star")), favorite_project_path(@project, type: "unfavorite"), method: :put %>
+        <%= link_to (content_tag(:span, "☆", class: "favorite")), favorite_project_path(@project, type: "unfavorite"), method: :put %>
       <% else %>
-        <%= link_to (content_tag(:span, "", class: "favorite glyphicon glyphicon-star-empty")), favorite_project_path(@project, type: "favorite"), method: :put %>
+        <%= link_to (content_tag(:span, "★", class: "favorite")), favorite_project_path(@project, type: "favorite"), method: :put %>
       <% end %>
     <% else %>
       <span class="glyphicon glyphicon-star-empty" id="favorite_nonuser"></span>

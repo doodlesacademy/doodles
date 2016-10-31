@@ -179,7 +179,7 @@
     </section>
 
     <section>
-      <h1><span class="glyphicon glyphicon-star"  aria-hidden="true"></span>saved projects</h1>
+      <h1>★ saved projects</h1>
       <% current_user.favorites.each do |favorite| %>
         <div class="favorite-in-artroom">
           <a href="/<%= favorite.level %>/projects/<%= favorite.slug %>">
