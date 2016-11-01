@@ -90,6 +90,10 @@
         <p><%= @project.fifth_photocopy_header %></p>
         <p class="pdf-indent"><%= link_to @project.fifth_photocopy_file_name, @project.fifth_photocopy.url %></p>
       <% end %>
+      <% if @project.sixth_photocopy.present? %>
+        <p><%= @project.sixth_photocopy_header %></p>
+        <p class="pdf-indent"><%= link_to @project.sixth_photocopy_file_name, @project.sixth_photocopy.url %></p>
+      <% end %>
       <% if @project.photocopy_copyright.present? %>
         <small><%= @project.photocopy_copyright %></small>
         <br>
