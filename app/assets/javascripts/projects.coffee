@@ -8,6 +8,16 @@
     $academy_modal.on 'click', '.btn-academy', selectAcademy
     $('.project-grid').on 'click', '.project-grid-item', selectProject
 
+  project_title_text = []
+  project_title_text.push $('.project-grid-item-title ')
+  i = 0
+  while i < project_title_text[0].length
+    title_div = project_title_text[0][i]
+    text = $(title_div).text()
+    if text.length > 15
+      $(title_div).css('font-size', '0.95em')
+    i++
+
   selectProject = (e) ->
     $project = $ e.currentTarget
     project_slug = $project.data('project-slug')
