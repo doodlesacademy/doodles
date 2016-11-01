@@ -11,6 +11,14 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  def lower?
+    @project.level == 'upper'
+  end
+
+  def upper?
+    @project.level == 'lower'
+  end
+
   def favorite
     @project = Project.find(params[:id])
     type = params[:type]

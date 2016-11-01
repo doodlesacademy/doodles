@@ -147,8 +147,12 @@
       <h2 id='project-cross-curricular'>cross curricular</h2>
       <p><%= @project.cross_curricular %></p>
 
-      <h2 id='project-engage-ny'>engage NY</h2>
       <% if @project.engage_ny.present? %>
+        <% if @project.lower?  %>
+          <h2 id='project-engage-ny'>core knowledge</h2>
+        <% else %>
+         <h2 id='project-engage-ny'>expeditionary learning</h2>
+        <% end %>
         <p><%= @project.engage_ny %></p>
       <% else %>
         <p>N/A</p>
