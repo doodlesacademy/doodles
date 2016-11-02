@@ -26,30 +26,40 @@
     favorite_lower = $project.data('favorite-lower')
     favorite_upper = $project.data('favorite-upper')
 
-    fave_star_lower = $('#modal-lower-favorite-star')
+    handleFavorite = (level, level_project_id, favorite_or_unfavorite) ->
+      if favorite_or_unfavorite == 'favorite'
+        star_class = 'glyphicon-star'
+        other_class = 'glyphicon-star-empty'
+      else if favorite_or_unfavorite == 'unfavorite'
+        star_class = 'glyphicon-star-empty'
+        other_class = 'glyphicon-star'
+      $('.save-project').on 'click', (event) ->
+        $('#modal-' + level + '-favorite-star span').removeClass(other_class)
+        $('#modal-' + level + '-favorite-star span').addClass('glyphicon ' + star_class)
+        event.preventDefault()
+        $.ajax
+          type: 'PUT'
+          url: '/projects/' + level_project_id + '/favorite?type=' + favorite_or_unfavorite
+        return 
+
     if favorite_lower
-      console.log('this is a favorite')
       $('#modal-lower-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star')
-      fave_star_lower.attr('href', '/projects/' + lower_project_id + '/favorite?type=unfavorite')
+      handleFavorite 'lower', lower_project_id, 'unfavorite'
     else
-      console.log('this is NOT a favorite')
       $('#modal-lower-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star-empty')
-      fave_star_lower.attr('href', '/projects/' + lower_project_id + '/favorite?type=favorite')
+      handleFavorite 'lower', lower_project_id, 'favorite'
     toggleAcademyModal(true)
 
-    fave_star_upper = $('#modal-upper-favorite-star')
     if favorite_upper
-      console.log('this is a favorite')
       $('#modal-upper-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-upper-favorite-star span').addClass('glyphicon glyphicon-star')
-      fave_star_upper.attr('href', '/projects/' + upper_project_id + '/favorite?type=unfavorite')
+      handleFavorite 'upper', upper_project_id, 'unfavorite'
     else
-      console.log('this is NOT a favorite')
       $('#modal-upper-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-upper-favorite-star span').addClass('glyphicon glyphicon-star-empty')
-      fave_star_upper.attr('href', '/projects/' + upper_project_id + '/favorite?type=favorite')
+      handleFavorite 'upper', upper_project_id, 'favorite'
     toggleAcademyModal(true)
 
   selectAcademy = (e) ->

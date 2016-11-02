@@ -19,6 +19,7 @@
       <div><h2 id="<%= "#{unit.order}" %>"><%= "#{unit.full_title}" %></h2></div>      
       <% unit.project_sets.published.each do |set| %>
       <div class="project-grid-item"
+        data-remote='true'
         data-unit-full-title="<%= unit.full_title %>" 
         data-project-title="<%= set.title %>"
         data-project-lower-id="<%= Project.find_by_project_set_id_and_level(set.id, 1).id %>"
@@ -65,7 +66,7 @@
 
                 <% if current_user %>
                   <div class="btn save-project">
-                      <a rel="nofollow" data-method="put" class="modal-favorite-star" id="modal-lower-favorite-star" href="#"><span></span> Save Project</a>
+                      <a rel="nofollow" class="modal-favorite-star" id="modal-lower-favorite-star" href="#"><span></span> Save Project</a>
                   </div>
                 <% end %>
               </div>
@@ -78,7 +79,7 @@
 
                 <% if current_user %>
                   <div class="btn save-project">
-                      <a rel="nofollow" data-method="put" class="modal-favorite-star" id="modal-upper-favorite-star" href="#"><span></span> Save Project</a>
+                      <a rel="nofollow" class="modal-favorite-star" id="modal-upper-favorite-star" href="#"><span></span> Save Project</a>
                   </div>
                 <% end %>
               </div>
