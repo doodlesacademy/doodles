@@ -136,7 +136,11 @@
   }
 
   p.favorite-project-title {
+    font-size: 1em;
     max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   p.favorite-academy {
