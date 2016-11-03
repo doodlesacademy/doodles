@@ -28,6 +28,9 @@
   <% else %>
   <div class="hero-page-title">
     <%= yield :page_title %>
+    <% if content_for? :page_beta %>
+      <span><%=yield :page_beta %></span>
+    <% end %>
   </div>
   <% end %>
   <% if content_for? :lesson_links %>

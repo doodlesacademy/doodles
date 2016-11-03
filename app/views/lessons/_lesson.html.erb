@@ -117,23 +117,32 @@
           <% else %>
             5m, Introduction video</h2>
           <% end %>
-            <h3 id='watch'>watch the video introduction</h3>
-
+            <h3 id='watch'>watch the video introduction
+              <% if @lesson.vimeo_offline_url.present? %>
+                or <a class="vimeo-offline" href="<%= @lesson.vimeo_offline_url %>" target="new">download </a> 
+                for offline viewing
+              <% end %>
+            </h3>
+            
           <div>
-            <blockquote>
+            <blockquote class="vimeo-player">
               <div class="frame frame--16x9">
-                <iframe src="https://player.vimeo.com/video/<%= @lesson.video_uri %>"
+                <iframe
+                  src="https://player.vimeo.com/video/<%= @lesson.video_uri %>"
                   frameborder="0"
                   webkitallowfullscreen
                   mozallowfullscreen
                   allowfullscreen>
                 </iframe>
               </div>
+              
             </blockquote>
           </div>
+          
           <% if @lesson.video_note.present? %>
             <p>NOTE: <%= @lesson.video_note %></p>
           <% end %>
+         
       <% else %>
       <h2 id='introduction' class="lesson-heading anchor">
         <% if @lesson.intro_time.present? %>
@@ -250,7 +259,7 @@
     <h1 class="centered finished">Lesson <%= @lesson.lesson_number %> finished!</h1>
     <p class="centered finished">
     <% if @lesson.next_lesson %>
-        <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl" %>
+        <%= lesson_link @lesson.next_lesson, "Next Lesson", class:"btn btn-blue btn-xl", id: "next-lesson" %>
     <% else %>
       <%= link_to "Projects", projects_path, class:"btn btn-blue btn-xl" %>
       <h3 class='centered sign-up-below'>Did you enjoy this project? Sign up below to be the first to hear when we release our next project!</h3>
@@ -258,5 +267,7 @@
     </p>
 
   </div>
+
+    <%= render "shared/feedback" %>
 
 </div>

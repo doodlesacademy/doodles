@@ -147,6 +147,20 @@
     </div>
   </div>
 
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 6" %>
+      <%= f.text_field :sixth_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :sixth_photocopy,
+        label: "Photocopy 6" %>
+    </div>
+  </div>
+
   <div class="field">
     <%= f.label :photocopy_copyright %>
     <%= f.text_field :photocopy_copyright %>

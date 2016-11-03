@@ -11,6 +11,12 @@ class Project < ActiveRecord::Base
 
   default_scope { order('updated_at desc') }
 
+  belongs_to :user
+
+  # Favorited by users
+  has_many :favorite_projects # just the 'relationships'
+  has_many :favorited_by, through: :favorite_projects, source: :user
+
   has_sections 'At-A-Glance' => [:synopsis, :skills, :materials, 'Books/Media', :photocopies], standards: [:common_core, :national_core, :art_elements, :art_principles, :cross_curricular, :engage_ny, :next_gen_sci]
 
   has_attached_file :inspiration_image,
@@ -46,6 +52,10 @@ class Project < ActiveRecord::Base
   has_attached_file :fifth_photocopy,
     default_url: ""
   validates_attachment_content_type :fifth_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
+
+    has_attached_file :sixth_photocopy,
+    default_url: ""
+  validates_attachment_content_type :sixth_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
 
   def standards
     self.standard.section_contents

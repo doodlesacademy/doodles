@@ -1,0 +1,76 @@
+.sign-up {
+
+  margin-top: 5em;
+  margin-left: 5em;
+
+  div {
+    display: inline-block;
+  }
+
+  h2 {
+    color: $primary-blue;
+    margin-bottom: 1em;
+  }
+
+  .field {
+    margin: 0.5em;
+    width: 25em;
+    &.smaller-field {
+      width: 8em;
+    }
+    input:not([type='checkbox']), select {
+      border-radius: 0.75em;
+      color: #333;
+    }
+      ::-webkit-input-placeholder {
+        color: $warm-gray;
+      }
+
+      :-moz-placeholder { /* Firefox 18- */
+        color: $warm-gray;  
+      }
+
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: $warm-gray;  
+      }
+
+      :-ms-input-placeholder {  
+        color: $warm-gray;  
+      }
+  }
+
+  select {
+    &:valid { color: #333; }
+    width: 8em;
+    height: 2.4em;
+    appearance: none;
+    border: 1px solid $accent-gray;
+    padding: 0.4em;
+
+    &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+    }
+
+    &:focus {
+      border-color: $primary-blue;
+      &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #333;
+      }
+    }
+  }
+
+  .actions, a {
+    margin: 2em 0;
+    .btn {
+      background-color: $primary-green;
+    }
+  }
+
+  #error_explanation {
+    color: red;
+    display: block;
+  }
+
+}

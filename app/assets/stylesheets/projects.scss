@@ -28,8 +28,8 @@
 }
 
 .project-grid-item-title {
-  letter-spacing: 2px;
-  font-size: 1.4em;
+  letter-spacing: 1.5px;
+  font-size: 1em;
 }
 
 .project-grid-item-image {
@@ -164,6 +164,9 @@
   .what-are-units {
     margin-bottom: 40px;
     margin-top: 40px;
+    a {
+      color: $primary-blue;
+    }
   }
 
   h1 {
@@ -182,9 +185,75 @@
   }
 
   iframe {
-    width: 80vw;
+    width: 960px;
     margin: 0 auto;
-    height: calc(80vw / 1.78);
+    height: calc(960px / 1.78);
   }
 
 }
+
+
+#academy-select {
+
+  text-align: center;
+
+  .modal-content {
+    max-height: 98vh;
+
+    img {
+      float: left;
+      margin-right: 30px;
+      height: 30%;
+      width: 30%;
+    }
+
+    .modal-synopsis {
+      p {
+        font-size: 12px;
+        text-align: left;
+      }
+    }
+
+    #project-featured-image-modal {
+      max-height: 150px;
+      width: auto;
+    }
+
+    .select-grade {
+      margin-top: 75px;
+    }
+  }
+}
+
+.favorite {
+  color: $primary-blue;
+  font-size: 80%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+ #projectFavoriteModal {
+  h1 {
+     margin-top: 1em;
+   }
+ }
+
+ .fave-a {
+   &:link {
+        text-decoration: none;
+    }
+
+    &:visited {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:active {
+        text-decoration: none;
+    }
+ }
+

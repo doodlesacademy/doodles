@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930225013) do
+ActiveRecord::Schema.define(version: 20161101120410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "lifetime_donation"
+  end
+
+  create_table "favorite_projects", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "feedback_messages", force: :cascade do |t|
@@ -139,6 +146,7 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.text     "materials_note"
     t.text     "first_photocopy_url"
     t.text     "second_photocopy_url"
+    t.text     "vimeo_offline_url"
   end
 
   add_index "lessons", ["project_id"], name: "index_lessons_on_project_id", using: :btree
@@ -289,6 +297,11 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.text     "next_gen_sci"
     t.text     "first_photocopy_url"
     t.text     "second_photocopy_url"
+    t.string   "sixth_photocopy_file_name"
+    t.string   "sixth_photocopy_content_type"
+    t.integer  "sixth_photocopy_file_size"
+    t.datetime "sixth_photocopy_updated_at"
+    t.text     "sixth_photocopy_header"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -333,6 +346,7 @@ ActiveRecord::Schema.define(version: 20160930225013) do
     t.datetime "updated_at",                          null: false
     t.integer  "status",                 default: 0
     t.integer  "role",                   default: 0
+    t.integer  "last_lesson_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -9,7 +9,7 @@
   </title>
   <link rel="shortcut icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
   <link rel="icon" href="<%= image_path 'favicon.ico' %>" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800|Open+Sans:400,300italic,600,700|Raleway:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800|Special+Elite:300,400,600,700,800|Open+Sans:400,300italic,600,700|Raleway:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -17,7 +17,7 @@
 <body>
   <%= render "shared/hero" %>
   <%= render "shared/navigation" %>
-  <% if @homepage || @disable_shared%>
+  <% if @homepage || @disable_shared || @user_sign_in %>
   <%= yield %>
   <% else %>
   <div class="wrapper">

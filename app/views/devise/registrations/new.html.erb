@@ -1,84 +1,85 @@
-<h2>Sign up</h2>
+<% content_for(:page_title) { ('Sign Up') } %>
+<% content_for(:hero_image) { image_tag 'heros/sign_up.jpg' } %>
 
-<% resource.build_profile if resource.profile.nil? %>
+<div class='sign-up'>
+  <h2>Welcome aboard!</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <% resource.build_profile if resource.profile.nil? %>
 
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <%= f.fields_for :profile, html: { multipart: true } do |fp| %>
-    <div>
-      <%= fp.label "Pic of You" %><br />
-      <%= fp.file_field :avatar %>
-    </div>
+    <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= fp.label :title %><br />
-      <%= fp.text_field :title, autofocus: true %>
-    </div>
+    <%= f.fields_for :profile do |fp| %>
 
-    <div class="field">
-      <%= fp.label :first_name %><br />
-      <%= fp.text_field :first_name %>
-    </div>
+      <div class="field smaller-field">
+        <%= fp.label :title %>
+        <%= fp.text_field :title, autofocus: true, placeholder: "M." %>
+      </div>
 
-    <div class="field">
-      <%= fp.label :last_name %><br />
-      <%= fp.text_field :last_name %>
-    </div>
+      <div class="field">
+        <%= fp.label :first_name %>
+        <%= fp.text_field :first_name, placeholder: "Chris" %>
+      </div>
 
-    <div class="field">
-      <%= fp.label :school %><br />
-      <%= fp.text_field :school %>
-    </div>
+      <div class="field">
+        <%= fp.label :last_name%>
+        <%= fp.text_field :last_name, placeholder: "Smith" %>
+      </div>
 
-    <div class="field">
-      <%= fp.label :city %><br />
-      <%= fp.text_field :city %>
-    </div>
+      <div class="field">
+        <%= fp.label :school %>
+        <%= fp.text_field :school, placeholder: "Your School" %>
+      </div>
 
-    <div class="field">
+      <div class="field">
+        <%= fp.label :city %>
+        <%= fp.text_field :city, placeholder: "Your City" %>
+      </div>
+
+      <div class="field smaller-field">
         <%= fp.label :state %>
-        <%= fp.select :state, Profile::STATES %>
+        <%= fp.select(:state, options_for_select(us_states)) %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :country %>
+        <%= fp.text_field :country, placeholder: "Your Country" %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :occupation %>
+        <%= fp.text_field :occupation, placeholder: "Educator" %>
+      </div>
+
+      <div class="field smaller-field">
+        <%= fp.label :grades %>
+        <%= fp.text_field :grades, placeholder: "K-12" %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: "Your Email" %>
+    </div>
+
+    <br>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum" %>
     </div>
 
     <div class="field">
-      <%= fp.label :country %><br />
-      <%= fp.text_field :country %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" %>
     </div>
 
-    <div class="field">
-      <%= fp.label :occupation %><br />
-      <%= fp.text_field :occupation %>
-    </div>
+    <br>
 
-    <div class="field">
-      <%= fp.label :grades %><br />
-      <%= fp.text_field :grades %>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
