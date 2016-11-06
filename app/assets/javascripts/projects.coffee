@@ -33,33 +33,54 @@
       else if favorite_or_unfavorite == 'unfavorite'
         star_class = 'glyphicon-star-empty'
         other_class = 'glyphicon-star'
-      $('.save-project').on 'click', (event) ->
+      $('.save-project-' + level).on 'click', (event) ->
         $('#modal-' + level + '-favorite-star span').removeClass(other_class)
         $('#modal-' + level + '-favorite-star span').addClass('glyphicon ' + star_class)
-        event.preventDefault()
+        # event.preventDefault()
         $.ajax
           type: 'PUT'
           url: '/projects/' + level_project_id + '/favorite?type=' + favorite_or_unfavorite
-        return 
+        return
 
+    # favorite state needs to be reloaded ?????
+    # above b/c need to toggle b/w fave & unfave in modal
+    # other bug is if more than one project is opened, clicking save button faves/unfaves in both projects
+
+    console.log(favorite_lower)
     if favorite_lower
       $('#modal-lower-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star')
+      # $('.save-project-lower').on 'click', (event) ->
+      #   $('#modal-lower-favorite-star span').removeClass('glyphicon-star')
+      #   $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star-empty')
+      #   event.preventDefault()
+      #   $.ajax
+      #     type: 'PUT'
+      #     url: '/projects/' + lower_project_id + '/favorite?type=unfavorite'
+      #   return
       handleFavorite 'lower', lower_project_id, 'unfavorite'
     else
       $('#modal-lower-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star-empty')
+      # $('.save-project-lower').on 'click', (event) ->
+      #   $('#modal-lower-favorite-star span').removeClass('glyphicon-star-empty')
+      #   $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star')
+      #   event.preventDefault()
+      #   $.ajax
+      #     type: 'PUT'
+      #     url: '/projects/' + lower_project_id + '/favorite?type=favorite'
+      #   return
       handleFavorite 'lower', lower_project_id, 'favorite'
     toggleAcademyModal(true)
 
     if favorite_upper
       $('#modal-upper-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-upper-favorite-star span').addClass('glyphicon glyphicon-star')
-      handleFavorite 'upper', upper_project_id, 'unfavorite'
+      # handleFavorite 'upper', upper_project_id, 'unfavorite'
     else
       $('#modal-upper-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
       $('#modal-upper-favorite-star span').addClass('glyphicon glyphicon-star-empty')
-      handleFavorite 'upper', upper_project_id, 'favorite'
+      # handleFavorite 'upper', upper_project_id, 'favorite'
     toggleAcademyModal(true)
 
   selectAcademy = (e) ->
