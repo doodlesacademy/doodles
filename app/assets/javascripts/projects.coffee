@@ -25,50 +25,47 @@
     upper_project_id = $project.data('project-upper-id')
     favorite_lower = $project.data('favorite-lower')
     favorite_upper = $project.data('favorite-upper')
-    console.log(favorite_lower)
+
+    # clean up a little bit - dry up handling favorites
 
     handleFavorite = (level, level_project_id, favorite_or_unfavorite) ->
-      if favorite_or_unfavorite == 'favorite'
-        star_text = '★'
-      else if favorite_or_unfavorite == 'unfavorite'
-        star_text = '☆'
-      $('.save-project-' + level).off().on 'click', (event) ->
-        $('#modal-' + level + '-favorite-star span').text('')
-        $('#modal-' + level + '-favorite-star span').text(star_text)
-        event.preventDefault()
-        $.ajax
-          type: 'PUT'
-          url: '/projects/' + level_project_id + '/favorite?type=' + favorite_or_unfavorite
-        if favorite_or_unfavorite == 'favorite'
-          $project.data('favorite-' + level, true)
-          favorite_lower = true
-          console.log('favoriting')
-          console.log(favorite_lower)
-        else if favorite_or_unfavorite == 'unfavorite'
-          $project.data('favorite-' + level, false)
-          favorite_lower = false
-          console.log('unfavoriting')
-          console.log(favorite_lower)
+      $('.save-project-' + level).off().on 'click', ->
+        iteration = $(this).data('iteration') or 1
+        switch iteration
+          when 1
+            $('#modal-' + level + '-favorite-star span').text('☆')
+            $project.data('favorite-' + level, false)
+            $.ajax
+              type: 'PUT'
+              url: '/projects/' + level_project_id + '/favorite?type=unfavorite' 
+          when 2
+            $('#modal-' + level + '-favorite-star span').text('★')
+            $project.data('favorite-' + level, true)
+            $.ajax
+              type: 'PUT'
+              url: '/projects/' + level_project_id + '/favorite?type=favorite'
+        iteration++
+        if iteration > 2
+          iteration = 1
+        $(this).data 'iteration', iteration
         return
 
-    # need to toggle b/w fave & unfave in modal
-
     if favorite_lower
-      $('#modal-lower-favorite-star span').text('')
+      $('.save-project-lower').data('iteration', 1)
       $('#modal-lower-favorite-star span').text('★')
       handleFavorite 'lower', lower_project_id, 'unfavorite'
     else
-      $('#modal-lower-favorite-star span').text('')
+      $('.save-project-lower').data('iteration', 2)
       $('#modal-lower-favorite-star span').text('☆')
       handleFavorite 'lower', lower_project_id, 'favorite'
     toggleAcademyModal(true)
 
     if favorite_upper
-      $('#modal-upper-favorite-star span').text('')
+      $('.save-project-upper').data('iteration', 1)
       $('#modal-upper-favorite-star span').text('★')
       handleFavorite 'upper', upper_project_id, 'unfavorite'
     else
-      $('#modal-upper-favorite-star span').text('')
+      $('.save-project-upper').data('iteration', 2)
       $('#modal-upper-favorite-star span').text('☆')
       handleFavorite 'upper', upper_project_id, 'favorite'
     toggleAcademyModal(true)
