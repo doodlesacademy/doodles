@@ -5,6 +5,12 @@
   </head>
   <body>
     <h3>Feedback from <%= @user_name %> (<%= @email_address %>):</h3>
+    <% if @lesson.present? %>
+      <em>Lesson: <%= @lesson.title %></em>
+      <% unless @was_clear.nil? %>
+        <em>Was clear?: <%= @was_clear.to_s %></em>
+      <% end %>
+    <% end %>
     <p><%= @message %></p>
   </body>
 </html>

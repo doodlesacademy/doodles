@@ -1,11 +1,14 @@
 class FeedbackMessagesController < ApplicationController
   def create
-    @feedback = FeedbackMessage.create(feedback_params)
-    render nothing: true
-  end
+    FeedbackMailer.feedback_email(
+      message: params[:message],
+      provided_email: params[:email],
+      lesson_id: params[:lesson_id],
+      was_clear: params[:was_clear],
+      user: current_user
+    )
 
-  private
-  def feedback_params
-    params.require(:feedback_message).permit(:sender, :body)
+    flash[:notice] = 'Thank you for your feedback!'
+    redirect_to :back
   end
 end
