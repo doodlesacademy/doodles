@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     self.save if self.changed?
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
   def set_role
     self.role ||= 'visitor'
