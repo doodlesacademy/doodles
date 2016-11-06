@@ -6,7 +6,7 @@
   setupListeners = ->
     $('body').on 'click', '[data-toggle="modal"]', openModal
     $academy_modal.on 'click', '.btn-academy', selectAcademy
-    $('.project-grid').on 'click', '.project-grid-item', selectProject
+    $('.project-grid').off().on 'click', '.project-grid-item', selectProject
 
   selectProject = (e) ->
     $project = $ e.currentTarget
@@ -25,42 +25,51 @@
     upper_project_id = $project.data('project-upper-id')
     favorite_lower = $project.data('favorite-lower')
     favorite_upper = $project.data('favorite-upper')
+    console.log(favorite_lower)
 
     handleFavorite = (level, level_project_id, favorite_or_unfavorite) ->
       if favorite_or_unfavorite == 'favorite'
-        star_class = 'glyphicon-star'
-        other_class = 'glyphicon-star-empty'
+        star_text = '★'
       else if favorite_or_unfavorite == 'unfavorite'
-        star_class = 'glyphicon-star-empty'
-        other_class = 'glyphicon-star'
+        star_text = '☆'
       $('.save-project-' + level).off().on 'click', (event) ->
-        $('#modal-' + level + '-favorite-star span').removeClass(other_class)
-        $('#modal-' + level + '-favorite-star span').addClass('glyphicon ' + star_class)
+        $('#modal-' + level + '-favorite-star span').text('')
+        $('#modal-' + level + '-favorite-star span').text(star_text)
         event.preventDefault()
         $.ajax
           type: 'PUT'
           url: '/projects/' + level_project_id + '/favorite?type=' + favorite_or_unfavorite
+        if favorite_or_unfavorite == 'favorite'
+          $project.data('favorite-' + level, true)
+          favorite_lower = true
+          console.log('favoriting')
+          console.log(favorite_lower)
+        else if favorite_or_unfavorite == 'unfavorite'
+          $project.data('favorite-' + level, false)
+          favorite_lower = false
+          console.log('unfavoriting')
+          console.log(favorite_lower)
         return
 
     # need to toggle b/w fave & unfave in modal
 
     if favorite_lower
-      $('#modal-lower-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
-      $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star')
+      $('#modal-lower-favorite-star span').text('')
+      $('#modal-lower-favorite-star span').text('★')
       handleFavorite 'lower', lower_project_id, 'unfavorite'
     else
-      $('#modal-lower-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
-      $('#modal-lower-favorite-star span').addClass('glyphicon glyphicon-star-empty')
+      $('#modal-lower-favorite-star span').text('')
+      $('#modal-lower-favorite-star span').text('☆')
       handleFavorite 'lower', lower_project_id, 'favorite'
     toggleAcademyModal(true)
 
     if favorite_upper
-      $('#modal-upper-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
-      $('#modal-upper-favorite-star span').addClass('glyphicon glyphicon-star')
+      $('#modal-upper-favorite-star span').text('')
+      $('#modal-upper-favorite-star span').text('★')
       handleFavorite 'upper', upper_project_id, 'unfavorite'
     else
-      $('#modal-upper-favorite-star span').removeClass('glyphicon glyphicon-star glyphicon-star-empty')
-      $('#modal-upper-favorite-star span').addClass('glyphicon glyphicon-star-empty')
+      $('#modal-upper-favorite-star span').text('')
+      $('#modal-upper-favorite-star span').text('☆')
       handleFavorite 'upper', upper_project_id, 'favorite'
     toggleAcademyModal(true)
 
