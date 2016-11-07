@@ -25,12 +25,12 @@
   <h1>Project Overview
     <% if current_user %>
       <% if current_user.favorite_projects.exists?(project_id: @project.id) %>
-        <%= link_to (content_tag(:span, "★", class: "favorite")), favorite_project_path(@project, type: "unfavorite"), class: "fave-a", method: :put %>
+        <%= link_to (content_tag(:span, "★", class: "favorite", data: {project_id: @project.id, iteration: '1'})), href="", class: 'fave-a' %>
       <% else %>
-        <%= link_to (content_tag(:span, "☆", class: "favorite")), favorite_project_path(@project, type: "favorite"), class: "fave-a", method: :put %>
+        <%= link_to (content_tag(:span, "☆", class: "favorite", data: {project_id: @project.id,  iteration: '2'})), href="", class: 'fave-a'  %>
       <% end %>
     <% else %>
-      <span class="glyphicon glyphicon-star-empty" id="favorite_nonuser"></span>
+      <span id="favorite_nonuser">☆</span>
     <% end %></h1>
   <div>
     <h2 id='project-synopsis'>synopsis</h2>
@@ -151,6 +151,7 @@
       <h2 id='project-cross-curricular'>cross curricular</h2>
       <p><%= @project.cross_curricular %></p>
 
+      <h2 id='project-engage-ny'>engage NY</h2>
       <% if @project.engage_ny.present? %>
         <% if @project.lower?  %>
           <h2 id='project-engage-ny'>core knowledge</h2>
@@ -195,6 +196,14 @@
     toggleModal = function(toggle) {
       return $modal.toggleClass("is-active", toggle);
     };
+    toggleModal(true);
+    $modal_close.on('click', function() {
+      return toggleModal(false);
+    });
+  });
+    
+</script>
+
     toggleModal(true);
     $modal_close.on('click', function() {
       return toggleModal(false);
