@@ -26,10 +26,6 @@
     favorite_lower = $project.data('favorite-lower')
     favorite_upper = $project.data('favorite-upper')
 
-    # clean up a little bit - dry up handling favorites
-    # change project show favorites to ajax
-
-
     # for projects index
     handleFavorite = (level, level_project_id, favorite_or_unfavorite) ->
       $('.save-project-' + level).off().on 'click', ->
