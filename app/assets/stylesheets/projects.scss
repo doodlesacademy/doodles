@@ -158,8 +158,12 @@
       color: gray;
     }
 
-  .favorite {
+  .favorite, #favorite_nonuser {
     color: $primary-blue;
+  }
+
+  #favorite_nonuser {
+    cursor: pointer;
   }
 
   .fave-a {
