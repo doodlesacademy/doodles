@@ -157,6 +157,16 @@
       font-size: 16px;
       color: gray;
     }
+
+  .favorite {
+    color: $primary-blue;
+  }
+
+  .fave-a {
+    &:link, &:visited, &:hover, &:active {
+      text-decoration: none;
+     }
+  }
 }
 
 .projects-index {

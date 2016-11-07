@@ -27,7 +27,10 @@
     favorite_upper = $project.data('favorite-upper')
 
     # clean up a little bit - dry up handling favorites
+    # change project show favorites to ajax
 
+
+    # for projects index
     handleFavorite = (level, level_project_id, favorite_or_unfavorite) ->
       $('.save-project-' + level).off().on 'click', ->
         iteration = $(this).data('iteration') or 1
@@ -92,6 +95,30 @@
     modal_id = $modal_link.data('modal-id')
     $modal = $ "##{modal_id}"
     toggleModal($modal, true)
+
+  # for project show
+  $('.favorite').on 'click', (event)->
+    $project_id = $(this).data('project-id')
+    console.log($project_id)
+    iteration = $(this).data('iteration') or 1
+    switch iteration
+      when 1
+        $(this).text('☆')
+        event.preventDefault()
+        $.ajax
+          type: 'PUT'
+          url: '/projects/' + $project_id + '/favorite?type=unfavorite' 
+      when 2
+        $(this).text('★')
+        event.preventDefault()
+        $.ajax
+          type: 'PUT'
+          url: '/projects/' + $project_id + '/favorite?type=favorite'
+    iteration++
+    if iteration > 2
+      iteration = 1
+    $(this).data 'iteration', iteration
+    return
 
   setupListeners()
 
