@@ -6,13 +6,13 @@
   setupListeners = ->
     $('body').on 'click', '[data-toggle="modal"]', openModal
     $academy_modal.on 'click', '.btn-academy', selectAcademy
-    $('.project-grid').on 'click', '.project-grid-item', selectProject
+    $('.project-grid').off().on 'click', '.project-grid-item', selectProject
 
   selectProject = (e) ->
     $project = $ e.currentTarget
     project_slug = $project.data('project-slug')
     project_id = $project.attr('id')
-    unit_id = $(this).attr('id')
+    $('#academy-select').find('.modal-content').attr('id', project_id)
     unit_full_title = $project.data('unit-full-title')
     $('#unit-full-title-modal').text(unit_full_title)
     project_title = $project.data('project-title')
@@ -21,6 +21,52 @@
     $('#project-synopsis-modal').text(project_synopsis)
     project_featured_image = $project.data('project-featured-image')
     $('#project-featured-image-modal').attr('src', project_featured_image)
+    lower_project_id = $project.data('project-lower-id')
+    upper_project_id = $project.data('project-upper-id')
+    favorite_lower = $project.data('favorite-lower')
+    favorite_upper = $project.data('favorite-upper')
+
+    # for projects index
+    handleFavorite = (level, level_project_id, favorite_or_unfavorite) ->
+      $('.save-project-' + level).off().on 'click', ->
+        iteration = $(this).data('iteration') or 1
+        switch iteration
+          when 1
+            $('#modal-' + level + '-favorite-star span').text('☆')
+            $project.data('favorite-' + level, false)
+            $.ajax
+              type: 'PUT'
+              url: '/projects/' + level_project_id + '/favorite?type=unfavorite' 
+          when 2
+            $('#modal-' + level + '-favorite-star span').text('★')
+            $project.data('favorite-' + level, true)
+            $.ajax
+              type: 'PUT'
+              url: '/projects/' + level_project_id + '/favorite?type=favorite'
+        iteration++
+        if iteration > 2
+          iteration = 1
+        $(this).data 'iteration', iteration
+        return
+
+    if favorite_lower
+      $('.save-project-lower').data('iteration', 1)
+      $('#modal-lower-favorite-star span').text('★')
+      handleFavorite 'lower', lower_project_id, 'unfavorite'
+    else
+      $('.save-project-lower').data('iteration', 2)
+      $('#modal-lower-favorite-star span').text('☆')
+      handleFavorite 'lower', lower_project_id, 'favorite'
+    toggleAcademyModal(true)
+
+    if favorite_upper
+      $('.save-project-upper').data('iteration', 1)
+      $('#modal-upper-favorite-star span').text('★')
+      handleFavorite 'upper', upper_project_id, 'unfavorite'
+    else
+      $('.save-project-upper').data('iteration', 2)
+      $('#modal-upper-favorite-star span').text('☆')
+      handleFavorite 'upper', upper_project_id, 'favorite'
     toggleAcademyModal(true)
 
   selectAcademy = (e) ->
@@ -45,6 +91,30 @@
     modal_id = $modal_link.data('modal-id')
     $modal = $ "##{modal_id}"
     toggleModal($modal, true)
+
+  # for project show
+  $('.favorite').on 'click', (event)->
+    $project_id = $(this).data('project-id')
+    console.log($project_id)
+    iteration = $(this).data('iteration') or 1
+    switch iteration
+      when 1
+        $(this).text('☆')
+        event.preventDefault()
+        $.ajax
+          type: 'PUT'
+          url: '/projects/' + $project_id + '/favorite?type=unfavorite' 
+      when 2
+        $(this).text('★')
+        event.preventDefault()
+        $.ajax
+          type: 'PUT'
+          url: '/projects/' + $project_id + '/favorite?type=favorite'
+    iteration++
+    if iteration > 2
+      iteration = 1
+    $(this).data 'iteration', iteration
+    return
 
   setupListeners()
 
