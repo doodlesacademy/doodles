@@ -157,6 +157,16 @@
       font-size: 16px;
       color: gray;
     }
+
+  .favorite {
+    color: $primary-blue;
+  }
+
+  .fave-a {
+    &:link, &:visited, &:hover, &:active {
+      text-decoration: none;
+     }
+  }
 }
 
 .projects-index {
@@ -213,7 +223,7 @@
         text-align: left;
       }
     }
-
+    
     #project-featured-image-modal {
       max-height: 150px;
       width: auto;
@@ -225,35 +235,29 @@
   }
 }
 
-.favorite {
-  color: $primary-blue;
-  font-size: 80%;
-  &:hover {
-    cursor: pointer;
+  .btn {
+    width: 200px;
   }
-}
+
+  .save-project {
+    background-color: $darker-blue;
+    &:hover {
+      background-color: darken($darker-blue, 5%);
+    }
+    margin-top: 5px;
+    color: white;
+    font-size: 10px;
+
+    .modal-favorite-star {
+      color: white;
+      top: 0;
+      margin: 4px;
+    }
+  }
 
  #projectFavoriteModal {
   h1 {
      margin-top: 1em;
    }
- }
-
- .fave-a {
-   &:link {
-        text-decoration: none;
-    }
-
-    &:visited {
-        text-decoration: none;
-    }
-
-    &:hover {
-        text-decoration: none;
-    }
-
-    &:active {
-        text-decoration: none;
-    }
  }
 
