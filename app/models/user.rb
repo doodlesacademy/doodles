@@ -34,7 +34,8 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    "#{first_name} #{last_name}"
+    return "Anonymous" if profile.nil?
+    "#{profile.first_name} #{profile.last_name}"
   end
 
   private
