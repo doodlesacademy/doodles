@@ -34,8 +34,10 @@
         data-project-title="<%= set.title %>"
         data-project-lower-id="<%= Project.find_by_project_set_id_and_level(set.id, 1).id %>"
         data-project-upper-id="<%= Project.find_by_project_set_id_and_level(set.id, 0).id %>"
-        data-favorite-lower="<%= current_user.favorite_projects.exists?(project_id: Project.find_by_project_set_id_and_level(set.id, 1).id) %>"
-        data-favorite-upper="<%= current_user.favorite_projects.exists?(project_id: Project.find_by_project_set_id_and_level(set.id, 0).id) %>"
+        <% if current_user %>
+          data-favorite-lower="<%= current_user.favorite_projects.exists?(project_id: Project.find_by_project_set_id_and_level(set.id, 1).id) %>"
+          data-favorite-upper="<%= current_user.favorite_projects.exists?(project_id: Project.find_by_project_set_id_and_level(set.id, 0).id) %>"
+        <% end %>
         data-project-featured-image="<%= Project.find_by_project_set_id(set.id).featured_artist_image %>" 
         data-project-synopsis="<%= Project.find_by_project_set_id(set.id).synopsis %>" 
         data-project-slug="<%= set.slug %>" id="<%= set.id %>">
