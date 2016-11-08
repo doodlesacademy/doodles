@@ -1,5 +1,5 @@
 class FeedbackMailer < ActionMailer::Base
-  FEEDBACK_ADDRESS = "info@doodlesacademy.org"
+  FEEDBACK_ADDRESS = "info@doodles-academy.org"
 
   attr_reader :email, :user
 

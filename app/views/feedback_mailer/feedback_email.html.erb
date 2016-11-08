@@ -6,9 +6,9 @@
   <body>
     <h3>Feedback from <%= @user_name %> (<%= @email_address %>):</h3>
     <% if @lesson.present? %>
-      <em>Lesson: <%= @lesson.title %></em>
+      <p><em>Lesson: <%= @lesson.title %></em></p>
       <% unless @was_clear.nil? %>
-        <em>Was clear?: <%= @was_clear.to_s %></em>
+        <p><em>Was clear?: <%= @was_clear.to_s %></em></p>
       <% end %>
     <% end %>
     <p><%= @message %></p>
