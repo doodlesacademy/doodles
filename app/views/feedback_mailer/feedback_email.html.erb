@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Feedback from <%= @user_name %> (<%= @email_address %>):</h3>
+    <% if @lesson.present? %>
+      <p><em>Lesson: <%= @lesson.title %></em></p>
+      <% unless @was_clear.nil? %>
+        <p><em>Was clear?: <%= @was_clear.to_s %></em></p>
+      <% end %>
+    <% end %>
+    <p><%= @message %></p>
+  </body>
+</html>

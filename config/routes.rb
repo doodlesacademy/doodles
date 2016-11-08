@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact_requests#new'
   post 'contact', to: 'contact_requests#create'
 
+  post 'feedback', to: 'feedback_messages#create'
+
   get 'admin', to: 'admin#index'
   namespace 'admin' do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
