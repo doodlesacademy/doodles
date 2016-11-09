@@ -58,7 +58,7 @@
 
     <h2 id='project-photocopies'>photocopies</h2>
     <% if @project.teachers_pay_teachers_link.present? %>
-      <a id="tpt-link" href="<%= @project.teachers_pay_teachers_link %>" target="blank">Download Lesson Plan PDFs for Offline Viewing</a>
+      <a id="tpt-link" href="<%= @project.teachers_pay_teachers_link %>" target="blank">Download Lesson Plan PDFs for Offline Viewing</a><br><br>
     <% else %>
       <p>
         <% if @project.first_photocopy_url.present? %>
@@ -103,7 +103,7 @@
         <% end %>
       </p>
     <% end %>
-    <br><br><small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
+    <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
   </div>
 
   <hr />
