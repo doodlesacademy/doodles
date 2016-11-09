@@ -41,10 +41,14 @@
   <h1>Setup At A Glance</h1>
   <div>
     <h2 id='project-lesson-plan'>Lesson Plan</h2>
-    <% if @project.overview.present? %>
-      <p><%= link_to @project.overview_file_name, @project.overview.url %></p>
+    <% if @project.teachers_pay_teachers_link.present? %>
+      <a id="tpt-link" href="<%= @project.teachers_pay_teachers_link %>" target="blank">Download Lesson Plan PDFs for Offline Viewing</a><br><br>
     <% else %>
-      <p><%= "N/A" %></p>
+      <% if @project.overview.present? %>
+        <p><%= link_to @project.overview_file_name, @project.overview.url %></p>
+      <% else %>
+        <p><%= "N/A" %></p>
+      <% end %>
     <% end %>
 
     <h2 id='project-materials'>materials</h2>
@@ -57,9 +61,7 @@
     <p><%= @project.books_media %></p>
 
     <h2 id='project-photocopies'>photocopies</h2>
-    <% if @project.teachers_pay_teachers_link.present? %>
-      <a id="tpt-link" href="<%= @project.teachers_pay_teachers_link %>" target="blank">Download Lesson Plan PDFs for Offline Viewing</a><br><br>
-    <% else %>
+
       <p>
         <% if @project.first_photocopy_url.present? %>
         <p>photocopy 1</p>
@@ -102,7 +104,6 @@
           <br>
         <% end %>
       </p>
-    <% end %>
     <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
   </div>
 
