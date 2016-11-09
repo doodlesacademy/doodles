@@ -56,7 +56,7 @@ class Admin::ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(
         :overview, :featured_artist_name, :featured_artist_image_title, :synopsis, :materials,
-        :materials_suggestion, :books_media, :photocopy, :first_photocopy_header, :first_photocopy_url, :first_photocopy,
+        :materials_suggestion, :books_media, :teachers_pay_teachers_link, :photocopy, :first_photocopy_header, :first_photocopy_url, :first_photocopy,
         :second_photocopy, :second_photocopy_header, :second_photocopy_url, :third_photocopy, :third_photocopy_header,
         :fourth_photocopy, :fourth_photocopy_header, :fifth_photocopy, :fifth_photocopy_header, 
         :sixth_photocopy, :sixth_photocopy_header, :photocopy_copyright, :common_core, :national_core, 
