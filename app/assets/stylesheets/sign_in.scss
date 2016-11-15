@@ -1,13 +1,14 @@
+.sign-in-wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+
 .sign-in {
-  text-align: center;
-  padding: 120px 0 80px 0;
-  margin-top: -40px;
-  background-image: url("sign_up_background.jpg");
 
-  h2, a {
-    color: white;
+  a {
+    color: $primary-blue;
   }
-
+  
   .field {
     margin: 1.6em 0;
     label {
@@ -33,7 +34,4 @@
     }
   }
 
-  label {
-    color: white;
-  }
 }
