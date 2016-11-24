@@ -140,11 +140,16 @@
       </div>
     </div></a>
     <div class='project-foundations-collapsed collapsed' hidden>
-      <h2 id='project-art-elements'>art elements</h2>
-      <p><%= @project.art_elements %></p>
 
-      <h2 id='project-art-princples'>art principles</h2>
-      <p><%= @project.art_principles %></p>
+      <% if @project.art_elements.present? %>
+        <h2 id='project-art-elements'>art elements</h2>
+        <p><%= @project.art_elements %></p>
+      <% end %>
+
+      <% if @project.art_principles.present? %>
+        <h2 id='project-art-princples'>art principles</h2>
+        <p><%= @project.art_principles %></p>
+      <% end %>
 
     </div>
 
