@@ -154,27 +154,31 @@
       </div>
     </div></a>
     <div class='project-integrations-collapsed collapsed' hidden>
-      <h2 id='project-cross-curricular'>cross curricular</h2>
-      <p><%= @project.cross_curricular %></p>
 
-      <h2 id='project-engage-ny'>engage NY</h2>
+      <% if @project.core_content.present? %>
+       <h2 id='project-core-content'>core content</h2>
+       <p><%= markdown @project.core_content %></p>
+      <% end %>
+
+     <% if @project.cross_curricular.present? %>
+       <h2 id='project-cross-curricular'>cross curricular</h2>
+       <p><%= markdown @project.cross_curricular %></p>
+     <% end %>
+
       <% if @project.engage_ny.present? %>
         <% if @project.lower?  %>
           <h2 id='project-engage-ny'>core knowledge</h2>
         <% else %>
          <h2 id='project-engage-ny'>expeditionary learning</h2>
         <% end %>
-        <p><%= @project.engage_ny %></p>
-      <% else %>
-        <p>N/A</p>
+        <p><%= markdown @project.engage_ny %></p>
       <% end %>
 
-      <h2 id='project-next-gen-sci'>next generation science</h2>
       <% if @project.next_gen_sci.present? %>
-        <p><%= @project.next_gen_sci %></p>
-      <% else %>
-        <p>N/A</p>
+        <h2 id='project-next-gen-sci'>next generation science</h2>
+        <p><%= markdown @project.next_gen_sci %></p>
       <% end %>
+
     </div>
 
   </div>

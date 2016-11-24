@@ -192,18 +192,23 @@
   </div>
 
   <div class="field">
+    <%= f.label :core_content %>
+    <%= f.text_area :core_content, 'data-uk-htmleditor' => '{markdown:true}' %>
+  </div>
+
+  <div class="field">
     <%= f.label :cross_curricular %>
-    <%= f.text_field :cross_curricular %>
+    <%= f.text_area :cross_curricular, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label "Core Knowledge / Expeditionary Learning" %>
-    <%= f.text_field :engage_ny %>
+    <%= f.text_area :engage_ny, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label :next_gen_sci %>
-    <%= f.text_field :next_gen_sci %>
+    <%= f.text_area :next_gen_sci, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <% if @project.synopsis == nil || @project.synopsis == "" %>
