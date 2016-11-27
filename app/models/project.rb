@@ -53,6 +53,10 @@ class Project < ActiveRecord::Base
     default_url: ""
   validates_attachment_content_type :fifth_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
 
+    has_attached_file :sixth_photocopy,
+    default_url: ""
+  validates_attachment_content_type :sixth_photocopy, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf", 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ,'applicationvnd.ms-word', 'text/plain']
+
   def standards
     self.standard.section_contents
   end

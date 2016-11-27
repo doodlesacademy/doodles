@@ -17,7 +17,7 @@
 <body>
   <%= render "shared/hero" %>
   <%= render "shared/navigation" %>
-  <% if @homepage || @disable_shared || @user_sign_in %>
+  <% if @homepage || @disable_shared %>
   <%= yield %>
   <% else %>
   <div class="wrapper">

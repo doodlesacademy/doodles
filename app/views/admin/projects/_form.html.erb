@@ -69,6 +69,11 @@
     <%= f.text_field :books_media %>
   </div>
 
+  <div class="field">
+    <%= f.label :teachers_pay_teachers_link %>
+    <%= f.text_field :teachers_pay_teachers_link %>
+  </div>
+
   <div>
     <div class="field photocopy-admin">
       <%= f.label "Photocopy 1" %>
@@ -147,6 +152,20 @@
     </div>
   </div>
 
+  <div>
+    <div class="field photocopy-admin">
+      <%= f.label "Photocopy 6" %>
+      <%= f.text_field :sixth_photocopy_header %>
+    </div>
+    <div>
+      <%= render "shared/form_photocopy",
+        form: f,
+        entity: @project,
+        attribute: :sixth_photocopy,
+        label: "Photocopy 6" %>
+    </div>
+  </div>
+
   <div class="field">
     <%= f.label :photocopy_copyright %>
     <%= f.text_field :photocopy_copyright %>
@@ -164,27 +183,32 @@
 
   <div class="field">
     <%= f.label :art_elements %>
-    <%= f.text_field :art_elements %>
+    <%= f.text_field :art_elements, 'data-uk-htmleditor' => '{markdown:true}'  %>
   </div>
 
   <div class="field">
     <%= f.label :art_principles %>
-    <%= f.text_field :art_principles %>
+    <%= f.text_field :art_principles, 'data-uk-htmleditor' => '{markdown:true}'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :core_content %>
+    <%= f.text_area :core_content, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label :cross_curricular %>
-    <%= f.text_field :cross_curricular %>
+    <%= f.text_area :cross_curricular, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label "Core Knowledge / Expeditionary Learning" %>
-    <%= f.text_field :engage_ny %>
+    <%= f.text_area :engage_ny, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <div class="field">
     <%= f.label :next_gen_sci %>
-    <%= f.text_field :next_gen_sci %>
+    <%= f.text_area :next_gen_sci, 'data-uk-htmleditor' => '{markdown:true}' %>
   </div>
 
   <% if @project.synopsis == nil || @project.synopsis == "" %>

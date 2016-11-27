@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028161647) do
+ActiveRecord::Schema.define(version: 20161124140316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,11 +108,11 @@ ActiveRecord::Schema.define(version: 20161028161647) do
     t.string   "materials"
     t.text     "media"
     t.text     "setting_up"
-    t.text     "worktime_focus"
     t.text     "synopsis"
+    t.text     "worktime_focus"
+    t.text     "worktime"
     t.text     "anticipated_problems"
     t.text     "early_finishers"
-    t.text     "worktime"
     t.text     "pre_work"
     t.text     "additional_worktime"
     t.text     "pre_work_heading"
@@ -297,6 +297,13 @@ ActiveRecord::Schema.define(version: 20161028161647) do
     t.text     "next_gen_sci"
     t.text     "first_photocopy_url"
     t.text     "second_photocopy_url"
+    t.string   "sixth_photocopy_file_name"
+    t.string   "sixth_photocopy_content_type"
+    t.integer  "sixth_photocopy_file_size"
+    t.datetime "sixth_photocopy_updated_at"
+    t.text     "sixth_photocopy_header"
+    t.text     "teachers_pay_teachers_link"
+    t.text     "core_content"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -341,9 +348,6 @@ ActiveRecord::Schema.define(version: 20161028161647) do
     t.datetime "updated_at",                          null: false
     t.integer  "status",                 default: 0
     t.integer  "role",                   default: 0
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "gender"
     t.integer  "last_lesson_id"
   end
 

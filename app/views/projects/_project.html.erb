@@ -25,12 +25,12 @@
   <h1>Project Overview
     <% if current_user %>
       <% if current_user.favorite_projects.exists?(project_id: @project.id) %>
-        <%= link_to (content_tag(:span, "★", class: "favorite")), favorite_project_path(@project, type: "unfavorite"), class: "fave-a", method: :put %>
+        <%= link_to (content_tag(:span, "★", class: "favorite", data: {project_id: @project.id, iteration: '1'})), href="", class: 'fave-a' %>
       <% else %>
-        <%= link_to (content_tag(:span, "☆", class: "favorite")), favorite_project_path(@project, type: "favorite"), class: "fave-a", method: :put %>
+        <%= link_to (content_tag(:span, "☆", class: "favorite", data: {project_id: @project.id,  iteration: '2'})), href="", class: 'fave-a'  %>
       <% end %>
     <% else %>
-      <span class="glyphicon glyphicon-star-empty" id="favorite_nonuser"></span>
+      <span id="favorite_nonuser">☆</span>
     <% end %></h1>
   <div>
     <h2 id='project-synopsis'>synopsis</h2>
@@ -41,10 +41,14 @@
   <h1>Setup At A Glance</h1>
   <div>
     <h2 id='project-lesson-plan'>Lesson Plan</h2>
-    <% if @project.overview.present? %>
-      <p><%= link_to @project.overview_file_name, @project.overview.url %></p>
+    <% if @project.teachers_pay_teachers_link.present? %>
+      <a id="tpt-link" href="<%= @project.teachers_pay_teachers_link %>" target="blank">Download Lesson Plan PDFs for Offline Viewing</a><br><br>
     <% else %>
-      <p><%= "N/A" %></p>
+      <% if @project.overview.present? %>
+        <p><%= link_to @project.overview_file_name, @project.overview.url %></p>
+      <% else %>
+        <p><%= "N/A" %></p>
+      <% end %>
     <% end %>
 
     <h2 id='project-materials'>materials</h2>
@@ -57,46 +61,52 @@
     <p><%= @project.books_media %></p>
 
     <h2 id='project-photocopies'>photocopies</h2>
-    <p>
-      <% if @project.first_photocopy_url.present? %>
-      <p>photocopy 1</p>
-      <p class="pdf-indent">
-        <a href="<%= @project.first_photocopy_url %>"><%= @project.first_photocopy_header %></a>
+
+      <p>
+        <% if @project.first_photocopy_url.present? %>
+        <p>photocopy 1</p>
+        <p class="pdf-indent">
+          <a href="<%= @project.first_photocopy_url %>"><%= @project.first_photocopy_header %></a>
+        </p>
+        <% elsif @project.first_photocopy.present? %>
+          <p><%= @project.first_photocopy_header %></p>
+          <p class="pdf-indent"><%= link_to @project.first_photocopy_file_name, @project.first_photocopy.url %></p>
+        <% else %>
+          <p><%= "N/A" %></p>
+        <% end %>
+        <% if @project.second_photocopy_url.present? %>
+        <p>photocopy 2</p>
+        <p class="pdf-indent">
+          <a href="<%= @project.second_photocopy_url %>"><%= @project.second_photocopy_header %></a>
+        </p>
+        <% elsif @project.second_photocopy.present? %>
+          <p><%= @project.second_photocopy_header %></p>
+          <p class="pdf-indent"><%= link_to @project.second_photocopy_file_name, @project.second_photocopy.url %></p>
+        <% end %>
+        <% if @project.third_photocopy.present? %>
+          <p><%= @project.third_photocopy_header %></p>
+          <p class="pdf-indent"><%= link_to @project.third_photocopy_file_name, @project.third_photocopy.url %></p>
+        <% end %>
+        <% if @project.fourth_photocopy.present? %>
+          <p><%= @project.fourth_photocopy_header %></p>
+          <p class="pdf-indent"><%= link_to @project.fourth_photocopy_file_name, @project.fourth_photocopy.url %></p>
+        <% end %>
+        <% if @project.fifth_photocopy.present? %>
+          <p><%= @project.fifth_photocopy_header %></p>
+          <p class="pdf-indent"><%= link_to @project.fifth_photocopy_file_name, @project.fifth_photocopy.url %></p>
+        <% end %>
+        <% if @project.sixth_photocopy.present? %>
+          <p><%= @project.sixth_photocopy_header %></p>
+          <p class="pdf-indent"><%= link_to @project.sixth_photocopy_file_name, @project.sixth_photocopy.url %></p>
+        <% end %>
+        <% if @project.photocopy_copyright.present? %>
+          <small><%= @project.photocopy_copyright %></small>
+          <br>
+        <% end %>
       </p>
-      <% elsif @project.first_photocopy.present? %>
-        <p><%= @project.first_photocopy_header %></p>
-        <p class="pdf-indent"><%= link_to @project.first_photocopy_file_name, @project.first_photocopy.url %></p>
-      <% else %>
-        <p><%= "N/A" %></p>
-      <% end %>
-      <% if @project.second_photocopy_url.present? %>
-      <p>photocopy 2</p>
-      <p class="pdf-indent">
-        <a href="<%= @project.second_photocopy_url %>"><%= @project.second_photocopy_header %></a>
-      </p>
-      <% elsif @project.second_photocopy.present? %>
-        <p><%= @project.second_photocopy_header %></p>
-        <p class="pdf-indent"><%= link_to @project.second_photocopy_file_name, @project.second_photocopy.url %></p>
-      <% end %>
-      <% if @project.third_photocopy.present? %>
-        <p><%= @project.third_photocopy_header %></p>
-        <p class="pdf-indent"><%= link_to @project.third_photocopy_file_name, @project.third_photocopy.url %></p>
-      <% end %>
-      <% if @project.fourth_photocopy.present? %>
-        <p><%= @project.fourth_photocopy_header %></p>
-        <p class="pdf-indent"><%= link_to @project.fourth_photocopy_file_name, @project.fourth_photocopy.url %></p>
-      <% end %>
-      <% if @project.fifth_photocopy.present? %>
-        <p><%= @project.fifth_photocopy_header %></p>
-        <p class="pdf-indent"><%= link_to @project.fifth_photocopy_file_name, @project.fifth_photocopy.url %></p>
-      <% end %>
-      <% if @project.photocopy_copyright.present? %>
-        <small><%= @project.photocopy_copyright %></small>
-        <br>
-      <% end %>
-      <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
-    </div>
-  </p>
+    <small>© info: Doodles Academy presents both public domain artworks and works that are protected by copyright in their videos and lessons. The latter are used in accordance with fair use principle, as the images are only being used for educational purposes. If you are the copyright holder of the work of art used for Doodles-Academy.org and do not agree that the use of your image is a fair use, please contact us by email.</small>
+  </div>
+
   <hr />
 
   <h1>Standards</h1>
@@ -130,11 +140,16 @@
       </div>
     </div></a>
     <div class='project-foundations-collapsed collapsed' hidden>
-      <h2 id='project-art-elements'>art elements</h2>
-      <p><%= @project.art_elements %></p>
 
-      <h2 id='project-art-princples'>art principles</h2>
-      <p><%= @project.art_principles %></p>
+      <% if @project.art_elements.present? %>
+        <h2 id='project-art-elements'>art elements</h2>
+        <p><%= markdown @project.art_elements %></p>
+      <% end %>
+
+      <% if @project.art_principles.present? %>
+        <h2 id='project-art-princples'>art principles</h2>
+        <p><%= markdown @project.art_principles %></p>
+      <% end %>
 
     </div>
 
@@ -144,8 +159,16 @@
       </div>
     </div></a>
     <div class='project-integrations-collapsed collapsed' hidden>
-      <h2 id='project-cross-curricular'>cross curricular</h2>
-      <p><%= @project.cross_curricular %></p>
+
+      <% if @project.core_content.present? %>
+       <h2 id='project-core-content'>core content</h2>
+       <p><%= markdown @project.core_content %></p>
+      <% end %>
+
+     <% if @project.cross_curricular.present? %>
+       <h2 id='project-cross-curricular'>cross curricular</h2>
+       <p><%= markdown @project.cross_curricular %></p>
+     <% end %>
 
       <% if @project.engage_ny.present? %>
         <% if @project.lower?  %>
@@ -153,17 +176,14 @@
         <% else %>
          <h2 id='project-engage-ny'>expeditionary learning</h2>
         <% end %>
-        <p><%= @project.engage_ny %></p>
-      <% else %>
-        <p>N/A</p>
+        <p><%= markdown @project.engage_ny %></p>
       <% end %>
 
-      <h2 id='project-next-gen-sci'>next generation science</h2>
       <% if @project.next_gen_sci.present? %>
-        <p><%= @project.next_gen_sci %></p>
-      <% else %>
-        <p>N/A</p>
+        <h2 id='project-next-gen-sci'>next generation science</h2>
+        <p><%= markdown @project.next_gen_sci %></p>
       <% end %>
+
     </div>
 
   </div>
@@ -174,10 +194,10 @@
   <div class="modal-content">
     <div class="modal-close"></div>
     <div class="modal-title">
-      <h1>Sign in to access this feature!</h1>
+      <h1>Sign up for a free account to access this feature!</h1>
     </div>
     <div class="modal-body">
-    <h2><a href="/users/sign_in">Sign in</a> or <a href="/users/sign_up">sign up</a> with us to favorite<span class="glyphicon glyphicon-star"></span> a project!</h2>
+    <h2><a href="/users/sign_up">Sign up for a free account</a> or (<a href="/users/sign_in">sign in</a>) to ★ save a project for later!</h2>
     </div>
   </div>
 </div>
