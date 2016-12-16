@@ -4,7 +4,6 @@
     width: 700px;
     margin: 0 8em;
     height: calc(700px / 1.78);
-    // margin-bottom: 40px;
   }
 
   p, h2 {
@@ -13,35 +12,38 @@
     margin-right: auto;
   }
 
-  .left-set {
-    width: 25%;
-    margin-right: 45px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+  h2 {
+    color: $primary-blue;
+
+    &:nth-of-type(2) {
+      margin-top: 30px;
+    }
+  }
+
+  img {
+    width: 20%;
+    margin-left: 120px;
+    margin-right: 35px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     float: left;
   }
 
-  .right-set {
-    width: 25%;
-    margin-left: 45px;
-    margin-bottom: 30px;
-    float: right;
-  }
-
-  section {
-    padding: 100px 0 150px;
-  }
-
-  div.homepage-content {
+  div.button-div {
+    margin: 80px 0 100px 0;
     text-align: center;
 
     div {
       display: inline;
     }
-  }
 
-  .btn-blue {
-    margin-left: 60px;
-  }
+    .btn-blue {
+      margin-left: 60px;
+    }
 
+    .btn-gray {
+      color: grey;
+      width: 220px;
+    }
+  }
 }
