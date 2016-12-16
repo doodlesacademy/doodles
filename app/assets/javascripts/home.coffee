@@ -41,7 +41,7 @@
   $window.scroll(onScroll)
 
   $('.dropdown').hover (->
-    $(this).find('.dropdown-content').show().slow()
+    $(this).find('.dropdown-content').show()
     return
   ), ->
     $('.dropdown-content').hide()
@@ -163,10 +163,10 @@
     $('#quotes p').text quotes[quote_number = ++quote_number % quotes.length]
     $('.quoted-parent p').text quotePersons[quote_number = quote_number % quotePersons.length]
     $('#dot' + (quote_number) + ' img').attr("src", "assets/bluedot.png");
-    setTimeout nextQuote, 5000
+    setTimeout nextQuote, 8000
     return
 
-  setTimeout nextQuote, 5000
+  setTimeout nextQuote, 8000
   # need to reset setTimeout on click
 
   $('#dot0').click ->

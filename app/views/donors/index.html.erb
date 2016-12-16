@@ -3,18 +3,20 @@
 
 <div class="supporters">
 
-  <h1 class="donors">Donors</h1>
-  <ul class="donors">
-  <% @donors.sort_by(&:last_name).each do |donor| %>
-    <% if donor.lifetime_donation.present? && donor.lifetime_donation >= 100 %>
-      <b><li><%= donor.name %></li></b>
-    <% else %>
-      <li><%= donor.name %></li>
+  <div class='donors'>
+    <h1>Donors</h1>
+    <ul class="donors">
+    <% @donors.sort_by(&:last_name).each do |donor| %>
+      <% if donor.lifetime_donation.present? && donor.lifetime_donation >= 100 %>
+        <b><li><%= donor.name %></li></b>
+      <% else %>
+        <li><%= donor.name %></li>
+      <% end %>
     <% end %>
-  <% end %>
-  </ul>
+    </ul>
+  </div>
 
-  <h1 class="community-partners" id="community-partners">Partners</h1>
+  <h1>Partners</h1>
 
   <h2>Google</h2>
   <%= image_tag 'google_logo.png', size: '100x100', style: 'float:left;margin-right:40px;' %>
