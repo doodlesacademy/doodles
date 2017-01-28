@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  enum role: [ :board, :volunteer ]
+  enum role: [ :board, :volunteer, :intern, :resource_council ]
 
   has_attached_file :avatar, 
     styles: { large: "900x900>", medium: "300x300>", small: "200x200>", thumb: "100x100>" }, 

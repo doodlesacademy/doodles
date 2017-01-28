@@ -11,15 +11,40 @@
 <% end %>
 </div>
 
-<h2 class="centered">Contributors</h2>
+<% if @resource_council_members.present? %>
+  <h2 class="centered">Resource Council</h2>
+
+  <div class="member-grid">
+  <% @resource_council_members.each do |member| %>
+    <div class="member-grid-item">
+      <%= render "shared/member", member: member %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
+<h2 class="centered">Interns</h2>
 
 <div class="member-grid">
-<% @volunteer_members.each do |member| %>
-<div class="member-grid-item">
-  <%=  render "shared/member", member: member %>
-</div>
+<% @intern_members.each do |member| %>
+  <div class="member-grid-item">
+    <%= render "shared/member", member: member %>
+  </div>
 <% end %>
 </div>
+
+<h2 class="centered">Volunteers</h2>
+
+<p>Doodles Academy would like to thank the following volunteers for their contributions:</p>
+<ul class="volunteer_members">
+  <% @volunteer_members.each do |member| %>
+  <li>
+    <a href=<%= member.linked_in_profile  %>>
+      <%= "#{member.first_name} #{member.last_name}" %>
+    </a>
+  </li>
+  <% end %>
+</ul>
 
 <div class="modal" id="modal-member-bio">
   <div class="modal-content">
