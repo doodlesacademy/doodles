@@ -2,18 +2,16 @@
 <% content_for(:hero_image) { image_tag 'heros/team.jpg' } %>
 
 <h2 class="centered">Board of Directors</h2>
-
 <div class="member-grid">
 <% @board_members.each do |member| %>
-<div class="member-grid-item">
-  <%=  render "shared/member", member: member %>
-</div>
+  <div class="member-grid-item">
+    <%= render "shared/member", member: member %>
+  </div>
 <% end %>
 </div>
 
 <% if @resource_council_members.present? %>
   <h2 class="centered">Resource Council</h2>
-
   <div class="member-grid">
   <% @resource_council_members.each do |member| %>
     <div class="member-grid-item">
@@ -23,24 +21,24 @@
   </div>
 <% end %>
 
-<h2 class="centered">Interns</h2>
-
-<div class="member-grid">
-<% @intern_members.each do |member| %>
-  <div class="member-grid-item">
-    <%= render "shared/member", member: member %>
+<% if @intern_members.present? %>
+  <h2 class="centered">Interns</h2>
+  <div class="member-grid">
+  <% @intern_members.each do |member| %>
+    <div class="member-grid-item">
+      <%= render "shared/member", member: member %>
+    </div>
+  <% end %>
   </div>
 <% end %>
-</div>
 
 <h2 class="centered">Volunteers</h2>
-
 <p>Doodles Academy would like to thank the following volunteers for their contributions:</p>
 <ul class="volunteer_members">
   <% @volunteer_members.each do |member| %>
   <li>
-    <a href=<%= member.linked_in_profile  %>>
-      <%= "#{member.first_name} #{member.last_name}" %>
+    <a href=<%= member.linked_in_profile %>>
+      <%= member.name %>
     </a>
   </li>
   <% end %>
