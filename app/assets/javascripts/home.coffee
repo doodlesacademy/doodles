@@ -142,11 +142,13 @@
     'Since [our daughter’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.'
     'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.'
     'The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health.'
+    'I absolutely love your website and have begun to use it in my classroom quite frequently ... some of my students love the website so much that they have done some lessons on their own at home.'
   ]
   quotePersons = [
     'Kara Bloom'
     'Laura Harris'
     'Erin Scott'
+    'Julie Rains'
   ]
   quote_number = 0
   $('#quotes p').append quotes[quote_number]
@@ -158,8 +160,10 @@
       $('#dot0 img').attr("src", "assets/dot.png");
     else if quote_number == 1
       $('#dot1 img').attr("src", "assets/dot.png");
-    else
+    else if quote_number == 2
       $('#dot2 img').attr("src", "assets/dot.png");
+    else
+      $('#dot3 img').attr("src", "assets/dot.png");
     $('#quotes p').text quotes[quote_number = ++quote_number % quotes.length]
     $('.quoted-parent p').text quotePersons[quote_number = quote_number % quotePersons.length]
     $('#dot' + (quote_number) + ' img').attr("src", "assets/bluedot.png");
@@ -176,6 +180,7 @@
     $('#dot0 img').attr("src", "assets/bluedot.png");
     $('#dot1 img').attr("src", "assets/dot.png");
     $('#dot2 img').attr("src", "assets/dot.png");
+    $('#dot3 img').attr("src", "assets/dot.png");
     return
 
   $('#dot1').click ->
@@ -185,6 +190,7 @@
     $('#dot0 img').attr("src", "assets/dot.png");
     $('#dot1 img').attr("src", "assets/bluedot.png");
     $('#dot2 img').attr("src", "assets/dot.png");
+    $('#dot3 img').attr("src", "assets/dot.png");
     return
 
   $('#dot2').click ->
@@ -194,6 +200,17 @@
     $('#dot0 img').attr("src", "assets/dot.png");
     $('#dot1 img').attr("src", "assets/dot.png");
     $('#dot2 img').attr("src", "assets/bluedot.png");
+    $('#dot3 img').attr("src", "assets/dot.png");
+    return
+
+  $('#dot3').click ->
+    quote_number = 3
+    $('#quotes p').text(quotes[quote_number])
+    $('.quoted-parent p').text(quotePersons[quote_number])
+    $('#dot0 img').attr("src", "assets/dot.png");
+    $('#dot1 img').attr("src", "assets/dot.png");
+    $('#dot2 img').attr("src", "assets/dot.png");
+    $('#dot3 img').attr("src", "assets/bluedot.png");
     return
 
   return
