@@ -24,6 +24,7 @@ module Doodles
     config.active_record.raise_in_transactional_callbacks = true
 
     # Add Bower to Assets Dependency Path
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('vendor', 'assets')
+    config.assets.paths << Rails.root.join('node_modules')
   end
 end

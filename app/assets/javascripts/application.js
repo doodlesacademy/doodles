@@ -10,15 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require underscore/underscore
-//= require bootstrap/dist/js/bootstrap
-//= require uikit/js/uikit
+//= require jquery/dist/jquery.min
+//= require jquery-ujs/src/rails
+//= require underscore/underscore-min
+//= require bootstrap/dist/js/bootstrap.min
+//= require uikit/dist/js/uikit.min
 //= require codemirror/lib/codemirror
 //= require codemirror/mode/markdown/markdown
 //= require codemirror/addon/mode/overlay
 //= require codemirror/mode/gfm/gfm
 //= require marked/marked.min
-//= require uikit/js/components/htmleditor
+//= require uikit/dist/js/components/htmleditor
 //= require_tree .

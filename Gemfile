@@ -8,7 +8,6 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem "autoprefixer-rails"
 
-gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
