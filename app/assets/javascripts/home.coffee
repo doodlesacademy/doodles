@@ -142,58 +142,45 @@
     'Since [our daughter’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.'
     'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.'
     'The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health.'
+    'I absolutely love your website and have begun to use it in my classroom quite frequently ... some of my students love the website so much that they have done some lessons on their own at home.'
   ]
   quotePersons = [
     'Kara Bloom'
     'Laura Harris'
     'Erin Scott'
+    'Julie Rains'
   ]
-  quote_number = 0
-  $('#quotes p').append quotes[quote_number]
-  $('.quoted-parent').append '<p>' + quotePersons[quote_number] + '</p>'
-  $('#dot' + quote_number + ' img').attr("src", "assets/bluedot.png");
+  quoteNumber = 0
+  lastQuote = quotes.length
+  $('#quotes p').append quotes[quoteNumber]
+  $('.quoted-parent').append '<p>' + quotePersons[quoteNumber] + '</p>'
+  $('#dot' + quoteNumber + ' img').attr("src", "assets/bluedot.png");
 
   nextQuote = ->
-    if quote_number == 0
-      $('#dot0 img').attr("src", "assets/dot.png");
-    else if quote_number == 1
-      $('#dot1 img').attr("src", "assets/dot.png");
-    else
-      $('#dot2 img').attr("src", "assets/dot.png");
-    $('#quotes p').text quotes[quote_number = ++quote_number % quotes.length]
-    $('.quoted-parent p').text quotePersons[quote_number = quote_number % quotePersons.length]
-    $('#dot' + (quote_number) + ' img').attr("src", "assets/bluedot.png");
+    $("#dot#{lastQuote} img").attr 'src', 'assets/dot.png'
+    $('#quotes p').text quotes[quoteNumber]
+    $('.quoted-parent p').text quotePersons[quoteNumber]
+    $("#dot#{quoteNumber} img").attr 'src', 'assets/bluedot.png'
+    if quoteNumber < quotes.length - 1 then (quoteNumber += 1) else (quoteNumber = 0)
+    if lastQuote < quotes.length - 1 then (lastQuote += 1) else (lastQuote = 0)
     setTimeout nextQuote, 8000
     return
 
   setTimeout nextQuote, 8000
-  # need to reset setTimeout on click
 
-  $('#dot0').click ->
-    quote_number = 0
-    $('#quotes p').text(quotes[quote_number])
-    $('.quoted-parent p').text(quotePersons[quote_number])
-    $('#dot0 img').attr("src", "assets/bluedot.png");
-    $('#dot1 img').attr("src", "assets/dot.png");
-    $('#dot2 img').attr("src", "assets/dot.png");
+  clickDots = ->
+    $('#quotes p').text(quotes[quoteNumber])
+    $('.quoted-parent p').text(quotePersons[quoteNumber])
+    nums = [ 0..quotes.length ]
+    nums.forEach (i) ->
+      dot = if i == quoteNumber then 'bluedot' else 'dot'
+      $("#dot#{i} img").attr 'src', "assets/#{dot}.png"
+      return
     return
 
-  $('#dot1').click ->
-    quote_number = 1
-    $('#quotes p').text(quotes[quote_number])
-    $('.quoted-parent p').text(quotePersons[quote_number])
-    $('#dot0 img').attr("src", "assets/dot.png");
-    $('#dot1 img').attr("src", "assets/bluedot.png");
-    $('#dot2 img').attr("src", "assets/dot.png");
-    return
-
-  $('#dot2').click ->
-    quote_number = 2
-    $('#quotes p').text(quotes[quote_number])
-    $('.quoted-parent p').text(quotePersons[quote_number])
-    $('#dot0 img').attr("src", "assets/dot.png");
-    $('#dot1 img').attr("src", "assets/dot.png");
-    $('#dot2 img').attr("src", "assets/bluedot.png");
+  $('.dot').click ->
+    quoteNumber = Number /\d/.exec(this.id)[0] 
+    clickDots quoteNumber
     return
 
   return
