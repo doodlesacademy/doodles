@@ -108,7 +108,6 @@
 
   $('.right-arrow').click ->
     if img_number == 4
-      console.log 'hello'
       left_gal_img = 'gal2.jpg'
       right_gal_img = 'gal1.jpg'
       img_number = 0
@@ -144,25 +143,25 @@
     'The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health.'
     'I absolutely love your website and have begun to use it in my classroom quite frequently ... some of my students love the website so much that they have done some lessons on their own at home.'
   ]
+
   quotePersons = [
     'Kara Bloom'
     'Laura Harris'
     'Erin Scott'
     'Julie Rains'
   ]
+
   quoteNumber = 0
-  lastQuote = quotes.length
   $('#quotes p').append quotes[quoteNumber]
   $('.quoted-parent').append '<p>' + quotePersons[quoteNumber] + '</p>'
-  $('#dot' + quoteNumber + ' img').attr("src", "assets/bluedot.png");
+  $('#dot' + quoteNumber + ' img').attr("src", "assets/bluedot.png")
 
   nextQuote = ->
-    $("#dot#{lastQuote} img").attr 'src', 'assets/dot.png'
+    $(".dot img").attr 'src', 'assets/dot.png'
     $('#quotes p').text quotes[quoteNumber]
     $('.quoted-parent p').text quotePersons[quoteNumber]
     $("#dot#{quoteNumber} img").attr 'src', 'assets/bluedot.png'
     if quoteNumber < quotes.length - 1 then (quoteNumber += 1) else (quoteNumber = 0)
-    if lastQuote < quotes.length - 1 then (lastQuote += 1) else (lastQuote = 0)
     setTimeout nextQuote, 8000
     return
 
