@@ -45,6 +45,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :personal_website %>
+    <%= f.text_field :personal_website %>
+  </div>
+
+  <div class="field">
     <%= label_tag :role %>
     <select id="member[role]" name="member[role]">
       <%= options_for_select Member.roles.map { |l| [l[0].capitalize, l[0]] }, Member.roles.length %>
