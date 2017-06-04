@@ -56,3 +56,6 @@ node_modules/*
 
 # <alex> I use this file locally for a personal task list...
 TODO.md
+
+# @alex - I use this for tokens and stuff
+local_env.sh
