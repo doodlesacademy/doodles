@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def artroom
+    redirect_to thanks_path unless @visits.to_i > 1
     redirect_to '/users/sign_in' unless current_user.present?
   end
 
