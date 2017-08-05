@@ -15,7 +15,10 @@
 
 <div class="member-bio">
   <%= markdown member.bio %>
-  <%if member.linked_in_profile.present? %>
-  <p><%= link_to "LinkedIn", member.linked_in_profile %></p>
+  <% if member.linked_in_profile.present? %>
+    <p><%= link_to "LinkedIn", member.linked_in_profile, target: :_blank %></p>
+  <% end %>
+  <% if member.personal_website.present? %>
+    <p><%= link_to "Website", member.personal_website, target: :_blank %></p>
   <% end %>
 </div>

@@ -12,5 +12,8 @@
   <p><%= "#{s.titleize}: #{@member.send(s.to_sym).try(:titleize)}" %></p>
 <% end %>
 <p>Linked In Profile: <%= link_to @member.linked_in_profile, @member.linked_in_profile %></p>
+<% if @member.personal_website.present? %>
+  <p>Website: <%= link_to @member.personal_website, @member.personal_website %></p>
+<% end %>
 <%= markdown @member.bio %>
 
