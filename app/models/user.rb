@@ -47,13 +47,13 @@ class User < ActiveRecord::Base
   def subscription_params
     {
       id: nil,
-      email: self.email,
-      first_name: self.profile.present? ? self.profile.first_name : '',
-      last_name: self.profile.present? ? self.profile.last_name : ''
+      email: email,
+      first_name: profile.try(:first_name),
+      last_name: profile.try(:last_name)
     }
   end
 
   def subscribe_to_mailing_list
-    SubscriptionService.new(self.subscription_params).subscribe
+    SubscriptionService.new(subscription_params).subscribe
   end
 end
