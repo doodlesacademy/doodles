@@ -27,7 +27,11 @@ class SubscriptionService
     {
       body: {
         email_address: @email_address,
-        status: "subscribed"
+        status: "subscribed",
+        merge_fields: {
+          FNAME: @subscription_params[:first_name],
+          LNAME: @subscription_params[:last_name]
+        }
       }
     }
   end
@@ -38,8 +42,8 @@ class SubscriptionService
         email_address: @email_address,
         status: "subscribed",
         merge_fields: {
-          FNAME: subscription_params[:first_name],
-          LNAME: subscription_params[:last_name]
+          FNAME: @subscription_params[:first_name],
+          LNAME: @subscription_params[:last_name]
         }
       }
     }
