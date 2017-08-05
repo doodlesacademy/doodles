@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   default_scope { where(status: User.statuses[:active]) }
 
   after_initialize :set_role
+  after_create :subscribe_to_mailing_list
 
   has_many :projects
 
@@ -43,4 +44,16 @@ class User < ActiveRecord::Base
     self.role ||= 'visitor'
   end
 
+  def subscription_params
+    {
+      id: nil,
+      email: self.email,
+      first_name: self.profile.present? ? self.profile.first_name : '',
+      last_name: self.profile.present? ? self.profile.last_name : ''
+    }
+  end
+
+  def subscribe_to_mailing_list
+    SubscriptionService.new(self.subscription_params).subscribe
+  end
 end
