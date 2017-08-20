@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820220923) do
+ActiveRecord::Schema.define(version: 20170820223229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -318,11 +318,13 @@ ActiveRecord::Schema.define(version: 20170820220923) do
   end
 
   create_table "subscription_sets", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "subscription_id", null: false
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "subscription_sets", ["subscription_id"], name: "index_subscription_sets_on_subscription_id", using: :btree
 
   create_table "subscription_sets_projects", force: :cascade do |t|
     t.integer "subscription_set_id"
@@ -331,6 +333,15 @@ ActiveRecord::Schema.define(version: 20170820220923) do
 
   add_index "subscription_sets_projects", ["project_id"], name: "index_subscription_sets_projects_on_project_id", using: :btree
   add_index "subscription_sets_projects", ["subscription_set_id"], name: "index_subscription_sets_projects_on_subscription_set_id", using: :btree
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "supply_items", force: :cascade do |t|
     t.string   "name"
