@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :projects
 
+  has_many :subscriptions
+
   has_many :favorite_projects # just the 'relationships'
   has_many :favorites, through: :favorite_projects, source: :project
   belongs_to :last_lesson, class_name: 'Lesson', foreign_key: 'last_lesson_id'
