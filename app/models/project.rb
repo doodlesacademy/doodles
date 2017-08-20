@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to :project_set
   has_many :lessons, dependent: :destroy
   has_many :supply_items, -> { distinct }, through: :lessons
+  has_and_belongs_to_many :subscription_sets
   delegate :title, :gallery, :slug, to: :project_set
   alias_attribute :name, :title
 
