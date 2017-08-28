@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :admin_only!, only: [:index, :show, :edit]
   before_filter :count_visits
 
+  STANDARD_CURRICULUM_PROJECT_IDS = []
+
   def index
     @users = User.all
   end
@@ -40,6 +42,9 @@ class UsersController < ApplicationController
   def artroom
     redirect_to thanks_path unless @visits.to_i > 1
     redirect_to '/users/sign_in' unless current_user.present?
+    if current_user.present?
+      @standard_curriculum = get_standard_curriculum
+    end
   end
 
   private
@@ -53,4 +58,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:role, :email, :password, :password_confirmation, :current_password)
   end
 
+  def get_standard_curriculum
+    STANDARD_CURRICULUM_PROJECT_IDS.map { |id| Project.find_by_id(id) }
+  end
 end
