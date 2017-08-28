@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :admin_only!, only: [:index, :show, :edit]
   before_filter :count_visits
 
-  STANDARD_CURRICULUM_PROJECT_IDS = [21, 22, 23, 24, 27, 28, 29, 30]
+  STANDARD_CURRICULUM_PROJECT_IDS = [11, 12, 14, 15]
 
   def index
     @users = User.all
@@ -59,6 +59,6 @@ class UsersController < ApplicationController
   end
 
   def get_standard_curriculum
-    STANDARD_CURRICULUM_PROJECT_IDS.map { |id| Project.find_by_id(id) }
+    STANDARD_CURRICULUM_PROJECT_IDS.map { |id| ProjectSet.find_by_id(id) }
   end
 end

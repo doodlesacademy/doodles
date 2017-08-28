@@ -71,6 +71,10 @@ class Project < ActiveRecord::Base
     url.gsub /http\:\/\//, "http://#{self.level}"
   end
 
+  def project_url
+    "/#{self.level}/projects/#{self.slug}"
+  end
+
   def next_project
     return unless self.project_set.unit_number < ProjectSet.count
     project_set = ProjectSet.published.find_by(unit_number: self.project_set.unit_number + 1)

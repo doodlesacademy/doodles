@@ -167,19 +167,20 @@
     <% if current_user.is_paid? %>
       <section>
         <h1>scope & sequence</h1>
-        <a href='https://docs.google.com/document/d/1jfSyfZiFMVU1vFQz9YNRumgd73RYaxtb3TRko82i7X0/edit?ts=59a2d57f'>Upper Academy</a>
-        <a href='https://docs.google.com/document/d/1rnliIt1ocX-Sc5riKXhsJv16tPlsg2evRZOgXx8pj1U/edit?ts=59a2d56c'>Lower Academy</a>
+        <div><a href='https://docs.google.com/document/d/1jfSyfZiFMVU1vFQz9YNRumgd73RYaxtb3TRko82i7X0/edit?ts=59a2d57f'>Upper Academy</a></div><br />
+        <div><a href='https://docs.google.com/document/d/1rnliIt1ocX-Sc5riKXhsJv16tPlsg2evRZOgXx8pj1U/edit?ts=59a2d56c'>Lower Academy</a></div>
       </section>
 
       <section>
         <h1>projects</h1>
         <% @standard_curriculum.each do |project| %>
-          <div class="favorite-in-artroom">
-            <a href="/<%= project.level %>/projects/<%= project.slug %>">
-            <%= image_tag(project.project_set.project_image, size: "100x100") %>
+          <div class='favorite-in-artroom'>
+            <%= image_tag(project.project_image, size: "100x100") %>
             <p class="favorite-project-title"><%= project.title %></p>
-            <p class="favorite-academy"><%= project.level.capitalize %> Academy</p>
-            </a>
+            <p class='favorite-level-link'>
+              <a href="<%= project.upper.project_url %>">Upper Academy</a>
+              <a href="<%= project.lower.project_url %>">Lower Academy</a>
+            </p>
           </div>
         <% end %>
       </section>
