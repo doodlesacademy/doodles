@@ -167,20 +167,24 @@
     <% if current_user.is_paid? %>
       <section>
         <h1>scope & sequence</h1>
-        <div><a href='https://docs.google.com/document/d/1jfSyfZiFMVU1vFQz9YNRumgd73RYaxtb3TRko82i7X0/edit?ts=59a2d57f'>Upper Academy</a></div><br />
-        <div><a href='https://docs.google.com/document/d/1rnliIt1ocX-Sc5riKXhsJv16tPlsg2evRZOgXx8pj1U/edit?ts=59a2d56c'>Lower Academy</a></div>
+        <div><a href='https://www.dropbox.com/s/2xx9srgtyovn1op/Scope%20%20Sequence_Upper%20Academy.pdf?dl=0'>Upper Academy</a></div><br />
+        <div><a href='https://www.dropbox.com/s/09817xz4ou25k2z/Scope%20%20Sequence_Lower%20Academy.pdf?dl=0'>Lower Academy</a></div>
       </section>
 
       <section>
         <h1>projects</h1>
         <% @standard_curriculum.each do |project| %>
-          <div class='favorite-in-artroom'>
-            <%= image_tag(project.project_image, size: "100x100") %>
-            <p class="favorite-project-title"><%= project.title %></p>
-            <p class='favorite-level-link'>
-              <a href="<%= project.upper.project_url %>">Upper Academy</a>
-              <a href="<%= project.lower.project_url %>">Lower Academy</a>
-            </p>
+          <div class='favorite-project-item'>
+            <div class='favorite-project-image'>
+              <%= image_tag(project.project_image, size: "100x100") %>
+              <p class="favorite-project-title"><%= project.title %></p>
+            </div>
+            <div class='favorite-project-links'>
+              <div class='favorite-level-link'>
+                <a href="<%= project.upper.project_url %>">Upper Academy</a><br />
+                <a href="<%= project.lower.project_url %>">Lower Academy</a>
+              </div>
+            </div>
           </div>
         <% end %>
       </section>
