@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:visitor, :editor, :staff, :admin]
+  enum role: [:visitor, :editor, :staff, :admin, :paid]
   enum status: [:active, :archived]
 
   has_one :profile
@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
   def full_name
     return "Anonymous" if profile.nil?
     "#{profile.first_name} #{profile.last_name}"
+  end
+
+  def is_paid?
+    self.role == 'paid'
   end
 
   private
