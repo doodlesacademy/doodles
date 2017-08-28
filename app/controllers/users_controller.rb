@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :admin_only!, only: [:index, :show, :edit]
   before_filter :count_visits
 
-  STANDARD_CURRICULUM_PROJECT_IDS = []
+  STANDARD_CURRICULUM_PROJECT_IDS = [21, 22, 23, 24, 27, 28, 29, 30]
 
   def index
     @users = User.all
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def artroom
     redirect_to thanks_path unless @visits.to_i > 1
     redirect_to '/users/sign_in' unless current_user.present?
-    if current_user.present?
+    if current_user.is_paid?
       @standard_curriculum = get_standard_curriculum
     end
   end
