@@ -28,6 +28,9 @@ class HomeController < ApplicationController
   def donor
   end
 
+  def memberships
+  end
+
   def subscribe
     @disable_shared = true
   end
