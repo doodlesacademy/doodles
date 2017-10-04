@@ -61,5 +61,7 @@ class User < ActiveRecord::Base
 
   def subscribe_to_mailing_list
     SubscriptionService.new(subscription_params).subscribe
+  rescue
+    nil
   end
 end
