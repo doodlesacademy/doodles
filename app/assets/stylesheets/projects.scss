@@ -215,6 +215,25 @@
     }
   }
 
+  .project-kit-notification {
+    width: 75%;
+    margin: 4em auto 3em auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8em;
+    border-radius: 3px;
+    background-color: $primary-blue;
+    color: #fff;
+
+    a {
+      color: $primary-yellow;
+    }
+
+    a:hover {
+      color: $primary-green;
+    }
+  }
+
 }
 
 
