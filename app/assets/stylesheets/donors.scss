@@ -1,4 +1,5 @@
 .supporters {
+  margin-bottom: 90px;
 
   h1 {
     text-align: center;
@@ -12,24 +13,37 @@
     }
   }
 
-  h2:first-of-type {
-    margin-left: 140px;
-  }
-
-  .partners-image {
-    width: 35%;
-    float: right;
-    margin: 2em;
-  }
-
-  ul.donors {
+  ul {
     text-align: left;
-    margin: 0 0 3.5em 0;
+    margin-bottom: 50px;
     column-count: 3;
 
     li {
       list-style: none;
       break-inside: avoid;
+    }
+  }
+
+  .google {
+    h2 {
+      margin-left: 140px;
+    }
+
+    img {
+      float: left;
+      margin-right: 40px;
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
+  }
+
+  .portland-child-art-studio {
+    img {
+      width: 35%;
+      float: right;
+      margin: 2em;
     }
   }
 

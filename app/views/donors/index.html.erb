@@ -3,9 +3,9 @@
 
 <div class="supporters">
 
-  <div class='donors'>
+  <div>
     <h1>Donors</h1>
-    <ul class="donors">
+    <ul>
     <% @donors.sort_by(&:last_name).each do |donor| %>
       <% if donor.lifetime_donation.present? && donor.lifetime_donation >= 100 %>
         <b><li><%= donor.name %></li></b>
@@ -18,22 +18,19 @@
 
   <h1>Partners</h1>
 
-  <h2>Google</h2>
-  <%= image_tag 'google_logo.png', size: '100x100', style: 'float:left;margin-right:40px;' %>
-  <p style="margin-bottom: 40px;">
-    Doodles Academy is a recipient of a Google Ad Grants award. The Google Ad Grants program supports registered nonprofit organizations that share Google's philosophy of community service to help the world in areas such as science and technology, education, global public health, the environment, youth advocacy, and the arts. Google Ad Grants is an in-kind advertising program that awards free online advertising to nonprofits via Google AdWords.
-  </p>
+  <div class="google">
+    <h2>Google</h2>
+    <%= image_tag 'google_logo.png', size: '100x100' %>
+    <p>Doodles Academy is a recipient of a Google Ad Grants award. The Google Ad Grants program supports registered nonprofit organizations that share Google's philosophy of community service to help the world in areas such as science and technology, education, global public health, the environment, youth advocacy, and the arts. Google Ad Grants is an in-kind advertising program that awards free online advertising to nonprofits via Google AdWords.</p>
+  </div>
 
-  <a href="http://portlandchildart.org/"><%= image_tag 'partners/pdx-child-art-studio.jpg', class:'partners-image' %></a>
-  <h2>Portland Child Art Studio</h2>
-  <p><a href="http://portlandchildart.org/">Portland Child Art Studio</a> is dedicated to supporting the perceptual development of children through artistic learning.<p>
-
-  <p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a lifelong relationship with art.</p>
-
-  <p>Through Portland Child Art Studio, we are able to workshop our projects in actual classes before they are offered online. <a href="/classes">View available classes here</a>.</p>
-
-  <p>If you are interested in signing up for a class, please visit the <a href="/classes">PDX Class page</a>.</p>
-
-  <br/>
+  <div class="portland-child-art-studio">
+    <a href="http://portlandchildart.org/" target="_blank"><%= image_tag 'partners/pdx-child-art-studio.jpg' %></a>
+    <h2>Portland Child Art Studio</h2>
+    <p><a href="http://portlandchildart.org/" target="_blank">Portland Child Art Studio</a> is dedicated to supporting the perceptual development of children through artistic learning.<p>
+    <p>Portland Child Art Studio believes that child art is about engaging in a natural creative process rather than just about producing things that we judge to be aesthetically pleasing.  They believe in the power of artistic learning, experimentation, exploration, play, and discovery as the foundation upon which children will begin to build a lifelong relationship with art.</p>
+    <p>Through Portland Child Art Studio, we are able to workshop our projects in actual classes before they are offered online. <a href="/classes">View available classes here</a>.</p>
+    <p>If you are interested in signing up for a class, please visit the <a href="/classes">PDX Class page</a>.</p>
+  </div>
 
 </div>
