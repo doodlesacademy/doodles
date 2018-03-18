@@ -1,6 +1,4 @@
-<% content_for (:hero_content) { image_tag 'doodle_white.png', size: "350" } %>
-<% content_for :hero_content do %>
-<%end %>
+<% content_for (:hero_content) { image_tag 'doodle_white.png', size: '350' } %>
 
 <div class="homepage">
 
@@ -11,25 +9,15 @@
         Our program is designed to minimize teacher prep, and to prepare educators of all backgrounds to offer their students a high-quality art experience. Our lessons include:
       </p>
       <ul>
-        <li>Videos with demos</li>
-        <li>Downloadable Lesson Plans</li>
-        <li>Downloadable Supply Lists</li>
-        <li>Downloadable student handouts</li>
-        <li>Ideas for extending projects</li>
-        <li>Common Core & National Art Standards</li>
-        <li>Connections to open source curricula</li>
-        <li>Constantly expanding group of projects</li>
-        <li>Prompts for discussion</li>
-        <li>Suggestions for early finishers</li>
-        <li>Critical thinking skills in every lesson</li>
-        <li>"Knowledge building" topic based units</li>
+        <% lessons_include.each do |included| %>
+          <li><%= included %></li>
+        <% end %>
       </ul>
     </div>
   </section>
 
   <section>
-     <div id="image_home_summary">
-     </div>
+     <div id="image_home_summary"></div>
    </section>
 
   <section>
@@ -44,23 +32,23 @@
   <section id="homepage-lesson-gallery-section" class="container">
     <div id="homepage-lesson-gallery-div" class="row">
       <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
-        <a><%= image_tag 'left-arrow.png', class: "left-arrow" %></a>
+        <a><%= image_tag 'left-arrow.png', class: 'left-arrow' %></a>
       </div>
       <div id="gal_left" class="col-lg-5 col-md-6 col-s-12">
         <img class="img_left">
-        <small>images from 'Near & Far' project</small>
-        <a class="btn btn-xl btn-blue hidden-lg hidden-md" href='/projects'>
+        <small>images from 'Near &amp; Far' project</small>
+        <a class="btn btn-xl btn-blue hidden-lg hidden-md" href="/projects">
           See Projects
         </a>
       </div>
       <div id="gal_right" class="col-lg-5 col-md-6 hidden-sm hidden-xs">
         <img class="img_right">
-        <a class="btn btn-xl btn-blue hidden-sm hidden-xs" href='/projects'>
+        <a class="btn btn-xl btn-blue hidden-sm hidden-xs" href="/projects">
           See Projects
         </a>
       </div>
       <div class="col-lg-1 hidden-md hidden-sm hidden-xs">
-        <a><%= image_tag 'right-arrow.png', class: "right-arrow" %></a>
+        <a><%= image_tag 'right-arrow.png', class: 'right-arrow' %></a>
       </div>
     </div>
   </section>
@@ -88,9 +76,7 @@
        <p>
          <span class="emulate-h2">Donate &amp; Defend Art Education.</span>
          <br><br>
-         We offer our complete program on a donation basis,
-no strings attached, to any family, school, or
-community center that needs it.
+         We offer our complete program on a donation basis, no strings attached, to any family, school, or community center that needs it.
         <br><br>
         Without donors like you, this would be impossible.
         <br><br>
@@ -110,14 +96,13 @@ community center that needs it.
          </div>
        </blockquote>
        <div class="quoted-parent"></div>
-       <div class='dots'>
-         <a class='dot' id='dot0'><%= image_tag 'dot.png'%></a>
-         <a class='dot' id='dot1'><%= image_tag 'dot.png'%></a>
-         <a class='dot' id='dot2'><%= image_tag 'dot.png'%></a>
-         <a class='dot' id='dot3'><%= image_tag 'dot.png'%></a>
+       <div class="dots">
+         <a class="dot" id="dot0"><%= image_tag "dot.png"%></a>
+         <a class="dot" id="dot1"><%= image_tag "dot.png"%></a>
+         <a class="dot" id="dot2"><%= image_tag "dot.png"%></a>
+         <a class="dot" id="dot3"><%= image_tag "dot.png"%></a>
        </div>
      </div>
    </section>
-
 
 </div>
