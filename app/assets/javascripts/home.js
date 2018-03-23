@@ -1,4 +1,5 @@
 /* eslint func-names: ["error", "never"] */
+/* global window, _ */
 
 (function ($, window) {
   return $(function () {
