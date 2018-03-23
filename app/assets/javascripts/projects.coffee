@@ -116,6 +116,11 @@
     $(this).data 'iteration', iteration
     return
 
+  $('.collapsible').click ->
+    theId = $(this).attr('id')
+    $('.' + theId + '-collapsed1').toggle()
+    return
+
   setupListeners()
 
 )(window.$ or window.jQuery or window.Zepto, window)
