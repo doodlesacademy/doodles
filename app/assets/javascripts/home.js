@@ -8,27 +8,11 @@
     let onScroll;
     let quoteNumber;
     let rightGalImg;
-    let url;
     const $window = $(window);
     const $document = $(window.document);
     const $nav = $('.doodles-nav');
     const navHeight = $nav.height();
     const scrollClass = 'is-scrolled';
-
-    const getUrlVars = function () {
-      const vars = {};
-      url = decodeURIComponent(window.location.href.replace(/\+/g, '%20'));
-
-      url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
-        vars[key] = value;
-      });
-
-      return vars;
-    };
-
-    const text = getUrlVars()['email-submit'];
-
-    $('#mce-EMAIL').val(text);
 
     onScroll = function () {
       const top = $document.scrollTop();
