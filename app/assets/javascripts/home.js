@@ -32,10 +32,19 @@
 
     const galImages = [1, 2, 3, 4, 5].map(n => `gal${n}.jpg`);
     imgNumber = 0;
-    leftGalImg = galImages[imgNumber + 1];
-    rightGalImg = galImages[imgNumber];
-    $('.img_left').attr('src', `assets/${leftGalImg}`);
-    $('.img_right').attr('src', `assets/${rightGalImg}`);
+
+    const incrementGalImages = () => {
+      leftGalImg = galImages[imgNumber + 1];
+      rightGalImg = galImages[imgNumber];
+    };
+
+    const setGalImages = () => {
+      $('.img_left').attr('src', `assets/${leftGalImg}`);
+      $('.img_right').attr('src', `assets/${rightGalImg}`);
+    };
+
+    incrementGalImages();
+    setGalImages();
 
     $('.right-arrow').click(() => {
       if (imgNumber === 4) {
@@ -48,11 +57,10 @@
         imgNumber = 4;
       } else {
         imgNumber += 1;
-        leftGalImg = galImages[imgNumber + 1];
-        rightGalImg = galImages[imgNumber];
+        incrementGalImages();
       }
-      $('.img_left').attr('src', `assets/${leftGalImg}`);
-      $('.img_right').attr('src', `assets/${rightGalImg}`);
+
+      setGalImages();
     });
 
     $('.left-arrow').click(() => {
@@ -62,16 +70,16 @@
         imgNumber = 4;
       } else {
         imgNumber -= 1;
-        leftGalImg = galImages[imgNumber + 1];
-        rightGalImg = galImages[imgNumber];
+        incrementGalImages();
       }
-      $('.img_left').attr('src', `assets/${leftGalImg}`);
-      $('.img_right').attr('src', `assets/${rightGalImg}`);
+
+      setGalImages();
     });
 
     const quotes = ['Since [our daughter’s] school doesn\'t have an art curriculum, she has not been able to explore and learn about her passion until now. She has become more confident, articulate and definitely much happier since she\'s been enrolled in Doodles.', 'With no art classes at her school, my daughter was floundering–always sketching, but frustrated by her lack of direction... We are grateful for the excellent guidance provided by Doodles Academy, which has filled a void in our daughter’s life.', 'The online art classes provided by Doodles Academy are invaluable to me as a homeschool mom and teacher... I also appreciate the flexibility of the program. We can adjust it to our life, schedule, and health.', 'I absolutely love your website and have begun to use it in my classroom quite frequently ... some of my students love the website so much that they have done some lessons on their own at home.'];
     const quoted = ['Kara Bloom', 'Laura Harris', 'Erin Scott', 'Julie Rains'];
     quoteNumber = 0;
+
     $('#quotes p').append(quotes[quoteNumber]);
     $('.quoted-parent').append(`<p>${quoted[quoteNumber]}</p>`);
     $(`#dot${quoteNumber} img`).attr('src', 'assets/bluedot.png');
@@ -82,11 +90,8 @@
       $('.quoted-parent p').text(quoted[quoteNumber]);
       $(`#dot${quoteNumber} img`).attr('src', 'assets/bluedot.png');
 
-      if (quoteNumber < quotes.length - 1) {
-        quoteNumber += 1;
-      } else {
-        quoteNumber = 0;
-      }
+      quoteNumber = (quoteNumber < quotes.length - 1) ? quoteNumber + 1 : 0;
+
       setTimeout(nextQuote, 8000);
     };
 
