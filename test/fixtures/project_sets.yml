@@ -1,5 +1,2 @@
-<% ['superhero', 'painting'].each do |theme| %>
-<%= theme %>:
-  upper: <%= theme %>_upper
-  lower: <%= theme %>_lower
-<% end %>
+superhero: {}
+painting: {}
