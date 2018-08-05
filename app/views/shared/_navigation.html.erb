@@ -35,6 +35,11 @@
       <div id="nav-donate-btn" class="col-md-3 col-xs-3">
         <a href="<%= donate_link %>">donate</a>
       </div>
+      <% if current_user && current_user.role == 'staff' %>
+        <div class="col-md-3 col-xs-3">
+          <a href="<%= board_portal_link %>" target="blank">board portal</a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

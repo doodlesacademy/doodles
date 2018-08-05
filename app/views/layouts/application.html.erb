@@ -18,11 +18,11 @@
   <%= render "shared/hero" %>
   <%= render "shared/navigation" %>
   <% if @homepage || @disable_shared %>
-  <%= yield %>
-  <% else %>
-  <div class="wrapper">
     <%= yield %>
-  </div>
+  <% else %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
   <% end %>
 
   <%= render "shared/subscribe" unless @disable_shared %>
