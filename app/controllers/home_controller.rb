@@ -31,6 +31,9 @@ class HomeController < ApplicationController
   def memberships
   end
 
+  def store
+  end
+
   def subscribe
     @disable_shared = true
   end
