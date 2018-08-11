@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
   end
 
+  resources :charges
+
   resources :users
   resource :profile, only: [:show, :update]
 
