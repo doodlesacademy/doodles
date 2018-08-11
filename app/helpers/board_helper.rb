@@ -1,5 +1,5 @@
 module BoardHelper
   def board_portal_link
-    'https://doodles-academy.wixsite.com/donations'
+    'https://sites.google.com/doodles-academy.org/boardportal/home?authuser=1'
   end
 end
