@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     self.role == 'paid'
   end
 
+  def admin_or_staff?
+    ['admin', 'staff'].include?(role)
+  end
+
   private
   def set_role
     self.role ||= 'visitor'
