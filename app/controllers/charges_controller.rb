@@ -1,7 +1,4 @@
 class ChargesController < ApplicationController
-  def new
-  end
-
   def create
     product = Product.find(params[:product_id])
     raise ActiveRecord::RecordNotFound if product.nil?

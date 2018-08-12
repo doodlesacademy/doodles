@@ -4,5 +4,6 @@ class StoreController < ApplicationController
   end
 
   def checkout
+    @product = Product.find_by(sku: params[:sku])
   end
 end
