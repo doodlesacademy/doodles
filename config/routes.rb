@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "subscribe", to: "home#subscribe"
   get "artroom", to: "users#artroom"
   get "memberships", to: "home#memberships"
+  get 'store', to: 'home#store'
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'

@@ -3,8 +3,11 @@ class ChargesController < ApplicationController
   end
 
   def create
+    product = Product.find(params[:product_id])
+    raise ActiveRecord::RecordNotFound if product.nil?
+
     # Amount in cents
-    @amount = 500
+    @amount = product.price
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -17,7 +20,6 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
-
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path

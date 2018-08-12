@@ -13,6 +13,7 @@ class ContactRequestsController < ApplicationController
   end
 
   private
+
   def contact_request_params
     params.require(:contact_request).permit(
       :email_address, :first_name, :last_name, :location,
