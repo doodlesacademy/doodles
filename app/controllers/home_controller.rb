@@ -32,6 +32,10 @@ class HomeController < ApplicationController
   end
 
   def store
+    @products = Product.all
+  end
+
+  def checkout
   end
 
   def subscribe

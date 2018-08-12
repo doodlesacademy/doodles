@@ -1,0 +1,13 @@
+<div class="store-wrapper">
+  <% @products.each do |product| %>
+    <div class="product-button">
+      <h3><%= product.name %></h3>
+      <div class="product-price">
+        <%= product.formatted_price %>
+      </div>
+      <div class="product-description">
+        <%= product.description %>
+      </div>
+    </div>
+  <% end %>
+</div>
