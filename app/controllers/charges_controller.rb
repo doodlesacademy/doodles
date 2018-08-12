@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   def create
-    product = Product.find(params[:product_id])
+    @product = Product.find(params[:product_id])
     raise ActiveRecord::RecordNotFound if product.nil?
 
     # Amount in cents
@@ -11,14 +11,14 @@ class ChargesController < ApplicationController
       source: params[:stripeToken]
     )
 
-    @charge = Stripe::Charge.create(
+    Stripe::Charge.create(
       customer: customer.id,
       amount: @amount,
-      description: 'Rails Stripe customer',
+      description: 'Doodles Academy customer',
       currency: 'usd'
     )
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to '/store'
   end
 end
