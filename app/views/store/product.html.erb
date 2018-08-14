@@ -1,0 +1,33 @@
+<div class="store-wrapper">
+  <div class="product-wrapper">
+    <div class="product-detail">
+      <div class="product-image"></div>
+      <div class="product-carousel"></div>
+      <div class="product-description">
+        <%= @product.description %>
+      </div>
+    </div>
+    <div class="store-sidebar">
+      <div class="product-name">
+        <h2><%= @product.name %></h2>
+      </div>
+      <div class="product-price">
+        <%= @product.formatted_price %>
+      </div>
+      <div class="product-purchase">
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-includes">
+        <p>What you get:</p>
+        <ul>
+          <li>A collection of 5 projects (each containing 5-6 lessons for a total of 25-30 lessons depending on the speed of the class) exploring different cultures and heritages</li>
+          <li>A scope and sequence which includes links to training and support pages</li>
+          <li>links to downloadable and editable lesson plans (which can be used with or without the streaming videos)</li>
+          <li>editable assessments for each project</li>
+          <li>a vocabulary list</li>
+        </ul>
+        <div class="product-share"></div>
+      </div>
+    </div>
+  </div>
+</div>
