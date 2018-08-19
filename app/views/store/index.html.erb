@@ -10,7 +10,6 @@
     <p>"Thanks to Doodles I was able to experience what it takes to bring students from conception to completion of a high quality art project. And it wasn't just the kids who typically love art that felt successful; all my students loved the work they produced!"</p>
     <p>-David Scholten, 5th Grade Teacher, Portland, OR</p>
   </div>
-  <div class="hero-images"></div>
   <div class="bottom-header">
     <h1>Curriculum Sets</h1>
   </div>
@@ -29,12 +28,14 @@
   </div>
   <div class="product-items">
     <% @products.each do |product| %>
-      <div class="product-button">
-        <div class="product-name">
-          <h3><%= product.name %></h3>
-        </div>
-        <div class="product-price">
-          <%= product.formatted_price %>
+      <div class="product-item" style="background-image: url(<%= product.image_url %>);">
+        <div class="product-info">
+          <div class="product-name">
+            <h3><%= product.name %></h3>
+          </div>
+          <div class="product-price">
+            <%= product.formatted_price %>
+          </div>
         </div>
       </div>
     <% end %>
