@@ -1,7 +1,9 @@
 <div class="store-wrapper">
   <div class="product-wrapper">
     <div class="product-detail">
-      <div class="product-image"></div>
+      <div class="product-image">
+        <img class="main-image" src="<%= @product.image_url %>">
+      </div>
       <div class="product-carousel"></div>
       <div class="product-description">
         <%= @product.description %>
@@ -15,10 +17,10 @@
         <%= @product.formatted_price %>
       </div>
       <div class="product-purchase">
-        <button>Add to Cart</button>
+        <a>Add to Cart</a>
       </div>
       <div class="product-includes">
-        <p>What you get:</p>
+        <h3>What you get:</h3>
         <ul>
           <li>A collection of 5 projects (each containing 5-6 lessons for a total of 25-30 lessons depending on the speed of the class) exploring different cultures and heritages</li>
           <li>A scope and sequence which includes links to training and support pages</li>
