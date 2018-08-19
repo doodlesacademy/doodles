@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'store', to: 'store#index'
   get 'store/checkout', to: 'store#checkout'
-  get 'store/product/:sku', to: 'store#product'
+  get 'store/product', to: 'store#product'
 
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'

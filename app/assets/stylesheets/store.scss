@@ -75,12 +75,25 @@
     display: flex;
     justify-content: center;
 
+    a {
+      border: 0;
+      outline: none;
+      text-decoration: none;
+    }
+
     .product-item {
       width: 250px;
       height: 350px;
       padding: 20px;
       color: white;
       position: relative;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+
+      &:hover {
+        outline: 6px solid $primary-blue;
+      }
 
       .product-info {
         position: absolute;
