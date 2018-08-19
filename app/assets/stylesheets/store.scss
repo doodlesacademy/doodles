@@ -38,9 +38,19 @@
     text-align: center;
   }
 
+  .bottom-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+
+  .overview-wrapper {
+    width: 55%;
+  }
+
   .testimonial {
-    width: 600px;
-    margin: 80px auto;
+    width: 40%;
+    height: 290px;
     padding: 40px 40px 20px 40px;
     background-color: $primary-blue;
     color: white;
@@ -53,6 +63,11 @@
       margin-left: 4em;
       font-size: 1.2em;
     }
+  }
+
+  .products-header {
+    text-align: center;
+    margin-top: 60px;
   }
 
   .product-items {
@@ -97,5 +112,11 @@
     }
   }
 
-  .coming-soon {}
+  .coming-soon {
+    margin: 80px 0;
+
+    h3 {
+      font-style: italic;
+    }
+  }
 }
