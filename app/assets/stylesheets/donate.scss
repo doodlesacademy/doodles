@@ -1,43 +1,57 @@
 .donation-wrapper {
-  width: 75%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
-  #donation {
-    border: 1px solid #4B4583;
-    padding: 30px;
+  .donation-header {
+    height: 275px;
+    margin-bottom: 80px;
+    background: url('heros/donate.png');
+    background-position: 70% 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 
-    p {
-      line-height: 1.75em;
-    }
+  .donation-inner-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    width: 550px;
+    color: white;
+    border: 1px solid white;
 
-    input[type='submit'] {
-      @include textCap;
-      background-color: $active-purple;
+    h1 {
       color: white;
-      outline: none;
-      border: none;
-      border-radius: 0;
-      height: 50px;
-      padding: 0 30px;
-      transition: background-color 300ms ease;
-
-      &:hover {
-        background-color: lighten($active-purple, 10%)
-      }
-
-      &:active {
-        transition: none;
-        background-color: darken($active-purple, 10%)
-      }
+      margin: 0;
     }
+  }
 
-    input[type='text'] {
-      margin-left: 124px;
-      padding: 0 30px;
-      height: 50px;
-      width: 30%;
-      font-weight: 400;
-      letter-spacing: 0.05em;
+  .donation-body-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .donation-info {
+    width: 55%;
+  }
+
+  .donation-widget {
+    width: 40%;
+  }
+
+  .donation-testimonial {
+    margin: 40px 0;
+    padding: 40px 40px 30px 40px;
+    background-color: $primary-blue;
+    color: white;
+
+    p:last-child {
+      text-align: right;
     }
   }
 }
