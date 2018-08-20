@@ -17,7 +17,7 @@
         <%= @product.formatted_price %>
       </div>
       <div class="product-purchase">
-        <a>Add to Cart</a>
+        <a href="/store/checkout?sku=<%= @product.sku %>">Add to Cart</a>
       </div>
       <div class="product-includes">
         <h3>What you get:</h3>

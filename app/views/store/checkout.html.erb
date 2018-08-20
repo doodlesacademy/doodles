@@ -1,27 +1,53 @@
-<div class="store-wrapper">
-  <% if @product.nil? %>
-    <div class="checkout-empty">
-      You have not selected anything to purchase.
+<div class="checkout-wrapper">
+  <div class="checkout-header">
+    <div class="checkout-inner-header">
+      <h1>Checkout</h1>
     </div>
-  <% else %>
-    <%= form_tag charges_path do %>
-      <article>
-        <% if flash[:error].present? %>
-          <div id="error_explanation">
-            <p><%= flash[:error] %></p>
-          </div>
-        <% end %>
-        <label class="amount">
-          <span>Amount: <%= @product.formatted_price %></span>
-        </label>
-      </article>
+  </div>
+  <div class="checkout-body-wrapper">
+    <div class="checkout-items-wrapper">
+      <% if @products.empty? %>
+        <div class="checkout-items-empty">
+          You have not selected anything to purchase.
+        </div>
+      <% else %>
+        <div class="checkout-items-list">
+          <table>
+            <% @products.each do |product| %>
+              <tr class="product-info">
+                <td class="product-image"><img src="<%= product.image_url %>" width="100%"></td>
+                <td class="product-name">
+                  <table>
+                    <tr><td><a href="/store/product?sku=<%= product.sku %>"><%= product.name %></a></td></tr>
+                    <tr><td class="product-actions"><a href="/store/checkout?delete=<%= product.sku %>">delete</a></td></tr>
+                  </table>
+                </td>
+                <td class="product-price"><%= product.formatted_price %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+    </div>
+    <div class="checkout-sidebar">
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+          <label class="amount">
+            <span>Amount: <%= @formatted_price %></span>
+          </label>
+        </article>
 
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="<%= @product.name %>"
-              data-amount="<%= @product.price %>"
-              data-locale="auto"></script>
-    <% end %>
-  <% end %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Doodles Academy Store"
+                data-amount="<%= @total_price %>"
+                data-locale="auto"></script>
+      <% end %>
+    </div>
+  </div>
 </div>
-
