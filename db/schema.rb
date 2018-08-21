@@ -207,10 +207,11 @@ ActiveRecord::Schema.define(version: 20180820204246) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "stripe_email", null: false
-    t.integer  "amount",       null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "stripe_email",       null: false
+    t.integer  "amount",             null: false
+    t.string   "stripe_customer_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "payments_products", force: :cascade do |t|

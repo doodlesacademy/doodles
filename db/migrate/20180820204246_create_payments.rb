@@ -4,6 +4,7 @@ class CreatePayments < ActiveRecord::Migration
       t.references :user, null: true
       t.string :stripe_email, null: false
       t.integer :amount, null: false
+      t.string :stripe_customer_id
 
       t.timestamps null: false
     end

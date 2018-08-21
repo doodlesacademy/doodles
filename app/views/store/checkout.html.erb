@@ -42,6 +42,10 @@
           </label>
         </article>
 
+        <% @products.each do |product| %>
+          <input type="hidden" name="skus[]" value="<%= product.sku %>">
+        <% end %>
+
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Doodles Academy Store"

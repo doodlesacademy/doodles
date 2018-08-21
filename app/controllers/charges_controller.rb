@@ -1,10 +1,8 @@
 class ChargesController < ApplicationController
   def create
-    @product = Product.find(params[:product_id])
-    raise ActiveRecord::RecordNotFound if product.nil?
-
-    # Amount in cents
-    @amount = product.price
+    @products = Product.where(sku: params[:skus])
+    amount = @products.reduce(0) { |acc, prod| acc + prod.price }
+    @formatted_amount = Product.format_price(amount)
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -13,10 +11,20 @@ class ChargesController < ApplicationController
 
     Stripe::Charge.create(
       customer: customer.id,
-      amount: @amount,
+      amount: amount,
       description: 'Doodles Academy customer',
       currency: 'usd'
     )
+
+    @payment = Payment.create(
+      user_id: current_user&.id,
+      stripe_email: params[:stripeEmail],
+      stripe_customer_id: customer.id,
+      amount: amount,
+      products: @products,
+    )
+
+    session[:skus_in_cart] = []
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to '/store/checkout'
