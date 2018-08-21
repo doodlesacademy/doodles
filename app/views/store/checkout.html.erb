@@ -1,8 +1,11 @@
 <div class="checkout-wrapper">
   <div class="checkout-header">
     <div class="checkout-inner-header">
-      <h1><a href="/store">Home</a> &gt; Checkout</h1>
+      <h1>Doodles Store Checkout</h1>
     </div>
+  </div>
+  <div class="checkout-breadcrumbs">
+    <h2><a href="/store">Home</a> &gt; Checkout</h2>
   </div>
   <div class="checkout-body-wrapper">
     <div class="checkout-items-wrapper">
@@ -25,6 +28,11 @@
                 <td class="product-price"><%= product.formatted_price %></td>
               </tr>
             <% end %>
+            <tr class="total-row">
+              <td></td>
+              <td class="total-label">Total:</td>
+              <td><%= @formatted_price %></td>
+            </tr>
           </table>
         </div>
       <% end %>
