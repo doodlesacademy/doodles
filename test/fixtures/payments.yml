@@ -4,9 +4,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+
 one:
-  name: 'package 1'
-  price: 3000
-  sku: 'pack1'
-  image_url: 'https://ixxidesign.azureedge.net/media/1676571/Mickey-Mouse-2.jpg'
-  description: 'Blah blah blah Mickey Mouse.'
+  stripe_email: 'blah@dah.org'
+  amount: 60000
+  products: one
