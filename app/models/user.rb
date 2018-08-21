@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   after_create :subscribe_to_mailing_list
 
   has_many :projects
+  has_many :payments
 
   has_many :subscriptions
 

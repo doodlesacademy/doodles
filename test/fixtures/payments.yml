@@ -6,6 +6,7 @@
 #
 
 one:
+  user: one
   stripe_email: 'blah@dah.org'
   amount: 60000
   products: one
