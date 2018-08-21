@@ -1,6 +1,44 @@
 <div class="store-wrapper">
   <div class="store-confirmation">
+    <div class="confirmation-header">
+      <div class="confirmation-inner-header">
+        <h1>Thank you!</h1>
+      </div>
+    </div>
 
+    <div class="confirmation-info">
+      <p>Thank you for supporting Doodles Academy! Below are links to your purchased materials.</p>
+      <% if current_user.nil? %>
+        <p>Since you are not signed in, please make sure that you do not lose these links, as they are your only access to the materials. Please note your confirmation number, in case you should have any trouble accessing the materials.</p>
+      <% else %>
+        <p>These will always be accessible <a href="/artroom">from your artroom</a>.</p>
+      <% end %>
+
+      <div class="confirmation-inset">
+        <div class="amount">Amount paid: <%= @payment.formatted_amount %></div>
+        <div class="confirmation-number">Confirmation #: <%= @payment.confirmation_number %></div>
+      </div>
+
+      <div class="purchased-materials">
+        <h1>purchased materials</h1>
+        <ul>
+          <% @products.each do |prod| %>
+            <li>
+              <a href="<%= prod.material_link %>">
+                <div class="material-container">
+                  <div class="material-image">
+                    <img src="<%= prod.image_url %>">
+                  </div>
+                  <div class="material-link">
+                    <%= prod.full_title %>
+                  </div>
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 

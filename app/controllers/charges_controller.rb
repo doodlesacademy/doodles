@@ -2,7 +2,6 @@ class ChargesController < ApplicationController
   def create
     @products = Product.where(sku: params[:skus])
     amount = @products.reduce(0) { |acc, prod| acc + prod.price }
-    @formatted_amount = Product.format_price(amount)
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -21,7 +20,7 @@ class ChargesController < ApplicationController
       stripe_email: params[:stripeEmail],
       stripe_customer_id: customer.id,
       amount: amount,
-      products: @products,
+      products: @products
     )
 
     session[:skus_in_cart] = []
