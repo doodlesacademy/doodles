@@ -13,4 +13,8 @@ class Product < ActiveRecord::Base
   def formatted_price
     self.class.format_price(price)
   end
+
+  def full_title
+    subtitle.nil? ? name : "#{name}: #{subtitle}"
+  end
 end
