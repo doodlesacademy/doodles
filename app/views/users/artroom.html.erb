@@ -163,6 +163,27 @@
 
     </section>
 
+    <% if @products.any? %>
+      <div class="purchased-materials">
+        <h1>purchased materials</h1>
+        <ul>
+          <% @products.each do |prod| %>
+            <li>
+              <a href="/store">
+                <div class="material-container">
+                  <div class="material-image">
+                    <img src="<%= prod.image_url %>">
+                  </div>
+                  <div class="material-link">
+                    <%= prod.full_title %>
+                  </div>
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <% if current_user.is_paid? %>
       <section>

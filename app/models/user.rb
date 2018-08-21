@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     self.save if self.changed?
   end
 
+  def purchased_products
+    Product.find_for_user(self)
+  end
+
   def full_name
     return "Anonymous" if profile.nil?
     "#{profile.first_name} #{profile.last_name}"
