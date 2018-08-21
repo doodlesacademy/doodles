@@ -18,7 +18,7 @@
           <table>
             <% @products.each do |product| %>
               <tr class="product-info">
-                <td class="product-image"><img src="<%= product.image_url %>" width="100%"></td>
+                <td class="product-image"><img src="<%= image_url(product.image_url) %>" width="100%"></td>
                 <td class="product-name">
                   <table>
                     <tr><td><a href="/store/product?sku=<%= product.sku %>"><%= product.name %></a></td></tr>
