@@ -1,0 +1,418 @@
+.store-wrapper {
+  .header {
+    height: 275px;
+    margin-bottom: 50px;
+    background: url('heros/store.png');
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inner-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    width: 500px;
+    color: white;
+    border: 1px solid white;
+
+    h1 {
+      color: white;
+    }
+  }
+
+  .page-title {
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+  }
+
+  .description {
+    text-align: center;
+  }
+
+  .bottom-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+  }
+
+  .overview-wrapper {
+    width: 55%;
+  }
+
+  .testimonial {
+    width: 40%;
+    height: 290px;
+    padding: 40px 40px 20px 40px;
+    background-color: $primary-blue;
+    color: white;
+  }
+
+  .bottom-header {}
+
+  .overview {
+    ul {
+      margin-left: 4em;
+      font-size: 1.2em;
+    }
+  }
+
+  .products-header {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .product-items {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+
+    a {
+      border: 0;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .product-item {
+      width: 250px;
+      height: 350px;
+      padding: 20px;
+      color: white;
+      position: relative;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+
+      &:hover {
+        outline: 6px solid $primary-blue;
+      }
+
+      .product-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+      }
+
+      .product-name {
+        h3 {
+          color: white;
+        }
+      }
+
+      .product-name::after {
+        content: "–";
+      }
+
+      .product-price {
+        font-size: 1.2em;
+      }
+    }
+
+    .product-item:first-child {
+      margin-right: 50px;
+    }
+  }
+
+  .coming-soon {
+    margin: 80px 0;
+
+    h3 {
+      font-style: italic;
+    }
+  }
+
+  .product-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+
+    .product-detail {
+      width: 60%;
+    }
+
+    .product-description {
+      font-size: 1.2em;
+      margin-top: 30px;
+    }
+
+    .product-image {
+      .main-image {
+        width: 100%;
+      }
+    }
+
+    .product-name {
+      margin-bottom: 20px;
+    }
+
+    .product-price {
+      font-size: 1.4em;
+      margin-bottom: 40px;
+    }
+
+    .product-purchase {
+      margin-bottom: 60px;
+
+      a {
+        background-color: $primary-blue;
+        border-radius: 5px;
+        color: white;
+        padding: 1em 5em 1em 5em;
+        text-decoration: none;
+        font-size: 1.2em;
+      }
+
+      a:focus, a:hover {
+        background-color: $darker-blue;
+      }
+    }
+
+    .product-includes {
+      h3 {
+        font-weight: bold;
+      }
+
+      ul {
+        margin-left: 20px;
+        font-size: 1.2em;
+      }
+    }
+
+    .store-sidebar {
+      width: 35%;
+    }
+  }
+
+  .product-breadcrumbs {
+    margin-bottom: 20px;
+  }
+}
+
+.checkout-wrapper {
+  .checkout-header {
+    height: 275px;
+    margin-bottom: 50px;
+    background: url('heros/checkout.png');
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .checkout-inner-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    width: 500px;
+    color: white;
+    border: 1px solid white;
+
+    h1 {
+      color: white;
+      margin: 0;
+    }
+  }
+
+  .checkout-breadcrumbs {
+    margin-bottom: 20px;
+  }
+
+  .checkout-body-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .checkout-items-wrapper {
+    width: 70%;
+    padding: 20px 20px 0 20px;
+    border: 1px solid #eee;
+  }
+
+  .checkout-items-list {
+    font-size: 1.2em;
+    table {
+      width: 100%;
+
+      td.product-image {
+        width: 75px;
+        padding-bottom: 50px;
+
+      }
+
+      td.product-name {
+        padding-left: 20px;
+        padding-bottom: 50px;
+      }
+
+      tr.product-info {
+        &:hover td.product-actions {
+          opacity: 100;
+        }
+      }
+
+
+      td.product-price {
+        text-align: right;
+        padding-right: 20px;
+        padding-bottom: 50px;
+      }
+
+      td.product-actions {
+        transition: opacity 0.5s ease;
+        padding-top: 5px;
+        opacity: 0;
+
+        a {
+          color: $primary-red;
+        }
+      }
+
+      tr.total-row {
+        td:not(first-child) {
+          text-align: right;
+          padding-right: 20px;
+          padding-bottom: 20px;
+          font-weight: bold;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+
+  .checkout-sidebar {
+    width: 25%;
+  }
+
+  .checkout-user-info {
+    margin-bottom: 40px;
+
+    p.warning {
+      font-weight: bold;
+    }
+  }
+
+  .checkout-actions {
+    text-align: center;
+  }
+
+  .powered-by {
+    font-size: 0.8em;
+    font-color: #aaa;
+  }
+
+  .logged-in-as {
+    margin-bottom: 20px;
+  }
+
+  span.logged-in-email {
+    font-weight: bold;
+  }
+}
+
+.landing-wrapper {
+  .landing-cta {
+    margin-bottom: 20px;
+
+    a {
+      background-color: $primary-blue;
+      border-radius: 5px;
+      color: white;
+      padding: 1em 5em 1em 5em;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    a:focus, a:hover {
+      background-color: $darker-blue;
+    }
+  }
+
+  .landing-description {
+    width: 70%;
+  }
+
+  .cta-bottom {
+    text-align: center;
+    margin-bottom: 160px;
+  }
+
+  .landing-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background: url('heros/about.jpg');
+    height: 400px;
+  }
+
+  .landing-inner-hero {
+    width: 75%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid white;
+
+    h1 {
+      color: white;
+    }
+  }
+
+  .landing-blocks {
+    margin: 80px 0 120px 0;
+  }
+
+  .landing-blocks-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .landing-block {
+      width: 30%;
+      background-color: $primary-blue;
+      color: white;
+      padding: 20px 30px 10px 30px;
+
+      &.white {
+        background-color: white;
+        color: $primary-blue;
+        outline: 4px solid $primary-blue;
+      }
+    }
+
+    .landing-block-number {
+      text-align: center;
+      font-size: 2.0em;
+    }
+
+    .landing-block-title {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+  }
+
+  .landing-blocks-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+}

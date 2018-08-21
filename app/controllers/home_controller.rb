@@ -31,6 +31,13 @@ class HomeController < ApplicationController
   def memberships
   end
 
+  def store
+    @products = Product.all
+  end
+
+  def checkout
+  end
+
   def subscribe
     @disable_shared = true
   end

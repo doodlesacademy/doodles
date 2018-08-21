@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get "artroom", to: "users#artroom"
   get "memberships", to: "home#memberships"
 
+  get 'store', to: 'store#index'
+  get 'store/checkout', to: 'store#checkout'
+  get 'store/product', to: 'store#product'
+  get 'store/landing', to: 'store#landing'
+
   get 'team', to: 'members#index'
   get "page/:slug", to: 'home#page', as: 'pages'
 
@@ -25,6 +30,8 @@ Rails.application.routes.draw do
   namespace 'admin' do
     resources :pages, :project_sets, :projects, :lessons, :galleries, :members, :supply_items, :donors
   end
+
+  resources :charges
 
   resources :users
   resource :profile, only: [:show, :update]

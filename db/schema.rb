@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820223229) do
+ActiveRecord::Schema.define(version: 20180821055509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20170820223229) do
     t.integer  "type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "collections_project_sets", force: :cascade do |t|
+    t.integer "collection_id",  null: false
+    t.integer "project_set_id", null: false
   end
 
   create_table "contact_requests", force: :cascade do |t|
@@ -192,6 +203,34 @@ ActiveRecord::Schema.define(version: 20170820223229) do
     t.string   "hero_image_content_type"
     t.integer  "hero_image_file_size"
     t.datetime "hero_image_updated_at"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "stripe_email",        null: false
+    t.integer  "amount",              null: false
+    t.string   "stripe_customer_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "confirmation_number"
+  end
+
+  create_table "payments_products", force: :cascade do |t|
+    t.integer "payment_id"
+    t.integer "product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.integer  "price",         null: false
+    t.string   "sku",           null: false
+    t.string   "image_url",     null: false
+    t.text     "description",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.json     "sample_images"
+    t.string   "subtitle"
+    t.string   "material_link"
   end
 
   create_table "profiles", force: :cascade do |t|

@@ -3,6 +3,7 @@ class ProjectSet < ActiveRecord::Base
   include Draftable
 
   has_many :projects, dependent: :destroy
+  has_and_belongs_to_many :collections
   belongs_to :unit
   has_one :gallery, dependent: :destroy
   has_attached_file :project_image,

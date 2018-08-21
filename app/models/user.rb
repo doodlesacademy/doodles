@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   after_create :subscribe_to_mailing_list
 
   has_many :projects
+  has_many :payments
 
   has_many :subscriptions
 
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
     return if lesson.nil?
     self.last_lesson = lesson
     self.save if self.changed?
+  end
+
+  def purchased_products
+    Product.find_for_user(self)
   end
 
   def full_name

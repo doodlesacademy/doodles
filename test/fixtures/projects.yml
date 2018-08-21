@@ -5,21 +5,17 @@
 # below each fixture, per the syntax in the comments below
 #
 superhero_upper:
-  title: Superheroes Upper
   level: upper
-  description: This is the first of all the projects!
+  project_set: superhero
 
 superhero_lower:
-  title: Superheroes Lower
   level: lower
-  description: This is the first of all the projects!
+  project_set: superhero
 
 painting_upper:
-  title: Just painting Upper
   level: upper
-  description: This is the second project.
+  project_set: painting
 
 painting_lower:
-  title: Just painting Lower
   level: lower
-  description: This is the second project.
+  project_set: painting

@@ -42,6 +42,7 @@ class UsersController < ApplicationController
   def artroom
     redirect_to thanks_path unless @visits.to_i > 1
     redirect_to '/users/sign_in' unless current_user.present?
+    @products = current_user.purchased_products
     if current_user.is_paid?
       @standard_curriculum = get_standard_curriculum
     end
