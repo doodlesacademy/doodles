@@ -43,7 +43,7 @@
   <div class="product-items">
     <% @products.each do |product| %>
       <a href="/store/product?sku=<%= product.sku %>">
-        <div class="product-item" style="background-image: url(<%= image_url(product.image_url) %>);">
+        <div class="product-item" style="background-image: url(<%= image_url(product.image_url) %>); background-position: center;">
           <div class="product-info">
             <div class="product-name">
               <h3><%= product.full_title %></h3>
