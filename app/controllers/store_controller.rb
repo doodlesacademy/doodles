@@ -22,6 +22,9 @@ class StoreController < ApplicationController
     @product = Product.find_by(sku: params[:sku])
   end
 
+  def landing
+  end
+
   private
 
   def add_sku_to_cart(sku)
