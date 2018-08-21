@@ -38,28 +38,39 @@
       <% end %>
     </div>
     <div class="checkout-sidebar">
-      <%= form_tag charges_path do %>
-        <article>
-          <% if flash[:error].present? %>
-            <div id="error_explanation">
-              <p><%= flash[:error] %></p>
-            </div>
-          <% end %>
-          <label class="amount">
-            <span>Amount: <%= @formatted_price %></span>
-          </label>
-        </article>
-
-        <% @products.each do |product| %>
-          <input type="hidden" name="skus[]" value="<%= product.sku %>">
+      <div class="checkout-user-info">
+        <% if current_user.nil? %>
+          <div class="login-signup-prompt">
+            <p class="warning">You are not currently signed in.</p>
+            <p>We strongly recommend that you <a href="/users/sign_in">sign in</a> before completing your purchase, to ensure ease of access to your purchased material.</p>
+            <p>You may also <a href="/users/sign_up">sign up</a>, if you don't already have an account.</p>
+          </div>
+        <% else %>
+          <div class="logged-in-as">Signed in as <%= current_user.email %>.</div>
         <% end %>
+      </div>
+      <div class="checkout-actions">
+        <%= form_tag charges_path do %>
+          <article>
+            <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+            <% end %>
+          </article>
 
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-description="Doodles Academy Store"
-                data-amount="<%= @total_price %>"
-                data-locale="auto"></script>
-      <% end %>
+          <% @products.each do |product| %>
+            <input type="hidden" name="skus[]" value="<%= product.sku %>">
+          <% end %>
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Doodles Academy Store"
+                  data-amount="<%= @total_price %>"
+                  data-locale="auto"></script>
+          <p class="powered-by">powered by <a href="https://stripe.com">stripe</a></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

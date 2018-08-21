@@ -1,4 +1,6 @@
 class StoreController < ApplicationController
+  before_action :store_user_location!, only: :checkout, if: :storable_location?
+
   def index
     @products = Product.all
   end
@@ -34,5 +36,14 @@ class StoreController < ApplicationController
 
   def products_in_cart
     Product.where(sku: session[:skus_in_cart])
+  end
+
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+  end
+
+  def store_user_location!
+    # :user is the scope we are authenticating
+    store_location_for(:user, request.fullpath)
   end
 end

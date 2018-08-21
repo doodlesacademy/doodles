@@ -298,4 +298,21 @@
   .checkout-sidebar {
     width: 25%;
   }
+
+  .checkout-user-info {
+    margin-bottom: 40px;
+
+    p.warning {
+      font-weight: bold;
+    }
+  }
+
+  .checkout-actions {
+    text-align: center;
+  }
+
+  .powered-by {
+    font-size: 0.8em;
+    font-color: #aaa;
+  }
 }
