@@ -4,6 +4,6 @@ module DonorsHelper
   end
 
   def project_kits_link
-    'https://doodles-academy.wixsite.com/donations/product-page/download-kit-around-the-neighborhood-1'
+    'https://doodles-academy.org/store'
   end
 end
