@@ -10,3 +10,12 @@ one:
   sku: 'pack1'
   image_url: 'https://ixxidesign.azureedge.net/media/1676571/Mickey-Mouse-2.jpg'
   description: 'Blah blah blah Mickey Mouse.'
+  archived: false
+
+two:
+  name: 'package 2'
+  price: 3000
+  sku: 'pack2'
+  image_url: 'https://ixxidesign.azureedge.net/media/1676571/Mickey-Mouse-2.jpg'
+  description: 'Blah blah blah Mickey Mouse.'
+  archived: true
