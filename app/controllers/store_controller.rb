@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   before_action :store_user_location!, only: :checkout, if: :storable_location?
 
   def index
-    @products = Product.all
+    @products = Product.active
   end
 
   def checkout
