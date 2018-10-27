@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   has_and_belongs_to_many :payments, join_table: 'payments_products'
 
-  scope :active, -> { where(archived: true) }
+  scope :active, -> { where(archived: false) }
 
   def self.find_for_user(user)
     user.payments.map(&:products).flatten.uniq
