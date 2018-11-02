@@ -1,3 +1,25 @@
+.sale-banner {
+  width: 50%;
+  height: 40px;
+  margin: 20px auto;
+  background-color: $primary-blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  padding: 40px 20px;
+  font-style: italic;
+
+  a {
+    color: $primary-yellow;
+  }
+
+  a:visited {
+    color: $primary-yellow;
+  }
+}
+
 .homepage {
 
   section {
