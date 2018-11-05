@@ -47,6 +47,9 @@ class HomeController < ApplicationController
     not_found unless @page.present?
   end
 
+  def heritage
+  end
+
   private
     def featured_lessons
       @intro_video_url = "https://player.vimeo.com/video/187513105"

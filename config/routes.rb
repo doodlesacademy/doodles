@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "subscribe", to: "home#subscribe"
   get "artroom", to: "users#artroom"
   get "memberships", to: "home#memberships"
+  get "native-heritage-2018", to: 'home#heritage'
 
   get 'store', to: 'store#index'
   get 'store/checkout', to: 'store#checkout'
