@@ -1,3 +1,126 @@
 .landing-page-wrapper {
-  background-color: red;
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+
+    .header-hero {
+      height: 400px;
+      background: url('landing/hero.jpg') 65% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .header-inner {
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: 1px solid white;
+        padding: 2em 3.5em;
+
+        h2 {
+          color: white;
+          font-size: 2.5em;
+        }
+      }
+
+      .header-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 2em;
+      }
+    }
+
+    .header-logo {
+      background: url('landing/logo.png');
+      width: 190px;
+      height: 190px;
+    }
+  }
+
+  .form-block {
+
+  }
+
+  .announce-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6em;
+
+    .announce-heading {
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      width: 50%;
+    }
+
+    .announce-subheading {
+      width: 75%;
+      font-size: 1.5em;
+      margin-top: 2em;
+    }
+  }
+
+  .detail-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 7em;
+
+    .detail-item {
+      width: 30%;
+  
+      .detail-image {
+        height: 192px;
+        background-size: cover;
+      }
+
+      &.one .detail-image {
+        background: url('landing/item1.jpg');
+      }
+      &.two .detail-image {
+        background: url('landing/item2.jpg');
+      }
+      &.three .detail-image {
+        background: url('landing/item3.jpg');
+      }
+
+      .detail-text {
+        margin-top: 2em;
+
+        h2 {
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .landing-footer {
+    margin-top: 7em;
+    text-align: center;
+
+    .more-lessons {
+      text-align: center;
+
+      a {
+        background-color: $primary-blue;
+        color: white;
+        font-size: 1.5em;
+        padding: 15px 20px;
+        transition: 200ms ease;
+        border-radius: 0.75em;
+      }
+
+      a:hover {
+        background-color: $darker-blue;
+      }
+    }
+  }
 }
