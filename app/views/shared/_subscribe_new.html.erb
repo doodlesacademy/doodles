@@ -11,10 +11,9 @@ jQuery(document).ready(function($) {
             dataType: 'jsonp',
             contentType: "application/json; charset=utf-8",
             success: function (data) {
+               $('#thank-you-block').addClass('show');
                if (data['result'] !== "success") {
                   console.log(data['msg']);
-               } else {
-                 $('#thank-you-block').addClass('show');
                }
             }
         });
