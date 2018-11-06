@@ -31,22 +31,5 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
       </div>
   </form>
 </div>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-    $('#mc-embedded-subscribe-form').submit(function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: '//doodles-academy.us10.list-manage.com/subscribe/post?u=28ca6056cf1fcbb59340d2de6&id=434752e97b',
-            type: 'GET',
-            data: $('#mc-embedded-subscribe-form').serialize(),
-            dataType: 'jsonp',
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-               $('#thank-you-block').addClass('show');
-            }
-        });
-    });
-});
-</script>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
