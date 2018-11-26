@@ -18,12 +18,6 @@
 <body>
   <%= render "shared/hero" %>
   <%= render "shared/navigation" %>
-  <div class="sale-banner">
-      <div class="sale-text">
-        <span>November special:</span>
-        <span>Save 20% on our <a href="/store/product?sku=curr01nov">Culture & Identity curriculum set</a>!</span>
-      </div>
-  </div>
   <% if @homepage || @disable_shared %>
   <%= yield %>
   <% else %>
