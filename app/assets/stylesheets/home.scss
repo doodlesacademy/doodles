@@ -1,22 +1,36 @@
-.sale-banner {
-  width: 50%;
-  height: 40px;
-  margin: 20px auto;
-  background-color: $primary-blue;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4em;
-  padding: 40px 20px;
-  font-style: italic;
+.giving-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 35px;
 
-  a {
-    color: $primary-yellow;
+  .subtext {
+    margin: 40px 0;
+    font-size: 1.3em;
   }
 
-  a:visited {
-    color: $primary-yellow;
+  h2 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.2em;
+  }
+
+  .cta {
+    a {
+      text-transform: uppercase;
+      background-color: $primary-green;
+      color: #fff;
+      font-size: 2.0em;
+      padding: 15px 60px;
+      font-weight: bold;
+
+      &:hover {
+        background-color: darken($primary-green, 5%);
+      }
+    }
   }
 }
 

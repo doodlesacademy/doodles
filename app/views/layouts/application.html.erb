@@ -19,12 +19,20 @@
   <%= render "shared/hero" %>
   <%= render "shared/navigation" %>
   <% if @homepage || @disable_shared %>
-  <%= yield %>
+    <%= yield %>
+    <div class="giving-banner">
+      <h2>Give today, impact forever.</h2>
+      <div class="subtext">This #givingtuesday, help us close the opportunity gap so that all students can become successful, creative, and innovative adults.</div>
+      <div class="cta">
+        <a href="<%= donate_link %>">Donate</a>
+      </div>
+    </div>
   <% else %>
   <div class="wrapper">
     <%= yield %>
   </div>
   <% end %>
+
 
   <%= render "shared/subscribe" unless @disable_shared %>
   <%= render "shared/footer" unless @disable_shared %>
