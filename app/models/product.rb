@@ -8,8 +8,10 @@ class Product < ActiveRecord::Base
   end
 
   def self.format_price(price)
+    cents = price % 100
+    cents = cents < 10 ? "0#{cents}" : cents.to_s
     dollars = price / 100
-    "$#{dollars}.00"
+    "$#{dollars}.#{cents}"
   end
 
   def formatted_price
