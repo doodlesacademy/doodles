@@ -20,13 +20,6 @@
   <%= render "shared/navigation" %>
   <% if @homepage || @disable_shared %>
     <%= yield %>
-    <div class="giving-banner">
-      <h2>Give today, impact forever.</h2>
-      <div class="subtext">The skills students learn through the arts lead to lifelong success. Make your year-end financial gift today.</div>
-      <div class="cta">
-        <a href="<%= donate_link %>">Donate</a>
-      </div>
-    </div>
   <% else %>
   <div class="wrapper">
     <%= yield %>
