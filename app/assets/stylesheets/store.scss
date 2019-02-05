@@ -116,7 +116,11 @@
       }
 
       .product-price {
-        font-size: 1.2em;
+        font-size: 1.4em;
+
+        .product-full-price {
+          text-decoration: line-through;
+        }
       }
     }
 

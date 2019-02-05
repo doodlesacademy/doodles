@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181027191636) do
+ActiveRecord::Schema.define(version: 20190205011504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,6 +232,7 @@ ActiveRecord::Schema.define(version: 20181027191636) do
     t.string   "subtitle"
     t.string   "material_link"
     t.boolean  "archived",      default: false
+    t.integer  "full_price"
   end
 
   create_table "profiles", force: :cascade do |t|
