@@ -164,6 +164,10 @@
     .product-price {
       font-size: 1.4em;
       margin-bottom: 40px;
+
+      .product-full-price {
+        text-decoration: line-through;
+      }
     }
 
     .product-purchase {
