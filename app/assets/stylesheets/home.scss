@@ -7,6 +7,18 @@
   p, li {
     font-size: 1.2em;
   }
+
+  .coschedule-screenshot {
+    width: 85%;
+    margin: 40px auto;
+
+    .caption {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 0.9em;
+      color: gray;
+    }
+  }
 }
 
 .giving-banner {
