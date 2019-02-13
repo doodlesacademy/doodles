@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "memberships", to: "home#memberships"
   get "native-heritage-2018", to: 'home#heritage'
   get "holidays-2018", to: 'home#holiday'
+  get 'coschedule', to: 'home#coschedule'
 
   get 'store', to: 'store#index'
   get 'store/checkout', to: 'store#checkout'

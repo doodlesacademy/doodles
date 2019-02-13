@@ -33,4 +33,16 @@
     }
   }
 
+  .additional-thanks {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .logo {
+      width: 40%;
+      margin-right: 40px;
+    }
+  }
+
 }

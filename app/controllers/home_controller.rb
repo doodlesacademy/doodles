@@ -53,6 +53,9 @@ class HomeController < ApplicationController
   def holiday
   end
 
+  def coschedule
+  end
+
   private
     def featured_lessons
       @intro_video_url = "https://player.vimeo.com/video/187513105"
