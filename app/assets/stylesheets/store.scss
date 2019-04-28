@@ -208,6 +208,68 @@
       a:focus, a:hover {
         background-color: $darker-blue;
       }
+
+      .subscribe-wrapper {
+        margin-top: 25px;
+      }
+
+      #mc_embed_signup {
+        background-color: $primary-blue;
+        color: white;
+        padding: 20px;
+
+        label {
+          font-weight: normal;
+        }
+
+        input {
+          color: black;
+          padding: 10px;
+          border-radius: 8px;
+          border: none;
+        }
+
+        #mc-embedded-subscribe {
+          margin-top: 20;
+          width: 100%;
+
+          background-color: $primary-green;
+          color: white;
+
+          &:hover {
+            background-color: darken($primary-green, 5%);
+            color: darken(white, 5%);
+          }
+        }
+
+        .mc-field-group {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+
+          &.input-group {
+            font-size: 0.8em;
+            line-height: 0.8em;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            input[type=checkbox] {
+              margin-top: 0;
+            }
+
+            label {
+              margin-left: 10px;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
     }
 
     .product-includes {

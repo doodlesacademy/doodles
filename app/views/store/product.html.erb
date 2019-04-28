@@ -78,6 +78,13 @@
         <div class="product-purchase">
           <a href="/store/checkout?sku=<%= @product.sku %>">Add to Cart</a>
         </div>
+      <% else %>
+        <div class="product-purchase">
+          <p>Coming soon. Please sign up for our newsletter to be notified when this curriculum is available.</p>
+          <div class="subscribe-wrapper">
+            <%= render 'shared/subscribe_new_new' %>
+          </div>
+        </div>
       <% end %>
 
       <% if @product.beta %>
