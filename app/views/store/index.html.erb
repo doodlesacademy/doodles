@@ -48,14 +48,20 @@
             <div class="product-name">
               <h3><%= product.full_title %></h3>
             </div>
-            <div class="product-price">
-              <% unless product.full_price.nil? %>
-                <div class="product-full-price">
-                  <%= product.formatted_full_price %>
-                </div>
-              <% end %>
-              <%= product.formatted_full_price.nil? ? product.formatted_price : "Sale price: #{product.formatted_price}" %>
-            </div>
+            <% if product.beta %>
+              <div class="product-price">
+                Coming soon...
+              </div>
+            <% else %>
+              <div class="product-price">
+                <% unless product.full_price.nil? %>
+                  <div class="product-full-price">
+                    <%= product.formatted_full_price %>
+                  </div>
+                <% end %>
+                <%= product.formatted_full_price.nil? ? product.formatted_price : "Sale price: #{product.formatted_price}" %>
+              </div>
+            <% end %>
           </div>
         </div>
       </a>
