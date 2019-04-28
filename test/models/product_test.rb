@@ -16,7 +16,7 @@ class ProductTest < ActiveSupport::TestCase
   test 'active' do
     products = Product.active
 
-    assert_equal 1, products.count
+    assert_equal 2, products.count
   end
 
   test 'allow purchase' do
