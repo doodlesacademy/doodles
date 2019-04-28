@@ -8,34 +8,104 @@
         <img class="main-image" src="<%= image_url(@product.image_url) %>">
       </div>
       <div class="product-carousel"></div>
-      <div class="product-description">
-        <%= @product.description %>
-      </div>
+      <% if @product.beta %>
+        <h2 class="beta-coming-soon">Coming soon:</h2>
+        <div class="product-description">
+          <p>We worked with English Language Arts specialists to design an art curriculum topically aligned to EL Education & Bookworms – popular, free, literacy curricula. This art curriculum is specifically designed to build knowledge around the ELA topics, and provides supplemental materials support literacy learning outcomes. Each grade, 1st-5th, is connected to two projects.</p>
+          <div class="product-grade-level">
+            <h3>Grade 1:</h3>
+            <ul>
+              <li><span class="product-grade-topic">Topic 1:</span> Sun/Moon/Stars</li>
+              <li><span class="product-grade-topic">Topic 2:</span> Birds</li>
+            </ul>
+          </div>
+          <div class="product-grade-level">
+            <h3>Grade 2:</h3>
+            <ul>
+              <li><span class="product-grade-topic">Topic 1:</span> Schools &amp; Community</li>
+              <li><span class="product-grade-topic">Topic 2:</span> Pollination</li>
+            </ul>
+          </div>
+          <div class="product-grade-level">
+            <h3>Grade 3:</h3>
+            <ul>
+              <li><span class="product-grade-topic">Topic 1:</span> Embracing Challenges</li>
+              <li><span class="product-grade-topic">Topic 2:</span> Water</li>
+            </ul>
+          </div>
+          <div class="product-grade-level">
+            <h3>Grade 4:</h3>
+            <ul>
+              <li><span class="product-grade-topic">Topic 1:</span> Animal Defense Mechanisms</li>
+              <li><span class="product-grade-topic">Topic 2:</span> Poetry</li>
+            </ul>
+          </div>
+          <div class="product-grade-level">
+            <h3>Grade 5:</h3>
+            <ul>
+              <li><span class="product-grade-topic">Topic 1:</span> Human Rights</li>
+              <li><span class="product-grade-topic">Topic 2:</span> Rainforest</li>
+            </ul>
+          </div>
+          <p>This art curriculum is ideal for the teacher (classroom teacher OR art teacher) who wants to teach content that deepens student understanding and engagement around the topics they are learning in ELA.</p> 
+          <p>This curriculum has lesson in both 2D & 3D media, which varies by grade.</p>
+        </div>
+      <% else %>
+        <div class="product-description">
+          <%= @product.description %>
+        </div>
+      <% end %>
     </div>
     <div class="store-sidebar">
       <div class="product-name">
         <h2><%= @product.full_title %></h2>
       </div>
-      <div class="product-price">
-        <% unless @product.full_price.nil? %>
-          <div class="product-full-price"><%= @product.formatted_full_price %></div>
-        <% end %>
-        <%= @product.full_price.nil? ? @product.formatted_price : "Sale price: #{@product.formatted_price}" %>
-      </div>
-      <div class="product-purchase">
-        <a href="/store/checkout?sku=<%= @product.sku %>">Add to Cart</a>
-      </div>
-      <div class="product-includes">
-        <h3>What you get:</h3>
-        <ul>
-          <li>A collection of 5 projects (each containing 5-6 lessons for a total of 25-30 lessons depending on the speed of the class) exploring different cultures and heritages</li>
-          <li>A scope and sequence which includes links to training and support pages</li>
-          <li>links to downloadable and editable lesson plans (which can be used with or without the streaming videos)</li>
-          <li>editable assessments for each project</li>
-          <li>a vocabulary list</li>
-        </ul>
-        <div class="product-share"></div>
-      </div>
+      <% if @product.beta %>
+        <div class="product-price">
+          $10 per grade<br />
+          $35 for all grades
+        </div>
+      <% else %>
+        <div class="product-price">
+          <% unless @product.full_price.nil? %>
+            <div class="product-full-price"><%= @product.formatted_full_price %></div>
+          <% end %>
+          <%= @product.full_price.nil? ? @product.formatted_price : "Sale price: #{@product.formatted_price}" %>
+        </div>
+      <% end %>
+
+      <% if @product.allow_purchase? %>
+        <div class="product-purchase">
+          <a href="/store/checkout?sku=<%= @product.sku %>">Add to Cart</a>
+        </div>
+      <% end %>
+
+      <% if @product.beta %>
+        <div class="product-includes">
+          <h3>What you get:</h3>
+          <ul>
+            <li>2 projects (each containing 5-6 lessons for a total of 10-12 lessons depending on the speed of the class) exploring topics introduced in El Education or Bookworms curricula (note: these project can be used independent of the literacy curricula).</li>
+            <li>A scope and sequence which includes links to training and support pages</li>
+            <li>Links to downloadable and editable lesson plans (which can be used with or without the streaming videos)</li>
+            <li>Editable assessments for each project</li>
+            <li>A vocabulary list</li>
+            <li>Supplemental materials as determined by the project</li>
+          </ul>
+          <div class="product-share"></div>
+        </div>
+      <% else %>
+        <div class="product-includes">
+          <h3>What you get:</h3>
+          <ul>
+            <li>A collection of 5 projects (each containing 5-6 lessons for a total of 25-30 lessons depending on the speed of the class) exploring different cultures and heritages</li>
+            <li>A scope and sequence which includes links to training and support pages</li>
+            <li>links to downloadable and editable lesson plans (which can be used with or without the streaming videos)</li>
+            <li>editable assessments for each project</li>
+            <li>a vocabulary list</li>
+          </ul>
+          <div class="product-share"></div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

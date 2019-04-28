@@ -146,9 +146,32 @@
       width: 60%;
     }
 
+    .beta-coming-soon {
+      margin-top: 45px;
+      font-style: italic;
+    }
+
     .product-description {
       font-size: 1.2em;
       margin-top: 30px;
+
+      .product-grade-level {
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+        h3 {
+          font-size: 1.1em;
+          font-weight: bold;
+        }
+        ul {
+          list-style: none;
+        }
+        .product-grade-topic {
+          font-style: italic;
+          font-size: 1.1em;
+          margin-right: 5px;
+        }
+      }
     }
 
     .product-image {
