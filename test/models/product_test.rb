@@ -18,4 +18,12 @@ class ProductTest < ActiveSupport::TestCase
 
     assert_equal 1, products.count
   end
+
+  test 'allow purchase' do
+    purchasable_product = Product.find_by(sku: 'pack1')
+    assert purchasable_product.allow_purchase?
+
+    beta_product = Product.find_by(sku: 'pack3')
+    assert !beta_product.allow_purchase?
+  end
 end

@@ -11,6 +11,7 @@ one:
   image_url: 'https://ixxidesign.azureedge.net/media/1676571/Mickey-Mouse-2.jpg'
   description: 'Blah blah blah Mickey Mouse.'
   archived: false
+  beta: false
 
 two:
   name: 'package 2'
@@ -19,3 +20,13 @@ two:
   image_url: 'https://ixxidesign.azureedge.net/media/1676571/Mickey-Mouse-2.jpg'
   description: 'Blah blah blah Mickey Mouse.'
   archived: true
+  beta: false
+
+three:
+  name: 'package 3'
+  price: 6000
+  sku: 'pack3'
+  image_url: 'https://ixxidesign.azureedge.net/media/1676571/Mickey-Mouse-2.jpg'
+  description: 'Blah blah blah Mickey Mouse.'
+  archived: false
+  beta: true
