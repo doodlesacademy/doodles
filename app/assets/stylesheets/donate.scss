@@ -74,6 +74,7 @@
     .footnotes {
       margin-bottom: 150px;
 
+      // accounts for navbar height when hash link is clicked
       .footnote:before {
         display: block;
         content: "";
