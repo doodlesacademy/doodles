@@ -5,7 +5,7 @@
   .donation-header {
     height: 275px;
     margin-bottom: 80px;
-    background: url('heros/donate.png');
+    background: url("heros/donate.png");
     background-position: 70% 40%;
     display: flex;
     flex-direction: column;
@@ -38,24 +38,56 @@
   .donation-body-wrapper {
     display: flex;
     justify-content: space-between;
-  }
 
-  .donation-info {
-    width: 55%;
+    p,
+    figcaption {
+      color: $warm-gray;
+    }
+
+    h1,
+    h2,
+    h4 {
+      font-weight: bold;
+    }
+
+    ol {
+      padding: 0 0 0 12px;
+
+      li {
+        font-size: 18px;
+        padding-bottom: 15px;
+
+        h4 {
+          margin-bottom: 10px;
+        }
+
+        p {
+          margin: 0 0 0 -12px;
+        }
+      }
+    }
+
+    .donation-info {
+      width: 55%;
+    }
+
+    .footnotes {
+      margin-bottom: 150px;
+
+      .footnote:before {
+        display: block;
+        content: "";
+        height: 65px;
+        margin-top: -65px;
+      }
+      .footnote {
+        font-size: 14px;
+        margin: 0;
+      }
+    }
   }
 
   .donation-widget {
     width: 40%;
-  }
-
-  .donation-testimonial {
-    margin: 40px 0;
-    padding: 40px 40px 30px 40px;
-    background-color: $primary-blue;
-    color: white;
-
-    p:last-child {
-      text-align: right;
-    }
   }
 }
