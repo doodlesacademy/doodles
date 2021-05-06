@@ -8,7 +8,7 @@
     "jquery-ujs": "^1.2.2",
     "marked": "^0.3.6",
     "uikit": "2.25.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   },
   "engine": {
     "node": "7.2.x",
